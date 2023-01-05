@@ -14,12 +14,10 @@ TEDA__shpmarklabel="-event_enc 1 -state -demo       -mod single    -next_mark 1 
 
 
 DATA_NAME="p12_full_hosp"  
-COMMON="-data  $PRE/$DATA_NAME/ -epoch 30 -per 100 -w_pos -batch_size 8  -lr 0.00245 -cuda -ES_pat 10"
+COMMON="-data  $PRE/$DATA_NAME/ -epoch 2 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10"
 
-python optuna1.py $COMMON $DA__label -user_prefix "[q]DA__label-" &
-python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
-
-
+python optuna1.py $COMMON $DA__label -user_prefix "[q]DA__label-" 
+# python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
 
 
 
@@ -28,16 +26,18 @@ python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabe
 
 
 
-DA__label="-event_enc 0 -state       -mod none    -next_mark 0  -sample_label 1 "
-TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -sample_label 1"
+
+
+# DA__label="-event_enc 0 -state       -mod none    -next_mark 0  -sample_label 1 "
+# TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -sample_label 1"
 
 
 
-DATA_NAME="physio2019_1d_HP_std_rand"  
-COMMON="-data  $PRE/$DATA_NAME/ -epoch 30 -per 100 -w_pos -batch_size 8  -lr 0.00245 -cuda -ES_pat 10"
+# DATA_NAME="physio2019_1d_HP_std_rand"  
+# COMMON="-data  $PRE/$DATA_NAME/ -epoch 30 -per 100 -w_pos -batch_size 8  -lr 0.00245 -cuda -ES_pat 10"
 
-python optuna1.py $COMMON $DA__label -user_prefix "[q]DA__label-" &
-python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
+# python optuna1.py $COMMON $DA__label -user_prefix "[q]DA__label-" &
+# python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
 
 
 
