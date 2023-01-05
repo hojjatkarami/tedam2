@@ -3,7 +3,7 @@
 
 # # for hospital-based split
 #  /codes/data      /scratch/hokarami/data            C:/DATA/data/processed
-PRE="C:/DATA/data/processed"
+PRE="/scratch/hokarami/data"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
@@ -14,7 +14,7 @@ TEDA__shpmarklabel="-event_enc 1 -state -demo       -mod single    -next_mark 1 
 
 
 DATA_NAME="p12_full_hosp"  
-COMMON="-data  $PRE/$DATA_NAME/ -epoch 3 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10  -cuda -wandb"
+COMMON="-data  $PRE/$DATA_NAME/ -epoch 100 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10  -cuda -wandb"
 
 python optuna1.py $COMMON $DA__label -user_prefix "[q]DA__label-" 
 # python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
