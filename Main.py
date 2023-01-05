@@ -1049,7 +1049,7 @@ def config(opt, justLoad=False):
     #         opt.event_loss_test = Utils.sahp_state_log_likelihood_test
 
 
-    opt.device = torch.device('cuda') if opt.cuda else torch.device('cpu')
+    opt.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
     # setup the log file
     with open(opt.log, 'w') as f:
