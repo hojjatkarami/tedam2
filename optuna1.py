@@ -21,7 +21,7 @@ from optuna.integration import PyTorchLightningPruningCallback
 # print(f"######################### TENSORBOARD #######################\ntensorboard --logdir={data['add_data'] + 'Optuna/'} --port 1374")
 
 my_pruner = optuna.pruners.PercentilePruner(percentile=20,n_startup_trials=5,n_warmup_steps=15)
-my_pruner = optuna.pruners.ThresholdPruner(lower=0.62, upper=1, n_warmup_steps=15, interval_steps=1)
+my_pruner = optuna.pruners.ThresholdPruner(lower=0.55, upper=1, n_warmup_steps=15, interval_steps=1)
 
 
 study = optuna.create_study(direction="maximize",
