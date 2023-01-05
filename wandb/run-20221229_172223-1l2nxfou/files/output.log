@@ -1,0 +1,17 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.82390, elapse: 0.081 min
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.97536, elapse: 0.092 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.97536

@@ -1,0 +1,22 @@
+                
+{"-data", "C:/DATA/data/processed/physio2019_1d_HP/"}   
+            //     "-batch", "4",   
+            //     "-n_head", "2",   
+            //     "-n_layers", "4",   
+            //     "-d_model", "16",   
+            //     "-d_rnn", "64",   
+            //     "-d_inner", "64",   
+            //     "-d_k", "32",   
+            //     "-d_v", "32",   
+            //     "-dropout", "0.1",   
+            //     "-lr", "3e-4",   
+            //     "-smooth", "0.0",   
+            //     "-epoch", "30",   
+            //     "-log", "log.txt",   
+
+            //     // "-state",   
+            //     "-sample_label",   
+
+            //     // "-mod","marked",   
+
+            // }

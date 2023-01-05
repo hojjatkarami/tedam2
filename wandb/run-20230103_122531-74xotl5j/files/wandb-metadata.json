@@ -1,0 +1,78 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.9.7",
+    "heartbeatAt": "2023-01-03T11:25:32.051155",
+    "startedAt": "2023-01-03T11:25:31.361820",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-data",
+        "C:/DATA/data/processed/p12_full_seft/",
+        "-epoch",
+        "10",
+        "-per",
+        "20",
+        "-w_pos",
+        "-w_pos_label",
+        "0.5",
+        "-batch_size",
+        "8",
+        "-lr",
+        "0.00245",
+        "-cuda",
+        "-wandb",
+        "-event_enc",
+        "0",
+        "-state",
+        "-mod",
+        "none",
+        "-next_mark",
+        "0",
+        "-demo",
+        "-sample_label",
+        "1",
+        "-user_prefix",
+        "[wd1]DA__label-"
+    ],
+    "state": "running",
+    "program": "C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Main.py",
+    "codePath": "Main.py",
+    "git": {
+        "remote": "https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git",
+        "commit": "e1fd7ac0a62f2cb674ba64faae889327b931e62c"
+    },
+    "email": null,
+    "root": "C:/DATA/Tasks/220702/codes/thp_final",
+    "host": "LMAMLTP16",
+    "username": "hokarami",
+    "executable": "C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2304.0,
+        "min": 0.0,
+        "max": 2304.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2304.0,
+            "min": 0.0,
+            "max": 2304.0
+        }
+    ],
+    "disk": {
+        "total": 950.9365196228027,
+        "used": 860.610107421875
+    },
+    "gpu": "Quadro T2000 with Max-Q Design",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro T2000 with Max-Q Design",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 31.750675201416016
+    }
+}

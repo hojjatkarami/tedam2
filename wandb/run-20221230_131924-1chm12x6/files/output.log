@@ -1,0 +1,24 @@
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/61 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+
+
+
+Traceback (most recent call last):
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1493, in <module>
+    main()
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1473, in main
+    max_obj_val = train(model, opt.trainloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 685, in train
+    valid_event, valid_type, valid_time, dict_metrics_test = eval_epoch(model, validation_data, pred_loss_func, opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 651, in eval_epoch
+    'pred_label/AUROC': metrics.roc_auc_score(y_state_true, y_state_score),
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\sklearn\metrics\_ranking.py", line 546, in roc_auc_score
+    y_score = check_array(y_score, ensure_2d=False)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\sklearn\utils\validation.py", line 800, in check_array
+    _assert_all_finite(array, allow_nan=force_all_finite == "allow-nan")
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\sklearn\utils\validation.py", line 114, in _assert_all_finite
+    raise ValueError(
+ValueError: Input contains NaN, infinity or a value too large for dtype('float32').

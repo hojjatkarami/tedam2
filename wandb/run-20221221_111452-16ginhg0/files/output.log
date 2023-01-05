@@ -1,0 +1,100 @@
+
+
+
+
+wandb: WARNING Step cannot be set when using syncing with tensorboard. Please log your step values as a metric such as 'global_step'
+  - (Training)   :   0%|                                                                                                                              | 0/1683 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  3.61347, elapse: 0.150 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  99%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍ | 1660/1683 [01:04<00:01, 22.28it/s]
+
+
+
+
+
+  - (Testing)   :  84%|███████████████████████████████████████████████████████████████████████████████████████████████████▋                  | 609/721 [00:08<00:01, 74.94it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.48180, elapse: 0.167 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.48180
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/721 [00:00<?, ?it/s]
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                              | 0/1683 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.46601, elapse: 0.162 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.46601
+
+
+
+
+
+
+
+
+
+
+
+

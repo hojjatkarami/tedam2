@@ -1,0 +1,36 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/239 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+  - (Training)   :   0%|                                                                                                                               | 0/191 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.18986, elapse: 0.059 min
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/191 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                | 0/239 [00:00<?, ?it/s]
+
+  - (Testing)   :  53%|██████████████████████████████████████████████████████████████▋                                                       | 127/239 [00:02<00:01, 63.19it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94422, elapse: 0.061 min
+
+
+  - (Testing)   :  43%|██████████████████████████████████████████████████▎                                                                   | 128/300 [00:02<00:02, 63.60it/s]
+
+
+
+  - (Training)   :  71%|███████████████████████████████████████████████████████████████████████████████████▎                                 | 136/191 [00:04<00:01, 33.53it/s]
+
+
+
+  - (Eval train)
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94912, elapse: 0.062 min
+
+  - (Testing)   :  43%|███████████████████████████████████████████████████▏                                                                  | 130/300 [00:02<00:02, 64.58it/s]
+
+
+

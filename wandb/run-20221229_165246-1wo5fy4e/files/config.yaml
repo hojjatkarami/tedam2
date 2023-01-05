@@ -1,0 +1,345 @@
+wandb_version: 1
+
+CIF_config:
+  desc: null
+  value: {}
+DAM_config:
+  desc: null
+  value:
+    attn_dropout: 0.1
+    dot_prod_dim: 32
+    latent_width: 8
+    max_timescale: 1000
+    n_heads: 2
+    n_phi_layers: 2
+    n_positional_dims: 8
+    n_psi_layers: 2
+    n_rho_layers: 2
+    num_demos: 4
+    num_mods: 35
+    online: false
+    output_activation: relu
+    output_dims: 4
+    phi_dropout: 0.1
+    phi_width: 32
+    psi_latent_width: 64
+    psi_width: 32
+    rho_dropout: 0.1
+    rho_width: 32
+TE_config:
+  desc: null
+  value:
+    d_inner: 8
+    d_k: 8
+    d_time: 8
+    d_type_emb: 8
+    d_v: 8
+    dropout: 0.1
+    n_head: 8
+    n_layers: 8
+    n_marks: 25
+    time_enc: concat
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.7
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.7
+    start_time: 1672329166.981129
+    t:
+      1:
+      - 1
+      - 5
+      - 35
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 35
+      - 53
+      - 55
+      3:
+      - 2
+      - 13
+      - 16
+      - 23
+      4: 3.9.7
+      5: 0.13.7
+      8:
+      - 3
+      - 5
+balanced_batch:
+  desc: null
+  value: true
+batch_size:
+  desc: null
+  value: 8
+cuda:
+  desc: null
+  value: false
+data:
+  desc: null
+  value: C:/DATA/data/processed/p12_full_seft/
+data_label:
+  desc: null
+  value: multilabel
+date:
+  desc: null
+  value: 29-12-22--16-52-37
+demo:
+  desc: null
+  value: false
+demo_config:
+  desc: null
+  value: {}
+device:
+  desc: null
+  value: cpu
+epoch:
+  desc: null
+  value: 10
+event_enc:
+  desc: null
+  value: 1
+freeze:
+  desc: null
+  value: ''
+hparams:
+  desc: null
+  value:
+    d_inner: 8
+    d_time: 8
+    d_type_emb: 8
+    n_head: 8
+    n_layers: 8
+    trial.number: 1
+hparams2write:
+  desc: null
+  value:
+    balanced_batch: true
+    batch_size: 8
+    cuda: false
+    data: C:/DATA/data/processed/p12_full_seft/
+    data_label: multilabel
+    demo: false
+    epoch: 10
+    event_enc: 1
+    freeze: ''
+    int_dec: sahp
+    log: log.txt
+    lr: 0.00245
+    mark_detach: 0
+    mod: none
+    next_mark: 0
+    num_states: 1
+    per: 20
+    pos_alpha: 1.0
+    sample_label: 1
+    smooth: 0.0
+    state: true
+    te_d_inner: 16
+    te_d_k: 8
+    te_d_mark: 8
+    te_d_rnn: 256
+    te_d_time: 8
+    te_d_v: 8
+    te_dropout: 0.1
+    te_n_head: 4
+    te_n_layers: 4
+    time_enc: concat
+    transfer_learning: ''
+    user_prefix: '[Op]TEDA__label-'
+    w_class: false
+    w_event: 1
+    w_pos: true
+    w_sample_label: 100.0
+    w_time: 1.0
+    wandb: true
+int_dec:
+  desc: null
+  value: sahp
+label_config:
+  desc: null
+  value: 1
+log:
+  desc: null
+  value: log.txt
+lr:
+  desc: null
+  value: 0.00245
+mark_detach:
+  desc: null
+  value: 0
+mod:
+  desc: null
+  value: none
+next_mark:
+  desc: null
+  value: 0
+next_time_config:
+  desc: null
+  value: true
+next_type_config:
+  desc: null
+  value: {}
+num_demos:
+  desc: null
+  value: 4
+num_marks:
+  desc: null
+  value: 25
+num_states:
+  desc: null
+  value: 35
+per:
+  desc: null
+  value: 20
+pos_alpha:
+  desc: null
+  value: 1.0
+pos_weight:
+  desc: null
+  value:
+  - 13.329913710450624
+  - 13.264948699594369
+  - 14.202258048110664
+  - 13.639762960060729
+  - 9.885130091218615
+  - 12.671568066957853
+  - 13.623290854389355
+  - 13.60364453563926
+  - 13.028298566299833
+  - 0.4717319271918034
+  - 14.37664609053498
+  - 5.282315605855217
+  - 7.658382574440969
+  - 7.679500580720093
+  - 23.927823875244965
+  - 7.279585081778775
+  - 50.0
+  - 50.0
+  - 50.0
+  - 50.0
+  - 50.0
+  - 23.54606667761537
+  - 50.0
+  - 50.0
+  - 50.0
+pred_loss_func:
+  desc: null
+  value: BCEWithLogitsLoss()
+run_folder:
+  desc: null
+  value: C:/DATA/data/processed/p12_full_seft/[Op]TEDA__label-1036075-none-state1-per20/
+run_id:
+  desc: null
+  value: '1036075'
+run_name:
+  desc: null
+  value: '[Op]TEDA__label-1036075-none-state1-per20'
+sample_label:
+  desc: null
+  value: 1
+smooth:
+  desc: null
+  value: 0.0
+state:
+  desc: null
+  value: true
+str_config:
+  desc: null
+  value: -none-state1-per20
+te_d_inner:
+  desc: null
+  value: 16
+te_d_k:
+  desc: null
+  value: 8
+te_d_mark:
+  desc: null
+  value: 8
+te_d_rnn:
+  desc: null
+  value: 256
+te_d_time:
+  desc: null
+  value: 8
+te_d_v:
+  desc: null
+  value: 8
+te_dropout:
+  desc: null
+  value: 0.1
+te_n_head:
+  desc: null
+  value: 4
+te_n_layers:
+  desc: null
+  value: 4
+testloader:
+  desc: null
+  value: <torch.utils.data.dataloader.DataLoader object at 0x000001B979F89D90>
+time_enc:
+  desc: null
+  value: concat
+trainloader:
+  desc: null
+  value: <torch.utils.data.dataloader.DataLoader object at 0x000001B979F89820>
+transfer_learning:
+  desc: null
+  value: ''
+type_loss:
+  desc: null
+  value: Utils.type_loss_BCE
+user_prefix:
+  desc: null
+  value: '[Op]TEDA__label-'
+w:
+  desc: null
+  value:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+w_class:
+  desc: null
+  value: false
+w_event:
+  desc: null
+  value: 1
+w_pos:
+  desc: null
+  value: true
+w_sample_label:
+  desc: null
+  value: 100.0
+w_time:
+  desc: null
+  value: 1.0
+wandb:
+  desc: null
+  value: true

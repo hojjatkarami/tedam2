@@ -1,0 +1,39 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+
+
+
+
+
+
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  3.03391, elapse: 0.233 min
+[ Epoch 1 ]
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/709 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.55505, elapse: 0.222 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.55505
+
+
+
+

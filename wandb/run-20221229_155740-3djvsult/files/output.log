@@ -1,0 +1,56 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+  - (Testing)   :  45%|█████████████████████████████████████████████████████                                                                 | 135/300 [00:02<00:02, 67.17it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.69658, elapse: 0.079 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  95%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋      | 906/958 [00:35<00:01, 26.89it/s]
+
+
+
+  - (Testing)   :  71%|████████████████████████████████████████████████████████████████████████████████████▏                                 | 214/300 [00:04<00:01, 54.11it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92039, elapse: 0.093 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92039
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  93%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▎       | 895/958 [00:35<00:02, 25.37it/s]
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.91762, elapse: 0.085 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.91762

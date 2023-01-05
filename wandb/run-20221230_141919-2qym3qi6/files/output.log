@@ -1,0 +1,5 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered

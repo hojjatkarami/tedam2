@@ -1,0 +1,1363 @@
+2023-01-02 18:32:28,981 INFO    StreamThr :21552 [internal.py:wandb_internal():87] W&B internal server running at pid: 21552, started at: 2023-01-02 18:32:28.981319
+2023-01-02 18:32:28,985 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: status
+2023-01-02 18:32:28,988 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: status
+2023-01-02 18:32:28,991 DEBUG   SenderThread:21552 [sender.py:send():303] send: header
+2023-01-02 18:32:28,991 INFO    WriterThread:21552 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\run-hyrx2vpx.wandb
+2023-01-02 18:32:29,039 DEBUG   SenderThread:21552 [sender.py:send():303] send: run
+2023-01-02 18:32:29,489 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: check_version
+2023-01-02 18:32:29,490 INFO    SenderThread:21552 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files
+2023-01-02 18:32:29,490 INFO    SenderThread:21552 [sender.py:_start_run_threads():928] run started: hyrx2vpx with start time 1672680748.983349
+2023-01-02 18:32:29,490 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:32:29,492 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:32:29,492 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: check_version
+2023-01-02 18:32:29,570 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: run_start
+2023-01-02 18:32:29,596 DEBUG   HandlerThread:21552 [system_info.py:__init__():31] System info init
+2023-01-02 18:32:29,596 DEBUG   HandlerThread:21552 [system_info.py:__init__():46] System info init done
+2023-01-02 18:32:29,596 INFO    HandlerThread:21552 [system_monitor.py:start():150] Starting system monitor
+2023-01-02 18:32:29,597 INFO    SystemMonitor:21552 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-02 18:32:29,597 INFO    HandlerThread:21552 [system_monitor.py:probe():171] Collecting system info
+2023-01-02 18:32:29,597 INFO    SystemMonitor:21552 [interfaces.py:start():168] Started cpu
+2023-01-02 18:32:29,603 INFO    SystemMonitor:21552 [interfaces.py:start():168] Started disk
+2023-01-02 18:32:29,603 INFO    SystemMonitor:21552 [interfaces.py:start():168] Started gpu
+2023-01-02 18:32:29,603 INFO    SystemMonitor:21552 [interfaces.py:start():168] Started memory
+2023-01-02 18:32:29,616 INFO    SystemMonitor:21552 [interfaces.py:start():168] Started network
+2023-01-02 18:32:29,626 DEBUG   HandlerThread:21552 [system_info.py:probe():195] Probing system
+2023-01-02 18:32:29,628 DEBUG   HandlerThread:21552 [system_info.py:_probe_git():180] Probing git
+2023-01-02 18:32:29,712 DEBUG   HandlerThread:21552 [system_info.py:_probe_git():188] Probing git done
+2023-01-02 18:32:29,712 DEBUG   HandlerThread:21552 [system_info.py:probe():241] Probing system done
+2023-01-02 18:32:29,712 DEBUG   HandlerThread:21552 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2023-01-02T17:32:29.626586', 'startedAt': '2023-01-02T17:32:28.944781', 'docker': None, 'cuda': None, 'args': ('-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '60', '-per', '50', '-w_pos', '-w_pos_label', '0.5', '-batch_size', '64', '-lr', '0.00245', '-cuda', '-wandb', '-event_enc', '0', '-state', '-mod', 'none', '-next_mark', '0', '-demo', '-sample_label', '1', '-user_prefix', '[wd3-do0DA0d]DA__label-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Main.py', 'codePath': 'Main.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 854.5819816589355}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2023-01-02 18:32:29,712 INFO    HandlerThread:21552 [system_monitor.py:probe():181] Finished collecting system info
+2023-01-02 18:32:29,712 INFO    HandlerThread:21552 [system_monitor.py:probe():184] Publishing system info
+2023-01-02 18:32:29,712 DEBUG   HandlerThread:21552 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-01-02 18:32:29,713 DEBUG   HandlerThread:21552 [system_info.py:_save_pip():67] Saving pip packages done
+2023-01-02 18:32:29,713 DEBUG   HandlerThread:21552 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-01-02 18:32:29,719 ERROR   HandlerThread:21552 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-01-02 18:32:29,720 DEBUG   HandlerThread:21552 [system_info.py:_save_conda():86] Saving conda packages done
+2023-01-02 18:32:29,721 INFO    HandlerThread:21552 [system_monitor.py:probe():186] Finished publishing system info
+2023-01-02 18:32:29,771 DEBUG   SenderThread:21552 [sender.py:send():303] send: files
+2023-01-02 18:32:29,771 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2023-01-02 18:32:29,785 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:32:29,785 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:32:29,976 DEBUG   SenderThread:21552 [sender.py:send():303] send: telemetry
+2023-01-02 18:32:30,288 INFO    Thread-22 :21552 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmpqn1jarytwandb\1ec20oth-wandb-metadata.json
+2023-01-02 18:32:30,497 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:32:30,497 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\conda-environment.yaml
+2023-01-02 18:32:30,498 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:30,498 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-metadata.json
+2023-01-02 18:32:30,498 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\requirements.txt
+2023-01-02 18:32:31,461 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,461 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,462 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,462 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,463 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:31,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:32,505 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:34,533 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:36,558 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:38,573 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:39,182 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,184 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:32:39,185 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:32:39,185 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,186 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,186 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:32:39,187 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,187 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,187 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,187 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,188 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,188 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,188 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:39,578 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:32:40,588 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:40,807 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,808 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,808 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,810 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,810 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,810 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:40,810 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:42,616 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:43,004 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,004 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,005 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,006 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,006 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,006 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,006 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,007 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,007 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,007 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,020 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,021 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:43,021 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:44,644 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:44,987 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:32:44,988 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:32:46,661 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:48,675 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:50,694 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:51,315 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,319 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:32:51,320 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:32:51,321 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,322 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,322 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:32:51,322 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,324 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,324 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:51,697 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:32:52,698 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:52,955 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,956 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,956 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,957 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,957 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,957 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,957 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,957 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,958 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:52,958 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:54,701 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:55,160 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,160 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,161 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,161 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,162 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,162 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,162 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,162 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,163 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,163 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,177 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,177 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:55,178 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:32:56,727 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:58,743 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:32:59,759 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\config.yaml
+2023-01-02 18:33:00,172 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:33:00,172 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:33:00,770 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:02,780 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:03,480 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,482 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:33:03,483 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:33:03,484 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,485 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,485 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:33:03,486 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,486 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,486 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,487 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,487 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,487 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,487 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:03,793 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:33:04,794 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:05,283 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,283 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,285 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,285 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:05,285 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:06,800 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:07,570 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,571 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,572 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,573 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,573 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,573 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,573 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,574 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,574 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,574 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,590 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,591 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:07,591 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:08,813 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:10,827 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:12,851 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:14,877 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:15,356 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:33:15,357 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:33:15,619 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,621 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:33:15,622 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:33:15,623 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,624 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,624 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:33:15,625 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,625 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,626 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,626 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,626 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,626 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,627 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:15,890 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:33:16,902 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:17,422 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,422 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,423 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,424 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,424 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,425 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,425 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,426 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,426 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:17,426 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:18,918 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:19,891 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,892 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,893 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,893 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,893 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,894 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,894 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,894 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,895 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,895 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,910 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,912 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:19,913 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:20,932 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:22,942 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:24,970 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:26,997 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:28,548 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,549 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:33:28,550 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:33:28,551 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,552 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,552 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:33:28,553 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,553 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,553 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,554 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,554 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,554 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:28,554 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:29,008 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:33:29,008 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:29,620 DEBUG   SystemMonitor:21552 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-01-02 18:33:29,621 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:33:30,399 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,412 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,412 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,412 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,413 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,413 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,413 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,413 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,413 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,414 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:30,543 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:33:30,544 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:33:31,023 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:32,736 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,737 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,738 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,738 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,740 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,740 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,755 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,755 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:32,801 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:33,037 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:35,057 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:37,076 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:39,100 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:41,061 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,063 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:33:41,063 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:33:41,064 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,065 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:33:41,065 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,066 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,066 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,067 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,067 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,067 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,067 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,067 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:41,117 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:33:41,117 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:42,917 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,917 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,918 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,918 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,919 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,919 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,919 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,919 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,920 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:42,920 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:43,140 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:45,155 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:45,269 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,269 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,270 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,271 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,272 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,273 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,273 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,274 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,274 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,274 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,288 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,288 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,289 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:45,733 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:33:45,734 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:33:47,182 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:49,210 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:51,235 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:53,253 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:54,031 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,033 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:33:54,034 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:33:54,035 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,036 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,036 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:33:54,039 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,039 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,039 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,039 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,039 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,040 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,040 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:54,266 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:33:55,269 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:55,988 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,990 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,990 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,990 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,991 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,991 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,991 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:55,991 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:57,287 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:58,610 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,611 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,612 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,612 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,613 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,613 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,613 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,614 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,614 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,614 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,632 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,633 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:58,634 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:33:59,305 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:33:59,634 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:34:00,932 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:34:00,933 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:34:01,332 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:03,348 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:05,358 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:07,148 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,150 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:34:07,151 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:34:07,152 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,152 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,153 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:34:07,153 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,153 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,154 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,154 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,154 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,154 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,154 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:07,371 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:34:07,371 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:08,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:08,844 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:09,386 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:10,986 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,987 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,987 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,988 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,988 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:10,990 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:11,007 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:11,008 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:11,008 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:11,398 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:13,418 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:15,435 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:16,130 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:34:16,131 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:34:17,463 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:19,478 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:21,505 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,511 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:34:21,512 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:34:21,516 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,517 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,518 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:34:21,520 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,520 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,521 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,521 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,522 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,523 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,523 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:34:21,524 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:21,525 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:23,542 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:24,313 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,314 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,316 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,317 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,317 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,318 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,318 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,319 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,320 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:24,320 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:25,563 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:26,575 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:27,987 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,989 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,991 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,992 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,992 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,992 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,993 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,993 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,994 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:27,994 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:28,019 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:28,020 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:28,022 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:28,583 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:29,598 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:29,645 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:34:31,342 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:34:31,342 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:34:31,620 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:33,639 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:35,647 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:36,658 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:37,671 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:39,194 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,197 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:34:39,198 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:34:39,201 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,202 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,202 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:34:39,203 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,203 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,204 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,204 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,205 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,205 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,205 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:39,679 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:34:39,680 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:40,693 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:41,535 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,536 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,537 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,537 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,538 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,539 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,539 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,541 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,541 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,541 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:41,696 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:42,711 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:43,723 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:44,662 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,664 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,665 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,665 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,667 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,667 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,667 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,667 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,668 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,668 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,692 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,693 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:44,742 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:45,755 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:46,554 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:34:46,554 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:34:46,759 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:47,770 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:48,792 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:50,809 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:52,813 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:54,818 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:55,726 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,729 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:34:55,730 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:34:55,732 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,734 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,734 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:34:55,737 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,737 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,738 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,738 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:55,830 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:34:56,844 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:57,832 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,833 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,834 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,834 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,835 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,835 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,835 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,835 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,836 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:57,836 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:34:58,870 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:34:59,657 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:35:00,703 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,704 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,705 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,706 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,707 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,707 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,707 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,708 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,708 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,708 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,729 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,730 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,732 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:00,881 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:01,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:35:01,810 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:35:02,888 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:04,918 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:06,927 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:08,943 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:10,967 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:11,037 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,040 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:35:11,042 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:35:11,043 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,047 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,047 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:35:11,048 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,049 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,049 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,049 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,049 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,050 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,050 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:11,981 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:35:12,985 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:13,283 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,283 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,284 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,285 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,286 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,286 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,286 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,287 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,287 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:13,288 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:15,009 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:16,026 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,027 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,028 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,029 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,030 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,030 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,031 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,031 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,031 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,032 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,056 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,057 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:16,058 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:17,030 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:35:17,030 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:35:17,035 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:19,049 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:21,063 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:23,069 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:25,085 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:27,133 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:27,251 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,254 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:35:27,256 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:35:27,259 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,259 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:35:27,260 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,261 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,261 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,262 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,262 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,263 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,263 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:27,263 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:28,160 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:35:29,169 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:29,672 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:35:29,737 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,738 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,739 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,741 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,741 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,742 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,743 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,743 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:29,744 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:31,202 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:32,249 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:35:32,272 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:35:33,288 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:33,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,809 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,811 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,812 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,812 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,812 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,813 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,816 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,817 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,818 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,848 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,849 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:33,850 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:35,315 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:37,340 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:39,370 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:41,386 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:43,405 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:45,444 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:47,473 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:47,518 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,521 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:35:47,523 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:35:47,526 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,527 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,528 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,528 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,529 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,529 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,530 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,530 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,531 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:35:47,531 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:47,565 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:35:47,566 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:35:48,508 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:35:49,525 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:50,653 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,654 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,655 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,657 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,658 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,659 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,659 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,660 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,660 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:50,661 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:51,553 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:53,585 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:54,784 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,786 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,787 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,788 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,788 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,789 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,790 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,791 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,792 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,792 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,825 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,826 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:54,827 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:35:55,618 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:57,678 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:35:59,688 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:36:01,737 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:02,777 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:36:02,777 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:36:03,791 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:05,836 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:08,497 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,500 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:36:08,501 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:36:08,503 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,505 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,505 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:36:08,506 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,509 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:08,887 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:36:09,894 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:11,160 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,162 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,163 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,163 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,164 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,164 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,165 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,165 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,165 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,166 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:11,924 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:13,975 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:14,556 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,557 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,558 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,559 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,559 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,562 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,562 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,563 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,563 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,563 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,584 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,585 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:14,635 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:16,028 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:18,041 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:18,120 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:36:18,120 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:36:20,078 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:22,113 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:24,190 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:26,260 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:28,326 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:29,697 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:36:30,046 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,049 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:36:30,051 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:36:30,053 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,054 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:36:30,054 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,055 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,055 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,056 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,056 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,056 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,057 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,057 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:30,394 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:36:30,394 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:31,414 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:32,430 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:33,321 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:36:33,321 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:36:34,401 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,401 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,402 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,403 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,404 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,405 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,405 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,406 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,406 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,406 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:34,446 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:35,469 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:36,486 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:38,514 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:39,545 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:39,725 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,727 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,728 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,728 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,729 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,755 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,756 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:39,758 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:36:41,625 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:43,693 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:45,733 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:47,747 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:48,619 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:36:48,620 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:36:49,769 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:51,782 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:53,807 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:55,831 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:57,853 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:36:59,710 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:36:59,863 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:01,016 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,019 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:37:01,020 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:37:01,024 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,024 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:37:01,025 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,026 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,026 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,026 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,027 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,027 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,027 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,028 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:01,894 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:37:01,895 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:03,829 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:37:03,829 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:37:03,904 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:04,996 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:04,999 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,000 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,000 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,001 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,002 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,002 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,002 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,003 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,003 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:05,923 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:07,950 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:11,503 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,504 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,505 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,506 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,509 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,533 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,535 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,536 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:11,994 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:14,013 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:16,024 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:18,042 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:19,049 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:37:19,050 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:37:22,078 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:24,107 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:26,122 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:28,151 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:29,715 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:37:30,170 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:32,188 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:32,459 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,464 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:37:32,465 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:37:32,468 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,468 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,469 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,470 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:37:32,470 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,471 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,472 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,472 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,473 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:32,473 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:33,203 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:37:34,218 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:34,264 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:37:34,265 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:37:36,317 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:37,236 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,237 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,238 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,239 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,240 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,241 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,241 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,242 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,242 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:37,242 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:38,384 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:40,492 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:43,720 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,723 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,724 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,725 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,726 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,727 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,727 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,728 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,728 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,729 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,781 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,783 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:43,785 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:37:44,605 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:46,709 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:48,745 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:49,474 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:37:49,474 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:37:50,808 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:52,841 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:54,887 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:56,925 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:58,960 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:37:59,719 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:38:00,999 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:02,032 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:04,072 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:04,703 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:38:04,704 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:38:06,112 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:07,309 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,313 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:38:07,315 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:38:07,317 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,318 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,319 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:38:07,320 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,321 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,321 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,322 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,322 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:07,323 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:08,156 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:38:08,156 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:09,169 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:10,197 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:12,243 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:12,247 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,249 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,250 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,250 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,251 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,251 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,252 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,252 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,252 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:12,254 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:13,254 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:14,279 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:16,311 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:18,361 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:18,703 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,705 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,705 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,706 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,707 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,708 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,709 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,709 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,710 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,710 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,757 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,758 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:18,760 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:19,926 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:38:19,927 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:38:20,394 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:21,403 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:22,433 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:24,477 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:26,517 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:28,560 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:29,737 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:38:30,637 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:32,695 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:33,712 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:35,144 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:38:35,149 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:38:36,801 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:38,817 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:40,841 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:42,874 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:44,597 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,601 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:38:44,603 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:38:44,606 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,607 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,607 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:38:44,608 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,609 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,610 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,610 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,611 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,611 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,612 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:44,891 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:38:44,892 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:46,921 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:47,932 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:48,945 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:49,448 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,449 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,455 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,457 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,458 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,459 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,461 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,462 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,463 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:49,464 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:50,378 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:38:50,379 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:38:50,974 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:51,983 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:52,991 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:55,014 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:55,837 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,839 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,840 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,841 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,842 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,843 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,892 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,894 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:55,948 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:38:57,037 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:38:59,748 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:39:01,086 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:03,116 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:05,146 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:05,594 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:39:05,597 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:39:07,164 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:09,188 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:11,212 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:13,236 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:14,498 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,502 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:39:14,504 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:39:14,506 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,507 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:39:14,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,509 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,509 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,510 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,510 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,510 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:14,511 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:15,259 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:39:15,260 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:17,281 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:18,327 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,329 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,330 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,330 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,331 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,332 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,332 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,333 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,333 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:18,334 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:19,311 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:20,822 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:39:20,822 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:39:21,338 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:23,360 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:23,497 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,499 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,500 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,501 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,502 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,503 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,503 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,503 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,504 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,505 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,506 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,507 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:23,508 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:25,388 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:27,405 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:29,431 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:29,757 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:39:31,454 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:33,475 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:35,497 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:36,028 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:39:36,028 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:39:37,525 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:39,561 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:41,354 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,357 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:39:41,359 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:39:41,361 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,363 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,363 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:39:41,364 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,364 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,365 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,365 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,365 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,366 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,366 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:41,589 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:39:41,590 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:42,656 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:43,672 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:44,703 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:45,343 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,344 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,346 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,347 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,348 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,348 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,350 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,350 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,350 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:45,351 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:46,735 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:47,737 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:48,780 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:50,577 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,579 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,580 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,580 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,581 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,582 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,583 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,583 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,584 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,585 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,586 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,587 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,588 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:39:50,845 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:51,236 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:39:51,237 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:39:51,859 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:54,942 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:56,977 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:59,019 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:39:59,771 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:40:01,057 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:02,059 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:03,091 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:05,135 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:06,452 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-02 18:40:06,452 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: stop_status
+2023-01-02 18:40:07,196 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:08,342 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,348 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:40:08,350 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:08,351 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,352 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,353 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,353 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:08,354 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,355 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,355 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,355 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,356 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:08,356 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:09,300 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:40:09,324 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:10,302 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:12,356 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,357 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,358 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,359 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,359 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,360 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,361 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,362 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,364 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:12,365 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:13,352 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:14,359 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:15,398 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:17,437 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:17,514 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,516 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,517 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,519 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,520 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,521 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,522 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,523 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,524 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,525 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,525 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,526 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,526 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-02 18:40:17,528 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,531 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,531 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,533 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,582 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,585 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,586 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,588 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,589 DEBUG   SenderThread:21552 [sender.py:send():303] send: telemetry
+2023-01-02 18:40:17,589 DEBUG   SenderThread:21552 [sender.py:send():303] send: exit
+2023-01-02 18:40:17,589 INFO    SenderThread:21552 [sender.py:send_exit():442] handling exit code: 0
+2023-01-02 18:40:17,589 INFO    SenderThread:21552 [sender.py:send_exit():444] handling runtime: 468
+2023-01-02 18:40:17,591 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,592 INFO    SenderThread:21552 [sender.py:send_exit():450] send defer
+2023-01-02 18:40:17,595 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,595 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 0
+2023-01-02 18:40:17,596 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,596 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 0
+2023-01-02 18:40:17,596 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 1
+2023-01-02 18:40:17,597 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,597 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 1
+2023-01-02 18:40:17,598 INFO    HandlerThread:21552 [system_monitor.py:finish():160] Stopping system monitor
+2023-01-02 18:40:17,601 DEBUG   SystemMonitor:21552 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-01-02 18:40:17,602 DEBUG   SystemMonitor:21552 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-01-02 18:40:17,627 INFO    HandlerThread:21552 [interfaces.py:finish():175] Joined cpu
+2023-01-02 18:40:17,628 INFO    HandlerThread:21552 [interfaces.py:finish():175] Joined disk
+2023-01-02 18:40:17,726 INFO    HandlerThread:21552 [interfaces.py:finish():175] Joined gpu
+2023-01-02 18:40:17,726 INFO    HandlerThread:21552 [interfaces.py:finish():175] Joined memory
+2023-01-02 18:40:17,727 INFO    HandlerThread:21552 [interfaces.py:finish():175] Joined network
+2023-01-02 18:40:17,727 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,727 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 1
+2023-01-02 18:40:17,728 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 2
+2023-01-02 18:40:17,729 DEBUG   SenderThread:21552 [sender.py:send():303] send: stats
+2023-01-02 18:40:17,731 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,731 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 2
+2023-01-02 18:40:17,735 DEBUG   SenderThread:21552 [sender.py:send():303] send: history
+2023-01-02 18:40:17,736 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,738 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,739 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,739 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 2
+2023-01-02 18:40:17,739 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 3
+2023-01-02 18:40:17,741 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,741 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 3
+2023-01-02 18:40:17,742 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,742 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 3
+2023-01-02 18:40:17,742 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 4
+2023-01-02 18:40:17,743 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,743 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 4
+2023-01-02 18:40:17,744 DEBUG   SenderThread:21552 [sender.py:send():303] send: summary
+2023-01-02 18:40:17,747 INFO    SenderThread:21552 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-02 18:40:17,747 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,748 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 4
+2023-01-02 18:40:17,748 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 5
+2023-01-02 18:40:17,748 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:17,749 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 5
+2023-01-02 18:40:17,749 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:17,749 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 5
+2023-01-02 18:40:18,043 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 6
+2023-01-02 18:40:18,051 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:18,052 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 6
+2023-01-02 18:40:18,053 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:18,053 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 6
+2023-01-02 18:40:18,448 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:40:18,448 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\config.yaml
+2023-01-02 18:40:18,449 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:18,589 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: poll_exit
+2023-01-02 18:40:19,460 INFO    Thread-17 :21552 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:20,892 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 7
+2023-01-02 18:40:20,892 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: poll_exit
+2023-01-02 18:40:20,894 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:20,895 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 7
+2023-01-02 18:40:20,895 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:20,895 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 7
+2023-01-02 18:40:20,896 INFO    SenderThread:21552 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-02 18:40:21,484 INFO    SenderThread:21552 [dir_watcher.py:finish():392] scan: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files
+2023-01-02 18:40:21,485 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\conda-environment.yaml conda-environment.yaml
+2023-01-02 18:40:21,486 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\config.yaml config.yaml
+2023-01-02 18:40:21,487 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log output.log
+2023-01-02 18:40:21,488 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\requirements.txt requirements.txt
+2023-01-02 18:40:21,489 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-metadata.json wandb-metadata.json
+2023-01-02 18:40:21,490 INFO    SenderThread:21552 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json wandb-summary.json
+2023-01-02 18:40:21,491 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 8
+2023-01-02 18:40:21,492 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:21,493 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 8
+2023-01-02 18:40:21,493 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:21,498 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 8
+2023-01-02 18:40:21,500 INFO    SenderThread:21552 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-02 18:40:22,161 INFO    Thread-26 :21552 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\wandb-summary.json
+2023-01-02 18:40:22,161 INFO    Thread-24 :21552 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\output.log
+2023-01-02 18:40:22,174 INFO    Thread-25 :21552 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\requirements.txt
+2023-01-02 18:40:22,214 INFO    Thread-23 :21552 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\files\config.yaml
+2023-01-02 18:40:22,418 INFO    Thread-16 :21552 [sender.py:transition_state():463] send defer: 9
+2023-01-02 18:40:22,419 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:22,420 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 9
+2023-01-02 18:40:22,420 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:22,420 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 9
+2023-01-02 18:40:22,420 INFO    SenderThread:21552 [file_pusher.py:join():173] waiting for file pusher
+2023-01-02 18:40:22,420 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 10
+2023-01-02 18:40:22,421 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:22,421 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 10
+2023-01-02 18:40:22,422 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:22,422 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 10
+2023-01-02 18:40:23,094 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 11
+2023-01-02 18:40:23,096 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:23,097 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 11
+2023-01-02 18:40:23,097 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:23,097 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 11
+2023-01-02 18:40:23,098 INFO    SenderThread:21552 [sender.py:transition_state():463] send defer: 12
+2023-01-02 18:40:23,099 DEBUG   SenderThread:21552 [sender.py:send():303] send: final
+2023-01-02 18:40:23,100 DEBUG   SenderThread:21552 [sender.py:send():303] send: footer
+2023-01-02 18:40:23,100 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: defer
+2023-01-02 18:40:23,101 INFO    HandlerThread:21552 [handler.py:handle_request_defer():162] handle defer: 12
+2023-01-02 18:40:23,101 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: defer
+2023-01-02 18:40:23,102 INFO    SenderThread:21552 [sender.py:send_request_defer():459] handle sender defer: 12
+2023-01-02 18:40:23,104 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: poll_exit
+2023-01-02 18:40:23,105 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: poll_exit
+2023-01-02 18:40:23,106 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: server_info
+2023-01-02 18:40:23,106 DEBUG   SenderThread:21552 [sender.py:send_request():317] send_request: server_info
+2023-01-02 18:40:23,111 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: get_summary
+2023-01-02 18:40:23,115 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: sampled_history
+2023-01-02 18:40:23,512 DEBUG   HandlerThread:21552 [handler.py:handle_request():139] handle_request: shutdown
+2023-01-02 18:40:23,512 INFO    HandlerThread:21552 [handler.py:finish():814] shutting down handler
+2023-01-02 18:40:24,115 INFO    WriterThread:21552 [datastore.py:close():279] close: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230102_183228-hyrx2vpx\run-hyrx2vpx.wandb
+2023-01-02 18:40:24,517 INFO    SenderThread:21552 [sender.py:finish():1331] shutting down sender
+2023-01-02 18:40:24,518 INFO    SenderThread:21552 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-02 18:40:24,518 INFO    SenderThread:21552 [file_pusher.py:join():173] waiting for file pusher
+2023-01-02 18:40:26,161 INFO    MainThread:21552 [internal.py:handle_exit():77] Internal process exited

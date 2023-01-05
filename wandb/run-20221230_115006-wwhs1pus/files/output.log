@@ -1,0 +1,8 @@
+
+  - (Training)   :   0%|                                                                                                                               | 0/177 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+[Info] Number of parameters: 38001
+  - (PRE Testing)     loglikelihood: -295992.68750, accuracy:  0.00001, RMSE:  3.89963, elapse: 0.255 min
+

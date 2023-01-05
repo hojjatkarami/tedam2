@@ -1,0 +1,248 @@
+2023-01-03 12:24:15,348 INFO    StreamThr :18344 [internal.py:wandb_internal():87] W&B internal server running at pid: 18344, started at: 2023-01-03 12:24:15.347546
+2023-01-03 12:24:15,353 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: status
+2023-01-03 12:24:15,358 DEBUG   SenderThread:18344 [sender.py:send_request():317] send_request: status
+2023-01-03 12:24:15,362 INFO    WriterThread:18344 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\run-352zmxwc.wandb
+2023-01-03 12:24:15,362 DEBUG   SenderThread:18344 [sender.py:send():303] send: header
+2023-01-03 12:24:15,409 DEBUG   SenderThread:18344 [sender.py:send():303] send: run
+2023-01-03 12:24:15,854 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: check_version
+2023-01-03 12:24:15,856 INFO    SenderThread:18344 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files
+2023-01-03 12:24:15,856 INFO    SenderThread:18344 [sender.py:_start_run_threads():928] run started: 352zmxwc with start time 1672745055.352307
+2023-01-03 12:24:15,856 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:15,857 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:15,857 DEBUG   SenderThread:18344 [sender.py:send_request():317] send_request: check_version
+2023-01-03 12:24:15,968 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: run_start
+2023-01-03 12:24:15,997 DEBUG   HandlerThread:18344 [system_info.py:__init__():31] System info init
+2023-01-03 12:24:15,997 DEBUG   HandlerThread:18344 [system_info.py:__init__():46] System info init done
+2023-01-03 12:24:15,997 INFO    HandlerThread:18344 [system_monitor.py:start():150] Starting system monitor
+2023-01-03 12:24:15,997 INFO    SystemMonitor:18344 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-03 12:24:15,997 INFO    HandlerThread:18344 [system_monitor.py:probe():171] Collecting system info
+2023-01-03 12:24:15,998 INFO    SystemMonitor:18344 [interfaces.py:start():168] Started cpu
+2023-01-03 12:24:16,005 INFO    SystemMonitor:18344 [interfaces.py:start():168] Started disk
+2023-01-03 12:24:16,006 INFO    SystemMonitor:18344 [interfaces.py:start():168] Started gpu
+2023-01-03 12:24:16,007 INFO    SystemMonitor:18344 [interfaces.py:start():168] Started memory
+2023-01-03 12:24:16,021 INFO    SystemMonitor:18344 [interfaces.py:start():168] Started network
+2023-01-03 12:24:16,030 DEBUG   HandlerThread:18344 [system_info.py:probe():195] Probing system
+2023-01-03 12:24:16,031 DEBUG   HandlerThread:18344 [system_info.py:_probe_git():180] Probing git
+2023-01-03 12:24:16,171 DEBUG   HandlerThread:18344 [system_info.py:_probe_git():188] Probing git done
+2023-01-03 12:24:16,171 DEBUG   HandlerThread:18344 [system_info.py:probe():241] Probing system done
+2023-01-03 12:24:16,171 DEBUG   HandlerThread:18344 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2023-01-03T11:24:16.030858', 'startedAt': '2023-01-03T11:24:15.309698', 'docker': None, 'cuda': None, 'args': ('-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '10', '-per', '20', '-w_pos', '-w_pos_label', '0.5', '-batch_size', '8', '-lr', '0.00245', '-cuda', '-wandb', '-event_enc', '0', '-state', '-mod', 'none', '-next_mark', '0', '-demo', '-sample_label', '1', '-user_prefix', '[wd4]DA__label-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Main.py', 'codePath': 'Main.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 860.6081848144531}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2023-01-03 12:24:16,172 INFO    HandlerThread:18344 [system_monitor.py:probe():181] Finished collecting system info
+2023-01-03 12:24:16,172 INFO    HandlerThread:18344 [system_monitor.py:probe():184] Publishing system info
+2023-01-03 12:24:16,172 DEBUG   HandlerThread:18344 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-01-03 12:24:16,173 DEBUG   HandlerThread:18344 [system_info.py:_save_pip():67] Saving pip packages done
+2023-01-03 12:24:16,173 DEBUG   HandlerThread:18344 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-01-03 12:24:16,179 ERROR   HandlerThread:18344 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-01-03 12:24:16,180 DEBUG   HandlerThread:18344 [system_info.py:_save_conda():86] Saving conda packages done
+2023-01-03 12:24:16,181 INFO    HandlerThread:18344 [system_monitor.py:probe():186] Finished publishing system info
+2023-01-03 12:24:16,236 DEBUG   SenderThread:18344 [sender.py:send():303] send: files
+2023-01-03 12:24:16,236 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2023-01-03 12:24:16,253 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-03 12:24:16,253 DEBUG   SenderThread:18344 [sender.py:send_request():317] send_request: stop_status
+2023-01-03 12:24:16,419 DEBUG   SenderThread:18344 [sender.py:send():303] send: telemetry
+2023-01-03 12:24:16,767 INFO    Thread-22 :18344 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmpgx69khcmwandb\28a3btxd-wandb-metadata.json
+2023-01-03 12:24:16,857 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\conda-environment.yaml
+2023-01-03 12:24:16,857 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\requirements.txt
+2023-01-03 12:24:16,858 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\wandb-summary.json
+2023-01-03 12:24:16,858 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\wandb-metadata.json
+2023-01-03 12:24:16,858 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:18,866 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:19,822 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,823 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,824 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,824 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,825 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,826 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,827 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,827 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,827 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:19,828 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:20,880 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:22,898 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:24,909 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:26,922 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:27,605 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,607 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:27,607 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:27,608 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,609 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,609 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:27,609 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,610 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:27,932 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\wandb-summary.json
+2023-01-03 12:24:28,938 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:30,957 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:31,323 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,324 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,324 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,326 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,326 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:31,425 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-03 12:24:31,425 DEBUG   SenderThread:18344 [sender.py:send_request():317] send_request: stop_status
+2023-01-03 12:24:32,970 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:34,989 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:35,980 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,981 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,981 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,982 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,982 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,982 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,982 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,983 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,983 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,983 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,998 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,999 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:35,999 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,000 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,005 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,006 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,007 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,008 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,009 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:36,009 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,010 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,010 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,011 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,012 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:36,012 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:36,013 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,013 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,015 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:36,015 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,015 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,017 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:36,017 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,017 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,019 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:36,019 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:36,019 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:36,020 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:37,005 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:37,005 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\wandb-summary.json
+2023-01-03 12:24:39,025 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:41,041 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:43,054 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:44,655 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,656 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-NextTime/RMSE': 0.9420946323583542, '_timestamp': 1672745084.6551893}.
+2023-01-03 12:24:44,656 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,657 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-NextTime/rmse_norm': 0.2097846418902292, '_timestamp': 1672745084.6553018}.
+2023-01-03 12:24:44,657 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,657 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-NextTime/msae': 0.49750998117088263, '_timestamp': 1672745084.6553018}.
+2023-01-03 12:24:44,658 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,658 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/AUROC': 0.702979474351506, '_timestamp': 1672745084.6561892}.
+2023-01-03 12:24:44,658 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,659 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/AUPRC': 0.6655799610261549, '_timestamp': 1672745084.6561892}.
+2023-01-03 12:24:44,659 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,659 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/f1-binary': 0.4654545454545455, '_timestamp': 1672745084.6561892}.
+2023-01-03 12:24:44,660 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,660 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/loss': 0.0, '_timestamp': 1672745084.6571894}.
+2023-01-03 12:24:44,660 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,660 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/recall-binary': 0.33773087071240104, '_timestamp': 1672745084.6571894}.
+2023-01-03 12:24:44,661 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,661 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/precision-binary': 0.7485380116959064, '_timestamp': 1672745084.658191}.
+2023-01-03 12:24:44,661 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:44,661 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Train-pred_label/ACC': 0.6151832460732984, '_timestamp': 1672745084.658191}.
+2023-01-03 12:24:45,077 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:46,085 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\config.yaml
+2023-01-03 12:24:46,597 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-03 12:24:46,597 DEBUG   SenderThread:18344 [sender.py:send_request():317] send_request: stop_status
+2023-01-03 12:24:47,093 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:48,413 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,414 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-NextTime/RMSE': 0.9371241130031895, '_timestamp': 1672745088.412501}.
+2023-01-03 12:24:48,414 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,414 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-NextTime/rmse_norm': 0.2188351892693134, '_timestamp': 1672745088.413495}.
+2023-01-03 12:24:48,415 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,415 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-NextTime/msae': 0.501665220349214, '_timestamp': 1672745088.4145021}.
+2023-01-03 12:24:48,416 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,416 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/AUROC': 0.6622343525824963, '_timestamp': 1672745088.4145021}.
+2023-01-03 12:24:48,417 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,417 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/AUPRC': 0.23857698868030455, '_timestamp': 1672745088.415495}.
+2023-01-03 12:24:48,417 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,417 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/f1-binary': 0.30272108843537415, '_timestamp': 1672745088.415495}.
+2023-01-03 12:24:48,417 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,417 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/loss': 0.0, '_timestamp': 1672745088.415495}.
+2023-01-03 12:24:48,417 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,418 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/recall-binary': 0.3272058823529412, '_timestamp': 1672745088.415495}.
+2023-01-03 12:24:48,418 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,418 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/precision-binary': 0.28164556962025317, '_timestamp': 1672745088.416493}.
+2023-01-03 12:24:48,418 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:48,418 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Valid-pred_label/ACC': 0.7855648535564853, '_timestamp': 1672745088.416493}.
+2023-01-03 12:24:49,108 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:51,124 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:53,160 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:53,299 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,300 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-NextTime/RMSE': 0.9441091036256202, '_timestamp': 1672745093.298414}.
+2023-01-03 12:24:53,301 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,301 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-NextTime/rmse_norm': 0.22206196065920777, '_timestamp': 1672745093.299318}.
+2023-01-03 12:24:53,302 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,302 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-NextTime/msae': 0.4997940102052615, '_timestamp': 1672745093.299318}.
+2023-01-03 12:24:53,303 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,303 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/AUROC': 0.6455002642002281, '_timestamp': 1672745093.299318}.
+2023-01-03 12:24:53,303 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,303 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/AUPRC': 0.21744671253718448, '_timestamp': 1672745093.3002565}.
+2023-01-03 12:24:53,304 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,304 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/f1-binary': 0.2800528401585205, '_timestamp': 1672745093.3002565}.
+2023-01-03 12:24:53,304 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,304 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/loss': 0.0, '_timestamp': 1672745093.3012586}.
+2023-01-03 12:24:53,304 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,305 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/recall-binary': 0.31085043988269795, '_timestamp': 1672745093.3012586}.
+2023-01-03 12:24:53,305 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,305 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/precision-binary': 0.2548076923076923, '_timestamp': 1672745093.3022559}.
+2023-01-03 12:24:53,305 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,305 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Test-pred_label/ACC': 0.7729166666666667, '_timestamp': 1672745093.3022559}.
+2023-01-03 12:24:53,323 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,324 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'time-Time/train_epoch': 0.09333936373392741, '_timestamp': 1672745093.3222556}.
+2023-01-03 12:24:53,325 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,325 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'time-Time/valid_epoch': 0.06255483627319336, '_timestamp': 1672745093.3222556}.
+2023-01-03 12:24:53,326 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,326 WARNING HandlerThread:18344 [handler.py:handle_request_partial_history():528] Step 2 < 7. Dropping entry: {'Obj': 0.2800528401585205, '_timestamp': 1672745093.323257}.
+2023-01-03 12:24:53,327 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,328 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,329 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,330 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,331 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,332 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:53,333 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,334 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,335 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,336 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,337 DEBUG   HandlerThread:18344 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-03 12:24:53,338 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:53,339 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,339 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,341 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:53,342 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,342 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,344 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:53,344 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,345 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,347 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:53,347 DEBUG   SenderThread:18344 [sender.py:send():303] send: history
+2023-01-03 12:24:53,347 DEBUG   SenderThread:18344 [sender.py:send():303] send: summary
+2023-01-03 12:24:53,349 INFO    SenderThread:18344 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-03 12:24:54,168 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\wandb-summary.json
+2023-01-03 12:24:55,186 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:57,205 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:24:59,243 INFO    Thread-17 :18344 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20230103_122415-352zmxwc\files\output.log
+2023-01-03 12:25:00,337 INFO    MainThread:18344 [internal.py:handle_exit():77] Internal process exited
+2023-01-03 12:25:00,338 WARNING MsgRouterThr:18344 [router.py:message_loop():74] EOFError seen in message_loop

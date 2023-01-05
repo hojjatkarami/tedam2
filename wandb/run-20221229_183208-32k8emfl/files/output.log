@@ -1,0 +1,94 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+  - (Testing)   :  41%|███████████████████████████████████████████████▉                                                                      | 122/300 [00:02<00:02, 60.73it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.43865, elapse: 0.080 min
+
+
+  - (Training)   :  55%|█████████████████████████████████████████████████████████████████▏                                                     | 52/95 [00:02<00:01, 25.96it/s]
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.00108, elapse: 0.079 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  1.00108
+
+  - (Training)   :  59%|██████████████████████████████████████████████████████████████████████▏                                                | 56/95 [00:02<00:01, 27.90it/s]
+
+
+  - (Testing)   :  39%|██████████████████████████████████████████████                                                                        | 117/300 [00:02<00:03, 58.06it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.97043, elapse: 0.085 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.97043
+
+
+  - (Training)   :  60%|███████████████████████████████████████████████████████████████████████▍                                               | 57/95 [00:02<00:01, 28.05it/s]
+
+
+  - (Testing)   :  42%|█████████████████████████████████████████████████▌                                                                    | 126/300 [00:02<00:02, 62.86it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95503, elapse: 0.082 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95503
+
+
+  - (Training)   :  59%|██████████████████████████████████████████████████████████████████████▏                                                | 56/95 [00:02<00:01, 27.90it/s]
+
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95543, elapse: 0.104 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95503
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95660, elapse: 0.093 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95503
+
+  - (Training)   :  53%|██████████████████████████████████████████████████████████████▋                                                        | 50/95 [00:02<00:01, 24.88it/s]
+
+
+
+  - (Testing)   :  68%|████████████████████████████████████████████████████████████████████████████████▋                                     | 205/300 [00:04<00:01, 51.10it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95442, elapse: 0.096 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95442
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+  - (Testing)   :  75%|████████████████████████████████████████████████████████████████████████████████████████                              | 224/300 [00:04<00:01, 49.97it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.96055, elapse: 0.099 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95442
+
+
+  - (Training)   :  51%|████████████████████████████████████████████████████████████▏                                                          | 48/95 [00:02<00:01, 23.56it/s]
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95133, elapse: 0.094 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95133
+[ Epoch 9 ]
+  - (Training)   :  48%|█████████████████████████████████████████████████████████▌                                                             | 46/95 [00:02<00:02, 22.91it/s]
+
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95231, elapse: 0.094 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95133
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95050, elapse: 0.109 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95050
+Early stopping at epoch 10

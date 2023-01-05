@@ -1,0 +1,23 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+[Info] Number of parameters: 29466
+
+
+
+  - (Testing)   :  70%|████████████████████████████████████████████████████████████████████████████████████                                    | 21/30 [00:06<00:02,  3.24it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  3.62334, elapse: 0.153 min
+
+
+Traceback (most recent call last):
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1493, in <module>
+    main()
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1473, in main
+    max_obj_val = train(model, opt.trainloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 711, in train
+    train_event, train_type, train_time, dict_metrics_train = train_epoch(model, training_data, optimizer, pred_loss_func, opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 326, in train_epoch
+    state_label_red = align(state_label[:,:,None], event_time, state_time) # [B,L,1]
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 1200, in align
+    diff = event_time.unsqueeze(-1) - state_time.unsqueeze(-2) # [B,L,P]
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 406.00 MiB (GPU 0; 4.00 GiB total capacity; 2.61 GiB already allocated; 0 bytes free; 3.30 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

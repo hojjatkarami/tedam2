@@ -1,0 +1,120 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+[Info] Number of parameters: 32839
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/479 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.58634, elapse: 0.161 min
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▏         | 439/479 [00:24<00:02, 18.30it/s]
+
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95031, elapse: 0.173 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95031
+[ Epoch 2 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌| 477/479 [00:27<00:00, 17.45it/s]
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92905, elapse: 0.181 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92905
+[ Epoch 3 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▎          | 435/479 [00:27<00:02, 15.16it/s]
+
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.91666, elapse: 0.179 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.91666
+[ Epoch 4 ]
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  89%|████████████████████████████████████████████████████████████████████████████████████████████████████████             | 426/479 [00:24<00:03, 17.53it/s]
+
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.90466, elapse: 0.175 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.90466
+[ Epoch 5 ]
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  88%|███████████████████████████████████████████████████████████████████████████████████████████████████████              | 422/479 [00:23<00:03, 18.18it/s]
+
+
+
+
+
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.89449, elapse: 0.174 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.89449
+[ Epoch 6 ]
+
+
+
+
+
+

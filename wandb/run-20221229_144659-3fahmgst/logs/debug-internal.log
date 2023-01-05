@@ -1,0 +1,62 @@
+2022-12-29 14:46:59,205 INFO    StreamThr :13652 [internal.py:wandb_internal():87] W&B internal server running at pid: 13652, started at: 2022-12-29 14:46:59.205751
+2022-12-29 14:46:59,208 DEBUG   HandlerThread:13652 [handler.py:handle_request():139] handle_request: status
+2022-12-29 14:46:59,212 DEBUG   SenderThread:13652 [sender.py:send_request():317] send_request: status
+2022-12-29 14:46:59,216 DEBUG   SenderThread:13652 [sender.py:send():303] send: header
+2022-12-29 14:46:59,216 INFO    WriterThread:13652 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\run-3fahmgst.wandb
+2022-12-29 14:46:59,261 DEBUG   SenderThread:13652 [sender.py:send():303] send: run
+2022-12-29 14:46:59,654 DEBUG   HandlerThread:13652 [handler.py:handle_request():139] handle_request: check_version
+2022-12-29 14:46:59,654 INFO    SenderThread:13652 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files
+2022-12-29 14:46:59,654 INFO    SenderThread:13652 [sender.py:_start_run_threads():928] run started: 3fahmgst with start time 1672321619.20775
+2022-12-29 14:46:59,654 DEBUG   SenderThread:13652 [sender.py:send():303] send: summary
+2022-12-29 14:46:59,655 INFO    SenderThread:13652 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 14:46:59,655 DEBUG   SenderThread:13652 [sender.py:send_request():317] send_request: check_version
+2022-12-29 14:46:59,765 DEBUG   HandlerThread:13652 [handler.py:handle_request():139] handle_request: run_start
+2022-12-29 14:47:00,475 DEBUG   HandlerThread:13652 [system_info.py:__init__():31] System info init
+2022-12-29 14:47:00,475 DEBUG   HandlerThread:13652 [system_info.py:__init__():46] System info init done
+2022-12-29 14:47:00,475 INFO    HandlerThread:13652 [system_monitor.py:start():150] Starting system monitor
+2022-12-29 14:47:00,475 INFO    SystemMonitor:13652 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-29 14:47:00,475 INFO    HandlerThread:13652 [system_monitor.py:probe():171] Collecting system info
+2022-12-29 14:47:00,476 INFO    SystemMonitor:13652 [interfaces.py:start():168] Started cpu
+2022-12-29 14:47:00,482 INFO    SystemMonitor:13652 [interfaces.py:start():168] Started disk
+2022-12-29 14:47:00,482 INFO    SystemMonitor:13652 [interfaces.py:start():168] Started gpu
+2022-12-29 14:47:00,482 INFO    SystemMonitor:13652 [interfaces.py:start():168] Started memory
+2022-12-29 14:47:00,495 INFO    SystemMonitor:13652 [interfaces.py:start():168] Started network
+2022-12-29 14:47:00,501 DEBUG   HandlerThread:13652 [system_info.py:probe():195] Probing system
+2022-12-29 14:47:00,504 DEBUG   HandlerThread:13652 [system_info.py:_probe_git():180] Probing git
+2022-12-29 14:47:00,577 DEBUG   HandlerThread:13652 [system_info.py:_probe_git():188] Probing git done
+2022-12-29 14:47:00,577 DEBUG   HandlerThread:13652 [system_info.py:probe():241] Probing system done
+2022-12-29 14:47:00,577 DEBUG   HandlerThread:13652 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2022-12-29T13:47:00.501940', 'startedAt': '2022-12-29T13:46:59.172917', 'docker': None, 'cuda': None, 'args': ('-wandb', '-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '30', '-per', '50', '-w_pos', '-batch_size', '8', '-lr', '0.00245', '-event_enc', '1', '-state', '-mod', 'single', '-next_mark', '1', '-user_prefix', '[bal]TEDA__shpmark-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Main.py', 'codePath': 'Main.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 836.8302001953125}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2022-12-29 14:47:00,578 INFO    HandlerThread:13652 [system_monitor.py:probe():181] Finished collecting system info
+2022-12-29 14:47:00,578 INFO    HandlerThread:13652 [system_monitor.py:probe():184] Publishing system info
+2022-12-29 14:47:00,578 DEBUG   HandlerThread:13652 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-29 14:47:00,579 DEBUG   HandlerThread:13652 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-29 14:47:00,579 DEBUG   HandlerThread:13652 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-29 14:47:00,583 ERROR   HandlerThread:13652 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-12-29 14:47:00,585 DEBUG   HandlerThread:13652 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-29 14:47:00,586 INFO    HandlerThread:13652 [system_monitor.py:probe():186] Finished publishing system info
+2022-12-29 14:47:00,640 DEBUG   SenderThread:13652 [sender.py:send():303] send: files
+2022-12-29 14:47:00,640 INFO    SenderThread:13652 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-29 14:47:00,657 DEBUG   HandlerThread:13652 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 14:47:00,658 DEBUG   SenderThread:13652 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 14:47:00,663 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\wandb-summary.json
+2022-12-29 14:47:00,663 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\requirements.txt
+2022-12-29 14:47:00,663 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\conda-environment.yaml
+2022-12-29 14:47:00,664 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\wandb-metadata.json
+2022-12-29 14:47:00,823 DEBUG   SenderThread:13652 [sender.py:send():303] send: telemetry
+2022-12-29 14:47:01,175 INFO    Thread-22 :13652 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmp7am_vjuywandb\cxvs0po5-wandb-metadata.json
+2022-12-29 14:47:01,666 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\output.log
+2022-12-29 14:47:03,671 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\output.log
+2022-12-29 14:47:07,697 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\output.log
+2022-12-29 14:47:09,708 INFO    Thread-17 :13652 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_144659-3fahmgst\files\output.log
+2022-12-29 14:47:11,844 INFO    MainThread:13652 [internal.py:handle_exit():77] Internal process exited
+2022-12-29 14:47:11,845 WARNING MsgRouterThr:13652 [router.py:message_loop():74] EOFError seen in message_loop

@@ -1,0 +1,30 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+[Info] Number of parameters: 20498
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.07069, elapse: 0.025 min
+[ Epoch 1 ]
+
+
+  - (Training)   :  93%|████████████████████████████████████████████████████████████████████████████████████████████████       | 55/59 [00:04<00:00, 13.63it/s]
+
+  - (Testing)   :   0%|                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                 | 0/29 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93877, elapse: 0.028 min
+
+  - (Testing)   :   0%|                                                                                                                 | 0/37 [00:00<?, ?it/s]
+
+
+  - (Training)   :  44%|█████████████████████████████████████████████▍                                                         | 26/59 [00:02<00:02, 12.89it/s]
+
+
+  - (Testing)   :  59%|█████████████████████████████████████████████████████████████▋                                          | 35/59 [00:02<00:01, 17.09it/s]
+
+  - (Testing)   :   0%|                                                                                                                 | 0/29 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93910, elapse: 0.027 min
+
+  - (Testing)   :   0%|                                                                                                                 | 0/37 [00:00<?, ?it/s]
+
+
+

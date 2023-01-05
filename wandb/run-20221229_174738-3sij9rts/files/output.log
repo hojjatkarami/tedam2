@@ -1,0 +1,93 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+[Info] Number of parameters: 19950
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.27841, elapse: 0.055 min
+
+
+
+
+
+
+
+  - (Training)   :  95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▏     | 455/479 [00:12<00:00, 38.53it/s]
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/479 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95338, elapse: 0.060 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95338
+
+
+
+
+
+
+  - (Training)   :  94%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▍       | 448/479 [00:12<00:00, 37.99it/s]
+
+
+  - (Testing)   :  55%|█████████████████████████████████████████████████████████████████▎                                                    | 166/300 [00:02<00:01, 82.76it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95370, elapse: 0.062 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95338
+
+
+
+
+
+
+  - (Training)   :  83%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                   | 398/479 [00:10<00:02, 39.04it/s]
+
+
+  - (Testing)   :  54%|████████████████████████████████████████████████████████████████                                                      | 163/300 [00:02<00:01, 81.20it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94965, elapse: 0.062 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94965
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/479 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94899, elapse: 0.065 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94899
+
+
+
+
+
+  - (Training)   :  73%|█████████████████████████████████████████████████████████████████████████████████████▋                               | 351/479 [00:10<00:03, 34.64it/s]
+
+
+  - (Testing)   :  51%|████████████████████████████████████████████████████████████▌                                                         | 154/300 [00:02<00:01, 76.73it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94828, elapse: 0.066 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94828
+
+
+
+
+
+
+  - (Training)   :  78%|███████████████████████████████████████████████████████████████████████████████████████████▊                         | 376/479 [00:10<00:02, 35.47it/s]
+
+
+  - (Testing)   :  52%|█████████████████████████████████████████████████████████████▊                                                        | 157/300 [00:02<00:01, 78.29it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94572, elapse: 0.064 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94572
+
+
+
+
+
+
+
+  - (Training)   :  90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎           | 431/479 [00:12<00:01, 35.89it/s]
+
+
+  - (Testing)   :  56%|██████████████████████████████████████████████████████████████████▍                                                   | 169/300 [00:02<00:01, 84.01it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94886, elapse: 0.063 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94572
+

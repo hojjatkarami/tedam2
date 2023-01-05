@@ -1,0 +1,48 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_std_hosp/'
+[Info] parameters: Namespace(data='C:/DATA/data/processed/p12_std_hosp/', data_label='multilabel', cuda=False, wandb=True, per=50, balanced_batch=True, transfer_learning='', freeze='', log='log.txt', user_prefix='[Op]TEDA__label-', pos_alpha=1.0, epoch=30, batch_size=8, lr=0.00245, smooth=0.0, event_enc=1, time_enc='concat', te_d_mark=8, te_d_time=8, te_d_rnn=256, te_d_inner=16, te_d_k=8, te_d_v=8, te_n_head=4, te_n_layers=4, te_dropout=0.1, state=True, demo=False, num_states=1, w_sample_label=100.0, mod='none', int_dec='sahp', w_event=1, next_mark=0, w_class=False, w_pos=True, mark_detach=0, w_time=1.0, sample_label=1, hparams2write={'data': 'C:/DATA/data/processed/p12_std_hosp/', 'data_label': 'multilabel', 'cuda': False, 'wandb': True, 'per': 50, 'balanced_batch': True, 'transfer_learning': '', 'freeze': '', 'log': 'log.txt', 'user_prefix': '[Op]TEDA__label-', 'pos_alpha': 1.0, 'epoch': 30, 'batch_size': 8, 'lr': 0.00245, 'smooth': 0.0, 'event_enc': 1, 'time_enc': 'concat', 'te_d_mark': 8, 'te_d_time': 8, 'te_d_rnn': 256, 'te_d_inner': 16, 'te_d_k': 8, 'te_d_v': 8, 'te_n_head': 4, 'te_n_layers': 4, 'te_dropout': 0.1, 'state': True, 'demo': False, 'num_states': 1, 'w_sample_label': 100.0, 'mod': 'none', 'int_dec': 'sahp', 'w_event': 1, 'next_mark': 0, 'w_class': False, 'w_pos': True, 'mark_detach': 0, 'w_time': 1.0, 'sample_label': 1}, date='29-12-22--14-26-19', run_id='1035197', str_config='-none-state1-per50', run_name='[Op]TEDA__label-1035197-none-state1-per50', run_folder='C:/DATA/data/processed/p12_std_hosp/[Op]TEDA__label-1035197-none-state1-per50/', writer=<torch.utils.tensorboard.writer.SummaryWriter object at 0x0000028890025820>, device=device(type='cpu'))
+[Info] Loading train data...
+[Info] Loading dev data...
+[Info] Loading test data...
+[Info] Loading train STATE...
+[Info] Loading dev STATE...
+[Info] Loading test STATE...
+[33m[W 2022-12-29 14:26:29,179][39m Trial 0 failed because of the following error: KeyError('state')
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 196, in _run_trial
+    value_or_values = func(trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1308, in main
+    opt = config(opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 968, in config
+    opt.trainloader, opt.testloader, additional_info = prepare_dataloader(opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 221, in prepare_dataloader
+    trainloader = get_dataloader3(train_data, data_state=train_state, bs=opt.batch_size, shuffle=True, data_label=opt.data_label, balanced=opt.balanced_batch, state_args=state_args)
+  File "C:\DATA\Tasks\220702\codes\thp_final\preprocess\Dataset.py", line 374, in get_dataloader3
+    ds = TEDA(data_event, data_state,dim=dim, data_label=data_label,**state_args)
+  File "C:\DATA\Tasks\220702\codes\thp_final\preprocess\Dataset.py", line 48, in __init__
+    self.time_state = [[elem['abs_time'] for elem in inst] for inst in dict_state['state']]
+KeyError: 'state'
+Traceback (most recent call last):
+  File "C:\DATA\Tasks\220702\codes\thp_final\Optuna1.py", line 28, in <module>
+    study.optimize(Main.main, timeout=12*3600,n_trials=200 )
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\study.py", line 419, in optimize
+    _optimize(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 160, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 234, in _run_trial
+    raise func_err
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 196, in _run_trial
+    value_or_values = func(trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1308, in main
+    opt = config(opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 968, in config
+    opt.trainloader, opt.testloader, additional_info = prepare_dataloader(opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 221, in prepare_dataloader
+    trainloader = get_dataloader3(train_data, data_state=train_state, bs=opt.batch_size, shuffle=True, data_label=opt.data_label, balanced=opt.balanced_batch, state_args=state_args)
+  File "C:\DATA\Tasks\220702\codes\thp_final\preprocess\Dataset.py", line 374, in get_dataloader3
+    ds = TEDA(data_event, data_state,dim=dim, data_label=data_label,**state_args)
+  File "C:\DATA\Tasks\220702\codes\thp_final\preprocess\Dataset.py", line 48, in __init__
+    self.time_state = [[elem['abs_time'] for elem in inst] for inst in dict_state['state']]
+KeyError: 'state'

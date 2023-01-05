@@ -1,0 +1,74 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[Info] parameters: Namespace(data='C:/DATA/data/processed/physio2019_1d_HP_std_AB/', data_label='multilabel', cuda=False, wandb=True, per=50, balanced_batch=True, transfer_learning='', freeze='', log='log.txt', user_prefix='[Optuna]TEDA__label', pos_alpha=1.0, epoch=15, batch_size=8, lr=0.00245, smooth=0.0, event_enc=1, time_enc='concat', te_d_mark=8, te_d_time=8, te_d_rnn=256, te_d_inner=16, te_d_k=8, te_d_v=8, te_n_head=4, te_n_layers=4, te_dropout=0.1, state=True, demo=False, num_states=1, w_sample_label=100.0, mod='none', int_dec='sahp', w_event=1, next_mark=0, w_class=False, w_pos=True, mark_detach=0, w_time=1.0, sample_label=1, hparams2write={'data': 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/', 'data_label': 'multilabel', 'cuda': False, 'wandb': True, 'per': 50, 'balanced_batch': True, 'transfer_learning': '', 'freeze': '', 'log': 'log.txt', 'user_prefix': '[Optuna]TEDA__label', 'pos_alpha': 1.0, 'epoch': 15, 'batch_size': 8, 'lr': 0.00245, 'smooth': 0.0, 'event_enc': 1, 'time_enc': 'concat', 'te_d_mark': 8, 'te_d_time': 8, 'te_d_rnn': 256, 'te_d_inner': 16, 'te_d_k': 8, 'te_d_v': 8, 'te_n_head': 4, 'te_n_layers': 4, 'te_dropout': 0.1, 'state': True, 'demo': False, 'num_states': 1, 'w_sample_label': 100.0, 'mod': 'none', 'int_dec': 'sahp', 'w_event': 1, 'next_mark': 0, 'w_class': False, 'w_pos': True, 'mark_detach': 0, 'w_time': 1.0, 'sample_label': 1}, date='29-12-22--14-08-39', run_id='1035091', str_config='-none-state1-per50', run_name='[Optuna]TEDA__label1035091-none-state1-per50', run_folder='C:/DATA/data/processed/physio2019_1d_HP_std_AB/[Optuna]TEDA__label1035091-none-state1-per50/', writer=<torch.utils.tensorboard.writer.SummaryWriter object at 0x000001850FFD48E0>, device=device(type='cpu'))
+[Info] Loading train data...
+[Info] Loading dev data...
+[Info] Loading test data...
+[Info] Loading train STATE...
+[Info] Loading dev STATE...
+[Info] Loading test STATE...
+[info] True/total = 0.0925
+[info] balanced mini batches
+[33m[W 2022-12-29 14:09:24,778][39m Trial 0 failed because of the following error: AttributeError("'Encoder' object has no attribute 'position_vec'")
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 196, in _run_trial
+    value_or_values = func(trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1394, in main
+    obj_val = train(model, opt.trainloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 677, in train
+    valid_event, valid_type, valid_time, dict_metrics_test = eval_epoch(model, validation_data, pred_loss_func, opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 458, in eval_epoch
+    enc_out = model(event_type, event_time, state_data=state_data)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 1455, in forward
+    x = self.TE(event_type, event_time, non_pad_mask)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 169, in forward
+    time_enc = self.temporal_enc(event_time, non_pad_mask) # [B, L, d_model]
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 127, in temporal_enc
+    result = time.unsqueeze(-1) / self.position_vec
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1265, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'Encoder' object has no attribute 'position_vec'
+Traceback (most recent call last):
+  File "C:\DATA\Tasks\220702\codes\thp_final\optuna1.py", line 28, in <module>
+    study.optimize(Main.main, timeout=12*3600,n_trials=200 )
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\study.py", line 419, in optimize
+    _optimize(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 160, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 234, in _run_trial
+    raise func_err
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\optuna\study\_optimize.py", line 196, in _run_trial
+    value_or_values = func(trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 1394, in main
+    obj_val = train(model, opt.trainloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 677, in train
+    valid_event, valid_type, valid_time, dict_metrics_test = eval_epoch(model, validation_data, pred_loss_func, opt)
+  File "C:\DATA\Tasks\220702\codes\thp_final\Main.py", line 458, in eval_epoch
+    enc_out = model(event_type, event_time, state_data=state_data)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 1455, in forward
+    x = self.TE(event_type, event_time, non_pad_mask)
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 169, in forward
+    time_enc = self.temporal_enc(event_time, non_pad_mask) # [B, L, d_model]
+  File "C:\DATA\Tasks\220702\codes\thp_final\transformer\Models.py", line 127, in temporal_enc
+    result = time.unsqueeze(-1) / self.position_vec
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\torch\nn\modules\module.py", line 1265, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'Encoder' object has no attribute 'position_vec'
+[Info] pos weigths:
+ tensor([ 1.9162,  2.6021,  3.4605,  6.2849,  0.6980,  2.3589,  2.1721,  3.1090,
+         5.2682,  3.5249,  5.8624,  3.7737,  3.8557,  4.2128,  4.3085,  6.5311,
+         4.3013,  8.6554,  8.2214, 17.8121, 17.6680, 19.6713],
+       dtype=torch.float64)
+OPTUNA!
+[info] STATE will be considered
+[Info] Number of parameters: 21850

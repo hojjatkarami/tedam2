@@ -1,0 +1,57 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+[Info] Number of parameters: 23438
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/958 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.25776, elapse: 0.082 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  99%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎ | 944/958 [00:36<00:00, 25.56it/s]
+
+
+  - (Testing)   :  39%|██████████████████████████████████████████████▍                                                                       | 118/300 [00:02<00:03, 58.60it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95264, elapse: 0.091 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.95264
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▉         | 884/958 [00:34<00:02, 25.26it/s]
+
+
+
+  - (Testing)   :  77%|██████████████████████████████████████████████████████████████████████████████████████████▊                           | 231/300 [00:04<00:01, 57.42it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93948, elapse: 0.088 min
+

@@ -1,0 +1,45 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+[Info] Number of parameters: 29466
+
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/44 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  3.74029, elapse: 0.141 min
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/61 [00:00<?, ?it/s]
+
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/44 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.59154, elapse: 0.149 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.59154
+
+
+
+
+  - (Training)   :  89%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▍             | 39/44 [00:08<00:01,  4.48it/s]
+
+
+
+
+
+  - (Testing)   :  92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▏         | 56/61 [00:08<00:00,  6.45it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.50543, elapse: 0.157 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.50543
+
+
+
+
+
+  - (Training)   :  86%|██████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 38/44 [00:09<00:01,  4.08it/s]
+
+
+
+

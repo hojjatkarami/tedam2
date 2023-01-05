@@ -1,0 +1,217 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[Info] parameters: Namespace(data='C:/DATA/data/processed/physio2019_1d_HP_std_AB/', data_label='multilabel', cuda=True, wandb=True, per=50, balanced_batch=True, transfer_learning='', freeze='', log='log.txt', user_prefix='SYN', pos_alpha=1.0, epoch=40, batch_size=32, lr=0.0003, smooth=0.0, event_enc=1, time_enc='concat', te_d_mark=8, te_d_time=8, te_d_rnn=256, te_d_inner=16, te_d_k=8, te_d_v=8, te_n_head=4, te_n_layers=4, te_dropout=0.1, state=True, demo=False, num_states=1, w_sample_label=100.0, mod='single', int_dec='sahp', w_event=1, next_mark=1, w_class=False, w_pos=False, mark_detach=0, w_time=1.0, sample_label=1, hparams2write={'data': 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/', 'data_label': 'multilabel', 'cuda': True, 'wandb': True, 'per': 50, 'balanced_batch': True, 'transfer_learning': '', 'freeze': '', 'log': 'log.txt', 'user_prefix': 'SYN', 'pos_alpha': 1.0, 'epoch': 40, 'batch_size': 32, 'lr': 0.0003, 'smooth': 0.0, 'event_enc': 1, 'time_enc': 'concat', 'te_d_mark': 8, 'te_d_time': 8, 'te_d_rnn': 256, 'te_d_inner': 16, 'te_d_k': 8, 'te_d_v': 8, 'te_n_head': 4, 'te_n_layers': 4, 'te_dropout': 0.1, 'state': True, 'demo': False, 'num_states': 1, 'w_sample_label': 100.0, 'mod': 'single', 'int_dec': 'sahp', 'w_event': 1, 'next_mark': 1, 'w_class': False, 'w_pos': False, 'mark_detach': 0, 'w_time': 1.0, 'sample_label': 1}, date='29-12-22--14-02-09', run_id='1035052', str_config='-single-state1-per50', run_name='SYN1035052-single-state1-per50', run_folder='C:/DATA/data/processed/physio2019_1d_HP_std_AB/SYN1035052-single-state1-per50/', writer=<torch.utils.tensorboard.writer.SummaryWriter object at 0x0000013C9127CD90>, device=device(type='cuda'))
+[Info] Loading train data...
+[Info] Loading dev data...
+[Info] Loading test data...
+[Info] Loading train STATE...
+[Info] Loading dev STATE...
+[Info] Loading test STATE...
+[info] True/total = 0.0925
+[info] balanced mini batches
+OPTUNA!
+[info] STATE will be considered
+[Info] Number of parameters: 32841
+
+
+
+
+wandb: WARNING Step cannot be set when using syncing with tensorboard. Please log your step values as a metric such as 'global_step'
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood: -318134.28125, accuracy:  0.00001, RMSE:  3.42831, elapse: 0.208 min
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/246 [00:00<?, ?it/s]
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood: -223896.01562, accuracy:  0.00001, RMSE:  2.49009, elapse: 0.198 min
+  - [Info] Maximum ll: -223896.01562, Maximum accuracy:  0.00001, Minimum RMSE:  2.49009
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/246 [00:00<?, ?it/s]
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood: -216331.45312, accuracy:  0.00001, RMSE:  2.42546, elapse: 0.186 min
+  - [Info] Maximum ll: -216331.45312, Maximum accuracy:  0.00001, Minimum RMSE:  2.42546
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/246 [00:00<?, ?it/s]
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood: -212907.43750, accuracy:  0.00001, RMSE:  2.36350, elapse: 0.266 min
+  - [Info] Maximum ll: -212907.43750, Maximum accuracy:  0.00001, Minimum RMSE:  2.36350
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/246 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood: -210955.67188, accuracy:  0.00001, RMSE:  2.34709, elapse: 0.252 min
+  - [Info] Maximum ll: -210955.67188, Maximum accuracy:  0.00001, Minimum RMSE:  2.34709
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/246 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/354 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood: -208809.21875, accuracy:  0.00001, RMSE:  2.33434, elapse: 0.232 min
+  - [Info] Maximum ll: -208809.21875, Maximum accuracy:  0.00001, Minimum RMSE:  2.33434
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  87%|██████████████████████████████████████████████████████████████████████████████████████████████████████▏              | 309/354 [00:27<00:04, 10.94it/s]
+
+
+
+
+
+
+
+  - (Testing)     loglikelihood: -211215.17188, accuracy:  0.00001, RMSE:  2.33734, elapse: 0.241 min
+  - [Info] Maximum ll: -208809.21875, Maximum accuracy:  0.00001, Minimum RMSE:  2.33434
+[ Epoch 7 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  93%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████        | 330/354 [00:29<00:02, 11.43it/s]
+
+
+
+
+
+
+  - (Testing)     loglikelihood: -208435.76562, accuracy:  0.00001, RMSE:  2.35328, elapse: 0.233 min
+  - [Info] Maximum ll: -208435.76562, Maximum accuracy:  0.00001, Minimum RMSE:  2.33434
+[ Epoch 8 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████  | 348/354 [00:34<00:00,  8.99it/s]
+
+
+
+
+
+
+
+
+
+  - (Testing)     loglikelihood: -197717.71875, accuracy:  0.00001, RMSE:  2.34421, elapse: 0.336 min
+  - [Info] Maximum ll: -197717.71875, Maximum accuracy:  0.00001, Minimum RMSE:  2.33434
+[ Epoch 9 ]
+
+

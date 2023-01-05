@@ -1,0 +1,53 @@
+[33mcommit e1fd7ac0a62f2cb674ba64faae889327b931e62c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Simiao Zuo <zsmx1996@gmail.com>
+Date:   Wed Oct 6 16:18:02 2021 -0400
+
+    Update README.md
+
+[33mcommit a99893862bb104677c5aa57cc2c0ce271d1719e8[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Fri Feb 19 19:49:24 2021 -0500
+
+    Set trainable parameters as default.
+
+[33mcommit 5638b2b1af38c803d2cdcb28b6867d0cd77cca68[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Mon Jun 29 12:30:38 2020 -0500
+
+    Update README.
+
+[33mcommit 4e057558f49a0fd2db02ed749b872620335e36e5[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Mon Jun 29 12:27:46 2020 -0500
+
+    Code fix.
+
+[33mcommit f62d24fa858bd0caf35359973a8da81284153631[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Tue Jun 23 14:05:07 2020 -0500
+
+    Fix README.
+
+[33mcommit 8804a9eac5ef105c1abf947c2b95fd6cae70204d[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Tue Jun 23 13:56:20 2020 -0500
+
+    Fix README.
+
+[33mcommit 6e1a00f6964ffb64fe215b1fbbe1bafcc25f9335[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Tue Jun 23 13:52:05 2020 -0500
+
+    Fix README.
+
+[33mcommit 09110bf1179efa61ad05fda868b3a832c7e11ef2[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Tue Jun 23 13:51:01 2020 -0500
+
+    Fix README.
+
+[33mcommit 9a82012584e122ed48c4a5c930ff4d34341ed640[m
+Author: SimiaoZuo <zsmx1996@gmail.com>
+Date:   Tue Jun 23 13:34:09 2020 -0500
+
+    Initial commit.

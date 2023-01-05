@@ -1,0 +1,36 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.72807, elapse: 0.096 min
+
+  - (Training)   :  49%|██████████████████████████████████████████████████████████▊                                                            | 47/95 [00:02<00:02, 23.02it/s]
+
+
+  - (Testing)   :  35%|████████████████████████████████████████▉                                                                             | 104/300 [00:02<00:03, 51.57it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.97642, elapse: 0.097 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.97642
+
+
+
+  - (Training)   :  93%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▏        | 88/95 [00:04<00:00, 21.47it/s]
+
+
+
+  - (Testing)   :  60%|██████████████████████████████████████████████████████████████████████▊                                               | 180/300 [00:04<00:02, 42.95it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.96290, elapse: 0.118 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.96290
+
+
+  - (Training)   :  40%|███████████████████████████████████████████████▌                                                                       | 38/95 [00:02<00:03, 18.92it/s]
+
+
+
+  - (Testing)   :  59%|██████████████████████████████████████████████████████████████████████                                                | 178/300 [00:04<00:02, 43.40it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.95650, elapse: 0.126 min
+

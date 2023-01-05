@@ -1,0 +1,24 @@
+
+  - (Testing)   :  82%|████████████████████████████████████████████████████████████████████████████████████████████████▍                     | 201/246 [00:10<00:02, 21.14it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[info] STATE will be considered
+
+  - (PRE Testing)     loglikelihood: -280654.75000, accuracy:  0.00001, RMSE:  3.69897, elapse: 0.247 min
+[ Epoch 1 ]
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  88%|██████████████████████████████████████████████████████████████████████████████████████████████████████▍              | 155/177 [00:23<00:02,  8.47it/s]
+
+
+
+
+

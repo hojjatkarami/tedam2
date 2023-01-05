@@ -1,0 +1,338 @@
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.35943, elapse: 0.051 min
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.99092, elapse: 0.048 min
+
+  - (Testing)   :  51%|█████████████████████████████████████████████████████████████▌                                                          | 19/37 [00:02<00:01,  9.19it/s]
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :  72%|██████████████████████████████████████████████████████████████████████████████████████▉                                 | 21/29 [00:02<00:00, 10.33it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.96751, elapse: 0.047 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94708, elapse: 0.050 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Training)   :  86%|██████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 51/59 [00:06<00:00,  8.16it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94159, elapse: 0.053 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94310, elapse: 0.051 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93406, elapse: 0.055 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93536, elapse: 0.052 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94912, elapse: 0.049 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Training)   :  80%|██████████████████████████████████████████████████████████████████████████████████████████████▊                        | 47/59 [00:06<00:01,  7.30it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93421, elapse: 0.056 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93226, elapse: 0.053 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93219, elapse: 0.053 min
+
+
+
+[ Epoch 12 ]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93130, elapse: 0.051 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93232, elapse: 0.048 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93019, elapse: 0.045 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93126, elapse: 0.045 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93062, elapse: 0.040 min
+
+  - (Testing)   :  62%|██████████████████████████████████████████████████████████████████████████▌                                             | 23/37 [00:02<00:01, 11.30it/s]
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93257, elapse: 0.037 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93160, elapse: 0.035 min
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93280, elapse: 0.035 min
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+  - (Training)   :  81%|████████████████████████████████████████████████████████████████████████████████████████████████▊                      | 48/59 [00:04<00:00, 11.87it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93143, elapse: 0.033 min
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93042, elapse: 0.031 min
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+  - (Training)   :  80%|██████████████████████████████████████████████████████████████████████████████████████████████▊                        | 47/59 [00:04<00:01, 11.69it/s]
+
+
+  - (Testing)   :  51%|█████████████████████████████████████████████████████████████                                                           | 30/59 [00:02<00:01, 14.90it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92974, elapse: 0.031 min
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/59 [00:00<?, ?it/s]
+
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/29 [00:00<?, ?it/s]
+
+  - (Testing)   :   0%|                                                                                                                                 | 0/37 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.93002, elapse: 0.035 min
+
+
+Early stopping at epoch 23

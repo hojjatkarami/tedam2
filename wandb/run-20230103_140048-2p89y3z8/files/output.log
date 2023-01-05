@@ -1,0 +1,91 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/499 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_hosp/'
+[info] STATE will be considered
+
+
+
+
+
+
+
+  - (PRE Testing)     loglikelihood: -197163.03125, accuracy:  0.00001, RMSE:  1.34898, elapse: 0.356 min
+[ Epoch 1 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/998 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Eval train)
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/499 [00:00<?, ?it/s]
+  - (Validating)     loglikelihood:  155200.79688, accuracy:  0.00001, RMSE:  0.86986, elapse: 0.372 min
+
+
+
+
+
+
+
+
+[ Epoch 2 ]
+
+
+

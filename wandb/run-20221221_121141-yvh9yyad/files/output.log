@@ -1,0 +1,546 @@
+
+wandb: WARNING Found log directory outside of given root_logdir, dropping given root_logdir for event file in C:/DATA/data/processed/physio2019_1d_HP_std_AB/[bal8]TEDA__label-954389-none-state1-per50/
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/'
+[Info] parameters: Namespace(data='C:/DATA/data/processed/physio2019_1d_HP_std_AB/', data_label='multilabel', wandb=True, per=50, balanced_batch=True, transfer_learning='', freeze='', log='log.txt', user_prefix='[bal8]TEDA__label-', pos_alpha=1.0, epoch=15, batch_size=8, lr=0.00245, smooth=0.0, event_enc=1, time_enc='concat', te_d_mark=8, te_d_time=8, te_d_rnn=256, te_d_inner_hid=16, te_d_k=8, te_d_v=8, te_n_head=4, te_n_layers=4, te_dropout=0.1, state=True, demo=False, num_states=1, w_sample_label=100.0, mod='none', int_dec='sahp', w_event=1, next_mark=0, w_class=False, w_pos=True, mark_detach=0, w_time=1.0, sample_label=1, hparams2write={'data': 'C:/DATA/data/processed/physio2019_1d_HP_std_AB/', 'data_label': 'multilabel', 'wandb': True, 'per': 50, 'balanced_batch': True, 'transfer_learning': '', 'freeze': '', 'log': 'log.txt', 'user_prefix': '[bal8]TEDA__label-', 'pos_alpha': 1.0, 'epoch': 15, 'batch_size': 8, 'lr': 0.00245, 'smooth': 0.0, 'event_enc': 1, 'time_enc': 'concat', 'te_d_mark': 8, 'te_d_time': 8, 'te_d_rnn': 256, 'te_d_inner_hid': 16, 'te_d_k': 8, 'te_d_v': 8, 'te_n_head': 4, 'te_n_layers': 4, 'te_dropout': 0.1, 'state': True, 'demo': False, 'num_states': 1, 'w_sample_label': 100.0, 'mod': 'none', 'int_dec': 'sahp', 'w_event': 1, 'next_mark': 0, 'w_class': False, 'w_pos': True, 'mark_detach': 0, 'w_time': 1.0, 'sample_label': 1}, device=device(type='cuda'), date='21-12-22--12-11-39', run_id='954389', str_config='-none-state1-per50', run_name='[bal8]TEDA__label-954389-none-state1-per50', run_folder='C:/DATA/data/processed/physio2019_1d_HP_std_AB/[bal8]TEDA__label-954389-none-state1-per50/', writer=<torch.utils.tensorboard.writer.SummaryWriter object at 0x0000029134D9E1F0>)
+[Info] Loading train data...
+[Info] Loading dev data...
+[Info] Loading test data...
+[Info] Loading train STATE...
+[Info] Loading dev STATE...
+[Info] Loading test STATE...
+[info] True/total = 0.0925
+[info] balanced mini batches
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+[Info] pos weigths:
+ tensor([ 1.9162,  2.6021,  3.4605,  6.2849,  0.6980,  2.3589,  2.1721,  3.1090,
+         5.2682,  3.5249,  5.8624,  3.7737,  3.8557,  4.2128,  4.3085,  6.5311,
+         4.3013,  8.6554,  8.2214, 17.8121, 17.6680, 19.6713], device='cuda:0',
+       dtype=torch.float64)
+[info] STATE will be considered
+
+
+
+
+
+
+wandb: WARNING Step cannot be set when using syncing with tensorboard. Please log your step values as a metric such as 'global_step'
+  - (Training)   :   0%|                                                                                                                              | 0/1419 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.98437, elapse: 0.213 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+
+
+
+
+
+  - (Testing)   :  84%|██████████████████████████████████████████████████████████████████████████████████████████████████▉                   | 827/986 [00:10<00:02, 75.63it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.50225, elapse: 0.211 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.50225
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▋   | 1378/1419 [00:49<00:01, 28.45it/s]
+
+
+
+
+
+
+  - (Testing)   :  80%|██████████████████████████████████████████████████████████████████████████████████████████████▏                       | 787/986 [00:10<00:02, 77.95it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.52144, elapse: 0.212 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.50225
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  95%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 1355/1419 [00:51<00:02, 25.63it/s]
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                              | 0/1419 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.35598, elapse: 0.215 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  93%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▋        | 1317/1419 [00:46<00:03, 29.11it/s]
+
+
+
+
+
+
+  - (Testing)   :  84%|███████████████████████████████████████████████████████████████████████████████████████████████████                   | 828/986 [00:10<00:01, 79.55it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.38319, elapse: 0.205 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▎   | 1374/1419 [00:49<00:01, 27.34it/s]
+
+
+
+
+
+
+  - (Testing)   :  79%|█████████████████████████████████████████████████████████████████████████████████████████████▎                        | 780/986 [00:10<00:02, 79.63it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.42579, elapse: 0.210 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  96%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▉    | 1369/1419 [00:49<00:01, 27.93it/s]
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                              | 0/1419 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.40157, elapse: 0.233 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/986 [00:00<?, ?it/s]
+
+
+
+
+
+  - (Testing)   :  81%|███████████████████████████████████████████████████████████████████████████████████████████████▋                      | 800/986 [00:10<00:02, 77.87it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.38490, elapse: 0.213 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  95%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▋     | 1354/1419 [00:52<00:02, 27.41it/s]
+
+
+
+
+
+
+  - (Testing)   :  80%|█████████████████████████████████████████████████████████████████████████████████████████████▊                        | 784/986 [00:11<00:03, 65.15it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.42038, elapse: 0.234 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  95%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▊     | 1355/1419 [00:52<00:02, 25.37it/s]
+
+
+
+
+
+
+  - (Testing)   :  80%|█████████████████████████████████████████████████████████████████████████████████████████████▊                        | 784/986 [00:10<00:02, 76.62it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.38920, elapse: 0.219 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  94%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▋       | 1328/1419 [00:47<00:03, 28.77it/s]
+
+
+
+
+
+
+  - (Testing)   :  89%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▏            | 879/986 [00:10<00:01, 86.09it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.41810, elapse: 0.192 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  95%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏     | 1348/1419 [00:47<00:02, 28.72it/s]
+
+
+
+
+
+
+  - (Testing)   :  86%|█████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 851/986 [00:10<00:01, 83.21it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.43736, elapse: 0.199 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▌   | 1376/1419 [00:49<00:01, 28.65it/s]
+
+
+
+
+
+
+  - (Testing)   :  87%|██████████████████████████████████████████████████████████████████████████████████████████████████████▍               | 856/986 [00:10<00:01, 85.07it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.42311, elapse: 0.195 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▍   | 1375/1419 [00:48<00:01, 27.69it/s]
+
+
+
+
+
+
+  - (Testing)   :  85%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                 | 842/986 [00:10<00:01, 80.60it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.40509, elapse: 0.212 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍  | 1387/1419 [00:48<00:01, 28.90it/s]
+
+
+
+
+
+
+  - (Testing)   :  79%|█████████████████████████████████████████████████████████████████████████████████████████████                         | 778/986 [00:10<00:02, 76.86it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.40791, elapse: 0.215 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  2.35598
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▌   | 1377/1419 [00:48<00:01, 28.52it/s]
+
+
+
+
+
+  - (Testing)   :  86%|█████████████████████████████████████████████████████████████████████████████████████████████████████▌                | 849/986 [00:10<00:01, 81.35it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  2.42529, elapse: 0.204 min
+wandb: WARNING When using several event log directories, please call `wandb.tensorboard.patch(root_logdir="...")` before `wandb.init`
+wandb: WARNING Found log directory outside of given root_logdir, dropping given root_logdir for event file in C:/DATA/data/processed/physio2019_1d_HP_std_AB/[bal8]TEDA__label-954389-none-state1-per50/../[bal8]TEDA__label-954389-none-state1-per50

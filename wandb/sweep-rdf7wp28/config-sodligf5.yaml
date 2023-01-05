@@ -1,0 +1,4 @@
+wandb_version: 1
+
+te_d_inner_hid:
+  value: 27

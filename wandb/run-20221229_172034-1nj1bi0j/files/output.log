@@ -1,0 +1,29 @@
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+
+
+
+  - (Training)   :   0%|                                                                                                                                | 0/95 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.96738, elapse: 0.116 min
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+  - (Testing)   :  57%|██████████████████████████████████████████████████████████████████▊                                                   | 170/300 [00:04<00:03, 41.90it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92845, elapse: 0.121 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92845
+
+
+
+  - (Training)   :  80%|███████████████████████████████████████████████████████████████████████████████████████████████▏                       | 76/95 [00:04<00:01, 18.52it/s]
+
+
+
+  - (Testing)   :  53%|██████████████████████████████████████████████████████████████▌                                                       | 159/300 [00:04<00:03, 39.65it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92407, elapse: 0.130 min
+

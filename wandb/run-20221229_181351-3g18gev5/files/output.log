@@ -1,0 +1,64 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[info] STATE will be considered
+[Info] Number of parameters: 143726
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/479 [00:00<?, ?it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.24965, elapse: 0.092 min
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  94%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▋       | 449/479 [00:21<00:01, 21.16it/s]
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/479 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.14982, elapse: 0.111 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  1.14982
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  97%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊   | 466/479 [00:22<00:00, 19.84it/s]
+
+
+
+  - (Testing)   :  63%|██████████████████████████████████████████████████████████████████████████▋                                           | 190/300 [00:04<00:02, 46.00it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.00870, elapse: 0.109 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  1.00870
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌  | 469/479 [00:23<00:00, 18.84it/s]
+
+
+
+  - (Testing)   :  55%|████████████████████████████████████████████████████████████████▌                                                     | 164/300 [00:04<00:03, 41.21it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.99422, elapse: 0.119 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.99422
+

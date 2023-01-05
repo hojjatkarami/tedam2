@@ -1,0 +1,152 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+
+        // {
+        //     "name": "Python: Current File",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "program": "${file}",
+        //     "console": "integratedTerminal",
+        //     "justMyCode": true,
+        //     "args": [
+        //         "MHP" ,
+        //         "-add_data" ,
+        //         "C:\\DATA\\data\\processed\\MHP_sp0.9\\",
+        //         // "-detach" ,
+        //         // "-concat" ,
+        //         // "-vae" ,
+        //         "-load_model",
+        //     ]
+        // },
+  
+        // {
+        //     "name": "Python: Current File",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "program": "${file}",
+        //     "console": "integratedTerminal",
+        //     "justMyCode": true,
+        //     "args": [
+        //         "SO" ,
+        //         // "-horizon",
+        //         // "1",
+        //         // "-detach",
+        //         // "-add_data" ,
+        //         // "C:\\DATA\\data\\processed\\MHP_sp0.9\\",
+        //         // // "-detach" ,
+        //         "-concat" ,
+        //         "-per",
+        //         "20",
+        //         // "-vae" ,
+        //         // "-load_model",
+        //     ]
+        // },    
+        
+        
+
+        // for THP_new folder
+
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd":"${workspaceFolder}\\THP_new",
+            
+            // SO
+            // "args": [
+                
+            //     "-data", "../data/data_so/fold1/",
+            //     "-batch", "4",
+            //     "-n_head", "4",
+            //     "-n_layers", "4",
+            //     "-d_model", "4",
+            //     "-d_rnn", "64",
+            //     "-d_inner", "64",
+            //     "-d_k", "32",
+            //     "-d_v", "32",
+            //     "-dropout", "0.1",
+            //     "-lr", "3e-4",
+            //     "-smooth", "0.0",
+            //     "-epoch", "100",
+            //     "-log", "log.txt",
+            // ],
+
+            // physio2019
+            "args": [
+                
+                // "-data", "C:/DATA/data/processed/physio2019_1d_HP_std/",
+                "-data", "C:/DATA/data/raw/neuralTPP/data/Synthea - Full/synthea/all/split_1/",
+                "-batch", "4",
+                "-n_head", "2",
+                "-n_layers", "4",
+                "-d_model", "16",
+                "-d_rnn", "64",
+                "-d_inner", "64",
+                "-d_k", "32",
+                "-d_v", "32",
+                "-dropout", "0.1",
+                "-lr", "3e-4",
+                "-smooth", "0.0",
+                "-epoch", "30",
+                "-log", "log.txt",
+
+                "-w_class",
+                "-w_pos",
+                // "-state",
+                // "-sample_label",
+
+                // "-mod","marked",
+
+            ],
+
+            // MIMIC-II
+            // "args": [
+                
+            //     "-data", "../data/data_mimic/fold1/",
+            //     "-batch", "1",
+            //     "-n_head", "4",
+            //     "-n_layers", "4",
+            //     "-d_model", "64",
+            //     "-d_rnn", "64",
+            //     "-d_inner", "512",
+            //     "-d_k", "16",
+            //     "-d_v", "16",
+            //     "-dropout", "0.1",
+            //     "-lr", "3e-4",
+            //     "-smooth", "0.1",
+            //     "-epoch", "100",
+            //     "-log", "log.txt",
+            // ]
+
+            
+            // MHP
+            // "args": [
+                
+            //     // "-data", "C:/DATA/data/processed/MHP/",
+            //     "-data", "C:/DATA/data/processed/v2_MHP_sp1/",
+            //     "-batch", "4",
+            //     "-n_head", "2",
+            //     "-n_layers", "4",
+            //     "-d_model", "4",
+            //     "-d_rnn", "64",
+            //     "-d_inner", "128",
+            //     "-d_k", "16",
+            //     "-d_v", "16",
+            //     "-dropout", "0.1",
+            //     "-lr", "3e-4",
+            //     "-smooth", "0.0",
+            //     "-epoch", "100",
+            //     "-log", "log.txt",
+            //     // "-w_class","[0.08005126, 0.08110132, 0.07053592, 0.1505726 , 0.08382251, 0.07624586, 0.07107271, 0.16301497, 0.06540251, 0.15818033]",
+            // ]
+        }, 
+    ]
+}

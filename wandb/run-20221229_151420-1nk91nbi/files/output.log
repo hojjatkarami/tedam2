@@ -1,0 +1,316 @@
+[info] tensorboard integration:
+tensorboard --logdir 'C:/DATA/data/processed/p12_full_seft/'
+[Info] parameters: Namespace(data='C:/DATA/data/processed/p12_full_seft/', data_label='multilabel', cuda=False, wandb=True, per=50, balanced_batch=True, transfer_learning='', freeze='', log='log.txt', user_prefix='[Op]TEDA__label-', pos_alpha=1.0, epoch=5, batch_size=8, lr=0.00245, smooth=0.0, event_enc=1, time_enc='concat', te_d_mark=8, te_d_time=8, te_d_rnn=256, te_d_inner=16, te_d_k=8, te_d_v=8, te_n_head=4, te_n_layers=4, te_dropout=0.1, state=True, demo=False, num_states=1, w_sample_label=100.0, mod='none', int_dec='sahp', w_event=1, next_mark=0, w_class=False, w_pos=True, mark_detach=0, w_time=1.0, sample_label=1, hparams2write={'data': 'C:/DATA/data/processed/p12_full_seft/', 'data_label': 'multilabel', 'cuda': False, 'wandb': True, 'per': 50, 'balanced_batch': True, 'transfer_learning': '', 'freeze': '', 'log': 'log.txt', 'user_prefix': '[Op]TEDA__label-', 'pos_alpha': 1.0, 'epoch': 5, 'batch_size': 8, 'lr': 0.00245, 'smooth': 0.0, 'event_enc': 1, 'time_enc': 'concat', 'te_d_mark': 8, 'te_d_time': 8, 'te_d_rnn': 256, 'te_d_inner': 16, 'te_d_k': 8, 'te_d_v': 8, 'te_n_head': 4, 'te_n_layers': 4, 'te_dropout': 0.1, 'state': True, 'demo': False, 'num_states': 1, 'w_sample_label': 100.0, 'mod': 'none', 'int_dec': 'sahp', 'w_event': 1, 'next_mark': 0, 'w_class': False, 'w_pos': True, 'mark_detach': 0, 'w_time': 1.0, 'sample_label': 1}, date='29-12-22--15-14-20', run_id='1035486', str_config='-none-state1-per50', run_name='[Op]TEDA__label-1035486-none-state1-per50', run_folder='C:/DATA/data/processed/p12_full_seft/[Op]TEDA__label-1035486-none-state1-per50/', writer=<torch.utils.tensorboard.writer.SummaryWriter object at 0x00000208CA2435B0>, device=device(type='cpu'))
+[Info] Loading train data...
+[Info] Loading dev data...
+[Info] Loading test data...
+[Info] Loading train STATE...
+[Info] Loading dev STATE...
+[Info] Loading test STATE...
+[info] True/total = 0.1425
+[info] balanced mini batches
+[Info] pos weigths:
+ tensor([13.3299, 13.2649, 14.2023, 13.6398,  9.8851, 12.6716, 13.6233, 13.6036,
+        13.0283,  0.4717, 14.3766,  5.2823,  7.6584,  7.6795, 23.9278,  7.2796,
+        50.0000, 50.0000, 50.0000, 50.0000, 50.0000, 23.5461, 50.0000, 50.0000,
+        50.0000], dtype=torch.float64)
+OPTUNA!
+[info] STATE will be considered
+[Info] Number of parameters: 77502
+
+
+
+
+
+
+
+  - (Testing)   :  91%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▍          | 273/300 [00:14<00:01, 18.64it/s]
+  - (PRE Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  1.44722, elapse: 0.272 min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ | 943/958 [01:52<00:01,  7.72it/s]
+
+
+
+
+
+
+
+
+  - (Testing)   :  86%|█████████████████████████████████████████████████████████████████████████████████████████████████████▍                | 258/300 [00:14<00:02, 17.00it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.94819, elapse: 0.287 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.94819
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████  | 942/958 [01:57<00:01,  8.31it/s]
+
+
+
+
+
+
+
+
+  - (Testing)   :  85%|████████████████████████████████████████████████████████████████████████████████████████████████████▋                 | 256/300 [00:14<00:02, 18.11it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92721, elapse: 0.279 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92721
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Training)   :  98%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊  | 940/958 [01:54<00:02,  8.57it/s]
+
+
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/958 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92741, elapse: 0.271 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92721
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - (Testing)   :   0%|                                                                                                                                | 0/300 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+  - (Training)   :   0%|                                                                                                                               | 0/958 [00:00<?, ?it/s]
+  - (Testing)     loglikelihood:  1.00000, accuracy:  0.00001, RMSE:  0.92934, elapse: 0.305 min
+  - [Info] Maximum ll:  1.00000, Maximum accuracy:  0.00001, Minimum RMSE:  0.92721
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

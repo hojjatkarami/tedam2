@@ -1,0 +1,261 @@
+2022-12-29 18:13:51,562 INFO    StreamThr :27064 [internal.py:wandb_internal():87] W&B internal server running at pid: 27064, started at: 2022-12-29 18:13:51.561312
+2022-12-29 18:13:51,565 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: status
+2022-12-29 18:13:51,568 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: status
+2022-12-29 18:13:51,572 DEBUG   SenderThread:27064 [sender.py:send():303] send: header
+2022-12-29 18:13:51,572 INFO    WriterThread:27064 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\run-3g18gev5.wandb
+2022-12-29 18:13:51,617 DEBUG   SenderThread:27064 [sender.py:send():303] send: run
+2022-12-29 18:13:52,117 INFO    SenderThread:27064 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files
+2022-12-29 18:13:52,118 INFO    SenderThread:27064 [sender.py:_start_run_threads():928] run started: 3g18gev5 with start time 1672334031.564351
+2022-12-29 18:13:52,118 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:13:52,119 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: check_version
+2022-12-29 18:13:52,119 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:13:52,120 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: check_version
+2022-12-29 18:13:52,239 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: run_start
+2022-12-29 18:13:53,122 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:13:53,247 DEBUG   HandlerThread:27064 [system_info.py:__init__():31] System info init
+2022-12-29 18:13:53,248 DEBUG   HandlerThread:27064 [system_info.py:__init__():46] System info init done
+2022-12-29 18:13:53,248 INFO    HandlerThread:27064 [system_monitor.py:start():150] Starting system monitor
+2022-12-29 18:13:53,248 INFO    SystemMonitor:27064 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-29 18:13:53,248 INFO    HandlerThread:27064 [system_monitor.py:probe():171] Collecting system info
+2022-12-29 18:13:53,254 INFO    SystemMonitor:27064 [interfaces.py:start():168] Started cpu
+2022-12-29 18:13:53,254 INFO    SystemMonitor:27064 [interfaces.py:start():168] Started disk
+2022-12-29 18:13:53,255 INFO    SystemMonitor:27064 [interfaces.py:start():168] Started gpu
+2022-12-29 18:13:53,255 INFO    SystemMonitor:27064 [interfaces.py:start():168] Started memory
+2022-12-29 18:13:53,269 INFO    SystemMonitor:27064 [interfaces.py:start():168] Started network
+2022-12-29 18:13:53,282 DEBUG   HandlerThread:27064 [system_info.py:probe():195] Probing system
+2022-12-29 18:13:53,283 DEBUG   HandlerThread:27064 [system_info.py:_probe_git():180] Probing git
+2022-12-29 18:13:53,368 DEBUG   HandlerThread:27064 [system_info.py:_probe_git():188] Probing git done
+2022-12-29 18:13:53,368 DEBUG   HandlerThread:27064 [system_info.py:probe():241] Probing system done
+2022-12-29 18:13:53,368 DEBUG   HandlerThread:27064 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2022-12-29T17:13:53.282314', 'startedAt': '2022-12-29T17:13:51.527574', 'docker': None, 'cuda': None, 'args': ('-wandb', '-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '30', '-per', '50', '-w_pos', '-batch_size', '8', '-lr', '0.00245', '-event_enc', '0', '-state', '-mod', 'none', '-next_mark', '0', '-sample_label', '1', '-user_prefix', '[bal]DA__label-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Optuna1.py', 'codePath': 'Optuna1.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 838.2525596618652}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2022-12-29 18:13:53,368 INFO    HandlerThread:27064 [system_monitor.py:probe():181] Finished collecting system info
+2022-12-29 18:13:53,368 INFO    HandlerThread:27064 [system_monitor.py:probe():184] Publishing system info
+2022-12-29 18:13:53,368 DEBUG   HandlerThread:27064 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-29 18:13:53,369 DEBUG   HandlerThread:27064 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-29 18:13:53,369 DEBUG   HandlerThread:27064 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-29 18:13:53,385 ERROR   HandlerThread:27064 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-12-29 18:13:53,386 DEBUG   HandlerThread:27064 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-29 18:13:53,387 INFO    HandlerThread:27064 [system_monitor.py:probe():186] Finished publishing system info
+2022-12-29 18:13:53,441 DEBUG   SenderThread:27064 [sender.py:send():303] send: files
+2022-12-29 18:13:53,441 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-29 18:13:53,453 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:13:53,454 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:13:53,617 DEBUG   SenderThread:27064 [sender.py:send():303] send: telemetry
+2022-12-29 18:13:53,984 INFO    Thread-22 :27064 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmprc0lqieawandb\35adi0cp-wandb-metadata.json
+2022-12-29 18:13:54,135 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-metadata.json
+2022-12-29 18:13:54,135 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:13:54,136 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\requirements.txt
+2022-12-29 18:13:54,136 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\conda-environment.yaml
+2022-12-29 18:13:56,164 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:13:58,175 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:13:58,971 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:00,205 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:02,224 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:04,251 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:06,264 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:08,275 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:08,634 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:14:08,634 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:14:10,303 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:14,332 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:16,346 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:18,370 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:20,388 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:22,405 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:22,406 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\config.yaml
+2022-12-29 18:14:23,828 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:14:23,829 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:14:24,417 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:26,443 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:28,411 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:28,413 DEBUG   SenderThread:27064 [sender.py:send():303] send: history
+2022-12-29 18:14:28,414 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:14:28,415 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:28,416 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:28,416 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:14:28,455 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:28,456 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:14:30,476 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:32,491 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:34,494 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:36,509 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:38,539 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:38,994 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:14:38,995 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:14:40,563 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:42,585 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:44,615 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:46,636 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:48,649 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:50,674 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:52,685 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:53,279 DEBUG   SystemMonitor:27064 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2022-12-29 18:14:53,280 DEBUG   SenderThread:27064 [sender.py:send():303] send: stats
+2022-12-29 18:14:54,166 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:14:54,167 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:14:54,714 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:56,737 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:58,406 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:58,406 DEBUG   SenderThread:27064 [sender.py:send():303] send: history
+2022-12-29 18:14:58,406 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:14:58,407 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:58,408 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:14:58,408 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:14:58,762 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:14:58,762 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:15:00,777 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:02,796 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:04,807 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:06,826 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:08,839 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:09,339 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:15:09,339 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:15:10,849 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:12,867 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:14,895 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:16,917 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:18,937 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:20,954 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:22,976 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:23,289 DEBUG   SenderThread:27064 [sender.py:send():303] send: stats
+2022-12-29 18:15:24,544 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 18:15:24,545 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 18:15:24,991 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:27,014 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:29,024 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:29,506 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:15:29,507 DEBUG   SenderThread:27064 [sender.py:send():303] send: history
+2022-12-29 18:15:29,508 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:15:29,509 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:15:29,509 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 18:15:29,510 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:15:29,511 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:15:29,512 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:15:29,513 DEBUG   SenderThread:27064 [sender.py:send():303] send: telemetry
+2022-12-29 18:15:29,513 DEBUG   SenderThread:27064 [sender.py:send():303] send: exit
+2022-12-29 18:15:29,513 INFO    SenderThread:27064 [sender.py:send_exit():442] handling exit code: 0
+2022-12-29 18:15:29,513 INFO    SenderThread:27064 [sender.py:send_exit():444] handling runtime: 97
+2022-12-29 18:15:29,514 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:15:29,514 INFO    SenderThread:27064 [sender.py:send_exit():450] send defer
+2022-12-29 18:15:29,515 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:29,515 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 0
+2022-12-29 18:15:29,515 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:29,515 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 0
+2022-12-29 18:15:29,515 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 1
+2022-12-29 18:15:29,515 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:29,516 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 1
+2022-12-29 18:15:29,516 INFO    HandlerThread:27064 [system_monitor.py:finish():160] Stopping system monitor
+2022-12-29 18:15:29,516 DEBUG   SystemMonitor:27064 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2022-12-29 18:15:29,516 DEBUG   SystemMonitor:27064 [system_monitor.py:_start():141] Publishing last batch of metrics
+2022-12-29 18:15:29,517 INFO    HandlerThread:27064 [interfaces.py:finish():175] Joined cpu
+2022-12-29 18:15:29,517 INFO    HandlerThread:27064 [interfaces.py:finish():175] Joined disk
+2022-12-29 18:15:30,038 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:15:30,094 INFO    HandlerThread:27064 [interfaces.py:finish():175] Joined gpu
+2022-12-29 18:15:30,094 INFO    HandlerThread:27064 [interfaces.py:finish():175] Joined memory
+2022-12-29 18:15:30,094 INFO    HandlerThread:27064 [interfaces.py:finish():175] Joined network
+2022-12-29 18:15:30,095 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,095 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 1
+2022-12-29 18:15:30,095 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 2
+2022-12-29 18:15:30,095 DEBUG   SenderThread:27064 [sender.py:send():303] send: stats
+2022-12-29 18:15:30,095 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:30,096 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 2
+2022-12-29 18:15:30,096 DEBUG   SenderThread:27064 [sender.py:send():303] send: history
+2022-12-29 18:15:30,096 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:15:30,097 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:15:30,098 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,098 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 2
+2022-12-29 18:15:30,098 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 3
+2022-12-29 18:15:30,098 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:30,098 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 3
+2022-12-29 18:15:30,098 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,098 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 3
+2022-12-29 18:15:30,098 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 4
+2022-12-29 18:15:30,098 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:30,099 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 4
+2022-12-29 18:15:30,099 DEBUG   SenderThread:27064 [sender.py:send():303] send: summary
+2022-12-29 18:15:30,100 INFO    SenderThread:27064 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 18:15:30,100 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,100 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 4
+2022-12-29 18:15:30,100 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 5
+2022-12-29 18:15:30,100 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:30,101 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 5
+2022-12-29 18:15:30,101 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,101 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 5
+2022-12-29 18:15:30,327 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 6
+2022-12-29 18:15:30,327 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:30,327 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 6
+2022-12-29 18:15:30,327 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:30,327 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 6
+2022-12-29 18:15:30,522 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: poll_exit
+2022-12-29 18:15:31,051 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:31,051 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\config.yaml
+2022-12-29 18:15:31,051 INFO    Thread-17 :27064 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:15:32,358 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 7
+2022-12-29 18:15:32,358 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: poll_exit
+2022-12-29 18:15:32,359 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:32,359 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 7
+2022-12-29 18:15:32,359 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:32,359 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 7
+2022-12-29 18:15:32,359 INFO    SenderThread:27064 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-29 18:15:33,076 INFO    SenderThread:27064 [dir_watcher.py:finish():392] scan: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files
+2022-12-29 18:15:33,077 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\conda-environment.yaml conda-environment.yaml
+2022-12-29 18:15:33,077 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\config.yaml config.yaml
+2022-12-29 18:15:33,077 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log output.log
+2022-12-29 18:15:33,078 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\requirements.txt requirements.txt
+2022-12-29 18:15:33,081 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-metadata.json wandb-metadata.json
+2022-12-29 18:15:33,081 INFO    SenderThread:27064 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json wandb-summary.json
+2022-12-29 18:15:33,087 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 8
+2022-12-29 18:15:33,087 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:33,088 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 8
+2022-12-29 18:15:33,090 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:33,090 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 8
+2022-12-29 18:15:33,091 INFO    SenderThread:27064 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-29 18:15:33,601 INFO    Thread-24 :27064 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\output.log
+2022-12-29 18:15:33,621 INFO    Thread-23 :27064 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\config.yaml
+2022-12-29 18:15:33,631 INFO    Thread-25 :27064 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\requirements.txt
+2022-12-29 18:15:33,634 INFO    Thread-26 :27064 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\files\wandb-summary.json
+2022-12-29 18:15:33,835 INFO    Thread-16 :27064 [sender.py:transition_state():463] send defer: 9
+2022-12-29 18:15:33,836 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:33,836 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 9
+2022-12-29 18:15:33,836 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:33,836 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 9
+2022-12-29 18:15:33,836 INFO    SenderThread:27064 [file_pusher.py:join():173] waiting for file pusher
+2022-12-29 18:15:33,836 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 10
+2022-12-29 18:15:33,837 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:33,837 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 10
+2022-12-29 18:15:33,837 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:33,837 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 10
+2022-12-29 18:15:33,996 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 11
+2022-12-29 18:15:33,997 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:33,998 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 11
+2022-12-29 18:15:33,998 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:33,998 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 11
+2022-12-29 18:15:33,999 INFO    SenderThread:27064 [sender.py:transition_state():463] send defer: 12
+2022-12-29 18:15:34,001 DEBUG   SenderThread:27064 [sender.py:send():303] send: final
+2022-12-29 18:15:34,003 DEBUG   SenderThread:27064 [sender.py:send():303] send: footer
+2022-12-29 18:15:34,003 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 18:15:34,004 INFO    HandlerThread:27064 [handler.py:handle_request_defer():162] handle defer: 12
+2022-12-29 18:15:34,004 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: defer
+2022-12-29 18:15:34,005 INFO    SenderThread:27064 [sender.py:send_request_defer():459] handle sender defer: 12
+2022-12-29 18:15:34,010 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: poll_exit
+2022-12-29 18:15:34,010 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: poll_exit
+2022-12-29 18:15:34,011 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: server_info
+2022-12-29 18:15:34,011 DEBUG   SenderThread:27064 [sender.py:send_request():317] send_request: server_info
+2022-12-29 18:15:34,012 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: get_summary
+2022-12-29 18:15:34,013 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: sampled_history
+2022-12-29 18:15:34,426 DEBUG   HandlerThread:27064 [handler.py:handle_request():139] handle_request: shutdown
+2022-12-29 18:15:34,427 INFO    HandlerThread:27064 [handler.py:finish():814] shutting down handler
+2022-12-29 18:15:35,014 INFO    WriterThread:27064 [datastore.py:close():279] close: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_181351-3g18gev5\run-3g18gev5.wandb
+2022-12-29 18:15:35,438 INFO    SenderThread:27064 [sender.py:finish():1331] shutting down sender
+2022-12-29 18:15:35,438 INFO    SenderThread:27064 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-29 18:15:35,438 INFO    SenderThread:27064 [file_pusher.py:join():173] waiting for file pusher
+2022-12-29 18:15:36,452 INFO    MainThread:27064 [internal.py:handle_exit():77] Internal process exited

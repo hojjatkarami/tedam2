@@ -1,0 +1,554 @@
+2022-12-29 17:34:48,149 INFO    StreamThr :26756 [internal.py:wandb_internal():87] W&B internal server running at pid: 26756, started at: 2022-12-29 17:34:48.148468
+2022-12-29 17:34:48,152 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: status
+2022-12-29 17:34:48,155 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: status
+2022-12-29 17:34:48,159 DEBUG   SenderThread:26756 [sender.py:send():303] send: header
+2022-12-29 17:34:48,159 INFO    WriterThread:26756 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\run-22qgglt0.wandb
+2022-12-29 17:34:48,204 DEBUG   SenderThread:26756 [sender.py:send():303] send: run
+2022-12-29 17:34:48,611 INFO    SenderThread:26756 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files
+2022-12-29 17:34:48,611 INFO    SenderThread:26756 [sender.py:_start_run_threads():928] run started: 22qgglt0 with start time 1672331688.151469
+2022-12-29 17:34:48,611 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:34:48,612 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:34:48,612 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: check_version
+2022-12-29 17:34:48,612 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: check_version
+2022-12-29 17:34:48,691 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: run_start
+2022-12-29 17:34:49,623 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:34:49,696 DEBUG   HandlerThread:26756 [system_info.py:__init__():31] System info init
+2022-12-29 17:34:49,696 DEBUG   HandlerThread:26756 [system_info.py:__init__():46] System info init done
+2022-12-29 17:34:49,696 INFO    HandlerThread:26756 [system_monitor.py:start():150] Starting system monitor
+2022-12-29 17:34:49,696 INFO    SystemMonitor:26756 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-29 17:34:49,696 INFO    HandlerThread:26756 [system_monitor.py:probe():171] Collecting system info
+2022-12-29 17:34:49,703 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started cpu
+2022-12-29 17:34:49,703 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started disk
+2022-12-29 17:34:49,703 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started gpu
+2022-12-29 17:34:49,703 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started memory
+2022-12-29 17:34:49,717 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started network
+2022-12-29 17:34:49,724 DEBUG   HandlerThread:26756 [system_info.py:probe():195] Probing system
+2022-12-29 17:34:49,725 DEBUG   HandlerThread:26756 [system_info.py:_probe_git():180] Probing git
+2022-12-29 17:34:49,812 DEBUG   HandlerThread:26756 [system_info.py:_probe_git():188] Probing git done
+2022-12-29 17:34:49,812 DEBUG   HandlerThread:26756 [system_info.py:probe():241] Probing system done
+2022-12-29 17:34:49,812 DEBUG   HandlerThread:26756 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2022-12-29T16:34:49.724896', 'startedAt': '2022-12-29T16:34:48.116415', 'docker': None, 'cuda': None, 'args': ('-wandb', '-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '10', '-per', '10', '-w_pos', '-batch_size', '8', '-lr', '0.00245', '-event_enc', '1', '-state', '-mod', 'none', '-next_mark', '0', '-sample_label', '1', '-user_prefix', '[Op]TEDA__label-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Optuna1.py', 'codePath': 'Optuna1.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 838.1861572265625}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2022-12-29 17:34:49,812 INFO    HandlerThread:26756 [system_monitor.py:probe():181] Finished collecting system info
+2022-12-29 17:34:49,812 INFO    HandlerThread:26756 [system_monitor.py:probe():184] Publishing system info
+2022-12-29 17:34:49,813 DEBUG   HandlerThread:26756 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-29 17:34:49,814 DEBUG   HandlerThread:26756 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-29 17:34:49,814 DEBUG   HandlerThread:26756 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-29 17:34:49,831 ERROR   HandlerThread:26756 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-12-29 17:34:49,832 DEBUG   HandlerThread:26756 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-29 17:34:49,834 INFO    HandlerThread:26756 [system_monitor.py:probe():186] Finished publishing system info
+2022-12-29 17:34:49,890 DEBUG   SenderThread:26756 [sender.py:send():303] send: files
+2022-12-29 17:34:49,891 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-29 17:34:49,904 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:34:49,905 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:34:50,074 DEBUG   SenderThread:26756 [sender.py:send():303] send: telemetry
+2022-12-29 17:34:50,482 INFO    Thread-22 :26756 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmpogep_8huwandb\o77gna6k-wandb-metadata.json
+2022-12-29 17:34:50,623 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\requirements.txt
+2022-12-29 17:34:50,623 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:34:50,623 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-metadata.json
+2022-12-29 17:34:50,623 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\conda-environment.yaml
+2022-12-29 17:34:52,641 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:34:54,668 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:34:56,691 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:34:58,711 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:00,736 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:02,753 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:04,778 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:05,086 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:35:05,086 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:35:06,467 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:35:06,804 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:08,830 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:10,854 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:12,861 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:14,876 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:16,889 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:18,903 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:19,912 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\config.yaml
+2022-12-29 17:35:20,251 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:35:20,251 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:35:20,924 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:24,960 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:26,990 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:29,011 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:31,027 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:33,045 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:34,505 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:35:34,506 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:35:34,507 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:35:34,508 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:35:34,508 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:35:34,508 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:35:35,053 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:35:35,053 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:35,453 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:35:35,454 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:35:37,069 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:39,075 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:41,093 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:43,111 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:45,125 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:47,137 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:49,155 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:49,719 DEBUG   SystemMonitor:26756 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2022-12-29 17:35:49,720 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:35:50,633 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:35:50,634 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:35:51,163 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:53,175 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:55,193 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:57,210 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:35:59,231 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:01,252 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:02,801 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:02,804 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:36:02,804 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:36:02,806 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:02,806 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:36:02,807 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:03,270 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:36:03,270 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:05,289 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:05,815 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:36:05,816 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:36:07,305 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:09,314 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:11,328 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:13,346 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:15,362 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:17,383 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:19,408 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:19,735 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:36:21,008 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:36:21,009 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:36:21,427 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:23,441 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:25,452 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:27,462 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:29,475 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:31,492 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:31,863 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:31,864 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:36:31,865 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:36:31,866 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:31,866 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:36:31,867 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:36:32,493 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:36:33,496 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:35,515 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:36,189 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:36:36,190 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:36:37,527 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:39,542 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:41,554 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:43,574 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:45,588 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:47,616 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:49,629 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:49,740 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:36:51,407 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:36:51,407 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:36:51,641 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:53,646 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:55,657 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:57,671 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:36:59,691 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:01,609 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:01,610 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:37:01,611 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:37:01,612 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:01,613 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:01,613 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:37:01,705 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:37:01,705 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:02,720 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:03,735 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:05,760 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:06,589 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:37:06,589 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:37:07,764 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:09,776 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:11,794 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:15,845 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:16,850 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:17,859 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:19,748 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:37:19,888 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:21,768 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:37:21,769 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:37:21,895 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:23,912 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:25,918 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:27,945 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:29,954 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:31,968 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:32,985 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:35,000 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:36,162 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:36,163 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:37:36,164 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:37:36,164 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:36,165 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:37:36,216 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:37:36,982 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:37:36,982 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:37:37,015 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:37:37,015 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:39,026 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:41,042 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:45,085 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:47,106 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:49,115 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:49,757 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:37:51,142 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:52,155 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:37:52,155 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:37:53,163 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:55,177 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:57,192 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:37:59,213 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:01,228 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:03,242 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:05,256 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:07,282 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:07,344 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:38:07,345 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:38:08,679 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:08,680 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:38:08,681 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:38:08,682 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:08,682 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:08,682 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:38:09,309 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:38:09,309 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:11,328 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:13,350 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:15,359 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:17,374 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:19,381 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:19,769 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:38:22,525 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:38:22,525 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:38:23,408 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:25,426 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:27,431 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:29,447 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:31,476 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:33,490 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:35,500 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:37,518 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:37,706 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:38:37,706 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:38:38,933 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:38,934 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:38:38,934 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:38:38,935 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:38,935 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:38:38,936 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:38:39,525 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:38:39,525 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:41,532 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:43,536 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:45,560 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:47,572 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:49,594 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:49,783 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:38:51,613 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:52,988 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:38:52,988 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:38:53,643 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:55,670 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:57,686 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:38:59,703 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:01,721 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:03,728 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:05,766 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:07,076 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:07,077 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:39:07,077 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:39:07,078 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:07,078 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:39:07,079 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:07,793 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:39:07,794 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:08,167 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:39:08,167 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:39:09,811 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:11,827 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:13,855 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:15,880 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:17,897 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:19,790 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:39:19,915 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:21,940 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:23,360 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:39:23,361 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:39:23,966 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:25,989 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:28,012 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:30,041 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:32,068 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:34,097 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:35,253 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:35,254 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:39:35,255 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:39:35,256 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:35,256 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:39:35,256 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:39:36,121 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:39:36,121 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:38,147 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:38,540 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:39:38,541 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:39:40,157 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:44,206 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:46,236 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:48,257 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:49,796 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:39:50,285 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:52,304 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:53,723 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:39:53,724 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:39:54,337 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:56,369 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:39:58,386 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:00,402 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:02,415 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:02,654 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:40:02,654 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:40:02,655 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:02,656 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:40:02,656 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:02,681 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:40:02,702 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:02,703 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:02,704 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:02,705 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:02,706 DEBUG   SenderThread:26756 [sender.py:send():303] send: telemetry
+2022-12-29 17:40:02,706 DEBUG   SenderThread:26756 [sender.py:send():303] send: exit
+2022-12-29 17:40:02,706 INFO    SenderThread:26756 [sender.py:send_exit():442] handling exit code: 0
+2022-12-29 17:40:02,706 INFO    SenderThread:26756 [sender.py:send_exit():444] handling runtime: 314
+2022-12-29 17:40:02,707 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:02,707 INFO    SenderThread:26756 [sender.py:send_exit():450] send defer
+2022-12-29 17:40:02,708 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:02,708 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 0
+2022-12-29 17:40:02,708 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:02,708 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 0
+2022-12-29 17:40:02,708 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 1
+2022-12-29 17:40:02,708 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:02,708 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 1
+2022-12-29 17:40:02,709 INFO    HandlerThread:26756 [system_monitor.py:finish():160] Stopping system monitor
+2022-12-29 17:40:02,709 DEBUG   SystemMonitor:26756 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2022-12-29 17:40:02,710 DEBUG   SystemMonitor:26756 [system_monitor.py:_start():141] Publishing last batch of metrics
+2022-12-29 17:40:02,711 INFO    HandlerThread:26756 [interfaces.py:finish():175] Joined cpu
+2022-12-29 17:40:02,711 INFO    HandlerThread:26756 [interfaces.py:finish():175] Joined disk
+2022-12-29 17:40:03,276 INFO    HandlerThread:26756 [interfaces.py:finish():175] Joined gpu
+2022-12-29 17:40:03,276 INFO    HandlerThread:26756 [interfaces.py:finish():175] Joined memory
+2022-12-29 17:40:03,276 INFO    HandlerThread:26756 [interfaces.py:finish():175] Joined network
+2022-12-29 17:40:03,276 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,276 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 1
+2022-12-29 17:40:03,277 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 2
+2022-12-29 17:40:03,277 DEBUG   SenderThread:26756 [sender.py:send():303] send: stats
+2022-12-29 17:40:03,277 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:03,278 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 2
+2022-12-29 17:40:03,278 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:40:03,278 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:03,279 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:03,279 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,279 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 2
+2022-12-29 17:40:03,280 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 3
+2022-12-29 17:40:03,280 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:03,280 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 3
+2022-12-29 17:40:03,280 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,280 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 3
+2022-12-29 17:40:03,280 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 4
+2022-12-29 17:40:03,280 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:03,281 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 4
+2022-12-29 17:40:03,281 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:03,281 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:03,282 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,282 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 4
+2022-12-29 17:40:03,282 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 5
+2022-12-29 17:40:03,282 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:03,282 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 5
+2022-12-29 17:40:03,282 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,282 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 5
+2022-12-29 17:40:03,421 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:40:03,421 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:03,506 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 6
+2022-12-29 17:40:03,506 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:03,506 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 6
+2022-12-29 17:40:03,507 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:03,507 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 6
+2022-12-29 17:40:03,715 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: poll_exit
+2022-12-29 17:40:04,429 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\config.yaml
+2022-12-29 17:40:04,430 INFO    Thread-17 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:05,861 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 7
+2022-12-29 17:40:05,862 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: poll_exit
+2022-12-29 17:40:05,862 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:05,862 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 7
+2022-12-29 17:40:05,862 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:05,862 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 7
+2022-12-29 17:40:05,862 INFO    SenderThread:26756 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-29 17:40:06,456 INFO    SenderThread:26756 [dir_watcher.py:finish():392] scan: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files
+2022-12-29 17:40:06,457 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\conda-environment.yaml conda-environment.yaml
+2022-12-29 17:40:06,457 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\config.yaml config.yaml
+2022-12-29 17:40:06,458 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log output.log
+2022-12-29 17:40:06,465 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\requirements.txt requirements.txt
+2022-12-29 17:40:06,467 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-metadata.json wandb-metadata.json
+2022-12-29 17:40:06,467 INFO    SenderThread:26756 [dir_watcher.py:finish():406] scan save: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json wandb-summary.json
+2022-12-29 17:40:06,476 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 8
+2022-12-29 17:40:06,482 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:06,483 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 8
+2022-12-29 17:40:06,483 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:06,483 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 8
+2022-12-29 17:40:06,483 INFO    SenderThread:26756 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-29 17:40:07,031 INFO    Thread-26 :26756 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\wandb-summary.json
+2022-12-29 17:40:07,037 INFO    Thread-23 :26756 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\config.yaml
+2022-12-29 17:40:07,041 INFO    Thread-24 :26756 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\output.log
+2022-12-29 17:40:07,051 INFO    Thread-25 :26756 [upload_job.py:push():143] Uploaded file C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\files\requirements.txt
+2022-12-29 17:40:07,253 INFO    Thread-16 :26756 [sender.py:transition_state():463] send defer: 9
+2022-12-29 17:40:07,255 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:07,255 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 9
+2022-12-29 17:40:07,255 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:07,256 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 9
+2022-12-29 17:40:07,256 INFO    SenderThread:26756 [file_pusher.py:join():173] waiting for file pusher
+2022-12-29 17:40:07,256 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 10
+2022-12-29 17:40:07,257 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:07,258 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 10
+2022-12-29 17:40:07,259 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:07,259 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 10
+2022-12-29 17:40:07,930 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 11
+2022-12-29 17:40:07,930 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:07,930 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 11
+2022-12-29 17:40:07,931 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:07,931 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 11
+2022-12-29 17:40:07,931 INFO    SenderThread:26756 [sender.py:transition_state():463] send defer: 12
+2022-12-29 17:40:07,932 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: defer
+2022-12-29 17:40:07,932 INFO    HandlerThread:26756 [handler.py:handle_request_defer():162] handle defer: 12
+2022-12-29 17:40:07,932 DEBUG   SenderThread:26756 [sender.py:send():303] send: final
+2022-12-29 17:40:07,933 DEBUG   SenderThread:26756 [sender.py:send():303] send: footer
+2022-12-29 17:40:07,933 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: defer
+2022-12-29 17:40:07,933 INFO    SenderThread:26756 [sender.py:send_request_defer():459] handle sender defer: 12
+2022-12-29 17:40:07,935 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: poll_exit
+2022-12-29 17:40:07,935 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: poll_exit
+2022-12-29 17:40:07,935 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: server_info
+2022-12-29 17:40:07,936 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: server_info
+2022-12-29 17:40:07,938 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: get_summary
+2022-12-29 17:40:07,938 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: sampled_history
+2022-12-29 17:40:08,279 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: shutdown
+2022-12-29 17:40:08,279 INFO    HandlerThread:26756 [handler.py:finish():814] shutting down handler
+2022-12-29 17:40:08,932 INFO    WriterThread:26756 [datastore.py:close():279] close: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_173448-22qgglt0\run-22qgglt0.wandb
+2022-12-29 17:40:09,278 INFO    SenderThread:26756 [sender.py:finish():1331] shutting down sender
+2022-12-29 17:40:09,278 INFO    SenderThread:26756 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-29 17:40:09,278 INFO    SenderThread:26756 [file_pusher.py:join():173] waiting for file pusher
+2022-12-29 17:40:19,039 INFO    StreamThr :26756 [internal.py:wandb_internal():87] W&B internal server running at pid: 26756, started at: 2022-12-29 17:40:19.038007
+2022-12-29 17:40:19,041 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: status
+2022-12-29 17:40:19,043 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: status
+2022-12-29 17:40:19,051 INFO    WriterThread:26756 [datastore.py:open_for_write():75] open: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\run-3589vzhd.wandb
+2022-12-29 17:40:19,052 DEBUG   SenderThread:26756 [sender.py:send():303] send: header
+2022-12-29 17:40:19,100 DEBUG   SenderThread:26756 [sender.py:send():303] send: run
+2022-12-29 17:40:19,532 INFO    SenderThread:26756 [dir_watcher.py:__init__():216] watching files in: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files
+2022-12-29 17:40:19,532 INFO    SenderThread:26756 [sender.py:_start_run_threads():928] run started: 3589vzhd with start time 1672332019.044008
+2022-12-29 17:40:19,533 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:40:19,534 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:40:19,571 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: check_version
+2022-12-29 17:40:19,572 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: check_version
+2022-12-29 17:40:19,650 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: run_start
+2022-12-29 17:40:19,665 DEBUG   HandlerThread:26756 [system_info.py:__init__():31] System info init
+2022-12-29 17:40:19,665 DEBUG   HandlerThread:26756 [system_info.py:__init__():46] System info init done
+2022-12-29 17:40:19,665 INFO    HandlerThread:26756 [system_monitor.py:start():150] Starting system monitor
+2022-12-29 17:40:19,665 INFO    SystemMonitor:26756 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-29 17:40:19,666 INFO    HandlerThread:26756 [system_monitor.py:probe():171] Collecting system info
+2022-12-29 17:40:19,672 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started cpu
+2022-12-29 17:40:19,673 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started disk
+2022-12-29 17:40:19,673 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started gpu
+2022-12-29 17:40:19,674 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started memory
+2022-12-29 17:40:19,687 INFO    SystemMonitor:26756 [interfaces.py:start():168] Started network
+2022-12-29 17:40:20,481 DEBUG   HandlerThread:26756 [system_info.py:probe():195] Probing system
+2022-12-29 17:40:20,482 DEBUG   HandlerThread:26756 [system_info.py:_probe_git():180] Probing git
+2022-12-29 17:40:20,535 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\wandb-summary.json
+2022-12-29 17:40:20,555 DEBUG   HandlerThread:26756 [system_info.py:_probe_git():188] Probing git done
+2022-12-29 17:40:20,555 DEBUG   HandlerThread:26756 [system_info.py:probe():241] Probing system done
+2022-12-29 17:40:20,555 DEBUG   HandlerThread:26756 [system_monitor.py:probe():180] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.7', 'heartbeatAt': '2022-12-29T16:40:20.481288', 'startedAt': '2022-12-29T16:40:19.009695', 'docker': None, 'cuda': None, 'args': ('-wandb', '-data', 'C:/DATA/data/processed/p12_full_seft/', '-epoch', '10', '-per', '10', '-w_pos', '-batch_size', '8', '-lr', '0.00245', '-event_enc', '1', '-state', '-mod', 'none', '-next_mark', '0', '-sample_label', '1', '-user_prefix', '[Op]TEDA__label-'), 'state': 'running', 'program': 'C:\\DATA\\Tasks\\220702\\codes\\thp_final\\Optuna1.py', 'codePath': 'Optuna1.py', 'git': {'remote': 'https://github.com/SimiaoZuo/Transformer-Hawkes-Process.git', 'commit': 'e1fd7ac0a62f2cb674ba64faae889327b931e62c'}, 'email': None, 'root': 'C:/DATA/Tasks/220702/codes/thp_final', 'host': 'LMAMLTP16', 'username': 'hokarami', 'executable': 'C:\\Users\\hokarami\\Anaconda3\\envs\\paper2022\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 950.9365196228027, 'used': 838.175235748291}, 'gpu': 'Quadro T2000 with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000 with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 31.750675201416016}}
+2022-12-29 17:40:20,555 INFO    HandlerThread:26756 [system_monitor.py:probe():181] Finished collecting system info
+2022-12-29 17:40:20,555 INFO    HandlerThread:26756 [system_monitor.py:probe():184] Publishing system info
+2022-12-29 17:40:20,556 DEBUG   HandlerThread:26756 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-29 17:40:20,557 DEBUG   HandlerThread:26756 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-29 17:40:20,557 DEBUG   HandlerThread:26756 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-29 17:40:20,572 ERROR   HandlerThread:26756 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\hokarami\Anaconda3\envs\paper2022\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-12-29 17:40:20,572 DEBUG   HandlerThread:26756 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-29 17:40:20,573 INFO    HandlerThread:26756 [system_monitor.py:probe():186] Finished publishing system info
+2022-12-29 17:40:20,574 DEBUG   SenderThread:26756 [sender.py:send():303] send: files
+2022-12-29 17:40:20,574 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-29 17:40:20,586 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:40:20,587 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:40:20,765 DEBUG   SenderThread:26756 [sender.py:send():303] send: telemetry
+2022-12-29 17:40:21,121 INFO    Thread-41 :26756 [upload_job.py:push():143] Uploaded file C:\Users\hokarami\AppData\Local\Temp\tmp0y0y2ek0wandb\2ox8oe6h-wandb-metadata.json
+2022-12-29 17:40:21,550 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:21,550 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\wandb-metadata.json
+2022-12-29 17:40:21,550 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\requirements.txt
+2022-12-29 17:40:21,551 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_created():275] file/dir created: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\conda-environment.yaml
+2022-12-29 17:40:23,578 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:25,602 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:27,632 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:29,645 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:31,650 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:33,660 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:35,677 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:35,786 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:40:35,786 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:40:36,760 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:40:37,703 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:39,707 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:41,721 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:43,737 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:45,762 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:47,779 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:49,794 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:49,794 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\config.yaml
+2022-12-29 17:40:50,974 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:40:50,975 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:40:51,820 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:53,834 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:55,854 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:40:57,871 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:01,912 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:03,915 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:05,588 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:41:05,589 DEBUG   SenderThread:26756 [sender.py:send():303] send: history
+2022-12-29 17:41:05,590 DEBUG   SenderThread:26756 [sender.py:send():303] send: summary
+2022-12-29 17:41:05,591 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:41:05,592 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: partial_history
+2022-12-29 17:41:05,592 INFO    SenderThread:26756 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-29 17:41:05,933 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:05,933 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\wandb-summary.json
+2022-12-29 17:41:06,167 DEBUG   HandlerThread:26756 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-29 17:41:06,168 DEBUG   SenderThread:26756 [sender.py:send_request():317] send_request: stop_status
+2022-12-29 17:41:06,947 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:07,953 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:09,974 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:11,982 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:14,002 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:16,010 INFO    Thread-36 :26756 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\DATA\Tasks\220702\codes\thp_final\wandb\run-20221229_174019-3589vzhd\files\output.log
+2022-12-29 17:41:19,136 INFO    MainThread:26756 [internal.py:handle_exit():77] Internal process exited
+2022-12-29 17:41:19,136 INFO    MainThread:26756 [internal.py:handle_exit():77] Internal process exited
+2022-12-29 17:41:19,137 WARNING MsgRouterThr:26756 [router.py:message_loop():74] EOFError seen in message_loop
