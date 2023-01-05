@@ -14,9 +14,9 @@ TEDA__shpmarklabel="-event_enc 1 -state -demo       -mod single    -next_mark 1 
 
 
 DATA_NAME="p12_full_hosp"  
-COMMON="-data  $PRE/$DATA_NAME/ -epoch 100 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
+COMMON="-data  $PRE/$DATA_NAME/ -epoch 4 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
 
-python optuna1.py $COMMON $DA__label -user_prefix "[q2]DA__label-" 
+python optuna1.py $COMMON $DA__label -user_prefix "[q3]DA__label-" 
 # python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
 
 
