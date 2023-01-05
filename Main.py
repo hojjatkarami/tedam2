@@ -879,7 +879,7 @@ def options():
     parser.add_argument('-data', default="C:/DATA/data/processed/physio2019_1d_HP_std/", required=False)
     parser.add_argument('-data_label',choices=['multiclass','multilabel'], default='multilabel')
 
-    parser.add_argument('-cuda', action='store_true', dest='cuda', help='consider cuda?')
+    parser.add_argument('-cuda', type=int, choices=[0,1], default=1, help='consider cuda?')
 
     parser.add_argument('-wandb', action='store_true', dest='wandb', help='consider wandb?')
     parser.add_argument('-prof', action='store_true', dest='prof', help='consider profiling?')
@@ -1049,7 +1049,7 @@ def config(opt, justLoad=False):
     #         opt.event_loss_test = Utils.sahp_state_log_likelihood_test
 
 
-    opt.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    opt.device = torch.device('cuda') if (torch.cuda.is_available() and opt.cuda) else torch.device('cpu')
 
     # setup the log file
     with open(opt.log, 'w') as f:
