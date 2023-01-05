@@ -8,8 +8,8 @@ PRE="/scratch/hokarami/data"
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
 # declare -i REP=3
-DA__label="-event_enc 0 -state -demo       -mod none    -next_mark 0  -sample_label 1 "
-TEDA__shpmarklabel="-event_enc 1 -state -demo       -mod single    -next_mark 1  -sample_label 1"
+DA__label="-event_enc 0 -state       -mod none    -next_mark 0  -sample_label 1 "
+TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -sample_label 1"
 
 
 
