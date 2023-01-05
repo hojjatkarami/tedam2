@@ -3,7 +3,7 @@
 
 # # for hospital-based split
 #  /codes/data      /scratch/hokarami/data            C:/DATA/data/processed
-PRE="C:/DATA/data/processed"
+PRE="/scratch/hokarami/data"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
@@ -17,7 +17,7 @@ DATA_NAME=" physio2019_1d_HP_std_AB"
 COMMON="-data  $PRE/$DATA_NAME/ -epoch 30 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
 
 python optuna1.py $COMMON $DA__label -user_prefix "[opt]DA__label-"&
-python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[opt]TEDA__shpmarklabel-"&
+python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[opt]TEDA__shpmarklabel-"
 # python Main.py $COMMON $DA__label -user_prefix "[]DA__label-"  &
 # python Main.py $COMMON $DA__label -user_prefix "[]DA__label-"  &
 # python Main.py $COMMON $DA__label -user_prefix "[]DA__label-"  
