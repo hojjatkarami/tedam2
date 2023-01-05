@@ -16,7 +16,20 @@ TEDA__shpmarklabel="-event_enc 1 -state -demo       -mod single    -next_mark 1 
 DATA_NAME="p12_full_hosp"  
 COMMON="-data  $PRE/$DATA_NAME/ -epoch 4 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
 
-python optuna1.py $COMMON $DA__label -user_prefix "[q3]DA__label-" 
+python Main.py $COMMON $DA__label -user_prefix "[w1]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w2]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w3]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w4]DA__label-" 
+
+
+DATA_NAME="physio2019_1d_HP_std_AB"  
+COMMON="-data  $PRE/$DATA_NAME/ -epoch 4 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
+
+python Main.py $COMMON $DA__label -user_prefix "[w1]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w2]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w3]DA__label-"  &
+python Main.py $COMMON $DA__label -user_prefix "[w4]DA__label-" 
+
 # python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[q]TEDA__shpmarklabel-" 
 
 
