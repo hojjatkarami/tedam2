@@ -811,7 +811,9 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             inter_Obj_val=dict_metrics_test['pred_label/AUPRC']   
         else:
             inter_Obj_val=0
-
+        
+        inter_Obj_val=best_valid_metric['pred_label/f1-binary']
+        
         opt.writer.add_scalar('Obj', inter_Obj_val, global_step=opt.i_epoch)
         if opt.wandb:
             wandb.log({'Obj': inter_Obj_val}, step=opt.i_epoch)
