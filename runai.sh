@@ -14,7 +14,7 @@ TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -samp
 
 
 DATA_NAME="physio2019_1d_HP_std_AB"  
-COMMON="-data  $PRE/$DATA_NAME/ -epoch 30 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
+COMMON="-data  $PRE/$DATA_NAME/ -epoch 1 -per 100 -w_pos -batch_size 8  -lr 0.00245  -ES_pat 10 -wandb"
 
 python optuna1.py $COMMON $DA__label -user_prefix "[opt]DA__label-"&
 python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[opt]TEDA__shpmarklabel-"
