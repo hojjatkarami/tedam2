@@ -720,19 +720,19 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
         best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
 
-    for epoch_i in range(opt.epoch):
+    for epoch_i in tqdm(range(opt.epoch), leave=False):
         epoch = epoch_i + 1
-        print('[ Epoch', epoch, ']')
+        # print('[ Epoch', epoch, ']')
         opt.i_epoch = epoch
 
 
         # ********************************************* Train Epoch *********************************************
         start = time.time()
         train_event, train_type, train_time, dict_metrics_train = train_epoch(model, trainloader, optimizer, pred_loss_func, opt)
-        print('  - (Training)    loglikelihood: {ll: 8.5f}, '
-              'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
-              'elapse: {elapse:3.3f} min'
-              .format(ll=train_event, type=train_type, rmse=train_time, elapse=(time.time() - start) / 60))
+        # print('  - (Training)    loglikelihood: {ll: 8.5f}, '
+        #       'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
+        #       'elapse: {elapse:3.3f} min'
+        #       .format(ll=train_event, type=train_type, rmse=train_time, elapse=(time.time() - start) / 60))
 
         dict_time.update({'Time/train_epoch':((time.time() - start) / 60)})
         for k,v in dict_metrics_train.items():
@@ -743,22 +743,21 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         train_event, train_type, train_time, dict_metrics_train = valid_epoch(model, trainloader, pred_loss_func, opt)
 
         write_to_summary(dict_metrics_train, opt, i_epoch=epoch, prefix='Train-')
-        print('  - (Eval train) ')
 
         # ********************************************* Valid Epoch *********************************************
         start = time.time()
         valid_event, valid_type, valid_time, dict_metrics_valid = valid_epoch(model, validloader, pred_loss_func, opt)
-        print('  - (Validating)     loglikelihood: {ll: 8.5f}, '
-              'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
-              'elapse: {elapse:3.3f} min'
-              .format(ll=valid_event, type=valid_type, rmse=valid_time, elapse=(time.time() - start) / 60))
+        # print('  - (Validating)     loglikelihood: {ll: 8.5f}, '
+        #       'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
+        #       'elapse: {elapse:3.3f} min'
+        #       .format(ll=valid_event, type=valid_type, rmse=valid_time, elapse=(time.time() - start) / 60))
 
         valid_event_losses += [valid_event]
         valid_pred_losses += [valid_type]
         valid_rmse += [valid_time]
-        print('  - [Info] Maximum ll: {event: 8.5f}, '
-              'Maximum accuracy: {pred: 8.5f}, Minimum RMSE: {rmse: 8.5f}'
-              .format(event=max(valid_event_losses), pred=max(valid_pred_losses), rmse=min(valid_rmse)))
+        # print('  - [Info] Maximum ll: {event: 8.5f}, '
+        #       'Maximum accuracy: {pred: 8.5f}, Minimum RMSE: {rmse: 8.5f}'
+        #       .format(event=max(valid_event_losses), pred=max(valid_pred_losses), rmse=min(valid_rmse)))
 
         dict_time.update({'Time/valid_epoch':((time.time() - start) / 60)})
 

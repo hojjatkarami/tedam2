@@ -58,7 +58,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "cwd":"${workspaceFolder}\\THP_new",
+            // "cwd":"${workspaceFolder}\\THP_new",
             
             // SO
             // "args": [
@@ -82,24 +82,24 @@
             // physio2019
             "args": [
                 
-                // "-data", "C:/DATA/data/processed/physio2019_1d_HP_std/",
-                "-data", "C:/DATA/data/raw/neuralTPP/data/Synthea - Full/synthea/all/split_1/",
-                "-batch", "4",
-                "-n_head", "2",
-                "-n_layers", "4",
-                "-d_model", "16",
-                "-d_rnn", "64",
-                "-d_inner", "64",
-                "-d_k", "32",
-                "-d_v", "32",
-                "-dropout", "0.1",
-                "-lr", "3e-4",
-                "-smooth", "0.0",
+                "-data", "C:/DATA/data/processed/physio2019_1d_HP_std/",
+                // "-data", "C:/DATA/data/raw/neuralTPP/data/Synthea - Full/synthea/all/split_1/",
+                // "-batch", "4",
+                // "-n_head", "2",
+                // "-n_layers", "4",
+                // "-d_model", "16",
+                // "-d_rnn", "64",
+                // "-d_inner", "64",
+                // "-d_k", "32",
+                // "-d_v", "32",
+                // "-dropout", "0.1",
+                // "-lr", "3e-4",
+                // "-smooth", "0.0",
                 "-epoch", "30",
-                "-log", "log.txt",
+                // "-log", "log.txt",
 
-                "-w_class",
-                "-w_pos",
+                // "-w_class",
+                // "-w_pos",
                 // "-state",
                 // "-sample_label",
 
