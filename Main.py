@@ -22,6 +22,7 @@ import shutil
 
 import wandb
 os.environ["WANDB_API_KEY"] = "0f780ac8a470afe6cb7fc474ff3794772c660465"
+os.environ["WANDB_START_METHOD"] = "thread"
 
 import optuna
 
@@ -862,15 +863,20 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
              # Handle pruning based on the intermediate value.            
             trial.report(inter_Obj_val, opt.i_epoch)            
             if trial.should_prune():
-
-
+                
                 opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
-                if opt.wandb:
-                    
-                    wandb.run.summary["status"] = "pruned"
-                    wandb.finish(quiet=True)
+                return best_metric
 
-                raise optuna.exceptions.TrialPruned()
+                # opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
+                # if opt.wandb:
+                    
+                #     wandb.run.summary["status"] = "pruned"
+                #     wandb.finish(quiet=True)
+                #     opt.wandb=False
+                #     return best_metric
+
+
+                # raise optuna.exceptions.TrialPruned()
     opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
     return best_metric
 
@@ -1425,7 +1431,9 @@ def main(trial=None):
                         entity="hokarami",
                         group=opt.user_prefix,
                         name=opt.run_name,
-                        reinit=True)
+                        reinit=True,
+                        # settings=wandb.Settings(start_method="fork")
+                    )
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
 
@@ -1537,7 +1545,12 @@ def main(trial=None):
         max_obj_val = train(model, opt.trainloader, opt.validloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
     
 
-
+    if isinstance(trial,optuna.trial._trial.Trial) and trial.should_prune():
+        if opt.wandb:
+            wandb.run.summary["state"] = "pruned"
+            wandb.finish(quiet=True)
+        raise optuna.exceptions.TrialPruned()
+    
     if opt.wandb:
         
         # report the final validation accuracy to wandb

@@ -374,7 +374,7 @@ def get_dataloader3(data_event, data_state=None, bs=4, shuffle=True, dim='MHP', 
     ds = TEDA(data_event, data_state,dim=dim, data_label=data_label,**state_args)
     
 
-    if balanced:
+    if balanced and hasattr(ds, 'whole_label'):
         
         sample_labels = ds.sample_label()
         pos_count = sum(sample_labels)

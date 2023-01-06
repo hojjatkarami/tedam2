@@ -4,6 +4,7 @@
 # # for hospital-based split
 #  /codes/data      /scratch/hokarami/data            C:/DATA/data/processed
 PRE="/scratch/hokarami/data"
+# PRE="C:/DATA/data/processed"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
