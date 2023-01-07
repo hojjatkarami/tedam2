@@ -19,35 +19,35 @@ COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 
 
 
 EXP="-setting sc -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 1" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 2" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 3" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 4" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" 
 
 
 EXP="-setting sc -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 1" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 2" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 3" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 4" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc-gpu]DA__label-" 
 
 
 
