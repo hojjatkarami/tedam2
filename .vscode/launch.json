@@ -83,7 +83,7 @@
             // physio2019
             "args": [
                 
-                "-data", "C:/DATA/data/processed/physio2019_1d_HP_std_AB/",
+                "-data", "C:/DATA/data/processed/p12/",
                 // "-data", "C:/DATA/data/raw/neuralTPP/data/Synthea - Full/synthea/all/split_1/",
                 "-batch_size", "8",
                 // "-n_head", "2",
@@ -99,11 +99,15 @@
                 "-epoch", "30",
                 // "-log", "log.txt",
                 "-per","5",
-                "-wandb",
+                // "-wandb",
                 // "-w_class",
                 "-w_pos",
                 "-state",
                 "-sample_label","1",
+                "-setting","sc",
+                "-test_center","H0",
+                "-split","0",
+
 
                 // "-mod","marked",
 

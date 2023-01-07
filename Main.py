@@ -247,7 +247,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
     if opt.prof:
         prof =  torch.profiler.profile(
                         schedule=torch.profiler.schedule(wait=1, warmup=1, active=3, repeat=2),
-                        on_trace_ready=torch.profiler.tensorboard_trace_handler(opt.run_folder),
+                        on_trace_ready=torch.profiler.tensorboard_trace_handler(opt.run_path),
                         record_shapes=True,
                         profile_memory=True,
                         # with_stack=True
@@ -798,7 +798,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
                 'dict_metrics_test':dict_metrics_test,
-            }, opt.run_folder+'model_ep'+str(opt.i_epoch)+'.pkl')
+            }, opt.run_path+'model_ep'+str(opt.i_epoch)+'.pkl')
 
 
 
@@ -899,6 +899,16 @@ def options():
     parser.add_argument('-freeze', choices=['TEDA','TE','DA',''], default="", help='specify run_name')
 
     parser.add_argument('-ES_pat', type=int, default=10, help='max_epochs_without_improvement')
+    
+
+
+    # data handling
+
+
+    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2',''], default='', help='max_epochs_without_improvement')
+    parser.add_argument('-test_center', type=str, default='', help='max_epochs_without_improvement')
+    parser.add_argument('-split', type=str, default='', help='max_epochs_without_improvement')
+
 
     # logging args
     parser.add_argument('-log', type=str, default='log.txt')
@@ -990,22 +1000,27 @@ def config(opt, justLoad=False):
 
         print(f"[Info] ### Point Process strategy: {opt.mod} ###")
 
-
-        opt.str_config = '-'+opt.mod   +'-state'+str(int(opt.state))    +'-per'+str(opt.per)
-        # Tensorboard integration
-        opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
-        opt.run_folder = opt.data + opt.run_name+'/'
-
+        if opt.setting=='':
+            opt.str_config = '-'
+            # Tensorboard integration
+            opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
+            opt.run_path = opt.data + opt.run_name+'/'
+        else:
+            opt.str_config = '-'+opt.setting+'-H'+opt.test_center+'/split'+opt.split
+            # Tensorboard integration
+            opt.run_name = opt.user_prefix+str(opt.run_id)
+            opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
+            opt.data=opt.data[:-1]+opt.str_config+'/'
         # create a foler for the run
         
 
-        if os.path.exists(opt.run_folder):
+        if os.path.exists(opt.run_path):
             # print(settings.load_model)
-            shutil.rmtree(opt.run_folder)
-        os.makedirs(opt.run_folder, exist_ok=True)
+            shutil.rmtree(opt.run_path)
+        os.makedirs(opt.run_path, exist_ok=True)
 
 
-        with open(opt.run_folder+'\opt.pkl','wb') as f:
+        with open(opt.run_path+'opt.pkl','wb') as f:
             pickle.dump(opt,f)
 
 
@@ -1060,8 +1075,8 @@ def config(opt, justLoad=False):
     opt.device = torch.device('cuda') if (torch.cuda.is_available() and opt.cuda) else torch.device('cpu')
 
     # setup the log file
-    with open(opt.log, 'w') as f:
-        f.write('Epoch, Log-likelihood, Accuracy, RMSE\n')
+    # with open(opt.log, 'w') as f:
+    #     f.write('Epoch, Log-likelihood, Accuracy, RMSE\n')
 
     print('[Info] parameters: {}'.format(opt))
 
@@ -1424,7 +1439,7 @@ def main(trial=None):
         opt.hparams = config_hparams
         if opt.wandb:
             wandb.login()
-            # wandb.tensorboard.patch(root_logdir=opt.run_folder, pytorch=True)
+            # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
             wandb.init( config=opt,
                         project="TEDAM3",
@@ -1438,20 +1453,20 @@ def main(trial=None):
             # wandb.config.update(opt.DAMconfig)
 
 
-        opt.writer = SummaryWriter(log_dir = opt.run_folder )
+        opt.writer = SummaryWriter(log_dir = opt.run_path )
         print(f"[info] tensorboard integration:\ntensorboard --logdir '{opt.data}'\n")
     else:
         
         if opt.wandb:
             wandb.login()
-            # wandb.tensorboard.patch(root_logdir=opt.run_folder, pytorch=True)
+            # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
             wandb.init( config=opt, project="TEDAM3", entity="hokarami",name=opt.run_name)
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
 
 
-        opt.writer = SummaryWriter(log_dir = opt.run_folder )
+        opt.writer = SummaryWriter(log_dir = opt.run_path )
         print(f"[info] tensorboard integration:\ntensorboard --logdir '{opt.data}'\n")
 
 
