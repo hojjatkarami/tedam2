@@ -3,8 +3,8 @@
 
 # # for hospital-based split
 #  /codes/data      /scratch/hokarami/data            C:/DATA/data/processed
-PRE="/scratch/hokarami/data"
-PRE="C:/DATA/data/processed"
+PRE="/scratch/hokarami/data_tedam"
+# PRE="C:/DATA/data/processed"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
@@ -15,7 +15,7 @@ TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -samp
 
 
 DATA_NAME="p12" 
-COMMON="  -data  $PRE/$DATA_NAME/  -epoch 30 -per 5 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 10 -wandb"
+COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
 EXP="-setting sc -test_center 0 -split 0" 
