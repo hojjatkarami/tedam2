@@ -906,6 +906,12 @@ def options():
     parser.add_argument('-pos_alpha', type=float, default=1.0)
 
 
+    # data handling
+    parser.add_argument('-data_setting', choices=['sc','mc1','mc2',''], default="", help='settings')
+    parser.add_argument('-test_center', type=str, default='')
+    parser.add_argument('-test_split', type=str, default='')
+    parser.add_argument('-train_center', type=str, default='')
+
     # General Config
     parser.add_argument('-epoch', type=int, default=40)
     parser.add_argument('-batch_size', type=int, default=4)
