@@ -19,54 +19,54 @@ COMMON="  -data  $PRE/$DATA_NAME/  -epoch 30 -per 5 -w_pos -batch_size 8  -lr 0.
 
 
 EXP="-setting sc -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 1" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 2" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 3" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 0 -split 4" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" 
 
 
 EXP="-setting sc -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 1" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 2" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 3" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 1 -split 4" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" 
 
 
 
 
 
 EXP="-setting sc -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 2 -split 1" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 2 -split 2" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 2 -split 3" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" &
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
 EXP="-setting sc -test_center 2 -split 4" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[sp]DA__label-" 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" 
 
 
 # python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[opt]TEDA__shpmarklabel-"
