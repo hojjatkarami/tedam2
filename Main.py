@@ -1010,6 +1010,8 @@ def config(opt, justLoad=False):
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
+            
+            opt.dataset = opt.data
             opt.data=opt.data[:-1]+opt.str_config+'/'
         # create a foler for the run
         
