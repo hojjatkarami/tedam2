@@ -1012,7 +1012,10 @@ def config(opt, justLoad=False):
             opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
             opt.run_path = opt.data + opt.run_name+'/'
         else:
-            opt.str_config = '-'+opt.setting+'-H'+opt.test_center+'/split'+opt.split
+            if opt.setting=='mc2':
+                opt.str_config = '-'+opt.setting+'-H'+opt.test_center
+            else:
+                opt.str_config = '-'+opt.setting+'-H'+opt.test_center+'/split'+opt.split
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
