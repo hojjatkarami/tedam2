@@ -83,53 +83,53 @@ python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-"
 
 
 ## TEDAM
-EXP="-setting sc -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 0 -split 0" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 0 -split 1" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 0 -split 1" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 0 -split 2" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 0 -split 2" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 0 -split 3" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 0 -split 3" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 0 -split 4" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" 
-
-
-EXP="-setting sc -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
-
-EXP="-setting sc -test_center 1 -split 1" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
-
-EXP="-setting sc -test_center 1 -split 2" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
-
-EXP="-setting sc -test_center 1 -split 3" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
-
-EXP="-setting sc -test_center 1 -split 4" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" 
+EXP="-setting mc1 -test_center 0 -split 4" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" 
 
 
+EXP="-setting mc1 -test_center 1 -split 0" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 1 -split 1" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 2 -split 1" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 1 -split 2" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 2 -split 2" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 1 -split 3" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
 
-EXP="-setting sc -test_center 2 -split 3" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" &
+EXP="-setting mc1 -test_center 1 -split 4" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" 
 
-EXP="-setting sc -test_center 2 -split 4" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[sc]TEDA__shpmarklabel-" 
+
+
+EXP="-setting mc1 -test_center 2 -split 0" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
+
+EXP="-setting mc1 -test_center 2 -split 1" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
+
+EXP="-setting mc1 -test_center 2 -split 2" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
+
+EXP="-setting mc1 -test_center 2 -split 3" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" &
+
+EXP="-setting mc1 -test_center 2 -split 4" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc1]TEDA__shpmarklabel-" 
 
 
 # python optuna1.py $COMMON $TEDA__shpmarklabel -user_prefix "[opt]TEDA__shpmarklabel-"
