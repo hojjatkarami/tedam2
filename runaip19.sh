@@ -18,7 +18,7 @@ TEDA__shpmarklabel="-event_enc 1 -state       -mod single    -next_mark 1  -samp
 
 
 DATA_NAME="p19" 
-COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 1 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
+COMMON="  -data  $PRE/$DATA_NAME/  -epoch 1 -per 1 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
 EXP="-setting sc -test_center 0 -split 0" 
