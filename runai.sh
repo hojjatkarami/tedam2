@@ -5,7 +5,7 @@
 #  /codes/data      /scratch/hokarami/data             C:/DATA/data/processed
 
 PRE="/scratch/hokarami/data_tedam"
-PRE="/scratch/hokarami/data"
+# PRE="/scratch/hokarami/data"
 
 # PRE="C:/DATA/data/processed"
 
