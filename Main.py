@@ -188,6 +188,7 @@ def prepare_dataloader(opt):
 
     train_state=None
     test_state=None
+    valid_state=None
 
 
 
