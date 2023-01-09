@@ -18,7 +18,7 @@ TE__shpmark="-event_enc 1          -mod single    -next_mark 1  -sample_label 0"
 
 
 
-DATA_NAME="p12" 
+DATA_NAME="p19" 
 COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
@@ -91,20 +91,6 @@ EXP="-setting sc -test_center 1 -split 4"
 python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" 
 
 
-EXP="-setting sc -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" &
-
-EXP="-setting sc -test_center 2 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" &
-
-EXP="-setting sc -test_center 2 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" &
-
-EXP="-setting sc -test_center 2 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" &
-
-EXP="-setting sc -test_center 2 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-sc]TE__shpmark-" 
 
 
 
@@ -182,20 +168,6 @@ EXP="-setting mc1 -test_center 1 -split 4"
 python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
 
 
-EXP="-setting mc1 -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
 
 
 
@@ -226,5 +198,4 @@ EXP="-setting mc2 -test_center 1 -split 0"
 python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
 
 
-EXP="-setting mc2 -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+
