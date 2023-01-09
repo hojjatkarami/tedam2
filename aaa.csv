@@ -1,13 +1,13 @@
-dataset,setting,event_enc,runs,mean,std
-/scratch/hokarami/data_tedam/p12/,mc1,0,15,0.492,0.028
-/scratch/hokarami/data_tedam/p12/,mc1,1,15,0.492,0.026
-/scratch/hokarami/data_tedam/p12/,mc2,0,3,0.428,0.005
-/scratch/hokarami/data_tedam/p12/,mc2,1,3,0.445,0.007
-/scratch/hokarami/data_tedam/p12/,sc,0,15,0.405,0.035
-/scratch/hokarami/data_tedam/p12/,sc,1,15,0.425,0.026
-/scratch/hokarami/data_tedam/p19/,mc1,0,10,0.728,0.061
-/scratch/hokarami/data_tedam/p19/,mc1,1,10,0.711,0.038
-/scratch/hokarami/data_tedam/p19/,mc2,0,10,0.533,0.095
-/scratch/hokarami/data_tedam/p19/,mc2,1,5,0.469,0.05
-/scratch/hokarami/data_tedam/p19/,sc,0,10,0.619,0.039
-/scratch/hokarami/data_tedam/p19/,sc,1,10,0.632,0.03
+dataset,setting,event_enc,Best-Test-pred_label/f1-binary,Best-Test-pred_label/AUPRC
+/scratch/hokarami/data_tedam/p12/,mc1,0,0.49 (0.03),0.49 (0.04)
+/scratch/hokarami/data_tedam/p12/,mc1,1,0.49 (0.03),0.51 (0.05)
+/scratch/hokarami/data_tedam/p12/,mc2,0,0.43 (0.0),0.42 (0.01)
+/scratch/hokarami/data_tedam/p12/,mc2,1,0.44 (0.01),0.43 (0.0)
+/scratch/hokarami/data_tedam/p12/,sc,0,0.4 (0.03),0.38 (0.05)
+/scratch/hokarami/data_tedam/p12/,sc,1,0.42 (0.03),0.4 (0.05)
+/scratch/hokarami/data_tedam/p19/,mc1,0,0.73 (0.06),0.91 (0.03)
+/scratch/hokarami/data_tedam/p19/,mc1,1,0.71 (0.04),0.86 (0.03)
+/scratch/hokarami/data_tedam/p19/,mc2,0,0.53 (0.09),0.66 (0.01)
+/scratch/hokarami/data_tedam/p19/,mc2,1,0.47 (0.05),0.66 (0.04)
+/scratch/hokarami/data_tedam/p19/,sc,0,0.62 (0.04),0.73 (0.05)
+/scratch/hokarami/data_tedam/p19/,sc,1,0.63 (0.03),0.71 (0.04)
