@@ -21,6 +21,9 @@ DATA_NAME="p12"
 COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
+# # ***********************************************************  sc
+
+
 # EXP="-setting sc -test_center 0 -split 0" 
 # python Main.py $EXP $COMMON $DA__label -user_prefix "[sc]DA__label-" &
 
