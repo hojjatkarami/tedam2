@@ -172,25 +172,28 @@ COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 
 
 
 
-EXP="-setting mc2 -test_center 0 -split 0" 
+# EXP="-setting mc2 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[mc2]DA__label-" &
+
+
+
+# EXP="-setting mc2 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[mc2]DA__label-" &
+
+EXP="-setting mc2 -test_center 2 -split 0" 
 python Main.py $EXP $COMMON $DA__label -user_prefix "[mc2]DA__label-" &
 
 
 
-EXP="-setting mc2 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[mc2]DA__label-" &
+# ## TEDAM
+# EXP="-setting mc2 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc2]TEDA__shpmarklabel-" &
 
 
 
+# EXP="-setting mc2 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc2]TEDA__shpmarklabel-" &
 
-## TEDAM
-EXP="-setting mc2 -test_center 0 -split 0" 
+
+EXP="-setting mc2 -test_center 2 -split 0" 
 python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc2]TEDA__shpmarklabel-" &
-
-
-
-EXP="-setting mc2 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[mc2]TEDA__shpmarklabel-" &
-
-
-
