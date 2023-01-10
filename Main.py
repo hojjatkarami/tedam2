@@ -316,6 +316,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             log_sum, integral_ = model.event_decoder(enc_out,event_time, event_time, non_pad_mask)
             total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
 
+
+        torch.nn.line
         # next type prediction
         if hasattr(model, 'pred_next_type'):
             pred_loss, pred_num_event,_ = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
@@ -548,6 +550,10 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 'NextTime/rmse_norm': rmse_norm,
                 'NextTime/msae': msae,
         })
+    
+
+
+    
 
     # next type prediction
     if hasattr(model, 'pred_next_type'):
