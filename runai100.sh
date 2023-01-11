@@ -19,86 +19,86 @@ TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample
 
 
 
-DATA_NAME="p12" 
-COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
+# DATA_NAME="p12" 
+# COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
-# # ***********************************************************  sc
-
-
-
-# # ***********************************************************  mc1
+# # # ***********************************************************  sc
 
 
 
-
-## TE
-EXP="-setting mc1 -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 0 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 0 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 0 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 0 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
-
-
-EXP="-setting mc1 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 1 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 1 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 1 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 1 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
-
-
-
-EXP="-setting mc1 -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
-
-EXP="-setting mc1 -test_center 2 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
-
-
-# ***********************************************************  mc2
+# # # ***********************************************************  mc1
 
 
 
 
 # ## TE
-EXP="-setting mc2 -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 0 -split 1" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 0 -split 2" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 0 -split 3" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 0 -split 4" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
+
+
+# EXP="-setting mc1 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 1 -split 1" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 1 -split 2" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 1 -split 3" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 1 -split 4" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
 
 
 
-EXP="-setting mc2 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 2 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 2 -split 1" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 2 -split 2" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 2 -split 3" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+
+# EXP="-setting mc1 -test_center 2 -split 4" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
 
 
-EXP="-setting mc2 -test_center 2 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-"
+# # ***********************************************************  mc2
+
+
+
+
+# # ## TE
+# EXP="-setting mc2 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+
+
+
+# EXP="-setting mc2 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+
+
+# EXP="-setting mc2 -test_center 2 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-"
 
 
 
@@ -116,38 +116,52 @@ COMMON="  -data  $PRE/$DATA_NAME/  -epoch 50 -per 100 -w_pos -batch_size 8  -lr 
 # # ***********************************************************  mc1
 
 
-EXP="-setting mc1 -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
 
-EXP="-setting mc1 -test_center 0 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 0 -split 1" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
 
-EXP="-setting mc1 -test_center 0 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 0 -split 2" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
 
-EXP="-setting mc1 -test_center 0 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+# EXP="-setting mc1 -test_center 0 -split 3" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
 
-EXP="-setting mc1 -test_center 0 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
+# EXP="-setting mc1 -test_center 0 -split 4" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
 
 
 EXP="-setting mc1 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc1]TEDA__shpmark-" &
 
 EXP="-setting mc1 -test_center 1 -split 1" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc1]TEDA__shpmark-" &
 
 EXP="-setting mc1 -test_center 1 -split 2" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc1]TEDA__shpmark-" &
 
 EXP="-setting mc1 -test_center 1 -split 3" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" &
+python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc1]TEDA__shpmark-" &
 
 EXP="-setting mc1 -test_center 1 -split 4" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-" 
+python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc1]TEDA__shpmark-" 
 
 
+EXP="-setting mc2 -test_center 1 -split 0" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R2-mc2]TEDA__shpmarklabel-" &
+
+EXP="-setting mc2 -test_center 1 -split 1" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R2-mc2]TEDA__shpmarklabel-" &
+
+EXP="-setting mc2 -test_center 1 -split 2" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R2-mc2]TEDA__shpmarklabel-" &
+
+EXP="-setting mc2 -test_center 1 -split 3" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R2-mc2]TEDA__shpmarklabel-" &
+
+EXP="-setting mc2 -test_center 1 -split 4" 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R2-mc2]TEDA__shpmarklabel-" 
 
 
 
@@ -167,24 +181,24 @@ python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc1]TE__shpmark-"
 # python Main.py $EXP $COMMON $DA__label -user_prefix "[CIF-mc2]DA__label-" &
 
 # ## TE
-EXP="-setting mc2 -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
+# EXP="-setting mc2 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" &
 
 
 
-EXP="-setting mc2 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" 
+# EXP="-setting mc2 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $TE__shpmark -user_prefix "[CIF-mc2]TE__shpmark-" 
 
 
 
-# ## TEDA
-EXP="-setting mc2 -test_center 0 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc2]TEDA__shpmark-" &
+# # ## TEDA
+# EXP="-setting mc2 -test_center 0 -split 0" 
+# python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc2]TEDA__shpmark-" &
 
 
 
-EXP="-setting mc2 -test_center 1 -split 0" 
-python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc2]TEDA__shpmark-" 
+# EXP="-setting mc2 -test_center 1 -split 0" 
+# python Main.py $EXP $COMMON $TEDA__shpmark -user_prefix "[CIF-mc2]TEDA__shpmark-" 
 
 
 
