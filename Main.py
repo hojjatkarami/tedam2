@@ -1012,7 +1012,7 @@ def config(opt, justLoad=False):
         t_now = datetime.datetime.now()
         t_diff = t_now-t0
         opt.date = time.strftime("%d-%m-%y--%H-%M-%S")
-        opt.run_id = str(t_diff.days) + np.random.randint(1000,10000)    #str(int(t_diff.seconds/10))
+        opt.run_id = str(t_diff.days) + str(np.random.randint(1000,10000))    #str(int(t_diff.seconds/10))
 
 
         print(f"[Info] ### Point Process strategy: {opt.mod} ###")
