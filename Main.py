@@ -1092,8 +1092,8 @@ def config(opt, justLoad=False):
             opt.all_transfered_modules.append('DAM')
         if opt_tl.event_enc:
             opt.all_transfered_modules.append('TE')
-        if opt.next_mark:
-            opt.all_transfered_modules.append('pred_next_type')
+        # if opt.next_mark:
+        #     opt.all_transfered_modules.append('pred_next_type')
         
     else:
         opt_tl=opt
@@ -1600,7 +1600,7 @@ def main(trial=None):
         # for para in model.parameters():
         #     para.requires_grad = False
 
-        load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=False)
+        load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=True)
         print('### [info] all transfered modules: ',opt.all_transfered_modules)
 
         

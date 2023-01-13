@@ -48,7 +48,7 @@ tl_path="/scratch/hokarami/data_tedam/p12-mc2-H0/[R3-mc2]TEDA__shpmarklabel-1182
 # python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 3 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl-fr]TEDA__shpmarklabel-" &
 
 # EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 4 -transfer_learning  $tl_path " 
 # python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" 
