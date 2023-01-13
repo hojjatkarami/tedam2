@@ -921,7 +921,7 @@ def options():
     # data handling
 
 
-    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2',''], default='', help='max_epochs_without_improvement')
+    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl',''], default='', help='max_epochs_without_improvement')
     parser.add_argument('-test_center', type=str, default='', help='max_epochs_without_improvement')
     parser.add_argument('-split', type=str, default='', help='max_epochs_without_improvement')
 
