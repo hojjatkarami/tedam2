@@ -43,7 +43,7 @@ python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[TL][R3-mc2]TEDA__
 DATA_NAME="p19" 
 tl_path="/scratch/hokarami/data_tedam/p19-mc2-H0/-mc2]TEDA__shpmarklabel-1187968/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[TL][R3-mc2]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[TL][R3-mc2]TEDA__shpmarklabel-"
 
 
 # DATA_NAME="p19" 
