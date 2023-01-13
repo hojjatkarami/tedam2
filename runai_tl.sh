@@ -19,7 +19,7 @@ TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample
 
 
 
-COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
+COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.000245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
 # DATA_NAME="p12" 
@@ -38,20 +38,20 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0
 DATA_NAME="p12" 
 tl_path="/scratch/hokarami/data_tedam/p12-mc2-H0/[R3-mc2]TEDA__shpmarklabel-1182158/"
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 0 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 0 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 1 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 1 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 2 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 2 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 3 -transfer_learning  $tl_path " 
 python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 4 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 4 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" 
 
 
 
