@@ -799,13 +799,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
         scheduler.step()
 
-        if opt.i_epoch % 5==0:
-            torch.save({
-                'epoch': opt.i_epoch,
-                'model_state_dict': model.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'dict_metrics_test':dict_metrics_test,
-            }, opt.run_path+'model_ep'+str(opt.i_epoch)+'.pkl')
+        
 
 
 
@@ -836,6 +830,16 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             if opt.wandb:
                 wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
                 wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+
+
+            # saving best torch model !!!
+            torch.save({
+                'epoch': opt.i_epoch,
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'dict_metrics_test':dict_metrics_test,
+            }, opt.run_path+'best_model.pkl')
+            
         if inter_Obj_val > best_metric:
             # Save the model weights
             # torch.save(model.state_dict(), "best_model.pth")
@@ -1008,7 +1012,7 @@ def config(opt, justLoad=False):
         t_now = datetime.datetime.now()
         t_diff = t_now-t0
         opt.date = time.strftime("%d-%m-%y--%H-%M-%S")
-        opt.run_id = str(t_diff.days)+str(int(t_diff.seconds/10))
+        opt.run_id = str(t_diff.days) + np.random.randint(1000,10000)    #str(int(t_diff.seconds/10))
 
 
         print(f"[Info] ### Point Process strategy: {opt.mod} ###")
