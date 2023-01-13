@@ -1030,6 +1030,8 @@ def config(opt, justLoad=False):
         else:
             if opt.setting=='mc2':
                 opt.str_config = '-'+opt.setting+'-H'+opt.test_center
+            elif opt.setting=='tl':
+                opt.str_config = '-'+'sc'+'-H'+opt.test_center+'/split'+opt.split            
             else:
                 opt.str_config = '-'+opt.setting+'-H'+opt.test_center+'/split'+opt.split
             # Tensorboard integration
