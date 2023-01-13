@@ -822,17 +822,19 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
         # Early stopping
-
+        flag=0
         for k,v in best_valid_metric.items():
             if dict_metrics_valid[k]>v:
                 best_valid_metric[k]= dict_metrics_valid[k]
                 best_test_metric[k]= dict_metrics_test[k]
+                flag+=1
             if opt.wandb:
                 wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
                 wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
 
 
-            # saving best torch model !!!
+        # saving best torch model !!!
+        if flag:
             torch.save({
                 'epoch': opt.i_epoch,
                 'model_state_dict': model.state_dict(),
@@ -840,6 +842,9 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
                 'dict_metrics_test':dict_metrics_test,
             }, opt.run_path+'best_model.pkl')
             
+
+
+
         if inter_Obj_val > best_metric:
             # Save the model weights
             # torch.save(model.state_dict(), "best_model.pth")
@@ -1048,26 +1053,76 @@ def config(opt, justLoad=False):
 
     
 
-
     if opt.transfer_learning != '':
+        # add_data = "C:/DATA/data/processed/physio2019_1d_HP_std/"
+        # old_freeze = opt.freeze
 
-        opt.all_transfered_modules=['pred_next_time']
-        # if opt.sample_label:
-        #     opt.all_transfered_modules.append('pred_label')
-        if opt.next_mark:
-            opt.all_transfered_modules.append('pred_next_type')
-        if opt.mod != 'none':
-            opt.all_transfered_modules.append('event_decoder')
-        if opt.state:
+        # old_user_prefix = opt.user_prefix
+        # temp = opt.transfer_learning
+
+
+        # attr_keep = []
+
+        print('### ---------TRANSFER LEARNING----------->    '+opt.transfer_learning)
+
+        # load opt file
+        with open(opt.transfer_learning+'/opt.pkl','rb') as f:
+            opt_tl = pickle.load(f)
+
+        print(f"""Available modules:
+
+        opt.event_enc:              {opt_tl.event_enc}
+        opt.state:                  {opt_tl.state}
+
+        opt.next_mark:              {opt_tl.next_mark}
+        opt.sample_label:           {opt_tl.sample_label}
+        opt.mod:                    {opt_tl.mod}
+        opt.int_dec:                {opt_tl.int_dec}
+
+        
+        
+        """)
+        print(opt_tl)
+
+        opt.all_transfered_modules = []
+
+        if opt_tl.state:
             opt.all_transfered_modules.append('DAM')
-        if opt.event_enc:
+        if opt_tl.event_enc:
             opt.all_transfered_modules.append('TE')
+        
+    else:
+        opt_tl=opt
+        # opt.user_prefix = old_user_prefix
 
-        opt.freezed_modules = []
-        if opt.freeze=='DA':
-            opt.freezed_modules.append('DAM')
-        if opt.freeze=='TE':
-            opt.freezed_modules.append('TE')
+        # # override
+        # # opt.mod = 'None'
+        # # opt.mark_detach = 1
+        # opt.sample_label = 1
+        
+        # opt.transfer_learning=temp
+        # opt.freeze = old_freeze
+
+
+    # if opt.transfer_learning != '':
+
+        # # # # # opt.all_transfered_modules=['pred_next_time']
+        # # # # # # if opt.sample_label:
+        # # # # # #     opt.all_transfered_modules.append('pred_label')
+        # # # # # if opt.next_mark:
+        # # # # #     opt.all_transfered_modules.append('pred_next_type')
+        # # # # # if opt.mod != 'none':
+        # # # # #     opt.all_transfered_modules.append('event_decoder')
+        # # # # # if opt.state:
+        # # # # #     opt.all_transfered_modules.append('DAM')
+        # # # # # if opt.event_enc:
+        # # # # #     opt.all_transfered_modules.append('TE')
+
+        # # # # # opt.freezed_modules = []
+        # # # # # if opt.freeze=='DA':
+        # # # # #     opt.freezed_modules.append('DAM')
+        # # # # # if opt.freeze=='TE':
+        # # # # #     opt.freezed_modules.append('TE')
 
     
     # Event loss handling
@@ -1400,56 +1455,59 @@ def main(trial=None):
 
     
 
-    if opt.transfer_learning != '':
-        # add_data = "C:/DATA/data/processed/physio2019_1d_HP_std/"
-        TL_run_add = opt.data+opt.transfer_learning
-        old_freeze = opt.freeze
+    # if opt.transfer_learning != '':
+    #     # add_data = "C:/DATA/data/processed/physio2019_1d_HP_std/"
+    #     TL_run_add = opt.data+opt.transfer_learning
+    #     old_freeze = opt.freeze
 
-        old_user_prefix = opt.user_prefix
-        temp = opt.transfer_learning
+    #     old_user_prefix = opt.user_prefix
+    #     temp = opt.transfer_learning
 
+    #     old_data_path=opt.data_path
 
-        # find all files in the directory
-        os.chdir(opt.data)
-        candidateFiles = filter(lambda x:  (opt.transfer_learning in x), os.listdir(opt.data))
-        candidateFiles = [f for f in candidateFiles]
-        candidateFiles.sort(key=lambda x: os.path.getmtime(x)) # newest last
+    #     attr_keep = []
 
-        if len(candidateFiles)==0:
-            raise Exception('### No candidateFiles')
-        # elif len(candidateFiles)>1:
-        #      raise Exception('### Many candidateFiles')
-        else:
-            TL_run=candidateFiles[-1]
+    #     # # find all files in the directory
+    #     # os.chdir(opt.data)
+    #     # candidateFiles = filter(lambda x:  (opt.transfer_learning in x), os.listdir(opt.data))
+    #     # candidateFiles = [f for f in candidateFiles]
+    #     # candidateFiles.sort(key=lambda x: os.path.getmtime(x)) # newest last
 
-        print('### ---------TRANSFER LEARNING----------->    '+TL_run)
+    #     # if len(candidateFiles)==0:
+    #     #     raise Exception('### No candidateFiles')
+    #     # # elif len(candidateFiles)>1:
+    #     # #      raise Exception('### Many candidateFiles')
+    #     # else:
+    #     #     TL_run=candidateFiles[-1]
 
-        # load opt file
-        with open(opt.data+TL_run+'/opt.pkl','rb') as f:
-            opt = pickle.load(f)
+    #     print('### ---------TRANSFER LEARNING----------->    '+opt.transfer_learning)
+
+    #     # load opt file
+    #     with open(opt.transfer_learning+'/opt.pkl','rb') as f:
+    #         opt = pickle.load(f)
         
 
-        # all_transfered_modules=['pred_next_time']
-        # # if opt.sample_label:
-        # #     all_transfered_modules.append('pred_label')
-        # if opt.next_mark:
-        #     all_transfered_modules.append('pred_next_type')
-        # if opt.mod != 'none':
-        #     all_transfered_modules.append('event_decoder')
-        # if opt.state:
-        #     all_transfered_modules.append('DAM')
-        # if opt.event_enc:
-        #     all_transfered_modules.append('TE')
+    #     # all_transfered_modules=['pred_next_time']
+    #     # # if opt.sample_label:
+    #     # #     all_transfered_modules.append('pred_label')
+    #     # if opt.next_mark:
+    #     #     all_transfered_modules.append('pred_next_type')
+    #     # if opt.mod != 'none':
+    #     #     all_transfered_modules.append('event_decoder')
+    #     # if opt.state:
+    #     #     all_transfered_modules.append('DAM')
+    #     # if opt.event_enc:
+    #     #     all_transfered_modules.append('TE')
 
-        opt.user_prefix = old_user_prefix
+    #     opt.user_prefix = old_user_prefix
 
-        # override
-        # opt.mod = 'None'
-        # opt.mark_detach = 1
-        opt.sample_label = 1
+    #     # override
+    #     # opt.mod = 'None'
+    #     # opt.mark_detach = 1
+    #     opt.sample_label = 1
         
-        opt.transfer_learning=temp
-        opt.freeze = old_freeze
+    #     opt.transfer_learning=temp
+    #     opt.freeze = old_freeze
         
 
     opt = config(opt)
@@ -1519,17 +1577,18 @@ def main(trial=None):
         
 
 
-        files = os.listdir(opt.data+TL_run)
+        # files = os.listdir(opt.data+TL_run)
 
-        # find last epoch
-        all_epochs=[]
-        for file in files:
-            if 'model_ep' in file:
-                all_epochs.append(int(re.findall(r'\d+', file)[0]))
-        if len(all_epochs)==0:
-            raise Exception('No models were found for transfer learning!!!')
-        MODEL_PATH = opt.data+TL_run+'/model_ep'+str(max(all_epochs))+'.pkl'
+        # # find last epoch
+        # all_epochs=[]
+        # for file in files:
+        #     if 'model_ep' in file:
+        #         all_epochs.append(int(re.findall(r'\d+', file)[0]))
+        # if len(all_epochs)==0:
+        #     raise Exception('No models were found for transfer learning!!!')
+        # MODEL_PATH = opt.data+TL_run+'/model_ep'+str(max(all_epochs))+'.pkl'
 
+        MODEL_PATH = opt.transfer_learning+'best_model.pkl'
 
         checkpoint = torch.load(MODEL_PATH)
 
@@ -1537,10 +1596,12 @@ def main(trial=None):
         # for para in model.parameters():
         #     para.requires_grad = False
 
-        load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=True)
+        load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=False)
         print('### [info] all transfered modules: ',opt.all_transfered_modules)
-        load_module(model, checkpoint, modules= opt.freezed_modules, to_freeze=False)
-        print('### [info] unfreezed modules: ',opt.freezed_modules)
+
+        
+        # load_module(model, checkpoint, modules= opt.freezed_modules, to_freeze=False)
+        # print('### [info] unfreezed modules: ',opt.freezed_modules)
 
 
 
