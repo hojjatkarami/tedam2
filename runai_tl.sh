@@ -20,38 +20,53 @@ TEDA__label="-event_enc 1 -state       -mod none    -next_mark 0  -sample_label 
 
 
 
-COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.000245 -weight_decay 0.1  -ES_pat 20 -wandb"
+COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
 DATA_NAME="p12" 
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc1  -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R4-mc1]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R5-mc1]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc1  -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R4-mc1]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R5-mc1]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc1  -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R4-mc1]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R5-mc1]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc1  -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R4-mc1]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R5-mc1]TEDA__shpmarklabel-" &
 
 EXP=" -data  $PRE/$DATA_NAME/ -setting mc1  -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R4-mc1]TEDA__shpmarklabel-" &
-
-
-# DATA_NAME="p19" 
-# EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
-# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-mc2]TEDA__shpmarklabel-" &
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R5-mc1]TEDA__shpmarklabel-" &
 
 
 
-DATA_NAME="p12" 
-tl_path="/scratch/hokarami/data_tedam/p12-mc2-H0/[R3-mc2]TEDA__shpmarklabel-1182158/"
 
+# DATA_NAME="p12" 
+
+
+# tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split0/[R4-mc1]TEDA__shpmarklabel-1215939/"
 # EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 0 -transfer_learning  $tl_path " 
-# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R4-tl]TEDA__label-" &
+
+# tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split1/[R4-mc1]TEDA__shpmarklabel-1218986/"
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 1 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R4-tl]TEDA__label-" &
+
+# tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split2/[R4-mc1]TEDA__shpmarklabel-1215916/"
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 2 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R4-tl]TEDA__label-" &
+
+# tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split3/[R4-mc1]TEDA__shpmarklabel-1214463/"
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 3 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R4-tl]TEDA__label-" &
+
+# tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split4/[R4-mc1]TEDA__shpmarklabel-1218644/"
+# EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 4 -transfer_learning  $tl_path " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R4-tl]TEDA__label-" &
+
+
 
 # EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 1 -transfer_learning  $tl_path " 
 # python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R3-tl]TEDA__shpmarklabel-" &
