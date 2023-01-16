@@ -822,19 +822,19 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
         # Early stopping
-        flag=0
+        flag=None
         for k,v in best_valid_metric.items():
             if dict_metrics_valid[k]>v:
                 best_valid_metric[k]= dict_metrics_valid[k]
                 best_test_metric[k]= dict_metrics_test[k]
-                flag+=1
+                flag=k
             if opt.wandb:
                 wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
                 wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
 
 
         # saving best torch model !!!
-        if flag:
+        if flag=='pred_label/f1-binary':
             torch.save({
                 'epoch': opt.i_epoch,
                 'model_state_dict': model.state_dict(),
