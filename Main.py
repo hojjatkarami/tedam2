@@ -1088,8 +1088,8 @@ def config(opt, justLoad=False):
 
         opt.all_transfered_modules = []
 
-        # if opt_tl.state:
-        #     opt.all_transfered_modules.append('DAM')
+        if opt_tl.state:
+            opt.all_transfered_modules.append('DAM')
         if opt_tl.event_enc:
             opt.all_transfered_modules.append('TE')
         # if opt.next_mark:
