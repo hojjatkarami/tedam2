@@ -44,28 +44,28 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0
 
 
 DATA_NAME="p12" 
-COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.000245 -weight_decay 0.1  -ES_pat 20 -wandb"
+COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.00245 -weight_decay 0.1  -ES_pat 20 -wandb"
 
 
 tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split0/[R6-mc1]TEDA__shpmarklabel-1218667/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 0 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tlll]TEDA__label-" &
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tl4]TEDA__label-" &
 
 tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split1/[R6-mc1]TEDA__shpmarklabel-1213244/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 1 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tlll]TEDA__label-" &
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tl4]TEDA__label-" &
 
 tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split2/[R6-mc1]TEDA__shpmarklabel-1218367/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 2 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tlll]TEDA__label-" &
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tl4]TEDA__label-" &
 
 tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split3/[R6-mc1]TEDA__shpmarklabel-1216454/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 3 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tlll]TEDA__label-" &
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tl4]TEDA__label-" &
 
 tl_path="/scratch/hokarami/data_tedam/p12-mc1-H0/split4/[R6-mc1]TEDA__shpmarklabel-1217216/"
 EXP=" -data  $PRE/$DATA_NAME/ -setting tl -test_center 0 -split 4 -transfer_learning  $tl_path " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tlll]TEDA__label-" &
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R6-tl4]TEDA__label-" &
 
 
 
