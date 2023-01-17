@@ -1347,9 +1347,9 @@ def process_hparams(trial,opt):
     # opt.weight_decay = trial.suggest_float('weight_decay',1e-4, 1,log=True)
     # opt.lr = trial.suggest_float('lr',1e-5, 1e-2,log=True)
 
-    opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-4,1e-3,1e-2])
+    opt.lr = trial.suggest_categorical('lr', [1e-4,1e-3,1e-2])
 
-    opt.lr = trial.suggest_categorical('lr', [1e-3,1e-2,1e-1,1])
+    opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-3,1e-2,1e-1,1])
 
     # opt.batch_size = trial.suggest_categorical('batch_size', [8,16,32,64,128])
 
