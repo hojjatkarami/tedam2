@@ -921,7 +921,7 @@ def options():
     # data handling
 
 
-    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl',''], default='', help='max_epochs_without_improvement')
+    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl','rand',''], default='', help='max_epochs_without_improvement')
     parser.add_argument('-test_center', type=str, default='', help='max_epochs_without_improvement')
     parser.add_argument('-split', type=str, default='', help='max_epochs_without_improvement')
 
@@ -1027,6 +1027,13 @@ def config(opt, justLoad=False):
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
             opt.run_path = opt.data + opt.run_name+'/'
+        elif opt.setting=='rand':
+            opt.str_config = '_'+opt.setting
+            # Tensorboard integration
+            opt.run_name = opt.user_prefix+str(opt.run_id)
+            opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
+            opt.dataset = opt.data
+            opt.data=opt.data[:-1]+opt.str_config+'/'
         else:
             if opt.setting=='mc2':
                 opt.str_config = '-'+opt.setting+'-H'+opt.test_center
@@ -1038,6 +1045,7 @@ def config(opt, justLoad=False):
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
             
+
             opt.dataset = opt.data
             opt.data=opt.data[:-1]+opt.str_config+'/'
         # create a foler for the run
@@ -1336,9 +1344,13 @@ def process_hparams(trial,opt):
 
     # opt.w_pos_label = trial.suggest_float('w_pos_label',0.2, 5,step=0.1)
 
-    opt.weight_decay = trial.suggest_float('weight_decay',1e-4, 1,log=True)
+    # opt.weight_decay = trial.suggest_float('weight_decay',1e-4, 1,log=True)
+    # opt.lr = trial.suggest_float('lr',1e-5, 1e-2,log=True)
 
-    opt.lr = trial.suggest_float('lr',1e-5, 1e-2,log=True)
+    opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-4,1e-3,1e-2])
+
+    opt.lr = trial.suggest_categorical('lr', [1e-3,1e-2,1e-1,1])
+
     # opt.batch_size = trial.suggest_categorical('batch_size', [8,16,32,64,128])
 
     if opt.event_enc:
