@@ -39,7 +39,7 @@ DATA_NAME="p19"
 
 # DA__label
 EXP=" -data  $PRE/$DATA_NAME/ -setting rand " 
-python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[T1-rand]DA__label-" 
+python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[T1-rand]DA__label-" &
 
 
 # TE__shpmark
