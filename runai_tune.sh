@@ -7,7 +7,7 @@
 PRE="/scratch/hokarami/data_tedam"
 # PRE="/scratch/hokarami/data"
 # PRE="C:/DATA/data/processed"
-# PRE="C:/DATA/data/processed"
+PRE="C:/DATA/data/processed"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 
@@ -39,7 +39,7 @@ DATA_NAME="p19"
 
 # DA__label
 EXP=" -data  $PRE/$DATA_NAME/ -setting rand " 
-python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[T1-rand]DA__label-" &
+python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[T1-rand]DA__label-" 
 
 
 # TE__shpmark

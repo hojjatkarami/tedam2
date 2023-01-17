@@ -535,7 +535,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
         
         dict_metrics.update({
-            'CIF/NLL-#events': -total_event_ll.item() / total_num_pred,
+            'CIF/LL-#events': total_event_ll.item() / total_num_pred,
             'CIF/NLL': -total_event_ll.item(),
             'CIF/#events': total_num_pred,
         })
@@ -728,6 +728,10 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
         best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
 
+    if opt.event_enc:
+        best_test_metric.update({'CIF/LL-#events':0})
+        best_valid_metric.update({'CIF/LL-#events':0})
+    
     for epoch_i in tqdm(range(opt.epoch), leave=False):
         epoch = epoch_i + 1
         # print('[ Epoch', epoch, ']')
@@ -804,15 +808,17 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
         if 'pred_label/f1-binary' in dict_metrics_test: 
-            inter_Obj_val=dict_metrics_test['pred_label/f1-binary']
-        elif 'NextType(ML)/f1-weighted' in dict_metrics_test: 
-            inter_Obj_val=dict_metrics_test['NextType(ML)/f1-weighted']
-        elif 'NextType(MC)/f1-weighted' in dict_metrics_test:
-            inter_Obj_val=dict_metrics_test['NextType(MC)/f1-weighted']
-        elif 'pred_label/AUPRC' in dict_metrics_test:
-            inter_Obj_val=dict_metrics_test['pred_label/AUPRC']   
+            inter_Obj_val = dict_metrics_test['pred_label/f1-binary']
+        elif 'CIF/LL-#events' in dict_metrics_test: 
+            inter_Obj_val = dict_metrics_test['CIF/LL-#events']
         else:
-            inter_Obj_val=0
+            raise Exception("Sorry, no metrics for inter_Obj_val")
+        # elif 'NextType(MC)/f1-weighted' in dict_metrics_test:
+        #     inter_Obj_val=dict_metrics_test['NextType(MC)/f1-weighted']
+        # elif 'pred_label/AUPRC' in dict_metrics_test:
+        #     inter_Obj_val=dict_metrics_test['pred_label/AUPRC']   
+        # else:
+        #     inter_Obj_val=0
         
         # inter_Obj_val=best_valid_metric['pred_label/f1-binary']
         
@@ -833,19 +839,19 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
                 wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
 
 
-        # saving best torch model !!!
-        if flag=='pred_label/f1-binary':
-            torch.save({
-                'epoch': opt.i_epoch,
-                'model_state_dict': model.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'dict_metrics_test':dict_metrics_test,
-            }, opt.run_path+'best_model.pkl')
+            # saving best torch model !!!
+            if flag=='pred_label/f1-binary':
+                torch.save({
+                    'epoch': opt.i_epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'dict_metrics_test':dict_metrics_test,
+                }, opt.run_path+'best_model.pkl')
             
 
 
 
-        if inter_Obj_val > best_metric:
+        if inter_Obj_val > (best_metric+0.0001):
             # Save the model weights
             # torch.save(model.state_dict(), "best_model.pth")
             
