@@ -711,7 +711,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     # logging
     write_to_summary(dict_metrics_test, opt, i_epoch=0,prefix='Valid-')
 
-    best_metric=0
+    best_metric=-100
         # Initialize the early stopping counter
     early_stopping_counter = 0
 
