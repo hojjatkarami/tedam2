@@ -21,7 +21,7 @@ TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample
 TEDA__label="-event_enc 1 -state       -mod none    -next_mark 0  -sample_label 1"
 
 
-DATA_NAME="p12"
+DATA_NAME="p19"
 COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.001 -weight_decay 1  -ES_pat 20 -wandb"
 
 
@@ -58,20 +58,20 @@ EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 "
 python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R9-mc1]DA__label-" 
 
 
 
@@ -108,20 +108,20 @@ EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 "
 python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R9-mc1]TEDA__label-" 
 
 
 
