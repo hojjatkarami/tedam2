@@ -26,8 +26,8 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8  -lr 0.001 -weight_decay 1  
 
 
 # DA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting rand " 
-python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[R8-rand]DA__label-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
+python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[R8-mc1]DA__label-" &
 
 
 
@@ -36,5 +36,5 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 8 -lr 0.001 -weight_decay 0.00
 
 
 # DA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting rand " 
-python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[R8-rand]DA__label-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
+python tune_optuna.py $EXP $COMMON $DA__label -user_prefix "[R8-mc1]DA__label-" &
