@@ -728,7 +728,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
         best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
 
-    if opt.event_enc:
+    if opt.mod is not 'none':
         best_test_metric.update({'CIF/LL-#events':0})
         best_valid_metric.update({'CIF/LL-#events':0})
     
