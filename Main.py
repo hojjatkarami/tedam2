@@ -107,9 +107,9 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         else:
             opt.writer.add_scalar(prefix+k, v, i_epoch)
 
-        if opt.wandb:
-            # dict_metrics.update({'i_epoch':i_epoch})
-            wandb.log({(prefix+k):v}, step=i_epoch)
+    if opt.wandb:
+        # dict_metrics.update({'i_epoch':i_epoch})
+        wandb.log({(prefix+k):v for k,v in dict_metrics.items()}, step=i_epoch)
     # for k,v in dict_roc_auc.items():
         # opt.writer.add_scalars('Metrics/'+k, {'test':v}, i_epoch)
     # opt.writer.add_scalars('Metrics/ROC', dict_roc_auc, i_epoch)
@@ -255,7 +255,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
                 )
         prof.start()
 
-
+    log_loss = {'loss/event_decoder':0,'loss/pred_next_time':0,'loss/pred_next_type':0,'loss/pred_label':0}
     for batch in tqdm(training_data, mininterval=2, desc='  - (Training)   ', leave=False):
 
         
@@ -272,7 +272,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             state_time, state_value, state_mod = batch[3:6]
             state_label=batch[6]
         if opt.demo:
-            state_data.append(batch[7])
+            state_data.append(batch[-1])
 
 
         # """ prepare data """
@@ -313,21 +313,29 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
 
         # CIF decoder
         if hasattr(model, 'event_decoder'):
-            log_sum, integral_ = model.event_decoder(enc_out,event_time, event_time, non_pad_mask)
-            total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
+            log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
+            
+            temp = (-torch.sum(log_sum - integral_))  *opt.w_event*1
+            log_loss['loss/event_decoder']+=temp.item()/event_time.shape[0]
+            total_loss.append( temp )
 
 
         
         # next type prediction
         if hasattr(model, 'pred_next_type'):
             pred_loss, pred_num_event,_ = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
-            total_loss.append(pred_loss)
+
+            log_loss['loss/pred_next_type']+=pred_loss.item()/event_time.shape[0]
+            total_loss.append( pred_loss )
 
         # next time prediction
         if hasattr(model, 'pred_next_time'):
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(-1)
             sse, sse_norm, sae = Utils.time_loss(model.y_next_time, event_time,non_pad_mask) # sse, sse_norm, sae
-            total_loss.append(sse*opt.w_time)
+
+            temp = sse*opt.w_time
+            log_loss['loss/pred_next_time']+=temp.item()/event_time.shape[0]
+            total_loss.append( temp )
 
         if hasattr(model, 'pred_label'):
             
@@ -337,8 +345,11 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             state_label_red = align(state_label[:,:,None], event_time, state_time) # [B,L,1]
             state_label_loss,_ = Utils.state_label_loss(state_label_red,model.y_label, non_pad_mask, opt.label_loss_fun)
 
-            total_loss.append(state_label_loss*opt.w_sample_label)
 
+
+            temp = state_label_loss*opt.w_sample_label
+            log_loss['loss/pred_label']+=temp.item()/event_time.shape[0]
+            total_loss.append( temp )
             
 
     
@@ -365,6 +376,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
 
         if opt.prof:
             prof.step()
+    
+
 
     if opt.prof:
         prof.stop()
@@ -407,6 +420,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
         # 'auc-ovo-weighted': metrics.roc_auc_score(y_true.detach().cpu(), y_score.detach().cpu(), multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
     }
+
+    dict_metrics.update(log_loss)
 
     return total_event_ll / total_num_event, total_event_rate / total_num_pred, rmse, dict_metrics
 
@@ -465,7 +480,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 state_time, state_value, state_mod = batch[3:6]
                 state_label=batch[6]
             if opt.demo:
-                state_data.append(batch[7])
+                state_data.append(batch[-1])
             
             # if opt.state or opt.sample_label:
             #     # event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch[0])
@@ -486,7 +501,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             # CIF decoder
             if hasattr(model, 'event_decoder'):
-                log_sum, integral_ = model.event_decoder(enc_out,event_time, event_time, non_pad_mask)
+                log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
                 # total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
                 total_event_ll += torch.sum(log_sum - integral_)
 
@@ -501,7 +516,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             # next time prediction
             if hasattr(model, 'pred_next_time'):
-                non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(-1)
+                # non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(-1)
                 sse, sse_norm, sae = Utils.time_loss(model.y_next_time, event_time,non_pad_mask) # sse, sse_norm, sae
                 # total_loss.append(sse*opt.w_time)
                 total_time_sse += sse.item()  # cumulative time prediction squared-error
@@ -752,8 +767,8 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         
         
         # Train eval *********************************************
-        train_event, train_type, train_time, dict_metrics_train = valid_epoch(model, trainloader, pred_loss_func, opt)
-
+        train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
+        dict_metrics_train.update(dict_metrics_train2)
         write_to_summary(dict_metrics_train, opt, i_epoch=epoch, prefix='Train-')
 
         # ********************************************* Valid Epoch *********************************************
@@ -980,7 +995,7 @@ def options():
     # Outputs
 
 
-    parser.add_argument('-w_sample_label', type=int, default=100.0)
+    
 
         # CIFs
     parser.add_argument('-mod', type=str, choices=['single','mc','ml','none'], default='single', help='specify the mod')
@@ -1001,7 +1016,7 @@ def options():
     # parser.add_argument('-sample_label', action='store_true', dest='sample_label', help='consider state?')
     parser.add_argument('-sample_label',  type=int, choices=[0,1,2], default=0, help='2 for detach')
     parser.add_argument('-w_pos_label', type=float, default=1.0)
-
+    parser.add_argument('-w_sample_label', type=int, default=10000.0)
 
 
     opt = parser.parse_args()
@@ -1034,7 +1049,7 @@ def config(opt, justLoad=False):
             opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
             opt.run_path = opt.data + opt.run_name+'/'
         elif opt.setting=='rand':
-            opt.str_config = '_'+opt.setting
+            opt.str_config = '-'+opt.setting
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
@@ -1172,6 +1187,25 @@ def config(opt, justLoad=False):
     # setup the log file
     # with open(opt.log, 'w') as f:
     #     f.write('Epoch, Log-likelihood, Accuracy, RMSE\n')
+
+
+
+
+    # ###    What is the architecture?
+    opt.INPUT = ''
+    
+    if opt.event_enc:
+        opt.INPUT+='TE'
+    if opt.state:
+        opt.INPUT+='DAM'
+
+    opt.OUTPUT = ''
+    
+    opt.OUTPUT+= opt.mod
+    opt.OUTPUT+= '-mark' if opt.next_mark else ''
+    opt.OUTPUT+= '-label' if opt.sample_label else ''
+
+    print(f'[Info] INPUT {opt.INPUT} --> {opt.OUTPUT}')
 
     print('[Info] parameters: {}'.format(opt))
 
@@ -1665,9 +1699,14 @@ def main(trial=None):
         max_obj_val = train(model, opt.trainloader, opt.validloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
     
 
+
+    
     if isinstance(trial,optuna.trial._trial.Trial) and trial.should_prune():
         if opt.wandb:
             wandb.run.summary["state"] = "pruned"
+
+            wandb.save(opt.run_path+'opt.pkl')
+            wandb.save(opt.run_path+'best_model.pkl')
             wandb.finish(quiet=True)
         raise optuna.exceptions.TrialPruned()
     
@@ -1676,6 +1715,9 @@ def main(trial=None):
         # report the final validation accuracy to wandb
         wandb.run.summary["max_obj_val"] = max_obj_val
         wandb.run.summary["status"] = "completed"
+
+        wandb.save(opt.run_path+'opt.pkl')
+        wandb.save(opt.run_path+'best_model.pkl')
         wandb.finish(quiet=True)
 
     return max_obj_val

@@ -299,16 +299,17 @@ class CIF_sahp(nn.Module):
         # state_times = side[-1] # [B,P]
         # embed_state = side[-3] # [B,P,d_r]
 
-        non_pad_mask = get_non_pad_mask(seq_types).squeeze(2)
+        # non_pad_mask = get_non_pad_mask(seq_types).squeeze(2)
         
         if self.mod=='single':
-            seq_onehot_types=torch.ones_like(seq_types).unsqueeze(-1) # [B,L,1]
-        else:
+            seq_onehot_types=torch.ones_like(seq_times).unsqueeze(-1) # [B,L,1]
+        elif self.mod=='ml':
 
-            if len(seq_types.shape)==3:
-                seq_onehot_types = nn.functional.one_hot(seq_types.sum(-1).bool().long(), num_classes=self.num_types+1)[:,:,1:].type(torch.float)    # [B,L,num_classes]
-            else:
-                seq_onehot_types = nn.functional.one_hot(seq_types, num_classes=self.num_types+1)[:,:,1:].type(torch.float)
+            # if len(seq_types.shape)==3:
+            seq_onehot_types = nn.functional.one_hot(seq_types.sum(-1).bool().long(), num_classes=self.n_cifs+1)[:,:,1:].type(torch.float)    # [B,L,num_classes]
+            
+        elif self.mod=='mc':
+            seq_onehot_types = nn.functional.one_hot(seq_types, num_classes=self.n_cifs+1)[:,:,1:].type(torch.float)
         
         # seq_onehot_types = nn.functional.one_hot(seq_types, num_classes=self.num_types+1)[:,:,1:].type(torch.float)
         
@@ -366,10 +367,12 @@ class CIF_sahp(nn.Module):
 
             p = intens_at_evs * torch.exp(-partial_integrals[:,:,None]) * non_pad_mask[:, 1:,None] # [B,L-1,n_cif]
             if p.max()>0.999:
+                print("WTF")
                 a=1
             one_min_true_log_density=(1-seq_types[:,1:,:])*torch.log(1-p) * non_pad_mask[:, 1:,None] # [B,L-1,n_cif]
             log_sum = log_sum + one_min_true_log_density.sum(-1).sum(-1) # [B]
             if torch.isinf(one_min_true_log_density.sum()):
+                print("WTF")
                 a=1
 
 
@@ -1478,7 +1481,7 @@ class ATHP(nn.Module):
 
             # temp = r_enc.sum(-1)#+(1-non_pad_mask_state.squeeze(-1))
             # a = (temp!=0).sum()/non_pad_mask_state.sum()
-            if len(r_enc.shape)==3:
+            if len(r_enc.shape)==3:   # online scenario
                 r_enc_red = align(r_enc, event_time, state_data[0]) # [B,L, m*d_phi]
                 r_enc_red = r_enc_red * non_pad_mask
             else:
