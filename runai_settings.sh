@@ -26,154 +26,182 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay
 
 
 # DA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
-
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
-
-
-
-# TEDA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
+# python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc2]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc2]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 2 " 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc2]DA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+
+# # TEDA__label
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc2]TEDA__label-" &
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc2]TEDA__label-" &
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 2 " 
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc2]TEDA__label-"
+
 
 
 # TEDA__shpmarklabel
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
-
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
 
 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 0 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
 
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 1 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 2 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 3 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+
+# EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 2 -split 4 " 
+# python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
+
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc2]TEDA__shpmarklabel-" &
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc2]TEDA__shpmarklabel-" &
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 2 " 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc2]TEDA__shpmarklabel-" &
 
 
 
@@ -188,110 +216,37 @@ COMMON="    -epoch 50 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay
 
 
 # DA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
-
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc1]DA__label-" 
 
 
 
 
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc2]DA__label-" &
 
-# TEDA__label
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $DA__label -user_prefix "[R12-mc2]DA__label-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
+# # TEDA__label
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc1]TEDA__label-" 
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc2]TEDA__label-" &
+
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $TEDA__label -user_prefix "[R12-mc2]TEDA__label-" &
+
 
 
 
 # TEDA__shpmarklabel
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 0 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
 
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 0 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 0 " 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc2]TEDA__shpmarklabel-" &
 
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 1 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 2 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 3 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" &
-
-EXP=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center 1 -split 4 " 
-python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc1]TEDA__shpmarklabel-" 
-
-
-
-
-
-
+EXP=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center 1 " 
+python Main.py $EXP $COMMON $TEDA__shpmarklabel -user_prefix "[R12-mc2]TEDA__shpmarklabel-" &
 
