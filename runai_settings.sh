@@ -5,7 +5,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=3
+N_JOBS=1
 USER_PREFIX=V1
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
@@ -14,7 +14,7 @@ USER_PREFIX=V1
 #  /codes/data      /scratch/hokarami/data             C:/DATA/data/processed
 
 PRE="/scratch/hokarami/data_tedam"
-# PRE="C:/DATA/data/processed"
+PRE="C:/DATA/data/processed"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 # EXP="  -setting mc2 -test_center 0 " 
@@ -34,7 +34,7 @@ TEDA__ml="-event_enc 1 -state       -mod ml    -next_mark 0  -sample_label 0"
 
 
 DATA_NAME="p12"
-COMMON="  -demo  -epoch 100 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
+COMMON="    -epoch 100 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
  
 
@@ -50,7 +50,7 @@ do
 
 
     waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]"  &
 
 
     waitforjobs $N_JOBS
