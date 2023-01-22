@@ -34,7 +34,7 @@ TEDA__ml="-event_enc 1 -state       -mod ml    -next_mark 0  -sample_label 0"
 
 
 DATA_NAME="p19"
-COMMON="    -epoch 1 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
+COMMON="    -epoch 100 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
  
 
@@ -43,7 +43,7 @@ do
     for i_split in {0..4}
     do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
     
     # echo $SETTING
 
@@ -75,7 +75,7 @@ done
 
 
 DATA_NAME="p12"
-COMMON="    -epoch 1 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
+COMMON="    -epoch 100 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 50 -wandb"
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
  
 
@@ -84,7 +84,7 @@ do
     for i_split in {0..4}
     do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
     
     # echo $SETTING
 
