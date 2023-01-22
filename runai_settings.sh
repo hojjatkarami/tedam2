@@ -5,7 +5,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=10
+N_JOBS=6
 USER_PREFIX=V1
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
