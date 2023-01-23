@@ -942,7 +942,7 @@ def options():
     # data handling
 
 
-    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl','rand',''], default='', help='max_epochs_without_improvement')
+    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl','rand','seft',''], default='', help='max_epochs_without_improvement')
     parser.add_argument('-test_center', type=str, default='', help='max_epochs_without_improvement')
     parser.add_argument('-split', type=str, default='', help='max_epochs_without_improvement')
 
@@ -1048,7 +1048,7 @@ def config(opt, justLoad=False):
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
             opt.run_path = opt.data + opt.run_name+'/'
-        elif opt.setting=='rand':
+        elif opt.setting in ['rand','seft']:
             opt.str_config = '-'+opt.setting
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)
