@@ -1,0 +1,5 @@
+
+
+
+source activate paper2022
+./runai_settings.sh

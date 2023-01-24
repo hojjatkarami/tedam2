@@ -1317,7 +1317,7 @@ def config(opt, justLoad=False):
                     # MLP encoder for combined values
         opt.DAM_config['n_phi_layers'] = 3
         opt.DAM_config['phi_width'] = 32
-        opt.DAM_config['phi_dropout'] = 0
+        opt.DAM_config['phi_dropout'] = 0.1
                     
                     # Cumulative Set Attention Layer
         opt.DAM_config['n_psi_layers'] = 2
@@ -1326,13 +1326,13 @@ def config(opt, justLoad=False):
                     
         opt.DAM_config['dot_prod_dim'] = 16
         opt.DAM_config['n_heads'] = 2
-        opt.DAM_config['attn_dropout'] = 0
+        opt.DAM_config['attn_dropout'] = 0.1
         opt.DAM_config['latent_width'] = 16
 
         
         opt.DAM_config['n_rho_layers'] = 2
         opt.DAM_config['rho_width'] = 32 #256
-        opt.DAM_config['rho_dropout'] = 0
+        opt.DAM_config['rho_dropout'] = 0.1
 
         opt.DAM_config['max_timescale'] = 1000
         opt.DAM_config['n_positional_dims'] = 4
@@ -1390,7 +1390,7 @@ def process_hparams(trial,opt):
     opt.lr = trial.suggest_categorical('lr', [1e-4,1e-3,1e-2])
 
     opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-3,1e-2,1e-1,1])
-
+    opt.w_pos_label = trial.suggest_categorical('w_pos_label', [0.1, 0.3,0.5,0.7,1,2])
     # opt.batch_size = trial.suggest_categorical('batch_size', [8,16,32,64,128])
 
     if opt.event_enc:
