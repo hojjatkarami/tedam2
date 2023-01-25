@@ -17,7 +17,7 @@ PRE="/scratch/hokarami/data_tedam"
 # PRE="C:/DATA/data/processed"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
-# EXP="  -setting mc2 -test_center 0 " 
+# EXP="  -setting mc2 -test_center 0 "
 # declare -i REP=3
 
 
@@ -45,11 +45,11 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting seft  "
 # python main.py  $COEFS $SETTING $COMMON $DA__label -user_prefix "[$USER_PREFIX]" &
 
 COMMON="  -demo  -epoch 30 -per 100 -w_pos -batch_size 128  -lr 0.01 -weight_decay 0.1  -ES_pat 100 -wandb   -w_pos_label 0.7  "
-python main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
-python main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
-python main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
-python main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
-python main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
+python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
+python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
+python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
+python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
+python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
 
 
 for i_hosp in {0..0}
