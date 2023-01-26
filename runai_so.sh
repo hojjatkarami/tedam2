@@ -75,7 +75,7 @@ do
 
     # echo $SETTING
 
-    COMMON=" -w_pos -epoch 100 -per 100  -batch_size 128  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
+    COMMON=" -w_pos -epoch 100 -per 100  -batch_size 64  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
 
     COMMON="   -epoch 100 -per 100 -batch_size 64  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc sum "
