@@ -15,7 +15,7 @@ USER_PREFIX=SO
 PRE="/scratch/hokarami/data_tedam"
 PRE="C:/DATA/data/processed"
 PRE="/scratch/hokarami/new"
-# PRE="/scratch/hokarami/data_old"
+PRE="/scratch/hokarami/data_old"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 # EXP="  -setting mc2 -test_center 0 "
