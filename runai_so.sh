@@ -63,16 +63,19 @@ python Main.py  $COEFS $SETTING $COMMON $TE__markmc -user_prefix "[$USER_PREFIX]
 # python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
 
 
-for i_hosp in {0..0}
-do
-    for i_split in {0..0}
-    do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -setting seft -test_center $i_hosp -split $i_split " 
+for i_split in {0..0}
+do
+
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split -data_label multiclass" 
     
     # echo $SETTING
 
+    COMMON="   -epoch 30 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
+    python Main.py  $COEFS $SETTING $COMMON $TE__markmc -user_prefix "[$USER_PREFIX]" &
 
+    COMMON="   -epoch 30 -per 100 -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc sum "
+    python Main.py  $COEFS $SETTING $COMMON $TE__markmc -user_prefix "[$USER_PREFIX]" &
 
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]"  &
@@ -92,9 +95,9 @@ do
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
 
-    done
-    
 done
+    
+
 
 
 
