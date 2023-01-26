@@ -1043,10 +1043,21 @@ def config(opt, justLoad=False):
 
         print(f"[Info] ### Point Process strategy: {opt.mod} ###")
 
+
+
+
+        if 'data_so' in opt.data:
+            opt.dataset='SO'
+        # elif 'data_so' in opt.data:
+        #     opt.dataset='SO'
         if opt.setting=='':
             opt.str_config = '-'
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)+opt.str_config
+
+            if opt.split !='':
+                opt.data=opt.data+'split'+opt.split+'/'
+                print(opt.data)
             opt.run_path = opt.data + opt.run_name+'/'
         elif opt.setting in ['rand','seft']:
             opt.str_config = '-'+opt.setting
@@ -1183,7 +1194,7 @@ def config(opt, justLoad=False):
 
 
     opt.device = torch.device('cuda') if (torch.cuda.is_available() and opt.cuda) else torch.device('cpu')
-
+    print(f"############################## CUDA {torch.cuda.is_available()}")
     # setup the log file
     # with open(opt.log, 'w') as f:
     #     f.write('Epoch, Log-likelihood, Accuracy, RMSE\n')
