@@ -126,7 +126,9 @@ def prepare_dataloader(opt):
             data = pickle.load(f, encoding='latin-1')
             # num_types = int(data['dim_process'])
 
-
+            # print(data.keys())
+            # print(dict_name)
+            # term
             if 'dim_process' in data:
                 additional_info['num_types'] = data['dim_process']
             if 'num_marks' in data:
@@ -587,10 +589,13 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             cm = metrics.multilabel_confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
-
+            
             dict_metrics.update({
 
                 'NextType(ML)/auc-ovo-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted'),
+                'NextType(ML)/auc-ovo-micro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='micro'),
+                'NextType(ML)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro'),
+
                 'NextType(ML)/auc-PR-weighted': metrics.average_precision_score(y_true, y_score ,average='weighted'),
                 'NextType(ML)/f1-weighted': metrics.f1_score(y_true, y_pred ,average='weighted', zero_division=0),
                 'NextType(ML)/precision-weighted': metrics.precision_score(y_true, y_pred ,average='weighted', zero_division=0),
@@ -1048,8 +1053,15 @@ def config(opt, justLoad=False):
 
         if 'data_so' in opt.data:
             opt.dataset='SO'
-        # elif 'data_so' in opt.data:
-        #     opt.dataset='SO'
+        elif 'data_hawkes' in opt.data:
+            opt.dataset='hawkes'
+
+        elif 'MHP' in opt.data:
+            opt.dataset='MHP'
+        elif 'synthea_full' in opt.data:
+            opt.dataset='synthea_full'
+
+            
         if opt.setting=='':
             opt.str_config = '-'
             # Tensorboard integration
