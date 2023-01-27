@@ -38,7 +38,7 @@ TEDA__ml="-event_enc 1 -state       -mod ml    -next_mark 0  -sample_label 0"
 
 
 
-DATA_NAME="synthea_full"
+DATA_NAME="retweets"
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
  
@@ -76,7 +76,7 @@ do
     # echo $SETTING
 
     COMMON=" -w_pos -epoch 100 -per 100  -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
+    echo python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
 
     # COMMON="  -w_pos -epoch 100 -per 100 -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc sum "
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
