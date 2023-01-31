@@ -15,7 +15,7 @@ USER_PREFIX=NN
 PRE="/scratch/hokarami/data_tedam"
 PRE="C:/DATA/data/processed"
 PRE="/scratch/hokarami/new"
-# PRE="/scratch/hokarami/data_old"
+PRE="/scratch/hokarami/data_old"
 
 
 
