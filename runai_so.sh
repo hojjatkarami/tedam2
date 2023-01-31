@@ -4,7 +4,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=3
+N_JOBS=4
 USER_PREFIX=NN
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
@@ -41,7 +41,7 @@ DATA_NAME="data_so"
 COMMON="  -data_label multiclass  -epoch 40 -per 100  -batch_size 8  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
-for i_split in {0..0}
+for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
@@ -58,7 +58,7 @@ DATA_NAME="synthea_full"
 COMMON="  -data_label multilabel  -epoch 40 -per 100  -batch_size 64  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
-for i_split in {0..0}
+for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
@@ -74,7 +74,7 @@ DATA_NAME="retweets"
 COMMON="  -data_label multilabel  -epoch 40 -per 100  -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
-for i_split in {0..0}
+for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
