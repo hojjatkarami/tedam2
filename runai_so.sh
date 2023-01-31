@@ -4,7 +4,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=4
+N_JOBS=2
 USER_PREFIX=NN
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
