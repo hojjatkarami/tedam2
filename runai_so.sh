@@ -15,7 +15,7 @@ USER_PREFIX=SO
 PRE="/scratch/hokarami/data_tedam"
 PRE="C:/DATA/data/processed"
 PRE="/scratch/hokarami/new"
-PRE="/scratch/hokarami/data_old"
+# PRE="/scratch/hokarami/data_old"
 
 #p12_full_seft,  p12_full_hosp,                  physio2019_1d_HP_std_AB,          physio2019_1d_HP_std_rand
 # EXP="  -setting mc2 -test_center 0 "
@@ -75,8 +75,8 @@ do
 
     # echo $SETTING
 
-    COMMON="  -epoch 100 -per 100  -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
+    COMMON="  -epoch 100 -per 100  -batch_size 8  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc concat "
+    echo python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
 
     # COMMON="  -w_pos -epoch 100 -per 100 -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb  -time_enc sum "
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" &
