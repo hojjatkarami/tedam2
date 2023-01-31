@@ -4,7 +4,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=2
+N_JOBS=5
 USER_PREFIX=NN
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
@@ -45,9 +45,11 @@ for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-
+        
+        waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
-
+    
+    waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
 
@@ -62,9 +64,11 @@ for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-
+    
+    waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
-
+    
+    waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
 
@@ -78,9 +82,11 @@ for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-
+    
+    waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
-
+    
+    waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
 
