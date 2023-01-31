@@ -54,24 +54,8 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 # done
     
 
-# DATA_NAME="synthea_full"
-# COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 64  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
-
- 
-# for i_split in {0..0}
-# do
-
-#     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-
-#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
-
-#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
-
-
-# done
-
-DATA_NAME="retweets"
-COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 256  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+DATA_NAME="synthea_full"
+COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 64  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
 for i_split in {0..0}
@@ -85,5 +69,21 @@ do
 
 
 done
+
+# DATA_NAME="retweets"
+# COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 256  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+
+ 
+# for i_split in {0..0}
+# do
+
+#     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+
+#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+
+#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
+
+
+# done
 
 
