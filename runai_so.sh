@@ -71,7 +71,7 @@ do
 done
 
 DATA_NAME="retweets"
-COMMON="  -data_label multiclass  -epoch 3 -per 100  -batch_size 256  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 256  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
 for i_split in {0..0}
