@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=5
-USER_PREFIX=SO
+USER_PREFIX=NN
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -38,89 +38,52 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 DATA_NAME="data_so"
-COMMON="  -data_label multiclass  -epoch 30 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON="  -data_label multiclass  -epoch 3 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
-
-
-
-
 for i_split in {0..0}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-    # SETTING=" -data  $PRE/$DATA_NAME/                 -data_label multiclass" 
-    # SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split -data_label multilabel" 
-
-    # echo $SETTING
-
 
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
 
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]"  &
-
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__shpmark -user_prefix "[$USER_PREFIX]" &
-
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__ml -user_prefix "[$USER_PREFIX]" &
-
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $DA__label -user_prefix "[$USER_PREFIX]" &
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
 
 done
     
 
+DATA_NAME="synthea_full"
+COMMON="  -data_label multilabel  -epoch 3 -per 100  -batch_size 64  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
-
-
-
-
-DATA_NAME="p19"
-COMMON="  -demo  -epoch 100 -per 100 -w_pos -batch_size 128  -lr 0.00245 -weight_decay 0.1  -ES_pat 100 -wandb"
-COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
  
-
-for i_hosp in {0..0}
+for i_split in {0..0}
 do
-    for i_split in {0..0}
-    do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
-    
-    # echo $SETTING
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
 
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
 
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]"  &
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__shpmark -user_prefix "[$USER_PREFIX]" &
+done
+
+DATA_NAME="retweets"
+COMMON="  -data_label multiclass  -epoch 3 -per 100  -batch_size 256  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+
+ 
+for i_split in {0..0}
+do
+
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
 
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__ml -user_prefix "[$USER_PREFIX]" &
-
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $DA__label -user_prefix "[$USER_PREFIX]" &
-
-    # waitforjobs $N_JOBS
-    # python Main.py  $COEFS $SETTING $COMMON $TEDA__label -user_prefix "[$USER_PREFIX]" &
-
-    done
-    
 done
 
 
