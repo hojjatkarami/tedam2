@@ -1053,6 +1053,8 @@ def config(opt, justLoad=False):
 
         if 'data_so' in opt.data:
             opt.dataset='SO'
+        elif 'new_so' in opt.data:
+            opt.dataset='NEW_SO'
         elif 'data_hawkes' in opt.data:
             opt.dataset='hawkes'
 
