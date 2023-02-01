@@ -9,6 +9,7 @@
 
 
 
+
         // {
         //     "name": "Python: Current File",
         //     "type": "python",
@@ -85,7 +86,10 @@
             // physio2019
             "args": [
 
-                "-w_sample_label", "10000", "-w_time", "1", "-w_event", "1", "-data", "/scratch/hokarami/new/retweets/", "-split", "0", "-data_label", "multilabel", "-epoch", "100", "-per", "100", "-batch_size", "8", "-lr", "0.003", "-weight_decay", "0.1", "-ES_pat", "100", "-wandb", "-time_enc", "concat", "-event_enc", "1", "-mod", "single", "-next_mark", "1", "-sample_label", "0", "-user_prefix", "[SO]"
+
+               "-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/synthea_full/","-split","2","-w_pos","-data_label","multilabel","-epoch","100","-per","100","-batch_size","64","-lr","0.003","-weight_decay","0.1","-ES_pat","100","-wandb","-event_enc","1","-mod","single","-next_mark","1","-sample_label","0","-user_prefix","[BB]","-time_enc","concat"
+
+                // "-w_sample_label", "10000", "-w_time", "1", "-w_event", "1", "-data", "/scratch/hokarami/new/retweets/", "-split", "0", "-data_label", "multilabel", "-epoch", "100", "-per", "100", "-batch_size", "8", "-lr", "0.003", "-weight_decay", "0.1", "-ES_pat", "100", "-wandb", "-time_enc", "concat", "-event_enc", "1", "-mod", "single", "-next_mark", "1", "-sample_label", "0", "-user_prefix", "[SO]"
                
                 // "-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/synthea_full/","-split","0","-data_label","multilabel","-epoch","100","-per","100","-batch_size","64","-lr","0.0003","-weight_decay","0.1","-ES_pat","100","-wandb","-time_enc","concat","-event_enc","1","-mod","single","-next_mark","1","-sample_label","0","-user_prefix","[SO]"
 

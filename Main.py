@@ -722,7 +722,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
     # PRE eval
     start = time.time()
-    valid_event, valid_type, valid_time, dict_metrics_test = valid_epoch(model, validloader, pred_loss_func, opt)
+    valid_event, valid_type, valid_time, dict_metrics_test = valid_epoch(model, testloader, pred_loss_func, opt)
     print('  - (PRE Testing)     loglikelihood: {ll: 8.5f}, '
             'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
             'elapse: {elapse:3.3f} min'
