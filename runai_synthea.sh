@@ -49,7 +49,7 @@ do
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
     
     waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+    echo python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
     
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &

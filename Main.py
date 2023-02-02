@@ -1293,7 +1293,7 @@ def config(opt, justLoad=False):
 
     if opt.w_class:
         opt.w = torch.tensor(opt.w, device=opt.device, dtype=torch.float32)
-        print('[Info] pos weigths:\n',opt.w)
+        print('[Info] w_class:\n',opt.w)
 
     else:
         opt.w = torch.ones(opt.num_marks, device=opt.device, dtype=torch.float32)/opt.num_marks
