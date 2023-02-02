@@ -50,11 +50,11 @@ do
     
     
 
-    waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 0.02 &
+    # waitforjobs $N_JOBS
+    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 0.02 &
 
-    waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 0.1 &
+    # waitforjobs $N_JOBS
+    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 0.1 &
 
     waitforjobs $N_JOBS
     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 1 &
