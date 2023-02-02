@@ -65,6 +65,9 @@ do
     waitforjobs $N_JOBS
     python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 1 &
 
+    waitforjobs $N_JOBS
+    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX wd10]" -time_enc concat  -weight_decay 10 &
+
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  &
     # waitforjobs $N_JOBS
