@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=1
-USER_PREFIX=R4-b128-alpha50
+USER_PREFIX=R4-alpha50
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -40,7 +40,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
     
 
 DATA_NAME="synthea_full"
-COMMON=" -pos_alpha 50 -data_label multilabel  -epoch 30 -per 100  -batch_size 128  -lr 0.003   -ES_pat 100 -wandb "
+COMMON=" -pos_alpha 100 -data_label multilabel  -epoch 30 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
 
 HPs="-te_d_mark 128 -te_d_time 64 -te_d_inner 512 -te_d_k 64 -te_d_v 64 "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
