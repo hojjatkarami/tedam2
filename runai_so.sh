@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=2
-USER_PREFIX=R4
+USER_PREFIX=R4-OPT
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -15,7 +15,7 @@ USER_PREFIX=R4
 PRE="/scratch/hokarami/data_tedam"
 PRE="C:/DATA/data/processed"
 PRE="/scratch/hokarami/new"
-# PRE="/scratch/hokarami/data_old"
+PRE="/scratch/hokarami/data_old"
 
 
 
@@ -38,7 +38,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 DATA_NAME="data_so"
-COMMON=" -data_label multiclass  -epoch 30 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON=" -data_label multiclass  -epoch 20 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
  
 for i_split in {0..0}
@@ -50,7 +50,7 @@ do
     # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
     
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX-wclass]" -time_enc concat -w_class &
+    python tune_optuna.py  $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
     
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &

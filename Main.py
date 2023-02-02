@@ -752,7 +752,16 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     if opt.mod!='none':
         best_test_metric.update({'CIF/LL-#events':0})
         best_valid_metric.update({'CIF/LL-#events':0})
-    
+    if opt.next_mark:
+        
+        
+        if opt.data_label=='multilabel':
+            best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
+            best_valid_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
+        elif opt.data_label=='multiclass':
+            best_test_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
+            best_valid_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
+
     for epoch_i in tqdm(range(opt.epoch), leave=False):
         epoch = epoch_i + 1
         # print('[ Epoch', epoch, ']')
@@ -830,6 +839,10 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
         if 'pred_label/f1-binary' in dict_metrics_test: 
             inter_Obj_val = dict_metrics_test['pred_label/f1-binary']
+        elif 'NextType(ML)/f1-weighted' in dict_metrics_test: 
+            inter_Obj_val = dict_metrics_test['NextType(ML)/f1-weighted']
+        elif 'NextType(MC)/f1-weighted' in dict_metrics_test: 
+            inter_Obj_val = dict_metrics_test['NextType(MC)/f1-weighted']
         elif 'CIF/LL-#events' in dict_metrics_test: 
             inter_Obj_val = dict_metrics_test['CIF/LL-#events']
         else:
@@ -1413,18 +1426,30 @@ def process_hparams(trial,opt):
     #         argv.append(str(hparam))
 
     # print(argv)
+    print('############################################ HP')
 
     # opt.w_pos_label = trial.suggest_float('w_pos_label',0.2, 5,step=0.1)
 
     # opt.weight_decay = trial.suggest_float('weight_decay',1e-4, 1,log=True)
-    # opt.lr = trial.suggest_float('lr',1e-5, 1e-2,log=True)
-
     # opt.lr = trial.suggest_categorical('lr', [1e-4,1e-3,1e-2])
-    opt.lr = trial.suggest_categorical('lr', [0.0024])
+    # opt.lr = trial.suggest_categorical('lr', [0.03,0.0003])
 
-    opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-3,1e-2,1e-1,1])
-    opt.w_pos_label = trial.suggest_categorical('w_pos_label', [0.1, 0.3,0.5,0.7,1,2])
-    # opt.batch_size = trial.suggest_categorical('batch_size', [8,16,32,64,128])
+    # opt.weight_decay = trial.suggest_categorical('weight_decay', [1e-3,1e-2,1e-1,1])
+    # opt.w_pos_label = trial.suggest_categorical('w_pos_label', [0.1, 0.3,0.5,0.7,1,2])
+
+
+
+    if opt.dataset=='synthea_full':
+        # opt.lr = trial.suggest_float('lr',0.0003, 0.03,log=True)
+        opt.lr = trial.suggest_categorical('lr', [0.001,0.003,0.01])
+
+        opt.batch_size = trial.suggest_categorical('batch_size', [32,64,128])
+        opt.te_d_mark = trial.suggest_categorical('te_d_mark', [16,32,64,128])
+    if opt.dataset=='SO':
+        # opt.lr = trial.suggest_float('lr',0.0003, 0.03,log=True)
+        opt.lr = trial.suggest_categorical('lr', [0.0001,0.0003,0.001])
+
+        opt.batch_size = trial.suggest_categorical('batch_size', [4,8,16])
 
     if opt.event_enc:
         # # # opt.TE_config['n_marks'] = opt.num_marks              

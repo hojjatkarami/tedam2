@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=1
-USER_PREFIX=R4-alpha50
+USER_PREFIX=R4-OPT
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -40,7 +40,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
     
 
 DATA_NAME="synthea_full"
-COMMON=" -pos_alpha 100 -data_label multilabel  -epoch 30 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
+COMMON=" -w_pos -pos_alpha 1 -data_label multilabel  -epoch 20 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
 
 HPs="-te_d_mark 128 -te_d_time 64 -te_d_inner 512 -te_d_k 64 -te_d_v 64 "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
@@ -48,7 +48,7 @@ HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
  
-for i_split in {1..4}
+for i_split in {1..1}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
@@ -68,7 +68,7 @@ do
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.01 &
 
     waitforjobs $N_JOBS
-    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 1 &
+    python tune_optuna.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 1 &
 
 
 
