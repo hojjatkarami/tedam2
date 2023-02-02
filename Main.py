@@ -317,8 +317,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
         if hasattr(model, 'event_decoder'):
             log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
             
-            temp = (-torch.sum(log_sum - integral_))  *opt.w_event*1
-            log_loss['loss/event_decoder']+=temp.item()/event_time.shape[0]
+            temp = (-torch.sum(log_sum - integral_))  *opt.w_event
+            log_loss['loss/event_decoder']+=temp.item()#/event_time.shape[0]
             total_loss.append( temp )
 
 
@@ -729,7 +729,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             .format(ll=valid_event, type=valid_type, rmse=valid_time, elapse=(time.time() - start) / 60))
 
     # logging
-    write_to_summary(dict_metrics_test, opt, i_epoch=0,prefix='Valid-')
+    write_to_summary(dict_metrics_test, opt, i_epoch=0,prefix='Test-')
 
     best_metric=-100
         # Initialize the early stopping counter
@@ -747,7 +747,8 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     if opt.sample_label:
         best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
         best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
-
+    # elif opt.next_mark:
+        
     if opt.mod!='none':
         best_test_metric.update({'CIF/LL-#events':0})
         best_valid_metric.update({'CIF/LL-#events':0})
@@ -808,10 +809,10 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
 
-        # logging
-        with open(opt.log, 'a') as f:
-            f.write('{epoch}, {ll: 8.5f}, {acc: 8.5f}, {rmse: 8.5f}\n'
-                    .format(epoch=epoch, ll=valid_event, acc=valid_type, rmse=valid_time))
+        # # logging
+        # with open(opt.log, 'a') as f:
+        #     f.write('{epoch}, {ll: 8.5f}, {acc: 8.5f}, {rmse: 8.5f}\n'
+        #             .format(epoch=epoch, ll=valid_event, acc=valid_type, rmse=valid_time))
 
         
         
@@ -1005,7 +1006,7 @@ def options():
         # CIFs
     parser.add_argument('-mod', type=str, choices=['single','mc','ml','none'], default='single', help='specify the mod')
     parser.add_argument('-int_dec', type=str, choices=['thp','sahp'], default='sahp', help='specify the inteesity decoder')
-    parser.add_argument('-w_event', type=int, default=1)
+    parser.add_argument('-w_event', type=float, default=1)
 
         # marks
     parser.add_argument('-next_mark',  type=int, choices=[0,1], default=1, help='0: mark not detached, 1: mark detached')
@@ -1015,13 +1016,13 @@ def options():
     parser.add_argument('-mark_detach',  type=int, choices=[0,1], default=0, help='0: mark not detached, 1: mark detached')
 
         # times
-    parser.add_argument('-w_time', type=int, default=1.0)
+    parser.add_argument('-w_time', type=float, default=1.0)
 
         # final sample label
     # parser.add_argument('-sample_label', action='store_true', dest='sample_label', help='consider state?')
     parser.add_argument('-sample_label',  type=int, choices=[0,1,2], default=0, help='2 for detach')
     parser.add_argument('-w_pos_label', type=float, default=1.0)
-    parser.add_argument('-w_sample_label', type=int, default=10000.0)
+    parser.add_argument('-w_sample_label', type=float, default=10000.0)
 
 
     opt = parser.parse_args()
@@ -1269,17 +1270,17 @@ def config(opt, justLoad=False):
     else:
         opt.num_demos=0
 
-    if opt.w_class:
-        # opt.w_class = [0.01602763, 0.01989574, 0.0247974 , 0.04106871, 0.02056413,
-        #                     0.01968509, 0.02592123, 0.03442   , 0.02894503, 0.03738965,
-        #                     0.03015046, 0.03117576, 0.03434853, 0.03477166, 0.04845101,
-        #                     0.03590284, 0.05527879, 0.05201981, 0.13104338, 0.12973979,
-        #                     0.14840336]
-        w = torch.tensor(opt.w, device=opt.device)
-        print('[Info] class weigths:\n',w)
+    # if opt.w_class:
+    #     # opt.w_class = [0.01602763, 0.01989574, 0.0247974 , 0.04106871, 0.02056413,
+    #     #                     0.01968509, 0.02592123, 0.03442   , 0.02894503, 0.03738965,
+    #     #                     0.03015046, 0.03117576, 0.03434853, 0.03477166, 0.04845101,
+    #     #                     0.03590284, 0.05527879, 0.05201981, 0.13104338, 0.12973979,
+    #     #                     0.14840336]
+    #     w = torch.tensor(opt.w, device=opt.device)
+    #     print('[Info] class weigths:\n',w)
 
-    else:
-        w = torch.ones(opt.num_marks, device=opt.device)/opt.num_marks
+    # else:
+    #     w = torch.ones(opt.num_marks, device=opt.device)/opt.num_marks
 
     if opt.w_pos:
         opt.pos_weight = torch.tensor(opt.pos_weight, device=opt.device)
@@ -1291,11 +1292,11 @@ def config(opt, justLoad=False):
 
 
     if opt.w_class:
-        opt.w = torch.tensor(opt.w, device=opt.device)
+        opt.w = torch.tensor(opt.w, device=opt.device, dtype=torch.float32)
         print('[Info] pos weigths:\n',opt.w)
 
     else:
-        opt.w = torch.ones(opt.num_marks, device=opt.device)
+        opt.w = torch.ones(opt.num_marks, device=opt.device, dtype=torch.float32)/opt.num_marks
 
     # if opt.mod=='SHP_marked' or opt.mod=='None':
     #     opt.type_loss = Utils.type_loss_BCE
@@ -1313,7 +1314,7 @@ def config(opt, justLoad=False):
         opt.pred_loss_func = nn.BCEWithLogitsLoss(reduction='none', weight=opt.w, pos_weight=opt.pos_weight)
     elif opt.data_label=='multiclass':
         opt.type_loss = Utils.type_loss_CE
-        opt.pred_loss_func = nn.CrossEntropyLoss(ignore_index=-1, reduction='none', weight=w)
+        opt.pred_loss_func = nn.CrossEntropyLoss(ignore_index=-1, reduction='none', weight=opt.w)
     
     opt.label_loss_fun = nn.BCEWithLogitsLoss(reduction='none', pos_weight=torch.tensor(opt.w_pos_label, device=opt.device))
 
