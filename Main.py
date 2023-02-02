@@ -1288,7 +1288,7 @@ def config(opt, justLoad=False):
         print('[Info] pos weigths:\n',opt.pos_weight)
 
     else:
-        opt.pos_weight = torch.ones(opt.num_marks, device=opt.device)
+        opt.pos_weight = torch.ones(opt.num_marks, device=opt.device)*opt.pos_alpha
 
 
     if opt.w_class:
