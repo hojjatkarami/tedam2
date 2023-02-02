@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=1
-USER_PREFIX=R4-FULL11
+USER_PREFIX=R4-te32
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -44,6 +44,7 @@ COMMON=" -w_pos -pos_alpha 1 -data_label multilabel  -epoch 30 -per 100  -batch_
 
 HPs="-te_d_mark 128 -te_d_time 64 -te_d_inner 512 -te_d_k 64 -te_d_v 64 "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
+HPs="-te_d_mark 32 -te_d_time 32 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
  
