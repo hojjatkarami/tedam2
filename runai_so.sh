@@ -37,7 +37,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-DATA_NAME="new_so"
+DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 30 -per 100  -batch_size 8  -lr 0.0003 -weight_decay 0.1  -ES_pat 100 -wandb "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
  
