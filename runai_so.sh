@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=2
-USER_PREFIX=CC
+USER_PREFIX=R1
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -38,7 +38,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 DATA_NAME="data_so"
-COMMON=" -w_class -data_label multiclass  -epoch 30 -per 100  -batch_size 8  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON=" -data_label multiclass  -epoch 30 -per 100  -batch_size 8  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
 for i_split in {0..4}
