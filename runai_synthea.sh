@@ -40,7 +40,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
     
 
 DATA_NAME="synthea_full"
-COMMON=" -data_label multilabel  -epoch 100 -per 100  -batch_size 64  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON=" -w_pos -pos_alpha 1 -data_label multilabel  -epoch 100 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
 
  
 for i_split in {1..4}
@@ -56,12 +56,17 @@ do
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_pos -pos_alpha 0.1 &
 
-    waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_class -w_pos -pos_alpha 1 &
+    # waitforjobs $N_JOBS
+    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.1 &
     
+    waitforjobs $N_JOBS
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.01 &
 
     waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat -w_class &
+    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 1 &
+
+    # waitforjobs $N_JOBS
+    # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  &
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -pos_alpha 0.5 &
 
