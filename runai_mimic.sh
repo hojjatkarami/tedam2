@@ -38,7 +38,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 DATA_NAME="data_mimic"
-COMMON=" -data_label multiclass  -epoch 100 -per 100  -batch_size 1  -lr 0.0001 -weight_decay 0.1  -ES_pat 100 -wandb "
+COMMON=" -data_label multiclass  -epoch 100 -per 100  -batch_size 8  -lr 0.0001 -weight_decay 0.1  -ES_pat 100 -wandb "
 HPs="-te_d_mark 64 -te_d_time 16 -te_d_inner 256 -te_d_k 32 -te_d_v 32  -te_n_head 3 -te_n_layers 3 "
 # HPs="-te_d_mark 512 -te_d_time 16 -te_d_inner 1024 -te_d_k 512 -te_d_v 512 "
 # HPs="-te_d_mark 64 -te_d_time 16 -te_d_inner 256 -te_d_k 64 -te_d_v 64    -te_n_head 1 -te_n_layers 1 "
