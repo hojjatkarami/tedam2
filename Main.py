@@ -637,7 +637,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
             dict_metrics.update({
                 # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
-                # 'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
+                'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
                 'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
 
                 'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
@@ -1067,11 +1067,14 @@ def config(opt, justLoad=False):
 
         if 'data_so' in opt.data:
             opt.dataset='SO'
+        if 'data_so_concat' in opt.data:
+            opt.dataset='SO_CON'
         elif 'new_so' in opt.data:
             opt.dataset='NEW_SO'
         elif 'data_hawkes' in opt.data:
             opt.dataset='hawkes'
-
+        if 'data_mimic' in opt.data:
+            opt.dataset='MIMIC-II'
         elif 'MHP' in opt.data:
             opt.dataset='MHP'
         elif 'synthea_full' in opt.data:
@@ -1307,9 +1310,25 @@ def config(opt, justLoad=False):
     if opt.w_class:
 
         if opt.dataset=='SO':
-             opt.w =[0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272,
-        0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272,
-        0.0272, 0.0272, 0.1271, 0.3292]
+            opt.w =[0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272,
+                    0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272, 0.0272,
+                    0.0272, 0.0272, 0.1271, 0.3292]
+            freq =  np.array([ 3142,   874,   286, 22042,  2865,  2845,   996,   926, 11680,
+                    685,   122,  1417,   402,   888,   135,    49,   151,   249,
+                    167,    36,     9,     5])
+            
+            freq_per=freq/freq.sum()*100
+            freq[freq_per<1]=freq.sum()/100
+            w_norm = 1.0 / np.sqrt(freq)
+
+            # w_norm =  np.array([0.0096, 0.0181, 0.0317, 0.0036, 0.0100, 0.0100, 0.0170, 0.0176, 0.0050,
+            #             0.0205, 0.0485, 0.0142, 0.0267, 0.0180, 0.0461, 0.01, 0.0436, 0.0340,
+            #             0.0415, 0.01, 0.01, 0.01])
+
+            opt.w = w_norm / w_norm.sum()
+
+
+
         opt.w = torch.tensor(opt.w, device=opt.device, dtype=torch.float32)
         print('[Info] w_class:\n',opt.w)
 
@@ -1729,7 +1748,7 @@ def main(trial=None):
 
     """ optimizer and scheduler """
     optimizer = optim.Adam(filter(lambda x: x.requires_grad, model.parameters()),
-                           opt.lr, betas=(0.9, 0.999), eps=1e-05, weight_decay=opt.weight_decay)
+                           opt.lr, betas=(0.9, 0.999), eps=1e-05)#, weight_decay=opt.weight_decay)
     # optimizer = optim.SGD(filter(lambda x: x.requires_grad, model.parameters()),
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
     scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)

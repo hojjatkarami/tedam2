@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=2
-USER_PREFIX=R5-OPT
+USER_PREFIX=R5-ml-sum
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -37,9 +37,11 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-DATA_NAME="new_so"
+DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 20 -per 100  -batch_size 4  -lr 0.001 -weight_decay 0.1  -ES_pat 100 -wandb "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
+# HPs="-te_d_mark 512 -te_d_time 16 -te_d_inner 1024 -te_d_k 512 -te_d_v 512 "
+# HPs="-te_d_mark 64 -te_d_time 16 -te_d_inner 256 -te_d_k 64 -te_d_v 64    -te_n_head 1 -te_n_layers 1 "
  
 for i_split in {0..0}
 do
@@ -50,7 +52,7 @@ do
     # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
     
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__markmc -user_prefix "[$USER_PREFIX w_class]" -time_enc sum -w_class &
     
     # waitforjobs $N_JOBS
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
