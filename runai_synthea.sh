@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=1
-USER_PREFIX=R5-OPT
+USER_PREFIX=R5-NoCIF
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -15,7 +15,7 @@ USER_PREFIX=R5-OPT
 PRE="/scratch/hokarami/data_tedam"
 PRE="C:/DATA/data/processed"
 PRE="/scratch/hokarami/new"
-PRE="/scratch/hokarami/data_old"
+# PRE="/scratch/hokarami/data_old"
 
 
 
@@ -33,14 +33,14 @@ TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample
 TEDA__shp="-event_enc 1 -state       -mod single    -next_mark 0  -sample_label 0"
 TEDA__ml="-event_enc 1 -state       -mod ml    -next_mark 0  -sample_label 0"
 
-COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
+COEFS="-w_sample_label 10000  -w_time 1 -w_event 0"
 
 
 
     
 
 DATA_NAME="synthea_full"
-COMMON=" -w_pos -pos_alpha 1 -data_label multilabel  -epoch 20 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
+COMMON=" -w_pos -pos_alpha 1 -data_label multilabel  -epoch 20 -per 100  -batch_size 32  -lr 0.003   -ES_pat 100 -wandb "
 
 HPs="-te_d_mark 128 -te_d_time 64 -te_d_inner 512 -te_d_k 64 -te_d_v 64 "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "

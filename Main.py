@@ -1748,7 +1748,7 @@ def main(trial=None):
 
     """ optimizer and scheduler """
     optimizer = optim.Adam(filter(lambda x: x.requires_grad, model.parameters()),
-                           opt.lr, betas=(0.9, 0.999), eps=1e-05)#, weight_decay=opt.weight_decay)
+                           opt.lr, betas=(0.9, 0.999), eps=1e-05, weight_decay=opt.weight_decay)
     # optimizer = optim.SGD(filter(lambda x: x.requires_grad, model.parameters()),
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
     scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
