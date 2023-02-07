@@ -1299,10 +1299,17 @@ def config(opt, justLoad=False):
     #     w = torch.ones(opt.num_marks, device=opt.device)/opt.num_marks
 
     if opt.w_pos:
+        # if opt.dataset=='synthea_full':
+        #     opt.pos_weight =[ 8.23580348,2.31585837,36.0073046,11.9821909,39.84079,14.32224406,50.,50.,16.04390244,17.78494624,32.34188878,50.,2.77125205,18.79410041,50.,23.41590361,50.,50.,50.,10.93193594,19.74651925,12.84613282,13.06524153,11.34328176,48.69396763,50.,50.,33.51158038,50.,11.59490367,45.14116576,16.92428799,16.92428799,50.,33.48808713,23.05650522,50.,50.,50.,22.30940879,21.25477707,21.25477707,50.,50.,50.,50.,13.12996793,50.,50.,50. ]
+
+
+        # [ 7.84162575, 2.19302022, 36.39817113, 31.86831228, 11.63106111, 15.67052932, 17.00408779, 13.93468621, 50., 46.80945224, 16.63586521, 16.63586521, 50., 11.23954681, 39.0563873, 2.9556056, 20.13569583, 22.43892255, 11.13217782, 25.1326335, 50., 50., 50., 50., 50., 50., 48.80567154, 49.97631766, 50., 50., 50., 50., 50., 50., 9.56005164, 16.51287698, 15.31707039, 50., 26.60152333, 50., 15.82236456, 19.50884734, 19.50884734, 35.18796612, 50., 50., 50., 39.88588975, 50., 13.31772943]
+
         opt.pos_weight = torch.tensor(opt.pos_weight, device=opt.device)
         opt.pos_weight = opt.pos_weight*opt.pos_alpha
         print('[Info] pos weigths:\n',opt.pos_weight)
 
+       
     else:
         opt.pos_weight = torch.ones(opt.num_marks, device=opt.device)*opt.pos_alpha
 
@@ -1327,13 +1334,13 @@ def config(opt, justLoad=False):
 
             opt.w = w_norm / w_norm.sum()
 
-
+         
 
         opt.w = torch.tensor(opt.w, device=opt.device, dtype=torch.float32)
         print('[Info] w_class:\n',opt.w)
 
     else:
-        opt.w = torch.ones(opt.num_marks, device=opt.device, dtype=torch.float32)/opt.num_marks
+        opt.w = torch.ones(opt.num_marks, device=opt.device, dtype=torch.float32)#/opt.num_marks
 
     # if opt.mod=='SHP_marked' or opt.mod=='None':
     #     opt.type_loss = Utils.type_loss_BCE

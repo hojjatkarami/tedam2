@@ -86,7 +86,12 @@
             // physio2019
             "args": [
 
-               "-te_d_mark","32","-te_d_time","16","-te_d_inner","128","-te_d_k","32","-te_d_v","32","-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/synthea_full/","-split","1","-w_pos","-pos_alpha","1","-data_label","multilabel","-epoch","15","-per","100","-batch_size","64","-lr","0.003","-ES_pat","100","-wandb","-event_enc","1","-mod","single","-next_mark","1","-sample_label","0","-user_prefix","[R4-OPT]","-time_enc","concat","-weight_decay","1"
+
+
+            //    "-te_d_mark","128","-te_d_time","16","-te_d_inner","128","-te_d_k","32","-te_d_v","32","-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/synthea_full/","-split","0","-w_pos","-pos_alpha","1","-data_label","multilabel","-epoch","20","-per","100","-batch_size","32","-lr","0.003","-ES_pat","100","-wandb","-event_enc","1","-mod","ml","-next_mark","1","-sample_label","0","-user_prefix","[R5-OLD-100var-pos-emb128]","-time_enc","concat","-weight_decay","0.1"
+               
+               
+                           "-te_d_mark","32","-te_d_time","16","-te_d_inner","128","-te_d_k","32","-te_d_v","32","-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/synthea_full/","-split","0","-w_pos","-pos_alpha","1","-data_label","multilabel","-epoch","15","-per","100","-batch_size","16","-lr","0.003","-ES_pat","100","-wandb","-event_enc","1","-mod","single","-next_mark","1","-sample_label","0","-user_prefix","[R4-OPT]","-time_enc","concat","-weight_decay","1"
 
           //    "-te_d_mark","32","-te_d_time","16","-te_d_inner","128","-te_d_k","32","-te_d_v","32","-w_sample_label","10000","-w_time","1","-w_event","1","-data","/scratch/hokarami/new/new_so/","-split","0","-data_label","multiclass","-epoch","30","-per","100","-batch_size","8","-lr","0.0003","-weight_decay","0.1","-ES_pat","100","-wandb","-event_enc","1","-mod","single","-next_mark","1","-sample_label","0","-user_prefix","[R4-wclass]","-time_enc","concat","-w_class"
 

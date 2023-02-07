@@ -383,6 +383,149 @@ class CIF_sahp(nn.Module):
         return log_sum, integral_
 
 
+
+class CIF_sahp2(nn.Module):
+    """ Prediction of next event type. """
+
+    def __init__(self, d_in, n_cifs, mod_CIF='mc'):
+        super().__init__()
+
+        self.d_in = d_in
+        self.d_in = d_in
+        self.n_cifs = n_cifs
+
+        self.n_mc_samples=20
+        self.mod=mod_CIF
+
+        self.start_layer = nn.Sequential(
+            nn.Linear(self.d_in, self.d_in, bias=True),
+            GELU()
+        )
+
+        self.converge_layer = nn.Sequential(
+            nn.Linear(self.d_in, self.d_in, bias=True),
+            GELU()
+        )
+
+        self.decay_layer = nn.Sequential(
+            nn.Linear(self.d_in, self.d_in, bias=True)
+            ,nn.Softplus(beta=10.0)
+        )
+
+        self.intensity_layer = nn.Sequential(
+            nn.Linear(self.d_in, self.n_cifs, bias = True),
+            nn.Softplus(beta=1.)
+        )
+
+    def state_decay(self, converge_point, start_point, omega, duration_t):
+        # * element-wise product
+        cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+        # cell_t = (converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+
+        return cell_t
+    def forward(self, embed_info, seq_times, seq_types, non_pad_mask):
+        
+        # event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, side = prediction, mod=opt.mod)
+
+
+        n_batch = seq_times.size(0)
+        n_times = seq_times.size(1) - 1 # L-1
+        device = seq_times.device
+
+        # embed_event = side[-4] # [B,L,d_model]
+        # embed_state = side[-2] # [B,L,d_r]
+        # embed_event = embed_info[:,:,:self.d_TE] # [B,L,d_model]
+        embed_event = embed_info # [B,L,d_model]
+
+        # embed_state = embed_info[:,:,self.d_TE:] # [B,L,d_r]
+        # state_times = side[-1] # [B,P]
+        # embed_state = side[-3] # [B,P,d_r]
+
+        # non_pad_mask = get_non_pad_mask(seq_types).squeeze(2)
+        
+        if self.mod=='single':
+            seq_onehot_types=torch.ones_like(seq_times).unsqueeze(-1) # [B,L,1]
+        elif self.mod=='ml':
+
+            # if len(seq_types.shape)==3:
+            seq_onehot_types = nn.functional.one_hot(seq_types.sum(-1).bool().long(), num_classes=self.n_cifs+1)[:,:,1:].type(torch.float)    # [B,L,num_classes]
+            
+        elif self.mod=='mc':
+            seq_onehot_types = nn.functional.one_hot(seq_types, num_classes=self.n_cifs+1)[:,:,1:].type(torch.float)
+        
+        # seq_onehot_types = nn.functional.one_hot(seq_types, num_classes=self.num_types+1)[:,:,1:].type(torch.float)
+        
+        self.start_point = self.start_layer(embed_event) # [B,L,d_in]
+        self.converge_point = self.converge_layer(embed_event) # [B,L,d_in]
+        self.omega = self.decay_layer(embed_event) # [B,L,d_in]
+        
+
+
+        # log of intensity
+        dt_seq = (seq_times[:, 1:] - seq_times[:, :-1]) * non_pad_mask[:, 1:] # [B,L-1]
+        cell_t = self.state_decay(self.converge_point[:,1:,:], self.start_point[:,1:,:], self.omega[:,1:,:], dt_seq[:, :, None]) # [B,L-1,d_in]
+
+
+        
+        # Get the intensity process
+        # intens_at_evs = self.intensity_layer(torch.cat([cell_t,cell_t_state],dim=-1)) # [B,L-1,n_cif]
+        intens_at_evs = self.intensity_layer(cell_t) #+ self.intensity_layer_state(cell_t_state) # [B,L-1,n_cif]
+
+        true_intens_at_evs = intens_at_evs * seq_onehot_types[:,1:,:] # [B,L-1,n_cif] intensity at occurred types
+        intens_at_evs_sumK = torch.sum(true_intens_at_evs, dim=-1) # [B,L-1]
+        intens_at_evs_sumK.masked_fill_(~non_pad_mask[:, 1:].bool(), 1.0)
+
+        log_sum = torch.sum(torch.log(intens_at_evs_sumK ), dim=-1) # [B]
+
+        # integral
+        taus = torch.rand(n_batch, n_times, 1, self.n_mc_samples).to(device)# self.process_dim replaced 1  [B,L-1,1,ns]
+        taus = dt_seq[:, :, None, None] * taus  # inter-event times samples)
+        
+        # sampled_times = taus + seq_times[:, :-1,None, None]
+
+        cell_tau = self.state_decay(
+            self.converge_point[:,1:,:,None],
+            self.start_point[:,1:,:,None],
+            self.omega[:,1:,:,None],
+            taus) # [B,L-1,d_model,ns]
+        cell_tau = cell_tau.transpose(2, 3)  # [B,L-1,ns,d_model]
+
+        
+
+        # intens_at_samples = self.intensity_layer(torch.cat([cell_tau,cell_tau_state],dim=-1)).transpose(2,3) # [B,L-1,K,ns]
+        intens_at_samples = self.intensity_layer(cell_tau).transpose(2,3)#+\
+        #                          self.intensity_layer_state(cell_tau_state).transpose(2,3)# [B,L-1,K,ns]
+
+
+        intens_at_samples = intens_at_samples * non_pad_mask[:, 1:,None,None] # [B,L-1,n_cif,ns]
+        total_intens_samples = intens_at_samples.sum(dim=2)  # shape batch * N * MC  [B,L-1,ns]
+        partial_integrals = dt_seq * total_intens_samples.mean(dim=2) # [B,L-1]
+
+        integral_ = partial_integrals.sum(dim=1) # [B]
+
+
+        # ****************************************************** MULTI-LABEL case:
+        if self.mod=='ml':
+
+            p = intens_at_evs * torch.exp(-partial_integrals[:,:,None]) * non_pad_mask[:, 1:,None] # [B,L-1,n_cif]
+            if p.max()>0.999:
+                print("WTF")
+                a=1
+            one_min_true_log_density=(1-seq_types[:,1:,:])*torch.log(1-p) * non_pad_mask[:, 1:,None] # [B,L-1,n_cif]
+            log_sum = log_sum + one_min_true_log_density.sum(-1).sum(-1) # [B]
+            if torch.isinf(one_min_true_log_density.sum()):
+                print("WTF")
+                a=1
+
+
+            # log_density = log_intensity - intensity_integral.sum(-1).unsqueeze(-1)
+
+
+        # res = torch.sum(- log_sum + integral_)
+        return log_sum, integral_
+
+
+
 class CIF_thp(nn.Module):
     """ Prediction of next event type. """
 
