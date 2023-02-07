@@ -72,7 +72,7 @@ do
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.01 &
 
     waitforjobs $N_JOBS
-    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.1
+    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.1 &
 
 
 
