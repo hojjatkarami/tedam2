@@ -33,7 +33,7 @@ TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample
 TEDA__shp="-event_enc 1 -state       -mod single    -next_mark 0  -sample_label 0"
 TEDA__ml="-event_enc 1 -state       -mod ml    -next_mark 0  -sample_label 0"
 
-COEFS="-w_sample_label 10000  -w_time 1 -w_event 0"
+COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
