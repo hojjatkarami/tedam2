@@ -5,7 +5,7 @@ waitforjobs() {
 
 
 N_JOBS=2
-USER_PREFIX=R6
+USER_PREFIX=R7-NoEv-Moreparams
 # p12     -lr 0.001 -weight_decay 0.001  
 # p19     -lr 0.001 -weight_decay 1    #DA__label   TE__shpmark
 
@@ -40,12 +40,14 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 0"
     
 
 DATA_NAME="synthea_full"
-COMMON="-w_pos -pos_alpha 1 -data_label multilabel  -epoch 20 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
+COMMON="-w_pos -pos_alpha 1 -data_label multilabel  -epoch 50 -per 100  -batch_size 64  -lr 0.003   -ES_pat 100 -wandb "
 
 HPs="-te_d_mark 128 -te_d_time 64 -te_d_inner 512 -te_d_k 64 -te_d_v 64 "
 HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 HPs="-te_d_mark 64 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 HPs="-te_d_mark 8 -te_d_time 8 -te_d_inner 16 -te_d_k 8 -te_d_v 8 "
+HPs="-te_d_mark 8 -te_d_time 8 -te_d_inner 16 -te_d_k 8 -te_d_v 8 "
+HPs="-te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 # HPs="-te_d_mark 8 -te_d_time 8 -te_d_inner 16 -te_d_k 8 -te_d_v 8 "
 
@@ -72,7 +74,10 @@ do
     # python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.01 &
 
     waitforjobs $N_JOBS
-    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 0.1 &
+    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat  -weight_decay 1 &
+
+    waitforjobs $N_JOBS
+    python Main.py $HPs $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum  -weight_decay 1 &
 
 
 
