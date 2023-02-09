@@ -1079,8 +1079,10 @@ def config(opt, justLoad=False):
             opt.dataset='MHP'
         elif 'synthea_full' in opt.data:
             opt.dataset='synthea_full'
-        elif 'retweets' in opt.data:
-            opt.dataset='Retweets'
+        elif 'retweets_ml' in opt.data:
+            opt.dataset='Retweets(ML)'
+        elif 'retweets_mc' in opt.data:
+            opt.dataset='Retweets(MC)'
             
         if opt.setting=='':
             opt.str_config = '-'
