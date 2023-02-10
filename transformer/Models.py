@@ -399,7 +399,7 @@ class CIF_sahp(nn.Module):
 
 
         if self.mod=='ml':
-            aaa=0
+            aaa=1
             p = intens_at_evs * torch.exp(-aaa*partial_integrals[:,:,None]) * non_pad_mask[:, 1:,None] # [B,L-1,n_cif]
             if p.max()>0.999:
                 p=torch.clamp(p,max=0.99)
