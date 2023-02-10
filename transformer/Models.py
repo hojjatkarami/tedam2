@@ -416,7 +416,7 @@ class CIF_sahp(nn.Module):
 
 
         # res = torch.sum(- log_sum + integral_)
-        return log_sum, integral_*0
+        return log_sum, integral_
 
 
 
