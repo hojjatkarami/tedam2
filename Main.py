@@ -330,6 +330,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             log_loss['loss/pred_next_type']+=pred_loss.item()/event_time.shape[0]
             total_loss.append( pred_loss )
 
+
         # next time prediction
         if hasattr(model, 'pred_next_time'):
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(-1)
@@ -452,6 +453,10 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
     y_true_list = []
     y_score_list = []
 
+    y_event_pred_list = []
+    y_event_true_list = []
+    y_event_score_list = []
+
     y_state_pred_list = []
     y_state_true_list = []
     y_state_score_list = []
@@ -500,12 +505,16 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             # total_num_pred += event_type.ne(Constants.PAD).sum().item() - event_time.shape[0]
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
             total_num_pred += non_pad_mask.sum().item()
+            masks_list.append( non_pad_mask[:,1:].flatten().bool() ) # [*, C]
 
             # CIF decoder
             if hasattr(model, 'event_decoder'):
                 log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
                 # total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
                 total_event_ll += torch.sum(log_sum - integral_)
+
+                y_event_score_list.append( torch.flatten(model.event_decoder.intens_at_evs, end_dim=1) ) # [*, n_cif]
+
 
             # next type prediction
             if hasattr(model, 'pred_next_type'):
@@ -514,7 +523,9 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 y_pred_list.append( torch.flatten(y_pred, end_dim=1) ) # [*]
                 y_true_list.append( torch.flatten(y_true, end_dim=1) ) # [*]
                 y_score_list.append( torch.flatten(y_score, end_dim=1) ) # [*, C]
-            masks_list.append( non_pad_mask[:,1:].flatten().bool() ) # [*, C]
+            # else:
+            #     model.event_encoder.true_intens_at_evs
+
 
             # next time prediction
             if hasattr(model, 'pred_next_time'):
@@ -580,6 +591,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
         # y_true_list.append( torch.flatten(y_true, end_dim=1) ) # [*]
         # y_score_list.append( torch.flatten(y_score, end_dim=1) ) # [*, C]
         # masks_list.append( non_pad_mask[:,1:].flatten().bool() ) # [*, C]
+        
 
 
         if y_pred_list[-1].dim()==2: # multilabel or marked
@@ -590,6 +602,20 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             cm = metrics.multilabel_confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
             
+            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
+
+                y_event_score = (           torch.cat(y_event_score_list)[masks,: ]                      ).detach().cpu()
+                
+                # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
+                y_event_pred =(y_event_score>0.5).int()
+
+                
+                dict_metrics.update({
+
+                'NextType(ML)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
+                'NextType(ML)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                })
+
             dict_metrics.update({
 
                 'NextType(ML)/auc-ovo-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted'),
@@ -635,6 +661,20 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             cm = metrics.confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
+
+
+            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
+
+                y_event_score = (           torch.cat(y_event_score_list)[masks,: ]                      ).detach().cpu()
+                y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
+                y_event_pred = torch.argmax(y_event_score,1)
+                
+                dict_metrics.update({
+
+                'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
+                'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                })
+
 
             if n_classes==2:
                 dict_metrics.update({
@@ -1451,6 +1491,7 @@ def config(opt, justLoad=False):
     opt.next_type_config = {}
     if opt.next_mark:
         opt.next_type_config['n_marks'] = opt.num_marks 
+        opt.next_type_config['mark_detach'] = opt.mark_detach 
     opt.next_time_config = True
     opt.label_config = opt.sample_label
 
