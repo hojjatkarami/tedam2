@@ -18,7 +18,7 @@ HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32
 
 
 PRE="/scratch/hokarami/new"
-# PRE="/scratch/hokarami/data_old"
+PRE="/scratch/hokarami/data_old"
 
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
