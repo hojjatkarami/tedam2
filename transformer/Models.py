@@ -1245,7 +1245,7 @@ class DeepAttensionModule(nn.Module):
                 transformed_measurements
             ),
             axis=-1
-        ) # [B,L, d_s=d_t+1+n_mod]
+        ) # [B,P, d_s=d_t+1+n_mod]
 
         # if demo is not None:
         #     demo_encoded = self.demo_encoder(demo,1)[:,None,:] # [B,1, d_s=d_t+1+n_mod]

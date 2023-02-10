@@ -5,7 +5,7 @@ waitforjobs() {
 
 DATA_NAME="retweets_ml"
 
-N_JOBS=1
+N_JOBS=2
 USER_PREFIX=R8
 
 PRE="/scratch/hokarami/data_tedam"
@@ -24,6 +24,7 @@ TEDA__label="-event_enc 1 -state       -mod none    -next_mark 0  -sample_label 
 TE__shpmark="-event_enc 1          -mod single    -next_mark 1  -sample_label 0"
 TE__markmc="-event_enc 1          -mod mc    -next_mark 1  -sample_label 0"
 TE__markml="-event_enc 1          -mod ml    -next_mark 1  -sample_label 0"
+TE__mark="-event_enc 1          -mod none    -next_mark 1  -sample_label 0"
 
 TEDA__shpmark="-event_enc 1    -state       -mod single    -next_mark 1  -sample_label 0"
 TEDA__shp="-event_enc 1 -state       -mod single    -next_mark 0  -sample_label 0"
@@ -36,16 +37,31 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 COMMON=" -w_pos -data_label multilabel  -epoch 40 -per 100  -batch_size 256  -lr 0.003 -weight_decay 0.1  -ES_pat 100 -wandb "
 
  
+# for i_split in {0..4}
+# do
+
+#     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+    
+#     waitforjobs $N_JOBS
+#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+    
+#     waitforjobs $N_JOBS
+#     python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
+
+
+# done
+
+# TE__mark
 for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
     
     waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc concat &
+    python Main.py  $COEFS $SETTING $COMMON $TE__mark -user_prefix "[$USER_PREFIX TE__mark]" -time_enc concat &
     
     waitforjobs $N_JOBS
-    python Main.py  $COEFS $SETTING $COMMON $TE__shpmark -user_prefix "[$USER_PREFIX]" -time_enc sum &
+    python Main.py  $COEFS $SETTING $COMMON $TE__mark -user_prefix "[$USER_PREFIX TE__mark]" -time_enc sum &
 
 
 done

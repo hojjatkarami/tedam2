@@ -635,35 +635,45 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             cm = metrics.confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
-            dict_metrics.update({
-                # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
-                'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
-                'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
 
-                'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
-                'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
-                # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+            if n_classes==2:
+                dict_metrics.update({
+                    # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
+                    'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred,average='weighted'),
+                    'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred,average='weighted'),
+                    'NextType(MC)/precision-weighted': metrics.precision_score(y_true, y_pred),
+                    'NextType(MC)/recall-weighted': metrics.recall_score(y_true, y_pred),
+                    
+                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+                    # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
 
 
-                'NextType(MC)/acc': metrics.accuracy_score(y_true, y_pred, normalize=True),
-                # 'acc_stupid': metrics.accuracy_score(y_true, y_pred_stupid, normalize=True),
+                    'NextType(MC)/acc': metrics.accuracy_score(y_true, y_pred, normalize=True),
+
+                    'ConfMat': cm_display,
 
 
-                # 'MAE':mae,
-                # 'MNAE':mnae,
+                })
+            else:
+                dict_metrics.update({
+                    # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
+                    'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
+                    'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
 
-                # 'acc_old': total_event_rate / total_num_pred,
+                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+                    # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
-                # 'RMSE-stupid': np.sqrt(np.mean((time_gap_true-time_gap_pred_stupid)**2)),
-                # 'MAE-stupid': np.mean(np.absolute(time_gap_true-time_gap_pred_stupid)),
-                # 'MNAE-stupid': np.mean(np.absolute(time_gap_true-time_gap_pred_stupid)) / np.mean(time_gap_true),
 
-                'ConfMat': cm_display,
-                # 'time_gap_data': [time_gap_true, time_gap_pred],
-                # 'tsne':{'X_enc':X_enc,'X_tsne':X_tsne,'y_true':y_true, 'y_pred':y_pred}
 
-            })
+                    'NextType(MC)/acc': metrics.accuracy_score(y_true, y_pred, normalize=True),
+
+                    'ConfMat': cm_display,
+
+
+                })
 
     # label prediction
     if hasattr(model, 'pred_label'):
@@ -1083,6 +1093,8 @@ def config(opt, justLoad=False):
             opt.dataset='Retweets(ML)'
         elif 'retweets_mc' in opt.data:
             opt.dataset='Retweets(MC)'
+        elif 'sahp_sim' in opt.data:
+            opt.dataset='sim'
             
         if opt.setting=='':
             opt.str_config = '-'
