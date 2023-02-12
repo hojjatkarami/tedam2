@@ -22,6 +22,20 @@ TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1 
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
+for i_split in {0..4}
+do
+
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+        
+    
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat ]" -time_enc concat &
+    
+
+    waitforjobs $N_JOBS
+    echo python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-sum]" -time_enc sum &
+    
+done
 
 
 
@@ -55,19 +69,5 @@ do
     
 done
 
-for i_split in {0..4}
-do
-
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-        
-    
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat ]" -time_enc concat &
-    
-
-    waitforjobs $N_JOBS
-    echo python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-sum]" -time_enc sum &
-    
-done
 
 
