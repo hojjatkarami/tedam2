@@ -12,14 +12,15 @@ USER_PREFIX=DEB
 
 DATA_NAME="sahp_sim"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb "
-HPs="-batch_size 16  -lr 0.003 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
+HPs="-batch_size 64  -lr 0.003 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
+PRE="/scratch/hokarami/data_old"
 
  # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
-TE__pp_mc="-event_enc 1          -mod single    -next_mark 1     -mark_detach 1      -sample_label 0"
+TE__pp_mc="-event_enc 1          -mod mc    -next_mark 1     -mark_detach 1      -sample_label 0"
 TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
@@ -68,6 +69,6 @@ do
     
 
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
+    echo python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
     
 done

@@ -16,7 +16,7 @@ PRE="/scratch/hokarami/data_old"
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
-TE__pp_mc="-event_enc 1          -mod single    -next_mark 1     -mark_detach 1      -sample_label 0"
+TE__pp_mc="-event_enc 1          -mod mc    -next_mark 1     -mark_detach 1      -sample_label 0"
 TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"

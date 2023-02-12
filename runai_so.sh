@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=R30
+USER_PREFIX=R40
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb "
@@ -17,7 +17,7 @@ PRE="/scratch/hokarami/data_old"
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
-TE__pp_mc="-event_enc 1          -mod single    -next_mark 1     -mark_detach 1      -sample_label 0"
+TE__pp_mc="-event_enc 1          -mod mc    -next_mark 1     -mark_detach 1      -sample_label 0"
 TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
@@ -40,32 +40,32 @@ do
     
 done
 
-# for i_split in {0..4}
-# do
+for i_split in {0..4}
+do
 
-#     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
         
     
-#     waitforjobs $N_JOBS
-#     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &
     
 
-#     waitforjobs $N_JOBS
-#     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
     
-# done
+done
 
-# for i_split in {0..4}
-# do
+for i_split in {0..4}
+do
 
-#     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
         
     
-#     waitforjobs $N_JOBS
-#     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat ]" -time_enc concat &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat ]" -time_enc concat &
     
 
-#     waitforjobs $N_JOBS
-#     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
     
-# done
+done

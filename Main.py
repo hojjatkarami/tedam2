@@ -598,7 +598,14 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             y_pred = (            torch.cat(y_pred_list) [  masks, :   ]                      ).detach().cpu()
             y_true = (            torch.cat(y_true_list) [  masks, :   ]                      ).detach().cpu()
             y_score = (           torch.cat(y_score_list) [  masks, :   ]                        ).detach().cpu()
+            
+            bad_labels = y_true.sum(0)==0
 
+            y_true = y_true[:,~bad_labels]
+            y_pred = y_pred[:,~bad_labels]
+            y_score = y_score[:,~bad_labels]
+            n_classes = y_true.shape[1]
+            
             cm = metrics.multilabel_confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
             
@@ -609,6 +616,8 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
                 y_event_pred =(y_event_score>0.5).int()
 
+                y_event_pred = y_event_pred[:,~bad_labels]
+                y_event_score = y_event_score[:,~bad_labels]
                 
                 dict_metrics.update({
 
@@ -669,11 +678,19 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
                 y_event_pred = torch.argmax(y_event_score,1)
                 
-                dict_metrics.update({
+                if n_classes==2:
 
-                'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
-                'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
-                })
+                    dict_metrics.update({
+
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                    })
+                else:
+                    dict_metrics.update({
+
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                    })
 
 
             if n_classes==2:
