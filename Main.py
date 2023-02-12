@@ -1310,7 +1310,7 @@ def config(opt, justLoad=False):
     # if justLoad is False:
     opt.trainloader, opt.validloader, opt.testloader, additional_info = prepare_dataloader(opt)
 
-    if opt.mod=='single' or opt.mod=='None':
+    if opt.mod=='single' or opt.mod=='none':
         opt.num_types=1
         opt.num_types = additional_info['num_types']
     elif opt.mod=='mc':
