@@ -3,9 +3,9 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=2
+N_JOBS=1
 
-USER_PREFIX=R30
+USER_PREFIX=R40
 
 DATA_NAME="retweets_ml"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb "
