@@ -1439,6 +1439,7 @@ class ATHP(nn.Module):
 
             TE_config=False,
             DAM_config=False,
+            NOISE_config=False,
 
             CIF_config=False,
             next_time_config=False,
@@ -1487,6 +1488,7 @@ class ATHP(nn.Module):
         self.d_out_te = 0
         self.d_out_dam = 0
         self.d_demo = 0
+        self.noise_size = 0
 
         self.device=device
 
@@ -1585,7 +1587,13 @@ class ATHP(nn.Module):
             self.demo_encoder = Predictor(demo_config['num_demos'],demo_config['d_demo'])
             self.d_demo=demo_config['d_demo']
 
-        self.d_con = self.d_out_te + self.d_out_dam + self.d_demo
+
+
+        if NOISE_config:
+            self.noise_size = NOISE_config['noise_size']
+
+
+        self.d_con = self.d_out_te + self.d_out_dam + self.d_demo + self.noise_size
 
         if self.d_con==0:
             raise Exception('### NO solution! d_con=0')
@@ -1671,7 +1679,12 @@ class ATHP(nn.Module):
 
             enc.append(r_enc_red)
 
-        
+        if hasattr(self, 'noise_size'):
+
+            r_noise = torch.randn(*list(x.shape[:2]),self.noise_size,device=x.device) # [B,L,nosie_size]
+            r_noise = r_noise * non_pad_mask
+
+            enc.append(r_noise)
 
         if hasattr(self, 'demo_encoder'):
             enc.append(    self.demo_encoder(state_data[-1],1)[:,None,:].repeat(1,event_time.shape[1],1)    )

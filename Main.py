@@ -1078,6 +1078,10 @@ def options():
         # hyper paramters
 
 
+
+    # noise
+    parser.add_argument('-noise', action='store_true', dest='noise', help='consider noise?')
+
     # Outputs
 
 
@@ -1152,6 +1156,8 @@ def config(opt, justLoad=False):
             opt.dataset='Retweets(MC)'
         elif 'sahp_sim' in opt.data:
             opt.dataset='sim'
+        elif 'p12' in opt.data:
+            opt.dataset='P12'
             
         if opt.setting=='':
             opt.str_config = '-'
@@ -1167,7 +1173,7 @@ def config(opt, justLoad=False):
             # Tensorboard integration
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
-            opt.dataset = opt.data
+            # opt.dataset = opt.data
             opt.data=opt.data[:-1]+opt.str_config+'/'
         else:
             if opt.setting=='mc2':
@@ -1181,7 +1187,7 @@ def config(opt, justLoad=False):
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
             
 
-            opt.dataset = opt.data
+            # opt.dataset = opt.data
             opt.data=opt.data[:-1]+opt.str_config+'/'
         # create a foler for the run
         
@@ -1483,9 +1489,9 @@ def config(opt, justLoad=False):
         opt.DAM_config ['online'] = False
 
 
-
-
-
+    opt.NOISE_config = {}
+    if opt.noise:
+        opt.NOISE_config ['noise_size'] = 32
 
 
 
@@ -1771,6 +1777,7 @@ def main(trial=None):
         n_marks=opt.num_marks,
         TE_config = opt.TE_config,
         DAM_config = opt.DAM_config,
+        NOISE_config = opt.NOISE_config,
 
         CIF_config = opt.CIF_config,
         next_time_config = opt.next_time_config,
