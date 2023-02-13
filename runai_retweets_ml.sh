@@ -62,24 +62,6 @@ done
 
 
 
-for i_split in {0..4}
-do
-
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-        
-    
-    
-done
-
-for i_split in {0..4}
-do
-
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-        
-    
-    
-    
-done
 
 
 
