@@ -1158,7 +1158,10 @@ def config(opt, justLoad=False):
             opt.dataset='sim'
         elif 'p12' in opt.data:
             opt.dataset='P12'
-            
+        elif 'p19' in opt.data:
+            opt.dataset='P19'
+
+
         if opt.setting=='':
             opt.str_config = '-'
             # Tensorboard integration
