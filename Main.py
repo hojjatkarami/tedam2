@@ -614,7 +614,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 y_event_score = (           np.concatenate(y_event_score_list)[masks,: ]                      )
                 
                 # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
-                y_event_pred =(y_event_score>0.5).int()
+                y_event_pred =(y_event_score>0.5).astype(int)
 
                 y_event_pred = y_event_pred[:,~bad_labels]
                 y_event_score = y_event_score[:,~bad_labels]
