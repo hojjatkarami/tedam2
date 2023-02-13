@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=R40DEB
+USER_PREFIX=R40
 
 DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb "
