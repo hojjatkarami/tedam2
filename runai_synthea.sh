@@ -8,7 +8,7 @@ N_JOBS=2
 USER_PREFIX=R40
 
 DATA_NAME="synthea_full"
-COMMON=" -data_label multilabel  -epoch 1 -per 100    -ES_pat 100 -wandb "
+COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb "
 HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
