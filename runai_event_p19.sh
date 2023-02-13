@@ -7,7 +7,7 @@ N_JOBS=4
 
 USER_PREFIX=R40
 
-DATA_NAME="p12"
+DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb "
 HPs="-batch_size 128  -lr 0.00245 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
@@ -51,7 +51,7 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "
 
 
 # multi-center external evaluation split (mc2)    
-for i_hosp in {0..2}
+for i_hosp in {0..1}
 do
     SETTING=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
 
@@ -73,7 +73,7 @@ done
 
 
 # multi-center split (mc1)    
-for i_hosp in {0..2}
+for i_hosp in {0..1}
 do
     for i_split in {0..4}
     do

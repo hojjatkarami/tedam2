@@ -1318,6 +1318,8 @@ def config(opt, justLoad=False):
         opt.INPUT+='TE'
     if opt.state:
         opt.INPUT+='DAM'
+    if opt.noise:
+        opt.INPUT+='NOISE'
 
     opt.OUTPUT = ''
     
