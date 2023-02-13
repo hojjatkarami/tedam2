@@ -682,14 +682,14 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
                     dict_metrics.update({
 
-                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
-                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted', zero_division=0),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted', zero_division=0),
                     })
                 else:
                     dict_metrics.update({
 
-                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
-                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes), zero_division=0),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes), zero_division=0),
                     })
 
 
@@ -701,8 +701,8 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                     'NextType(MC)/precision-weighted': metrics.precision_score(y_true, y_pred),
                     'NextType(MC)/recall-weighted': metrics.recall_score(y_true, y_pred),
                     
-                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
-                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro'),
+                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
                     # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
 
