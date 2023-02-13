@@ -3,13 +3,13 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=1
+N_JOBS=2
 
 USER_PREFIX=R40
 
 DATA_NAME="synthea_full"
 COMMON=" -data_label multilabel  -epoch 1 -per 100    -ES_pat 100 -wandb "
-HPs="-w_pos -pos_alpha 1 -batch_size 32  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
+HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
 PRE="/scratch/hokarami/data_old"
@@ -29,45 +29,35 @@ for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+
         
     
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &
-    
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &    
 
     waitforjobs $N_JOBS
     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
     
-done
 
-for i_split in {0..4}
-do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-        
-    
+
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &
-    
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &    
 
     waitforjobs $N_JOBS
     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
-    
-done
 
-for i_split in {0..4}
-do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
-        
-    
+
+
+
+
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat ]" -time_enc concat &
-    
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat ]" -time_enc concat &    
 
     waitforjobs $N_JOBS
     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-sum]" -time_enc sum &
-    
+
+
+
 done
-
-
