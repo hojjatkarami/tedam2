@@ -3,13 +3,13 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=4
+N_JOBS=1
 
-USER_PREFIX=R90-demo
+USER_PREFIX=R100-demo
 
 DATA_NAME="p12"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
-HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -w_pos_label 0.5 "
+HPs="-batch_size 512  -lr 0.01 -weight_decay 0.1 -w_pos_label 0.5 "
 
 
 
@@ -28,7 +28,7 @@ DAnoise__base="-event_enc 0    -state    -noise      -mod none      -next_mark 1
 
 
 
-COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
+COEFS="-w_sample_label 1000  -w_time 1 -w_event 1"
 
 
 # # random split (rand)
