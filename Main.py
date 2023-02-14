@@ -1498,7 +1498,7 @@ def config(opt, justLoad=False):
 
     opt.NOISE_config = {}
     if opt.noise:
-        opt.NOISE_config ['noise_size'] = 32
+        opt.NOISE_config ['noise_size'] = 32*0
 
 
 
