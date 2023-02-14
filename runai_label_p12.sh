@@ -42,6 +42,20 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "
 
 
 
+# seft split (seft)
+SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "     
+
+    # TEDA__pp_single_mark
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat ]" -time_enc concat &    
+
+    # DA__pp_single_mark
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__pp_single_mark -user_prefix "[$USER_PREFIX-DA__pp_single_mark-concat ]" -time_enc concat &    
+
+
+
+
 
 # # multi-center external evaluation split (mc2)    
 # for i_hosp in {0..2}
