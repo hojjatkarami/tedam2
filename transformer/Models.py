@@ -1489,6 +1489,7 @@ class ATHP(nn.Module):
         self.d_out_dam = 0
         self.d_demo = 0
         self.noise_size = 0
+        self.add_noise = False
 
         self.device=device
 
@@ -1590,6 +1591,7 @@ class ATHP(nn.Module):
 
 
         if NOISE_config:
+            self.add_noise = True
             self.noise_size = NOISE_config['noise_size']
 
 
@@ -1679,14 +1681,14 @@ class ATHP(nn.Module):
 
             enc.append(r_enc_red)
 
-        if self.noise_size > 0:
+        if self.add_noise :
             # enc[0] is TE embeddings or DAM embeddings
 
             # r_noise = torch.randn(*list(enc[0].shape[:2]),self.noise_size,device=enc[0].device) # [B,L,nosie_size]
             # r_noise = r_noise * non_pad_mask
             # enc.append(r_noise)
 
-            enc[0] = enc[0] + torch.randn(*list(enc[0].shape),device=enc[0].device) * 0.5
+            enc[0] = enc[0] + torch.randn_like(enc[0]) * 0.1
 
 
         if hasattr(self, 'demo_encoder'):
