@@ -1013,6 +1013,8 @@ def options():
     parser.add_argument('-cuda', type=int, choices=[0,1], default=1, help='consider cuda?')
 
     parser.add_argument('-wandb', action='store_true', dest='wandb', help='consider wandb?')
+    parser.add_argument('-wandb_project', type=str, default='TEDAM4', help='project name in wandb')
+
     parser.add_argument('-prof', action='store_true', dest='prof', help='consider profiling?')
 
     parser.add_argument('-per', type=int, default=25, help='percentage of dataset to be used for training')
@@ -1745,7 +1747,7 @@ def main(trial=None):
             # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
             wandb.init( config=opt,
-                        project="TEDAM4",
+                        project=opt.wanbd_project,
                         entity="hokarami",
                         group=opt.user_prefix,
                         name=opt.run_name,
