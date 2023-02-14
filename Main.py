@@ -1747,7 +1747,7 @@ def main(trial=None):
             # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
             wandb.init( config=opt,
-                        project=opt.wanbd_project,
+                        project=opt.wandb_project,
                         entity="hokarami",
                         group=opt.user_prefix,
                         name=opt.run_name,
@@ -1766,7 +1766,7 @@ def main(trial=None):
             wandb.login()
             # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
-            wandb.init( config=opt, project="TEDAM4", entity="hokarami",name=opt.run_name)
+            wandb.init( config=opt, project=opt.wandb_project, entity="hokarami",name=opt.run_name)
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
 
