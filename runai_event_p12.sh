@@ -8,7 +8,7 @@ N_JOBS=4
 USER_PREFIX=R40
 
 DATA_NAME="p12"
-COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb "
+COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
 HPs="-batch_size 128  -lr 0.00245 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
