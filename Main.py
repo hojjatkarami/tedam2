@@ -327,7 +327,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
         if hasattr(model, 'pred_next_type'):
             pred_loss, pred_num_event,_ = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
 
-            log_loss['loss/pred_next_type']+=pred_loss.item()/event_time.shape[0]
+            log_loss['loss/pred_next_type']+=pred_loss.item()#/event_time.shape[0]
             total_loss.append( pred_loss )
 
 
@@ -351,7 +351,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
 
 
             temp = state_label_loss*opt.w_sample_label
-            log_loss['loss/pred_label']+=temp.item()/event_time.shape[0]
+            log_loss['loss/pred_label']+=temp.item()#/event_time.shape[0]
             total_loss.append( temp )
             
 
