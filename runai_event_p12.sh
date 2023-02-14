@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=C40
+USER_PREFIX=C40-noDemo-
 
 DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
@@ -20,9 +20,9 @@ TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
 TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
 # without label + DAM
-TEDA__nextmark="-event_enc 1    -state -demo          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
-TEDA__pp_single_mark="-event_enc 1    -state -demo          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
-TEDA__pp_ml="-event_enc 1    -state -demo          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
+TEDA__nextmark="-event_enc 1    -state          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
+TEDA__pp_single_mark="-event_enc 1    -state          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
+TEDA__pp_ml="-event_enc 1    -state          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 0"
 # without label + noise
 TEnoise__nextmark="-event_enc 1      -noise          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
 TEnoise__pp_single_mark="-event_enc 1      -noise          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
