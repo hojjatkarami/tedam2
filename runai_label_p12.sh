@@ -106,8 +106,19 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "
 
 
 
-# random split (rand)
-SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "     
+# # random split (rand)
+# SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "     
+
+#     # TEDA__pp_ml
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat ]" -time_enc concat &    
+
+#     # DA__pp_ml
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $DA__pp_ml -user_prefix "[$USER_PREFIX-DA__pp_ml-concat ]" -time_enc concat &    
+
+# seft split (seft)
+SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "     
 
     # TEDA__pp_ml
     waitforjobs $N_JOBS
