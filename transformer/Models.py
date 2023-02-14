@@ -1679,7 +1679,7 @@ class ATHP(nn.Module):
 
             enc.append(r_enc_red)
 
-        if hasattr(self, 'noise_size'):
+        if self.noise_size > 0:
 
             r_noise = torch.randn(*list(x.shape[:2]),self.noise_size,device=x.device) # [B,L,nosie_size]
             r_noise = r_noise * non_pad_mask
