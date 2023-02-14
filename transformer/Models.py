@@ -1680,8 +1680,8 @@ class ATHP(nn.Module):
             enc.append(r_enc_red)
 
         if self.noise_size > 0:
-
-            r_noise = torch.randn(*list(x.shape[:2]),self.noise_size,device=x.device) # [B,L,nosie_size]
+            # enc[0] is TE embeddings or DAM embeddings
+            r_noise = torch.randn(*list(enc[0].shape[:2]),self.noise_size,device=enc[0].device) # [B,L,nosie_size]
             r_noise = r_noise * non_pad_mask
 
             enc.append(r_noise)
