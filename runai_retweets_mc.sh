@@ -8,7 +8,7 @@ N_JOBS=1
 USER_PREFIX=R40
 
 DATA_NAME="retweets_mc"
-COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
+COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
 HPs="-batch_size 256  -lr 0.003 -weight_decay 0.1 " # -te_d_mark 8 -te_d_time 8 -te_d_inner 16 -te_d_k 8 -te_d_v 8 "
 
 PRE="/scratch/hokarami/data_old"
