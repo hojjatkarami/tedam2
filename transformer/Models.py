@@ -205,6 +205,10 @@ class Encoder(nn.Module):
         # self.slf_attn_mask = slf_attn_mask
         # self.mask2 = self_attn#mask2*0
 
+        if torch.isnan(x).sum()>0:
+            a=1
+
+        
         return x
 
 
@@ -1652,6 +1656,7 @@ class ATHP(nn.Module):
 
         if hasattr(self, 'TE'):
             x = self.TE(event_type, event_time, non_pad_mask)
+            # x = x + torch.randn_like(x)*0 # [B,L,nosie_size]
             enc.append(x)
         
 
@@ -1707,7 +1712,9 @@ class ATHP(nn.Module):
         
         if hasattr(self, 'pred_next_type'):
             # [B,L,C] <- [B,L,d_mark]
-            self.y_next_type = self.pred_next_type(enc.detach(), non_pad_mask, to_detach = self.mark_detach)
+            self.y_next_type = self.pred_next_type(enc, non_pad_mask, to_detach = self.mark_detach)
+            if torch.isnan(self.y_next_type).sum()>0:
+                a=1
         
         # if hasattr(self, 'event_decoder'):
         #     log_sum, integral_ = self.event_decoder(enc,event_time, event_time, non_pad_mask)

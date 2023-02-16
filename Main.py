@@ -9,9 +9,7 @@ import torch.optim as optim
 import transformer.Constants as Constants
 import Utils
 
-from preprocess.Dataset import get_dataloader, get_dataloader_state, get_dataloader2, get_dataloader3
-# from preprocess.Dataset_mhp import get_dataloader
-# from preprocess.Dataset_mhp import prepare_dataloader
+from preprocess.Dataset import get_dataloader3
 
 from transformer.Models import Transformer, ATHP, align
 from tqdm import tqdm
@@ -97,38 +95,29 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         dict_metrics.pop('tsne')
 
     for k,v in dict_metrics.items():
-        # opt.writer.add_scalars('Metrics/'+k, {'test':v}, i_epoch)
-        # if '/' in k:
-        #     prefix = 'Test-'
-        # else:
-        #     prefix = 'Test/'
+
         if isinstance(v,np.ndarray):
             opt.writer.add_histogram(prefix+k, v, i_epoch)
         else:
             opt.writer.add_scalar(prefix+k, v, i_epoch)
 
     if opt.wandb:
-        # dict_metrics.update({'i_epoch':i_epoch})
+
         wandb.log({(prefix+k):v for k,v in dict_metrics.items()}, step=i_epoch)
-    # for k,v in dict_roc_auc.items():
-        # opt.writer.add_scalars('Metrics/'+k, {'test':v}, i_epoch)
-    # opt.writer.add_scalars('Metrics/ROC', dict_roc_auc, i_epoch)
+
 
 
 
 def prepare_dataloader(opt):
     """ Load data and prepare dataloader. """
 
-    def load_data(name, dict_name):
+    def load_data_event(name, dict_name):
+        """ Load data and prepare dataloader for event data """
         additional_info = {}
 
         with open(name, 'rb') as f:
             data = pickle.load(f, encoding='latin-1')
-            # num_types = int(data['dim_process'])
 
-            # print(data.keys())
-            # print(dict_name)
-            # term
             if 'dim_process' in data:
                 additional_info['num_types'] = data['dim_process']
             if 'num_marks' in data:
@@ -146,7 +135,8 @@ def prepare_dataloader(opt):
 
         return data[dict_name], additional_info
 
-    def load_data2(name):
+    def load_data_state(name):
+        """ Load data and prepare dataloader for state data """
         additional_info = {}
 
         with open(name, 'rb') as f:
@@ -173,11 +163,11 @@ def prepare_dataloader(opt):
 
         return data, additional_info
     print('[Info] Loading train data...')
-    train_data, additional_info = load_data(opt.data + 'train.pkl', 'train')
+    train_data, additional_info = load_data_event(opt.data + 'train.pkl', 'train')
     print('[Info] Loading dev data...')
-    valid_data, _= load_data(opt.data + 'dev.pkl', 'dev')
+    valid_data, _= load_data_event(opt.data + 'dev.pkl', 'dev')
     print('[Info] Loading test data...')
-    test_data, _ = load_data(opt.data + 'test.pkl', 'test')
+    test_data, _ = load_data_event(opt.data + 'test.pkl', 'test')
 
 
     if opt.per>0:
@@ -186,7 +176,6 @@ def prepare_dataloader(opt):
         # test_data = test_data[:int(opt.per/100*len(test_data))]
 
 
-    no_modes = 1
 
     train_state=None
     test_state=None
@@ -196,19 +185,14 @@ def prepare_dataloader(opt):
 
     if opt.state or opt.sample_label:
 
-        # print('[Info] Loading train STATE...')
-        # train_state, new_additional_info = load_data(opt.data + 'train_state.pkl', 'train')
-        # print('[Info] Loading dev STATE...')
-        # dev_state,_= load_data(opt.data + 'dev_state.pkl', 'dev')
-        # print('[Info] Loading test STATE...')
-        # test_state,_ = load_data(opt.data + 'test_state.pkl', 'test')
+
 
         print('[Info] Loading train STATE...')
-        train_state, new_additional_info = load_data2(opt.data + 'train_state.pkl')
+        train_state, new_additional_info = load_data_state(opt.data + 'train_state.pkl')
         print('[Info] Loading dev STATE...')
-        valid_state,_= load_data2(opt.data + 'dev_state.pkl')
+        valid_state,_= load_data_state(opt.data + 'dev_state.pkl')
         print('[Info] Loading test STATE...')
-        test_state,_ = load_data2(opt.data + 'test_state.pkl')
+        test_state,_ = load_data_state(opt.data + 'test_state.pkl')
 
 
         additional_info.update(new_additional_info)
@@ -220,12 +204,7 @@ def prepare_dataloader(opt):
                 train_state['demo'] = train_state['demo'][:int(opt.per/100*len(train_state['demo']))]
                 # test_state['demo'] = test_state['demo'][:int(opt.per/100*len(test_state['demo']))]
 
-    #     trainloader = get_dataloader2(train_data, train_state, opt.batch_size, shuffle=True, data_label=opt.data_label, balanced=opt.balanced_batch)
-    #     testloader = get_dataloader2(test_data, test_state, opt.batch_size, shuffle=False, data_label=opt.data_label, balanced=False)
-    # else:
-    #     trainloader = get_dataloader(train_data, opt.batch_size, shuffle=True, data_label=opt.data_label, balanced=opt.balanced_batch)
-    #     testloader = get_dataloader(test_data, opt.batch_size, shuffle=False, data_label=opt.data_label, balanced=False)
-
+    
     state_args = {'have_label':opt.sample_label, 'have_demo':opt.demo}
     
     trainloader = get_dataloader3(train_data, data_state=train_state, bs=opt.batch_size, shuffle=True, data_label=opt.data_label, balanced=opt.balanced_batch, state_args=state_args)
@@ -260,7 +239,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
     log_loss = {'loss/event_decoder':0,'loss/pred_next_time':0,'loss/pred_next_type':0,'loss/pred_label':0}
     for batch in tqdm(training_data, mininterval=2, desc='  - (Training)   ', leave=False):
 
-        
+        if torch.isnan(model.TE.event_emb.weight).sum()>0:
+            a=1
 
         batch = [x.to(opt.device) for x in batch]
 
@@ -277,58 +257,35 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             state_data.append(batch[-1])
 
 
-        # """ prepare data """
-        # # event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch)
 
-        # if opt.state or opt.sample_label:
-        #     # event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch[0])
-        #     # new = next(iter_stateloader)
-        #     event_time, time_gap, event_type, state_time, state_value, state_mod, state_label = map(lambda x: x.to(opt.device), batch)
-        #     enc_out = model(event_type, event_time, state_time, state_value, state_mod)
-
-        # else:
-        #     event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch)
-        #     enc_out = model(event_type, event_time)
-
-        # with torch.autocast(device_type='cuda', dtype=torch.float16):
         enc_out = model(event_type, event_time, state_data=state_data)
 
         non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
 
-        
+        if torch.isnan(model.TE.event_emb.weight).sum()>0:
+            a=1
+
+
 
         total_loss = []
-        """ backward """
-        # negative log-likelihood
-        # event_ll, non_event_ll = Utils.log_likelihood(model, enc_out, event_time, event_type, side = prediction)
-        
-        
-        # if opt.mod != 'None':
-        #     if opt.state:
-        #         event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, side = prediction, mod=opt.mod)
-        #     else:
-        #         event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, mod=opt.mod)
-        #     event_loss = -torch.sum(event_ll - non_event_ll)
-        # else:
-        #     event_loss = torch.zeros((1),device=opt.device)
+
         
 
         # CIF decoder
         if hasattr(model, 'event_decoder'):
-            log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
-            
-            temp = (-torch.sum(log_sum - integral_))  *opt.w_event
-            log_loss['loss/event_decoder']+=temp.item()#/event_time.shape[0]
-            total_loss.append( temp )
+            log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)            
+            loss_event_pp = (-torch.sum(log_sum - integral_))  *opt.w_event
+            log_loss['loss/event_decoder']+=loss_event_pp.item()
+            total_loss.append( loss_event_pp )
 
 
         
         # next type prediction
         if hasattr(model, 'pred_next_type'):
-            pred_loss, pred_num_event,_ = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
+            next_type_loss, pred_num_event,_ = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
 
-            log_loss['loss/pred_next_type']+=pred_loss.item()#/event_time.shape[0]
-            total_loss.append( pred_loss )
+            log_loss['loss/pred_next_type']+=next_type_loss.item()
+            total_loss.append( next_type_loss )
 
 
         # next time prediction
@@ -337,7 +294,7 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
             sse, sse_norm, sae = Utils.time_loss(model.y_next_time, event_time,non_pad_mask) # sse, sse_norm, sae
 
             temp = sse*opt.w_time
-            log_loss['loss/pred_next_time']+=temp.item()/event_time.shape[0]
+            log_loss['loss/pred_next_time']+=temp.item()
             total_loss.append( temp )
 
         if hasattr(model, 'pred_label'):
@@ -358,70 +315,31 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
     
         loss = sum(total_loss)
         
-        # if opt.sample_label:
-        #     # state_label_red = align(state_label[:,:,None].float(), event_time, state_time) # [B,L,1]
-        #     state_label_red = state_label.sum(1).bool().int()[:,None,None] # [B,1,1]
-
-        #     state_label_loss,_ = Utils.state_label_loss(state_label_red,prediction[2], non_pad_mask)
-        #     loss = loss + state_label_loss*opt.w_sample_label
-
-        # loss=pred_loss*0
-
-
+        
         """ forward """
         optimizer.zero_grad()
 
-
         loss.backward()
+        if torch.isnan(model.TE.event_emb.weight).sum()>0:
+            a=1
 
         """ update parameters """
+
         optimizer.step()
 
-        if opt.prof:
-            prof.step()
+        if torch.isnan(model.TE.event_emb.weight).sum()>0:
+            a=1
+
     
 
-
-    if opt.prof:
-        prof.stop()
-        """ note keeping """
-        # total_event_ll += -event_loss.item()
-        # total_time_se += sse.item()
-        # total_event_rate += pred_num_event.item()
-        # total_num_event += non_pad_mask.ne(Constants.PAD).sum().item()
-        # # we do not predict the first event
-        # if len(event_type.shape)==2:
-        #     total_num_pred += event_type.ne(Constants.PAD).sum().item() - event_time.shape[0]
-        # else:
-        #     total_num_pred += (event_type+non_pad_mask.unsqueeze(-1)).ne(Constants.PAD).sum().item() - event_time.shape[0]
-
-
-
-    # tensorboard [for the last batch]
-    # opt.writer.add_scalar("deb3/event_loss", event_loss*opt.w_event,opt.i_epoch )
-    # opt.writer.add_scalar("deb3/pred_loss", pred_loss, opt.i_epoch)
-    # opt.writer.add_scalar("deb3/sse_loss", sse*opt.w_time, opt.i_epoch)
-    # opt.writer.add_scalar("deb3/total_loss", loss, opt.i_epoch)
-    # if opt.sample_label:
-    #     opt.writer.add_scalar("deb3/state_label_loss", state_label_loss*opt.w_sample_label, opt.i_epoch)
-
-
-        # prof.step()
-    # prof.stop()
+       
     rmse = np.sqrt(total_time_se / total_num_event)
 
     dict_metrics = {
-        # 'f1-micro': metrics.f1_score(y_true, pred_type[~masks].reshape(-1).detach().cpu(),labels= torch.arange(n_classes) ,average='micro', zero_division=0),
-        # 'f1-macro': metrics.f1_score(y_true, pred_type[~masks].reshape(-1).detach().cpu(),labels= torch.arange(n_classes) ,average='macro', zero_division=0),
-        # 'f1-weighted': metrics.f1_score(y_true, pred_type[~masks].reshape(-1).detach().cpu(),labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
-        # 'auc-ovo-macro': metrics.roc_auc_score(y_true, y_score.detach().cpu(), multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
-        # 'auc-ovo-weighted': metrics.roc_auc_score(y_true, y_score.detach().cpu(), multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
         'NLL/#events': -total_event_ll / total_num_event,
         'acc': total_event_rate / total_num_pred,
         'RMSE': rmse,
-        # 'auc-ovo-weighted': metrics.roc_auc_score(y_true.detach().cpu(), y_score.detach().cpu(), multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
-        # 'auc-ovo-weighted': metrics.roc_auc_score(y_true.detach().cpu(), y_score.detach().cpu(), multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
-
+        
     }
 
     dict_metrics.update(log_loss)
@@ -489,20 +407,9 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             if opt.demo:
                 state_data.append(batch[-1])
             
-            # if opt.state or opt.sample_label:
-            #     # event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch[0])
-            #     # new = next(iter_stateloader)
-            #     event_time, time_gap, event_type, state_time, state_value, state_mod, state_label = map(lambda x: x.to(opt.device), batch)
-            #     enc_out = model(event_type, event_time, state_time, state_value, state_mod)
-
-            # else:
-            #     event_time, time_gap, event_type = map(lambda x: x.to(opt.device), batch)
-            #     enc_out = model(event_type, event_time)
-
-            # r_enc_list.append(prediction[2][:,1:,:])
-            # with torch.autocast(device_type='cuda', dtype=torch.float16):
+            
             enc_out = model(event_type, event_time, state_data=state_data)
-            # total_num_pred += event_type.ne(Constants.PAD).sum().item() - event_time.shape[0]
+
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
             total_num_pred += non_pad_mask.sum().item()
             masks_list.append( non_pad_mask[:,1:].flatten().bool().detach().cpu() ) # [*, C]
@@ -510,7 +417,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             # CIF decoder
             if hasattr(model, 'event_decoder'):
                 log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
-                # total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
+
                 total_event_ll += torch.sum(log_sum - integral_)
 
                 y_event_score_list.append( torch.flatten(model.event_decoder.intens_at_evs, end_dim=1).detach().cpu() ) # [*, n_cif]
@@ -523,8 +430,9 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 y_pred_list.append( torch.flatten(y_pred, end_dim=1).detach().cpu() ) # [*]
                 y_true_list.append( torch.flatten(y_true, end_dim=1).detach().cpu() ) # [*]
                 y_score_list.append( torch.flatten(y_score, end_dim=1).detach().cpu() ) # [*, C]
-            # else:
-            #     model.event_encoder.true_intens_at_evs
+                
+
+                
 
 
             # next time prediction
@@ -558,15 +466,14 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
     # CIF decoder
     if hasattr(model, 'event_decoder'):
-        # log_sum, integral_ = model.event_decoder(enc_out,event_time, event_time, non_pad_mask)
-        # total_loss.append(  (-torch.sum(log_sum - integral_))  *opt.w_event*1)
 
-        
         dict_metrics.update({
             'CIF/LL-#events': total_event_ll.item() / total_num_pred,
             'CIF/NLL': -total_event_ll.item(),
             'CIF/#events': total_num_pred,
         })
+
+
 
     # next time prediction
     if hasattr(model, 'pred_next_time'):
@@ -585,13 +492,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
     # next type prediction
     if hasattr(model, 'pred_next_type'):
-        # pred_loss, pred_num_event,(y_pred, y_true, y_score, masks) = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
-        # total_loss.append(pred_loss)
-        # y_pred_list.append( torch.flatten(y_pred, end_dim=1) ) # [*]
-        # y_true_list.append( torch.flatten(y_true, end_dim=1) ) # [*]
-        # y_score_list.append( torch.flatten(y_score, end_dim=1) ) # [*, C]
-        # masks_list.append( non_pad_mask[:,1:].flatten().bool() ) # [*, C]
-        
+       
 
 
         if y_pred_list[-1].dim()==2: # multilabel or marked
@@ -609,27 +510,12 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             cm = metrics.multilabel_confusion_matrix(y_true, y_pred)
             cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
             
-            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
-
-                y_event_score = (           np.concatenate(y_event_score_list)[masks,: ]                      )
-                
-                # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
-                y_event_pred =(y_event_score>0.5).astype(int)
-
-                y_event_pred = y_event_pred[:,~bad_labels]
-                y_event_score = y_event_score[:,~bad_labels]
-                
-                dict_metrics.update({
-
-                'NextType(ML)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
-                'NextType(ML)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
-                })
-
+            
             dict_metrics.update({
 
                 'NextType(ML)/auc-ovo-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted'),
-                'NextType(ML)/auc-ovo-micro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='micro'),
-                'NextType(ML)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro'),
+                # # 'NextType(ML)/auc-ovo-micro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='micro'),
+                # # 'NextType(ML)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro'),
 
                 'NextType(ML)/auc-PR-weighted': metrics.average_precision_score(y_true, y_score ,average='weighted'),
                 'NextType(ML)/f1-weighted': metrics.f1_score(y_true, y_pred ,average='weighted', zero_division=0),
@@ -663,6 +549,24 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                 # 'ConfMat': cm_display,
 
             })
+
+            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
+
+                y_event_score = (           np.concatenate(y_event_score_list)[masks,: ]                      )
+                
+                # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
+                y_event_pred =(y_event_score>0.5).astype(int)
+
+                y_event_pred = y_event_pred[:,~bad_labels]
+                y_event_score = y_event_score[:,~bad_labels]
+                
+                dict_metrics.update({
+
+                'NextType(ML)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
+                'NextType(ML)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+            })
+                
+
         else:   # multiclass
             y_pred = (            np.concatenate(y_pred_list)[masks]                      )
             y_true = (            np.concatenate(y_true_list)[masks]                   )
@@ -696,12 +600,12 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
             if n_classes==2:
                 dict_metrics.update({
                     # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
-                    'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred,average='weighted'),
+                    # 'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred,average='weighted'),
                     'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred,average='weighted'),
                     'NextType(MC)/precision-weighted': metrics.precision_score(y_true, y_pred),
                     'NextType(MC)/recall-weighted': metrics.recall_score(y_true, y_pred),
                     
-                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro'),
+                    # 'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro'),
                     'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
                     # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
@@ -719,7 +623,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
                     'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
                     'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
 
-                    'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
+                    # 'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
                     'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
                     # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
 
@@ -799,7 +703,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     write_to_summary(dict_metrics_test, opt, i_epoch=0,prefix='Test-')
 
     best_metric=-100
-        # Initialize the early stopping counter
+    # Initialize the early stopping counter
     early_stopping_counter = 0
 
     # Set the maximum number of epochs without improvement
@@ -820,8 +724,6 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         best_test_metric.update({'CIF/LL-#events':0})
         best_valid_metric.update({'CIF/LL-#events':0})
     if opt.next_mark:
-        
-        
         if opt.data_label=='multilabel':
             best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
             best_valid_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
@@ -829,177 +731,139 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             best_test_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
             best_valid_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
 
-    for epoch_i in tqdm(range(opt.epoch), leave=False):
-        epoch = epoch_i + 1
-        # print('[ Epoch', epoch, ']')
-        opt.i_epoch = epoch
+
+
+
+
+
+
+    for epoch_i in tqdm(range(1, 1 + opt.epoch), leave=False):
+
+        opt.i_epoch = epoch_i
 
 
         # ********************************************* Train Epoch *********************************************
         start = time.time()
         train_event, train_type, train_time, dict_metrics_train = train_epoch(model, trainloader, optimizer, pred_loss_func, opt)
-        # print('  - (Training)    loglikelihood: {ll: 8.5f}, '
-        #       'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
-        #       'elapse: {elapse:3.3f} min'
-        #       .format(ll=train_event, type=train_type, rmse=train_time, elapse=(time.time() - start) / 60))
+        scheduler.step()
 
         dict_time.update({'Time/train_epoch':((time.time() - start) / 60)})
         for k,v in dict_metrics_train.items():
             opt.writer.add_scalar('Trainn/'+k, v, epoch_i)
         
-        
-        # Train eval *********************************************
-        train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
-        dict_metrics_train.update(dict_metrics_train2)
-        write_to_summary(dict_metrics_train, opt, i_epoch=epoch, prefix='Train-')
 
-        # ********************************************* Valid Epoch *********************************************
-        start = time.time()
-        valid_event, valid_type, valid_time, dict_metrics_valid = valid_epoch(model, validloader, pred_loss_func, opt)
-        # print('  - (Validating)     loglikelihood: {ll: 8.5f}, '
-        #       'accuracy: {type: 8.5f}, RMSE: {rmse: 8.5f}, '
-        #       'elapse: {elapse:3.3f} min'
-        #       .format(ll=valid_event, type=valid_type, rmse=valid_time, elapse=(time.time() - start) / 60))
-
-        valid_event_losses += [valid_event]
-        valid_pred_losses += [valid_type]
-        valid_rmse += [valid_time]
-        # print('  - [Info] Maximum ll: {event: 8.5f}, '
-        #       'Maximum accuracy: {pred: 8.5f}, Minimum RMSE: {rmse: 8.5f}'
-        #       .format(event=max(valid_event_losses), pred=max(valid_pred_losses), rmse=min(valid_rmse)))
-
-        dict_time.update({'Time/valid_epoch':((time.time() - start) / 60)})
-
-        write_to_summary(dict_metrics_valid, opt, i_epoch=epoch, prefix='Valid-')
+        if opt.i_epoch % opt.log_freq ==0:
 
 
-        # ********************************************* Test Epoch *********************************************
-        if testloader is not None:
+            # Train eval *********************************************
+            train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
+            dict_metrics_train.update(dict_metrics_train2)
+            write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
+
+
+            # ********************************************* Valid Epoch *********************************************
             start = time.time()
-            test_event, test_type, test_time, dict_metrics_test = valid_epoch(model, testloader, pred_loss_func, opt)
-           
+            valid_event, valid_type, valid_time, dict_metrics_valid = valid_epoch(model, validloader, pred_loss_func, opt)
 
+            dict_time.update({'Time/valid_epoch':((time.time() - start) / 60)})
+            write_to_summary(dict_metrics_valid, opt, i_epoch=opt.i_epoch, prefix='Valid-')
 
-            write_to_summary(dict_metrics_test, opt, i_epoch=epoch, prefix='Test-')
+            # ********************************************* Test Epoch *********************************************
+            if testloader is not None:
 
+                test_event, test_type, test_time, dict_metrics_test = valid_epoch(model, testloader, pred_loss_func, opt)
 
+                write_to_summary(dict_metrics_test, opt, i_epoch=opt.i_epoch, prefix='Test-')
 
-
-        # # logging
-        # with open(opt.log, 'a') as f:
-        #     f.write('{epoch}, {ll: 8.5f}, {acc: 8.5f}, {rmse: 8.5f}\n'
-        #             .format(epoch=epoch, ll=valid_event, acc=valid_type, rmse=valid_time))
-
-        
-        
-
-        write_to_summary(dict_time, opt, i_epoch=epoch, prefix='time-')
-
-
-        
-
-        scheduler.step()
-
-        
+            write_to_summary(dict_time, opt, i_epoch=opt.i_epoch, prefix='time-')
 
 
 
-        if 'pred_label/f1-binary' in dict_metrics_test: 
-            inter_Obj_val = dict_metrics_test['pred_label/f1-binary']
-        elif 'NextType(ML)/f1-weighted' in dict_metrics_test: 
-            inter_Obj_val = dict_metrics_test['NextType(ML)/f1-weighted']
-        elif 'NextType(MC)/f1-weighted' in dict_metrics_test: 
-            inter_Obj_val = dict_metrics_test['NextType(MC)/f1-weighted']
-        elif 'CIF/LL-#events' in dict_metrics_test: 
-            inter_Obj_val = dict_metrics_test['CIF/LL-#events']
-        else:
-            raise Exception("Sorry, no metrics for inter_Obj_val")
-        # elif 'NextType(MC)/f1-weighted' in dict_metrics_test:
-        #     inter_Obj_val=dict_metrics_test['NextType(MC)/f1-weighted']
-        # elif 'pred_label/AUPRC' in dict_metrics_test:
-        #     inter_Obj_val=dict_metrics_test['pred_label/AUPRC']   
-        # else:
-        #     inter_Obj_val=0
-        
-        # inter_Obj_val=best_valid_metric['pred_label/f1-binary']
-        
-        opt.writer.add_scalar('Obj', inter_Obj_val, global_step=opt.i_epoch)
-        if opt.wandb:
-            wandb.log({'Obj': inter_Obj_val}, step=opt.i_epoch)
-
-
-        # Early stopping
-        flag=None
-        for k,v in best_valid_metric.items():
-            if dict_metrics_valid[k]>v:
-                best_valid_metric[k]= dict_metrics_valid[k]
-                best_test_metric[k]= dict_metrics_test[k]
-                flag=k
+            # objective value for HP Tuning
+            if 'pred_label/f1-binary' in dict_metrics_test: 
+                inter_Obj_val = dict_metrics_test['pred_label/f1-binary']
+            elif 'NextType(ML)/f1-weighted' in dict_metrics_test: 
+                inter_Obj_val = dict_metrics_test['NextType(ML)/f1-weighted']
+            elif 'NextType(MC)/f1-weighted' in dict_metrics_test: 
+                inter_Obj_val = dict_metrics_test['NextType(MC)/f1-weighted']
+            elif 'CIF/LL-#events' in dict_metrics_test: 
+                inter_Obj_val = dict_metrics_test['CIF/LL-#events']
+            else:
+                raise Exception("Sorry, no metrics for inter_Obj_val")
+            
+            opt.writer.add_scalar('Obj', inter_Obj_val, global_step=opt.i_epoch)
             if opt.wandb:
-                wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
-                wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+                wandb.log({'Obj': inter_Obj_val}, step=opt.i_epoch)
 
 
-            # saving best torch model !!!
-            if flag=='pred_label/f1-binary':
-                torch.save({
-                    'epoch': opt.i_epoch,
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'dict_metrics_test':dict_metrics_test,
-                }, opt.run_path+'best_model.pkl')
-            
-
-
-
-        if inter_Obj_val > (best_metric+0.0001):
-            # Save the model weights
-            # torch.save(model.state_dict(), "best_model.pth")
-            
-            # Reset the early stopping counter
-            early_stopping_counter = 0
-            
-            # Update the best metric
-            best_metric = inter_Obj_val
-            
-        else:
-            # Increment the early stopping counter
-            early_stopping_counter += 1
-            
-            # Check if the early stopping counter has reached the maximum number of epochs without improvement
-            if early_stopping_counter >= max_epochs_without_improvement:
-                print("Early stopping at epoch {}".format(epoch))
+            # Early stopping
+            flag=None
+            for k,v in best_valid_metric.items():
+                if dict_metrics_valid[k]>v:
+                    best_valid_metric[k]= dict_metrics_valid[k]
+                    best_test_metric[k]= dict_metrics_test[k]
+                    flag=k
                 if opt.wandb:
-                    wandb.run.summary["max_obj_val"] = best_metric
-                    wandb.run.summary["status"] = "stopped"
-                    # wandb.finish(quiet=True)
-                break
+                    wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
+                    wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+
+
+                # saving best torch model !!!
+                if flag=='pred_label/f1-binary':
+                    torch.save({
+                        'epoch': opt.i_epoch,
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'dict_metrics_test':dict_metrics_test,
+                    }, opt.run_path+'best_model.pkl')
+                
+
+
+
+            if inter_Obj_val > (best_metric+0.0001):
+                # Save the model weights
+                # torch.save(model.state_dict(), "best_model.pth")
+                
+                # Reset the early stopping counter
+                early_stopping_counter = 0
+                
+                # Update the best metric
+                best_metric = inter_Obj_val
+                
+            else:
+                # Increment the early stopping counter
+                early_stopping_counter += 1
+                
+                # Check if the early stopping counter has reached the maximum number of epochs without improvement
+                if early_stopping_counter >= max_epochs_without_improvement:
+                    print("Early stopping at epoch {}".format(opt.i_epoch))
+                    if opt.wandb:
+                        wandb.run.summary["max_obj_val"] = best_metric
+                        wandb.run.summary["status"] = "stopped"
+                        # wandb.finish(quiet=True)
+                    break
 
 
 
 
 
-        # Pruning
-        if trial is not None:
+            # Pruning
+            if trial is not None:
             # raise optuna.TrialPruned()
 
              # Handle pruning based on the intermediate value.            
-            trial.report(inter_Obj_val, opt.i_epoch)            
-            if trial.should_prune():
-                
-                opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
-                return best_metric
-
-                # opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
-                # if opt.wandb:
+                trial.report(inter_Obj_val, opt.i_epoch)            
+                if trial.should_prune():
                     
-                #     wandb.run.summary["status"] = "pruned"
-                #     wandb.finish(quiet=True)
-                #     opt.wandb=False
-                #     return best_metric
+                    opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
+                    return best_metric
 
 
-                # raise optuna.exceptions.TrialPruned()
+        
+    
+        
+
+
     opt.writer.add_hparams(opt.hparams2write, {'Objective':inter_Obj_val},run_name='../'+opt.run_name)
     return best_metric
 
@@ -1014,6 +878,7 @@ def options():
 
     parser.add_argument('-wandb', action='store_true', dest='wandb', help='consider wandb?')
     parser.add_argument('-wandb_project', type=str, default='TEDAM4', help='project name in wandb')
+    parser.add_argument('-log_freq', type=int, default=1, help='project name in wandb')
 
     parser.add_argument('-prof', action='store_true', dest='prof', help='consider profiling?')
 
@@ -1041,11 +906,6 @@ def options():
     parser.add_argument('-pos_alpha', type=float, default=1.0)
 
 
-    # data handling
-    # parser.add_argument('-data_setting', choices=['sc','mc1','mc2',''], default="", help='settings')
-    # parser.add_argument('-test_center', type=str, default='')
-    # parser.add_argument('-test_split', type=str, default='')
-    # parser.add_argument('-train_center', type=str, default='')
 
     # General Config
     parser.add_argument('-epoch', type=int, default=40)
@@ -1137,7 +997,7 @@ def config(opt, justLoad=False):
 
 
 
-
+        
         if 'data_so' in opt.data:
             opt.dataset='SO'
         if 'data_so_concat' in opt.data:
@@ -1210,14 +1070,7 @@ def config(opt, justLoad=False):
     
 
     if opt.transfer_learning != '':
-        # add_data = "C:/DATA/data/processed/physio2019_1d_HP_std/"
-        # old_freeze = opt.freeze
 
-        # old_user_prefix = opt.user_prefix
-        # temp = opt.transfer_learning
-
-
-        # attr_keep = []
 
         print('### ---------TRANSFER LEARNING----------->    '+opt.transfer_learning)
 
@@ -1251,67 +1104,12 @@ def config(opt, justLoad=False):
         
     else:
         opt_tl=opt
-        # opt.user_prefix = old_user_prefix
-
-        # # override
-        # # opt.mod = 'None'
-        # # opt.mark_detach = 1
-        # opt.sample_label = 1
         
-        # opt.transfer_learning=temp
-        # opt.freeze = old_freeze
-
-
-    # if opt.transfer_learning != '':
-
-        # # # # # opt.all_transfered_modules=['pred_next_time']
-        # # # # # # if opt.sample_label:
-        # # # # # #     opt.all_transfered_modules.append('pred_label')
-        # # # # # if opt.next_mark:
-        # # # # #     opt.all_transfered_modules.append('pred_next_type')
-        # # # # # if opt.mod != 'none':
-        # # # # #     opt.all_transfered_modules.append('event_decoder')
-        # # # # # if opt.state:
-        # # # # #     opt.all_transfered_modules.append('DAM')
-        # # # # # if opt.event_enc:
-        # # # # #     opt.all_transfered_modules.append('TE')
-
-        # # # # # opt.freezed_modules = []
-        # # # # # if opt.freeze=='DA':
-        # # # # #     opt.freezed_modules.append('DAM')
-        # # # # # if opt.freeze=='TE':
-        # # # # #     opt.freezed_modules.append('TE')
-
-    
-    # Event loss handling
-    # if opt.int_dec=='thp':
-    #     opt.event_loss = Utils.thp_log_likelihood
-    #     opt.event_loss_test = Utils.thp_log_likelihood_test
-
-    #     # if opt.state:
-    #     #     opt.event_loss = Utils.sahp_state_log_likelihood
-    #     #     opt.event_loss_test = Utils.sahp_state_log_likelihood_test
-    #     # else:
-    #     #     opt.event_loss = Utils.sahp_log_likelihood
-    #     #     opt.event_loss_test = Utils.sahp_log_likelihood_test
-
-    # elif opt.int_dec=='sahp':
-
-    #     if opt.state:
-    #         opt.event_loss = Utils.sahp_state_log_likelihood
-    #         opt.event_loss_test = Utils.sahp_state_log_likelihood_test
-    #     else:
-    #         # opt.event_loss = Utils.sahp_log_likelihood
-    #         # opt.event_loss_test = Utils.sahp_log_likelihood_test
-    #         opt.event_loss = Utils.sahp_state_log_likelihood
-    #         opt.event_loss_test = Utils.sahp_state_log_likelihood_test
 
 
     opt.device = torch.device('cuda') if (torch.cuda.is_available() and opt.cuda) else torch.device('cpu')
     print(f"############################## CUDA {torch.cuda.is_available()}")
-    # setup the log file
-    # with open(opt.log, 'w') as f:
-    #     f.write('Epoch, Log-likelihood, Accuracy, RMSE\n')
+
 
 
 
@@ -1370,25 +1168,9 @@ def config(opt, justLoad=False):
     else:
         opt.num_demos=0
 
-    # if opt.w_class:
-    #     # opt.w_class = [0.01602763, 0.01989574, 0.0247974 , 0.04106871, 0.02056413,
-    #     #                     0.01968509, 0.02592123, 0.03442   , 0.02894503, 0.03738965,
-    #     #                     0.03015046, 0.03117576, 0.03434853, 0.03477166, 0.04845101,
-    #     #                     0.03590284, 0.05527879, 0.05201981, 0.13104338, 0.12973979,
-    #     #                     0.14840336]
-    #     w = torch.tensor(opt.w, device=opt.device)
-    #     print('[Info] class weigths:\n',w)
-
-    # else:
-    #     w = torch.ones(opt.num_marks, device=opt.device)/opt.num_marks
-
+    
     if opt.w_pos:
-        # if opt.dataset=='synthea_full':
-        #     opt.pos_weight =[ 8.23580348,2.31585837,36.0073046,11.9821909,39.84079,14.32224406,50.,50.,16.04390244,17.78494624,32.34188878,50.,2.77125205,18.79410041,50.,23.41590361,50.,50.,50.,10.93193594,19.74651925,12.84613282,13.06524153,11.34328176,48.69396763,50.,50.,33.51158038,50.,11.59490367,45.14116576,16.92428799,16.92428799,50.,33.48808713,23.05650522,50.,50.,50.,22.30940879,21.25477707,21.25477707,50.,50.,50.,50.,13.12996793,50.,50.,50. ]
-
-
-        # [ 7.84162575, 2.19302022, 36.39817113, 31.86831228, 11.63106111, 15.67052932, 17.00408779, 13.93468621, 50., 46.80945224, 16.63586521, 16.63586521, 50., 11.23954681, 39.0563873, 2.9556056, 20.13569583, 22.43892255, 11.13217782, 25.1326335, 50., 50., 50., 50., 50., 50., 48.80567154, 49.97631766, 50., 50., 50., 50., 50., 50., 9.56005164, 16.51287698, 15.31707039, 50., 26.60152333, 50., 15.82236456, 19.50884734, 19.50884734, 35.18796612, 50., 50., 50., 39.88588975, 50., 13.31772943]
-
+    
         opt.pos_weight = torch.tensor(opt.pos_weight, device=opt.device)
         opt.pos_weight = opt.pos_weight*opt.pos_alpha
         print('[Info] pos weigths:\n',opt.pos_weight)
@@ -1412,9 +1194,6 @@ def config(opt, justLoad=False):
             freq[freq_per<1]=freq.sum()/100
             w_norm = 1.0 / np.sqrt(freq)
 
-            # w_norm =  np.array([0.0096, 0.0181, 0.0317, 0.0036, 0.0100, 0.0100, 0.0170, 0.0176, 0.0050,
-            #             0.0205, 0.0485, 0.0142, 0.0267, 0.0180, 0.0461, 0.01, 0.0436, 0.0340,
-            #             0.0415, 0.01, 0.01, 0.01])
 
             opt.w = w_norm / w_norm.sum()
 
@@ -1426,16 +1205,7 @@ def config(opt, justLoad=False):
     else:
         opt.w = torch.ones(opt.num_marks, device=opt.device, dtype=torch.float32)#/opt.num_marks
 
-    # if opt.mod=='SHP_marked' or opt.mod=='None':
-    #     opt.type_loss = Utils.type_loss_BCE
-    #     opt.pred_loss_func = nn.BCEWithLogitsLoss(reduction='none', weight=opt.w, pos_weight=opt.pos_weight)
-    # elif opt.mod=='MHP_multiclass':
-    #     opt.type_loss = Utils.type_loss_CE
-    #     opt.pred_loss_func = nn.CrossEntropyLoss(ignore_index=-1, reduction='none', weight=w)
-    # elif opt.mod=='MHP_multilabel':
-    #     opt.type_loss = Utils.type_loss_BCE
-    #     opt.pred_loss_func = nn.BCEWithLogitsLoss(reduction='none', weight=opt.w, pos_weight=opt.pos_weight)
-
+   
 
     if opt.data_label=='multilabel':
         opt.type_loss = Utils.type_loss_BCE
@@ -1617,29 +1387,6 @@ def process_hparams(trial,opt):
 
 
 
-
-    # opt.demo_config={}
-    # if opt.demo:
-    #     opt.demo_config['num_demos']=additional_info['num_demos']
-    #     opt.demo_config['d_demo']=4
-
-    # opt.CIF_config = {}
-    # if opt.mod != 'none':
-    #     opt.CIF_config['mod']=opt.mod
-    #     opt.CIF_config['type']=opt.int_dec
-    
-    #     if opt.CIF_config['mod']=='single':
-    #         opt.CIF_config['n_cifs']=1
-    #     else:
-    #         opt.CIF_config['n_cifs']=opt.num_marks
-
-
-    # opt.next_type_config = {}
-    # if opt.next_mark:
-    #     opt.next_type_config['n_marks'] = opt.num_marks 
-    # opt.next_time_config = True
-    # opt.label_config = opt.sample_label
-
     config_hparams = dict(trial.params)
     config_hparams["trial.number"] = trial.number
 
@@ -1677,63 +1424,6 @@ def main(trial=None):
 
     
 
-
-    
-
-    # if opt.transfer_learning != '':
-    #     # add_data = "C:/DATA/data/processed/physio2019_1d_HP_std/"
-    #     TL_run_add = opt.data+opt.transfer_learning
-    #     old_freeze = opt.freeze
-
-    #     old_user_prefix = opt.user_prefix
-    #     temp = opt.transfer_learning
-
-    #     old_data_path=opt.data_path
-
-    #     attr_keep = []
-
-    #     # # find all files in the directory
-    #     # os.chdir(opt.data)
-    #     # candidateFiles = filter(lambda x:  (opt.transfer_learning in x), os.listdir(opt.data))
-    #     # candidateFiles = [f for f in candidateFiles]
-    #     # candidateFiles.sort(key=lambda x: os.path.getmtime(x)) # newest last
-
-    #     # if len(candidateFiles)==0:
-    #     #     raise Exception('### No candidateFiles')
-    #     # # elif len(candidateFiles)>1:
-    #     # #      raise Exception('### Many candidateFiles')
-    #     # else:
-    #     #     TL_run=candidateFiles[-1]
-
-    #     print('### ---------TRANSFER LEARNING----------->    '+opt.transfer_learning)
-
-    #     # load opt file
-    #     with open(opt.transfer_learning+'/opt.pkl','rb') as f:
-    #         opt = pickle.load(f)
-        
-
-    #     # all_transfered_modules=['pred_next_time']
-    #     # # if opt.sample_label:
-    #     # #     all_transfered_modules.append('pred_label')
-    #     # if opt.next_mark:
-    #     #     all_transfered_modules.append('pred_next_type')
-    #     # if opt.mod != 'none':
-    #     #     all_transfered_modules.append('event_decoder')
-    #     # if opt.state:
-    #     #     all_transfered_modules.append('DAM')
-    #     # if opt.event_enc:
-    #     #     all_transfered_modules.append('TE')
-
-    #     opt.user_prefix = old_user_prefix
-
-    #     # override
-    #     # opt.mod = 'None'
-    #     # opt.mark_detach = 1
-    #     opt.sample_label = 1
-        
-    #     opt.transfer_learning=temp
-    #     opt.freeze = old_freeze
-        
 
     opt = config(opt)
     
