@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=R50
+USER_PREFIX=R60
 
 DATA_NAME="synthea_200"
 COMMON=" -data_label multilabel  -epoch 31 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat -log_freq 10"
@@ -38,8 +38,8 @@ do
     waitforjobs $N_JOBS
     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &    
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
     
 
 
