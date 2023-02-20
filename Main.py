@@ -1149,6 +1149,11 @@ def config(opt, justLoad=False):
 
     
 
+    if 'dict_map_events' in additional_info:
+        opt.dict_map_events = additional_info['dict_map_events']
+    if 'dict_map_states' in additional_info:
+        opt.dict_map_states = additional_info['dict_map_states']
+
     if 'num_marks' in additional_info:
         opt.num_marks = additional_info['num_marks']
     else:
@@ -1658,6 +1663,9 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     r_enc_list = []
     masks_list = []
 
+    state_mod_list = []
+    state_time_list = []
+
     y_pred_stupid_list = []
     n_classes = model.n_marks
 
@@ -1677,6 +1685,9 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             event_time, time_gap, event_type = batch[:3]
             if opt.state:
                 state_time, state_value, state_mod = batch[3:6]
+                state_mod_list.append(state_mod)
+                state_time_list.append(state_time)
+
                 state_data = batch[3:6]
             if opt.sample_label:
                 state_time, state_value, state_mod = batch[3:6]
@@ -1751,6 +1762,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     out['non_pad_mask_list'] = non_pad_mask_list
     out['event_type_list'] = event_type_list
+    out['state_mod_list'] = state_mod_list
+    out['state_time_list'] = state_time_list
 
     # CIF decoder
     if hasattr(model, 'event_decoder'):

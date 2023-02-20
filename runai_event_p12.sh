@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=C40
+USER_PREFIX=Q10
 
 DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
@@ -14,7 +14,7 @@ HPs="-batch_size 128  -lr 0.00245 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 
 
 
 PRE="/scratch/hokarami/data_tedam"
-
+PRE="/mlodata1/hokarami/tedam"
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
