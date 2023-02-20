@@ -8,7 +8,7 @@ N_JOBS=4
 USER_PREFIX=Q10TEST
 
 DATA_NAME="p12"
-COMMON=" -demo -data_label multilabel  -epoch 1 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
+COMMON=" -data_label multilabel  -epoch 1 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
 HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -w_pos_label 0.5 "
 
 
