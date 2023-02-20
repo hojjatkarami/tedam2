@@ -8,7 +8,7 @@ N_JOBS=2
 USER_PREFIX=Q10
 
 DATA_NAME="synthea_200"
-COMMON=" -data_label multilabel  -epoch 50 -log_freq 10 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
+COMMON=" -data_label multilabel  -epoch 50 -log_freq 5 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
 HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
@@ -28,7 +28,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-for i_split in {0..4}
+for i_split in {1..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
