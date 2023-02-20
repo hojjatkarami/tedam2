@@ -711,7 +711,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
     dict_time={}
 
-
+    inter_Obj_val=0
     best_test_metric = {}
     best_valid_metric = {}
 
@@ -721,8 +721,8 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     # elif opt.next_mark:
         
     if opt.mod!='none':
-        best_test_metric.update({'CIF/LL-#events':0})
-        best_valid_metric.update({'CIF/LL-#events':0})
+        best_test_metric.update({'CIF/LL-#events':-100})
+        best_valid_metric.update({'CIF/LL-#events':-100})
     if opt.next_mark:
         if opt.data_label=='multilabel':
             best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
@@ -797,25 +797,25 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
             # Early stopping
-            flag=None
+            flag=list()
             for k,v in best_valid_metric.items():
                 if dict_metrics_valid[k]>v:
                     best_valid_metric[k]= dict_metrics_valid[k]
                     best_test_metric[k]= dict_metrics_test[k]
-                    flag=k
-                if opt.wandb:
-                    wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
-                    wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+                    flag.append(k)
+                    if opt.wandb:
+                        wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
+                        wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
 
 
-                # saving best torch model !!!
-                if flag=='pred_label/f1-binary':
-                    torch.save({
-                        'epoch': opt.i_epoch,
-                        'model_state_dict': model.state_dict(),
-                        'optimizer_state_dict': optimizer.state_dict(),
-                        'dict_metrics_test':dict_metrics_test,
-                    }, opt.run_path+'best_model.pkl')
+            # # saving best torch model !!!
+            if ('pred_label/f1-binary' in flag) or ('CIF/LL-#events' in flag) or ('NextType(ML)/auc-ovo-weighted' in flag):
+                torch.save({
+                    'epoch': opt.i_epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'dict_metrics_test':dict_metrics_test,
+                }, opt.run_path+'/best_model.pkl')
                 
 
 
@@ -1446,7 +1446,8 @@ def main(trial=None):
                     )
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
-
+            # opt.wandb_dir = wandb.run.dir
+            # shutil.copy(opt.run_path+'opt.pkl',wandb.run.dir+'/opt.pkl')
 
         opt.writer = SummaryWriter(log_dir = opt.run_path )
         print(f"[info] tensorboard integration:\ntensorboard --logdir '{opt.data}'\n")
@@ -1459,6 +1460,9 @@ def main(trial=None):
             wandb.init( config=opt, project=opt.wandb_project, entity="hokarami",name=opt.run_name)
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
+            # opt.wandb_dir = wandb.run.dir
+            
+            # shutil.copy(opt.run_path+'opt.pkl',wandb.run.dir+'/opt.pkl')
 
 
         opt.writer = SummaryWriter(log_dir = opt.run_path )
@@ -1559,14 +1563,15 @@ def main(trial=None):
         max_obj_val = train(model, opt.trainloader, opt.validloader, opt.testloader, optimizer, scheduler, opt.pred_loss_func, opt, trial)
     
 
-
+    shutil.copy(opt.run_path+'opt.pkl',wandb.run.dir+'/opt.pkl')
+    shutil.copy(opt.run_path+'best_model.pkl',wandb.run.dir+'/best_model.pkl')
     
     if isinstance(trial,optuna.trial._trial.Trial) and trial.should_prune():
         if opt.wandb:
             wandb.run.summary["state"] = "pruned"
 
-            wandb.save(opt.run_path+'opt.pkl')
-            wandb.save(opt.run_path+'best_model.pkl')
+            wandb.save('opt.pkl')
+            wandb.save('best_model.pkl')
             wandb.finish(quiet=True)
         raise optuna.exceptions.TrialPruned()
     
@@ -1576,8 +1581,8 @@ def main(trial=None):
         wandb.run.summary["max_obj_val"] = max_obj_val
         wandb.run.summary["status"] = "completed"
 
-        wandb.save(opt.run_path+'opt.pkl')
-        wandb.save(opt.run_path+'best_model.pkl')
+        wandb.save('opt.pkl')
+        wandb.save('best_model.pkl')
         wandb.finish(quiet=True)
 
     return max_obj_val
@@ -1586,3 +1591,401 @@ if __name__ == '__main__':
     
 
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
+    """ Epoch operation in evaluation phase. """
+    example = {}
+    model.eval()
+    
+    out=dict()
+
+    total_event_ll = 1  # cumulative event log-likelihood
+    total_event_rate = 1  # cumulative number of correct prediction
+    total_num_event = 1  # number of total events
+    total_num_pred = 1  # number of predictions, total=tqdm_len
+    
+    total_time_sse = 1  # cumulative time prediction squared-error
+    total_time_sae = 1  # cumulative time prediction squared-error
+    total_time_sse_norm = 1  # cumulative time prediction squared-error
+
+    total_label_state = 0  # cumulative time prediction squared-error
+
+    event_type_list = []
+    non_pad_mask_list = []
+
+    time_gap_true = []
+    time_gap_pred = []
+    X_enc = []
+    y_pred_list = []
+    y_true_list = []
+    y_score_list = []
+
+    y_event_pred_list = []
+    y_event_true_list = []
+    y_event_score_list = []
+
+    y_state_pred_list = []
+    y_state_true_list = []
+    y_state_score_list = []
+    r_enc_list = []
+    masks_list = []
+
+    y_pred_stupid_list = []
+    n_classes = model.n_marks
+
+    dict_metrics={}
+
+    with torch.no_grad():
+        for batch in tqdm(validation_data, mininterval=2,
+                        desc='  - (Testing)   ', leave=False):
+            """ prepare data """
+
+            batch = [x.to(opt.device) for x in batch]
+            # batch = map(lambda x: x.to(opt.device), batch)
+
+            state_data=[]
+            state_label=None
+            # if opt.event_enc:
+            event_time, time_gap, event_type = batch[:3]
+            if opt.state:
+                state_time, state_value, state_mod = batch[3:6]
+                state_data = batch[3:6]
+            if opt.sample_label:
+                state_time, state_value, state_mod = batch[3:6]
+                state_label=batch[6]
+            if opt.demo:
+                state_data.append(batch[-1])
+            
+            
+            enc_out = model(event_type, event_time, state_data=state_data)
+            r_enc_list.append(enc_out.detach().cpu()[:,-1,:])
+            event_type_list.append(event_type)
+        
+            non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
+
+            non_pad_mask_list.append(non_pad_mask)
+
+            total_num_pred += non_pad_mask.sum().item()
+            masks_list.append( non_pad_mask[:,1:].flatten().bool().detach().cpu() ) # [*, C]
+
+            # CIF decoder
+            if hasattr(model, 'event_decoder'):
+                log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
+
+                total_event_ll += torch.sum(log_sum - integral_)
+
+                y_event_score_list.append( torch.flatten(model.event_decoder.intens_at_evs, end_dim=1).detach().cpu() ) # [*, n_cif]
+
+
+            # next type prediction
+            if hasattr(model, 'pred_next_type'):
+                pred_loss, pred_num_event,(y_pred, y_true, y_score, masks) = opt.type_loss(model.y_next_type, event_type, pred_loss_func)
+                # total_loss.append(pred_loss)
+                y_pred_list.append( torch.flatten(y_pred, end_dim=1).detach().cpu() ) # [*]
+                y_true_list.append( torch.flatten(y_true, end_dim=1).detach().cpu() ) # [*]
+                y_score_list.append( torch.flatten(y_score, end_dim=1).detach().cpu() ) # [*, C]
+
+
+                
+
+                
+
+
+            # next time prediction
+            if hasattr(model, 'pred_next_time'):
+                # non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(-1)
+                sse, sse_norm, sae = Utils.time_loss(model.y_next_time, event_time,non_pad_mask) # sse, sse_norm, sae
+                # total_loss.append(sse*opt.w_time)
+                total_time_sse += sse.item()  # cumulative time prediction squared-error
+                total_time_sae += sae.item()  # cumulative time prediction squared-error
+                total_time_sse_norm += sse_norm.item()  # cumulative time prediction squared-error
+
+            # label prediction
+            if hasattr(model, 'pred_label') and (state_label is not None):
+                
+                # state_label_red = state_label.sum(1).bool().int()[:,None,None] # [B,1,1]
+                # state_label_loss,(y_state_pred, y_state_true, y_state_score) = Utils.state_label_loss(state_label_red,model.y_label, non_pad_mask)
+                
+                state_label_red = align(state_label[:,:,None], event_time, state_time) # [B,L,1]
+                # state_label_red = state_label.bool().int()[:,:,None] # [B,L,1]
+                state_label_loss,(y_state_pred, y_state_true, y_state_score) = Utils.state_label_loss(state_label_red,model.y_label, non_pad_mask,opt.label_loss_fun)
+
+                
+
+                # total_loss.append(state_label_loss*opt.w_sample_label)
+                y_state_pred_list.append(  torch.flatten(y_state_pred).detach().cpu() ) # [*]
+                y_state_true_list.append(  torch.flatten(y_state_true).detach().cpu() ) # [*]
+                y_state_score_list.append(  torch.flatten(y_state_score).detach().cpu() ) # [*] it is binary
+
+    masks = torch.cat(masks_list).detach().cpu() # [*]
+
+
+
+    out['non_pad_mask_list'] = non_pad_mask_list
+    out['event_type_list'] = event_type_list
+
+    # CIF decoder
+    if hasattr(model, 'event_decoder'):
+
+        dict_metrics.update({
+            'CIF/LL-#events': total_event_ll.item() / total_num_pred,
+            'CIF/NLL': -total_event_ll.item(),
+            'CIF/#events': total_num_pred,
+        })
+
+
+
+    # next time prediction
+    if hasattr(model, 'pred_next_time'):
+        rmse = np.sqrt(total_time_sse / total_num_pred)
+        msae = total_time_sae / total_num_pred
+        rmse_norm = np.sqrt(total_time_sse_norm / total_num_pred)
+        dict_metrics.update({
+                'NextTime/RMSE': rmse,
+                'NextTime/rmse_norm': rmse_norm,
+                'NextTime/msae': msae,
+        })
+    
+
+
+    
+
+    # next type prediction
+    if hasattr(model, 'pred_next_type'):
+       
+
+
+        if y_pred_list[-1].dim()==2: # multilabel or marked
+            y_pred = (            np.concatenate(y_pred_list) [  masks, :   ]                      )
+            y_true = (            np.concatenate(y_true_list) [  masks, :   ]                      )
+            y_score = (           np.concatenate(y_score_list) [  masks, :   ]                        )
+            
+            bad_labels = y_true.sum(0)==0
+
+            y_true = y_true[:,~bad_labels]
+            y_pred = y_pred[:,~bad_labels]
+            y_score = y_score[:,~bad_labels]
+            n_classes = y_true.shape[1]
+            
+            cm = metrics.multilabel_confusion_matrix(y_true, y_pred)
+            cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
+            
+            
+            dict_metrics.update({
+
+                'NextType(ML)/auc-ovo-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted'),
+                # # 'NextType(ML)/auc-ovo-micro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='micro'),
+                # # 'NextType(ML)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro'),
+
+                'NextType(ML)/auc-PR-weighted': metrics.average_precision_score(y_true, y_score ,average='weighted'),
+                'NextType(ML)/f1-weighted': metrics.f1_score(y_true, y_pred ,average='weighted', zero_division=0),
+                'NextType(ML)/precision-weighted': metrics.precision_score(y_true, y_pred ,average='weighted', zero_division=0),
+                'NextType(ML)/recall-weighted': metrics.recall_score(y_true, y_pred ,average='weighted', zero_division=0),
+                
+                # 'NextType(ML)/f1-micro': metrics.f1_score(y_true, y_pred ,average='micro', zero_division=0),
+                # 'NextType(ML)/f1-macro': metrics.f1_score(y_true, y_pred ,average='macro', zero_division=0),
+                # 'NextType(ML)/f1-samples': metrics.f1_score(y_true, y_pred ,average='samples', zero_division=0),
+
+                # 'NextType(ML)/acc': metrics.accuracy_score(y_true, y_pred),
+                # 'NextType(ML)/hamming': metrics.hamming_loss(y_true, y_pred),
+
+                # 'NextType(ML)/precision-micro': metrics.precision_score(y_true, y_pred ,average='micro', zero_division=0),
+                # 'NextType(ML)/precision-macro': metrics.precision_score(y_true, y_pred ,average='macro', zero_division=0),
+                # 'NextType(ML)/precision-samples': metrics.precision_score(y_true, y_pred ,average='samples', zero_division=0),
+
+                # 'NextType(ML)/recall-micro': metrics.recall_score(y_true, y_pred ,average='micro', zero_division=0),
+                # 'NextType(ML)/recall-macro': metrics.recall_score(y_true, y_pred ,average='macro', zero_division=0),
+                # 'NextType(ML)/recall-samples': metrics.recall_score(y_true, y_pred ,average='samples', zero_division=0),
+
+                # 'NextType(ML)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro'),
+                # 'NextType(ML)/auc-ovo-micro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='micro'),
+                # 'NextType(ML)/auc-PR-micro': metrics.average_precision_score(y_true, y_score ,average='micro'),
+                # 'NextType(ML)/auc-PR-macro': metrics.average_precision_score(y_true, y_score ,average='macro'),
+
+                # 'MultiLabel/AUROC-ovo-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted'),
+                # 'MultiLabel/AUPRC-weighted': metrics.average_precision_score(y_true, y_score ,average='weighted'),
+                # 'MultiLabel/F1-weighted': metrics.f1_score(y_true, y_pred ,average='weighted', zero_division=0),
+
+                # 'ConfMat': cm_display,
+
+            })
+
+            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
+
+                y_event_score = (           np.concatenate(y_event_score_list)[masks,: ]                      )
+                
+                # y_event_score = nn.functional.normalize(y_event_score,p=1,dim=1)
+                y_event_pred =(y_event_score>0.5).astype(int)
+
+                y_event_pred = y_event_pred[:,~bad_labels]
+                y_event_score = y_event_score[:,~bad_labels]
+                
+                dict_metrics.update({
+
+                'NextType(ML)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted'),
+                'NextType(ML)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes)),
+            })
+                
+
+        else:   # multiclass
+            y_pred = (            np.concatenate(y_pred_list)[masks]                      )
+            y_true = (            np.concatenate(y_true_list)[masks]                   )
+            y_score = (           np.concatenate(y_score_list)[masks,: ]                      )
+
+            cm = metrics.confusion_matrix(y_true, y_pred)
+            cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = cm)
+
+
+            if hasattr(model, 'event_decoder') and model.event_decoder.n_cifs==n_classes:
+
+                y_event_score = (           np.concatenate(y_event_score_list)[masks,: ]                      )
+                y_event_score = y_event_score/y_event_score.sum(1)[:,None]
+                y_event_pred = np.argmax(y_event_score,1)
+                
+                if n_classes==2:
+
+                    dict_metrics.update({
+
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted', zero_division=0),
+                    })
+                else:
+                    dict_metrics.update({
+
+                    'NextType(MC)/auc-ovo-weighted-CIF': metrics.roc_auc_score(y_true, y_event_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes), ),
+                    'NextType(MC)/f1-weighted-CIF': metrics.f1_score(y_true,  y_event_pred, average='weighted',labels= torch.arange(n_classes), zero_division=0),
+                    })
+
+
+            if n_classes==2:
+                dict_metrics.update({
+                    # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
+                    # 'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred,average='weighted'),
+                    'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred,average='weighted'),
+                    'NextType(MC)/precision-weighted': metrics.precision_score(y_true, y_pred),
+                    'NextType(MC)/recall-weighted': metrics.recall_score(y_true, y_pred),
+                    
+                    # 'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='macro'),
+                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score[:,0], multi_class='ovo',average='weighted'),
+                    # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+
+
+
+                    'NextType(MC)/acc': metrics.accuracy_score(y_true, y_pred, normalize=True),
+
+                    'ConfMat': cm_display,
+
+
+                })
+            else:
+                dict_metrics.update({
+                    # 'NextType(MC)/f1-micro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='micro', zero_division=0),
+                    'NextType(MC)/f1-macro': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='macro', zero_division=0),
+                    'NextType(MC)/f1-weighted': metrics.f1_score(y_true, y_pred, labels= torch.arange(n_classes) ,average='weighted', zero_division=0),
+
+                    # 'NextType(MC)/auc-ovo-macro': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='macro',labels= torch.arange(n_classes)),
+                    'NextType(MC)/auc-weighted': metrics.roc_auc_score(y_true, y_score, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+                    # 'auc-ovo-weighted-stupid': metrics.roc_auc_score(y_true, y_pred_stupid, multi_class='ovo',average='weighted',labels= torch.arange(n_classes)),
+
+
+
+                    'NextType(MC)/acc': metrics.accuracy_score(y_true, y_pred, normalize=True),
+
+                    'ConfMat': cm_display,
+
+
+                })
+
+
+
+
+        out['y_pred']=y_pred
+        out['y_true']=y_true
+        out['y_score']=y_score
+
+        out['y_true_list']=y_true_list
+        out['masks']=masks
+
+    # label prediction
+    if hasattr(model, 'pred_label'):
+        
+        # state_label_red = state_label.sum(1).bool().int()[:,None,None] # [B,1,1]
+        # state_label_loss,(y_state_pred, y_state_true, y_state_score) = Utils.state_label_loss(state_label_red,model.y_label, non_pad_mask)
+        # # total_loss.append(state_label_loss*opt.w_sample_label)
+        # y_state_pred_list.append(y_state_pred) # [*]
+        # y_state_true_list.append(y_state_true) # [*]
+        # y_state_score_list.append(y_state_score) # [*] it is binary
+        
+        # y_state_pred = (np.concatenate(y_state_pred_list)) # [*]
+        # y_state_true = (np.concatenate(y_state_true_list))
+        # y_state_score = (np.concatenate(y_state_score_list))
+
+        # y_state_pred = (np.concatenate(y_state_pred_list) [masks]) # [*]
+        # y_state_true = (np.concatenate(y_state_true_list) [masks])
+        # y_state_score = (np.concatenate(y_state_score_list) [masks])
+
+        y_state_pred = (np.concatenate(y_state_pred_list)) # [*]
+        y_state_true = (np.concatenate(y_state_true_list))
+        y_state_score = (np.concatenate(y_state_score_list))
+
+        out['y_state_pred']=y_state_pred
+        out['y_state_true']=y_state_true
+        out['y_state_score']=y_state_score
+
+        dict_metrics.update({
+            'pred_label/AUROC': metrics.roc_auc_score(y_state_true, y_state_score),
+            'pred_label/AUPRC': metrics.average_precision_score(y_state_true, y_state_score),
+            'pred_label/f1-binary': metrics.f1_score(y_state_true, y_state_pred ,average='binary', zero_division=0),
+
+            'pred_label/loss':total_label_state/total_num_event,
+            'pred_label/recall-binary': metrics.recall_score(y_state_true, y_state_pred ,average='binary', zero_division=0),
+            'pred_label/precision-binary': metrics.precision_score(y_state_true, y_state_pred ,average='binary', zero_division=0),
+
+            'pred_label/ACC': metrics.accuracy_score(y_state_true, y_state_pred),
+
+
+            # 'pred_label/sum_r_enc':torch.concat(r_enc_list, dim=1).sum().item(),
+            # 'pred_label/r_enc_zero': a,
+        })
+  
+
+
+
+
+
+
+
+    return dict_metrics,r_enc_list,out
+
+
+
+
+

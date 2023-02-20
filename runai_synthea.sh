@@ -3,17 +3,17 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=1
+N_JOBS=2
 
-USER_PREFIX=R60
+USER_PREFIX=Q10
 
 DATA_NAME="synthea_200"
-COMMON=" -data_label multilabel  -epoch 31 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat -log_freq 10"
+COMMON=" -data_label multilabel  -epoch 50 -log_freq 10 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
 HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
 PRE="/scratch/hokarami/data_old"
-PRE="/home/hokarami/data"
+PRE="/mlodata1/hokarami/tedam"
 
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"

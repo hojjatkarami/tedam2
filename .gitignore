@@ -10,3 +10,5 @@ log.txt
 
 jup_res.ipynb
 wandb/debug-cli.hokarami.log
+
+local/

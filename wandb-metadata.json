@@ -1,0 +1,182 @@
+{
+    "os": "Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.31",
+    "python": "3.9.7",
+    "heartbeatAt": "2023-02-17T17:29:59.910672",
+    "startedAt": "2023-02-17T17:29:58.996155",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-w_pos",
+        "-pos_alpha",
+        "1",
+        "-batch_size",
+        "32",
+        "-lr",
+        "0.003",
+        "-weight_decay",
+        "1",
+        "-te_d_mark",
+        "32",
+        "-te_d_time",
+        "16",
+        "-te_d_inner",
+        "128",
+        "-te_d_k",
+        "32",
+        "-te_d_v",
+        "32",
+        "-w_sample_label",
+        "10000",
+        "-w_time",
+        "1",
+        "-w_event",
+        "1",
+        "-data",
+        "/home/hokarami/data/synthea_200/",
+        "-split",
+        "0",
+        "-data_label",
+        "multilabel",
+        "-epoch",
+        "11",
+        "-per",
+        "10",
+        "-ES_pat",
+        "100",
+        "-wandb",
+        "-wandb_project",
+        "TEEDAM_unsupervised_timeCat",
+        "-log_freq",
+        "10",
+        "-event_enc",
+        "1",
+        "-mod",
+        "none",
+        "-next_mark",
+        "1",
+        "-mark_detach",
+        "0",
+        "-sample_label",
+        "0",
+        "-user_prefix",
+        "[AAR60-TE__nextmark-concat]",
+        "-time_enc",
+        "concat"
+    ],
+    "state": "running",
+    "program": "/home/hokarami/tedam2/Main.py",
+    "codePath": "Main.py",
+    "git": {
+        "remote": "https://github.com/hojjatkarami/tedam2.git",
+        "commit": null
+    },
+    "email": "g.hojatkarami@gmail.com",
+    "root": "/home/hokarami/tedam2",
+    "host": "873a4884fed0",
+    "username": "hokarami",
+    "executable": "/opt/conda/envs/paper2022/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2304.0080000000007,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2304.008,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 250.98248672485352,
+        "used": 75.18701553344727
+    },
+    "gpu": "Quadro T2000 with Max-Q Design",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro T2000 with Max-Q Design",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 15.508651733398438
+    }
+}
