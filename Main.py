@@ -1010,8 +1010,8 @@ def config(opt, justLoad=False):
             opt.dataset='MIMIC-II'
         elif 'MHP' in opt.data:
             opt.dataset='MHP'
-        elif 'synthea_full' in opt.data:
-            opt.dataset='synthea_full'
+        elif 'synthea' in opt.data:
+            opt.dataset='Synthea'
         elif 'retweets_ml' in opt.data:
             opt.dataset='Retweets(ML)'
         elif 'retweets_mc' in opt.data:
