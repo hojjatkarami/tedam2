@@ -239,8 +239,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
     log_loss = {'loss/event_decoder':0,'loss/pred_next_time':0,'loss/pred_next_type':0,'loss/pred_label':0}
     for batch in tqdm(training_data, mininterval=2, desc='  - (Training)   ', leave=False):
 
-        if torch.isnan(model.TE.event_emb.weight).sum()>0:
-            a=1
+        # if torch.isnan(model.TE.event_emb.weight).sum()>0:
+        #     a=1
 
         batch = [x.to(opt.device) for x in batch]
 
@@ -262,8 +262,8 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
 
         non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
 
-        if torch.isnan(model.TE.event_emb.weight).sum()>0:
-            a=1
+        # if torch.isnan(model.TE.event_emb.weight).sum()>0:
+        #     a=1
 
 
 
@@ -320,15 +320,15 @@ def train_epoch(model, training_data, optimizer, pred_loss_func, opt):
         optimizer.zero_grad()
 
         loss.backward()
-        if torch.isnan(model.TE.event_emb.weight).sum()>0:
-            a=1
+        # if torch.isnan(model.TE.event_emb.weight).sum()>0:
+        #     a=1
 
         """ update parameters """
 
         optimizer.step()
 
-        if torch.isnan(model.TE.event_emb.weight).sum()>0:
-            a=1
+        # if torch.isnan(model.TE.event_emb.weight).sum()>0:
+        #     a=1
 
     
 
