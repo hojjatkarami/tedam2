@@ -28,7 +28,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-for i_split in {1..4}
+for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
