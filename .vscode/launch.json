@@ -88,7 +88,9 @@
             "args": [
 
 
-               "-batch_size","128","-lr","0.01","-weight_decay","0.1","-w_pos_label","0.5","-w_sample_label","100","-w_time","1","-w_event","1","-data","/mlodata1/hokarami/tedam/p12/","-setting","seft","-demo","-data_label","multilabel","-epoch","15","-per","100","-ES_pat","100","-wandb","-wandb_project","TEEDAM_supervised","-event_enc","1","-mod","none","-next_mark","1","-mark_detach","0","-sample_label","1","-user_prefix","[Q10DEB-TE__nextmark-concat]","-time_enc","concat",
+               "-batch_size","16","-lr","0.01","-weight_decay","0.1","-w_pos_label","0.5","-w_sample_label","100","-w_time","1","-w_event","1","-data","/mlodata1/hokarami/tedam/p12/","-setting","seft","-demo","-data_label","multilabel","-epoch","1","-per","10","-ES_pat","100","-wandb","-wandb_project","TEEDAM_supervised","-event_enc","1","-state","-mod","single","-next_mark","1","-mark_detach","0","-sample_label","1","-user_prefix","[Q10TEST-TEDA__pp_single_mark-concat]","-time_enc","concat",
+
+            //    "-batch_size","128","-lr","0.01","-weight_decay","0.1","-w_pos_label","0.5","-w_sample_label","100","-w_time","1","-w_event","1","-data","/mlodata1/hokarami/tedam/p12/","-setting","seft","-demo","-data_label","multilabel","-epoch","15","-per","100","-ES_pat","100","-wandb","-wandb_project","TEEDAM_supervised","-event_enc","1","-mod","none","-next_mark","1","-mark_detach","0","-sample_label","1","-user_prefix","[Q10DEB-TE__nextmark-concat]","-time_enc","concat",
 
             //    "-w_pos","-pos_alpha","1","-batch_size","16","-lr","0.003","-weight_decay","1","-te_d_mark","32","-te_d_time","16","-te_d_inner","128","-te_d_k","32","-te_d_v","32","-w_sample_label","10000","-w_time","1","-w_event","1","-data","/mlodata1/hokarami/tedam/synthea_200/","-split","0","-data_label","multilabel","-epoch","50","-log_freq","1","-per","100","-ES_pat","100","-wandb","-wandb_project","TEEDAM_unsupervised_timeCat","-event_enc","1","-mod","none","-next_mark","1","-mark_detach","0","-sample_label","0","-user_prefix","[Q10DEB-TE__nextmark-concat]","-time_enc","concat",
 

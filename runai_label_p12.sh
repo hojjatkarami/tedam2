@@ -53,7 +53,7 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "
 
     # TEDA__pp_single_mark
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat     
+    echo python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat     
 
     # # TEDAnoise__pp_single_mark
     # waitforjobs $N_JOBS
