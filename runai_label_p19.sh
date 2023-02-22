@@ -49,8 +49,8 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
 
-# seft split (seft)
-SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "     
+# rand split (rand)
+SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "     
 
 #     # TEDA__pp_single_mark
 #     waitforjobs $N_JOBS
