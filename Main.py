@@ -1644,6 +1644,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     total_label_state = 0  # cumulative time prediction squared-error
 
     event_type_list = []
+    event_time_list = []
+
     non_pad_mask_list = []
 
     time_gap_true = []
@@ -1699,7 +1701,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             enc_out = model(event_type, event_time, state_data=state_data)
             r_enc_list.append(enc_out.detach().cpu()[:,-1,:])
             event_type_list.append(event_type)
-        
+            event_time_list.append(event_time)
+
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
 
             non_pad_mask_list.append(non_pad_mask)
@@ -1761,7 +1764,10 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
 
     out['non_pad_mask_list'] = non_pad_mask_list
+
     out['event_type_list'] = event_type_list
+    out['event_time_list'] = event_time_list
+
     out['state_mod_list'] = state_mod_list
     out['state_time_list'] = state_time_list
 

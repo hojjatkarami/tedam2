@@ -3,9 +3,9 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=4
+N_JOBS=2
 
-USER_PREFIX=Q10
+USER_PREFIX=Q20
 
 DATA_NAME="p12"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
@@ -72,18 +72,18 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting seft "
 #     # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDAnoise__pp_ml -user_prefix "[$USER_PREFIX-TEDAnoise__pp_ml-concat]" -time_enc concat & 
 
 
-#     # DA__base
-#     waitforjobs $N_JOBS
-#     python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
-
-
-    # TE__nextmark
+    # DA__base
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
+    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
-    # TEDA__nextmark
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+
+    # # TE__nextmark
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
+
+    # # TEDA__nextmark
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
 
 
 #     # # DAnoise__base
