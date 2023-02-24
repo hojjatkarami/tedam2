@@ -205,10 +205,9 @@ class Encoder(nn.Module):
         # self.slf_attn_mask = slf_attn_mask
         # self.mask2 = self_attn#mask2*0
 
-        if torch.isnan(x).sum()>0:
-            a=1
 
-        
+        self.self_attn = self_attn.detach().cpu()
+
         return x
 
 
@@ -1332,7 +1331,7 @@ class DeepAttensionModule(nn.Module):
 
             output = self.rho(agg,1)
         # output=encoded
-        
+        self.att = att.detach().cpu()
         if verbose:
             self.temp['preattentions']=preattentions
             self.temp['times']=times

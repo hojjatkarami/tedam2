@@ -1667,9 +1667,14 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     state_mod_list = []
     state_time_list = []
+    state_value_list=[]
 
     y_pred_stupid_list = []
     n_classes = model.n_marks
+
+
+    list_TE_att = []
+    list_DAM_att = []
 
     dict_metrics={}
 
@@ -1687,8 +1692,9 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             event_time, time_gap, event_type = batch[:3]
             if opt.state:
                 state_time, state_value, state_mod = batch[3:6]
-                state_mod_list.append(state_mod)
-                state_time_list.append(state_time)
+                state_mod_list.append(state_mod.detach().cpu())
+                state_time_list.append(state_time.detach().cpu())
+                state_value_list.append(state_value.detach().cpu())
 
                 state_data = batch[3:6]
             if opt.sample_label:
@@ -1700,8 +1706,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             
             enc_out = model(event_type, event_time, state_data=state_data)
             r_enc_list.append(enc_out.detach().cpu()[:,-1,:])
-            event_type_list.append(event_type)
-            event_time_list.append(event_time)
+            event_type_list.append(event_type.detach().cpu())
+            event_time_list.append(event_time.detach().cpu())
 
             non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
 
@@ -1718,6 +1724,11 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
                 y_event_score_list.append( torch.flatten(model.event_decoder.intens_at_evs, end_dim=1).detach().cpu() ) # [*, n_cif]
 
+
+            if hasattr(model,'TE'):
+                list_TE_att.append(model.TE.self_attn)
+            if hasattr(model,'DAM'):
+                list_DAM_att.append(model.DAM.att)
 
             # next type prediction
             if hasattr(model, 'pred_next_type'):
@@ -1770,6 +1781,13 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     out['state_mod_list'] = state_mod_list
     out['state_time_list'] = state_time_list
+    out['state_value_list'] = state_value_list
+    
+    out['r_enc_list'] = r_enc_list
+
+
+    out['list_TE_att'] = list_TE_att
+    out['list_DAM_att'] = list_DAM_att
 
     # CIF decoder
     if hasattr(model, 'event_decoder'):
@@ -2002,7 +2020,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
 
 
-    return dict_metrics,r_enc_list,out
+    return dict_metrics,out
 
 
 
