@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=R50
+USER_PREFIX=H10
 
 DATA_NAME="retweets_ml"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -13,6 +13,7 @@ HPs="-w_pos -batch_size 256  -lr 0.003 -weight_decay 0.1 " #-te_d_mark 8 -te_d_t
 
 
 PRE="/scratch/hokarami/data_old"
+PRE="/mlodata1/hokarami/tedam"
 
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 0"
