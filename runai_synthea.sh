@@ -32,7 +32,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 for i_split in {0..4}
 do
 
-    SETTING=" -data  $PRE/$DATA_NAME1/ -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME_1/ -split $i_split " 
 
         
     
@@ -47,7 +47,7 @@ do
 
 
 
-    SETTING=" -data  $PRE/$DATA_NAME2/ -split $i_split " 
+    SETTING=" -data  $PRE/$DATA_NAME_2/ -split $i_split " 
 
 
     waitforjobs $N_JOBS
