@@ -23,7 +23,7 @@ TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1 
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
-for i_split in {0..4}
+for i_split in {2..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
