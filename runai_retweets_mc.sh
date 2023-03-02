@@ -31,26 +31,26 @@ SETTING=" -data  $PRE/$DATA_NAME/  "
 
     
 
-waitforjobs $N_JOBS
-python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
+# waitforjobs $N_JOBS
+# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
 
-waitforjobs $N_JOBS
-python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
-
-
-    
-
-waitforjobs $N_JOBS
-python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat]" -time_enc concat &
-
-waitforjobs $N_JOBS
-python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
+# waitforjobs $N_JOBS
+# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
 
 
     
 
-waitforjobs $N_JOBS
-python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat]" -time_enc concat &
+# waitforjobs $N_JOBS
+# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat]" -time_enc concat &
+
+# waitforjobs $N_JOBS
+# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
+
+
+    
+
+# waitforjobs $N_JOBS
+# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat]" -time_enc concat &
 
 waitforjobs $N_JOBS
 python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &

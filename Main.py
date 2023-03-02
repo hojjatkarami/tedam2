@@ -1663,6 +1663,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     y_state_true_list = []
     y_state_score_list = []
     r_enc_list = []
+    r_enc_list2 = []
     masks_list = []
 
     state_mod_list = []
@@ -1703,13 +1704,20 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             if opt.demo:
                 state_data.append(batch[-1])
             
-            
+            non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
+
             enc_out = model(event_type, event_time, state_data=state_data)
-            r_enc_list.append(enc_out.detach().cpu()[:,-1,:])
+            
+            a=(non_pad_mask.sum(1)-1).int().tolist()
+            r=enc_out[[i for i in range(enc_out.shape[0])],a,:]
+            r_enc_list.append(r.detach().cpu())
+
+            # r_enc_list.append(enc_out.detach().cpu()[:,-1,:])
+            # r_enc_list2.append(enc_out.detach().cpu()[:,-2,:])
+            # next_list2.append(event_type.detach().cpu()[:])
             event_type_list.append(event_type.detach().cpu())
             event_time_list.append(event_time.detach().cpu())
 
-            non_pad_mask = Utils.get_non_pad_mask(event_type).squeeze(2)
 
             non_pad_mask_list.append(non_pad_mask)
 

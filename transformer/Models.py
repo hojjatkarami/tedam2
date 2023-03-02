@@ -100,12 +100,13 @@ class Encoder(nn.Module):
             
             self.position_vec = torch.tensor(
                 [math.pow(10000.0, 2.0 * (i // 2) / (self.d_time)) for i in range(self.d_time)],
+                
                 device=device)
         elif self.time_enc=='none':
             self.d_time=0
 
 
-        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=False)
+        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=True)
 
         self.d_model = self.d_type_emb + self.d_time
         
