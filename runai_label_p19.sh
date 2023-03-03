@@ -156,59 +156,59 @@ do
         SETTING=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
 
 
-            # DA__base
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+            # # DA__base
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
-            # TE__nextmark
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
+            # # TE__pp_single_mark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat]" -time_enc concat &
 
-            # TEDA__nextmark
+            # TEDA__pp_single_mark
             waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &
     done
 done
 
 
-# # single-center split (sc)    
-# for i_hosp in {0..1}
-# do
-#     for i_split in {0..4}
-#     do
-#         SETTING=" -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
+# single-center split (sc)    
+for i_hosp in {0..1}
+do
+    for i_split in {0..4}
+    do
+        SETTING=" -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
 
 
 
-#             # # TE__pp_ml
-#             # waitforjobs $N_JOBS
-#             # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat]" -time_enc concat &    
+            # # TE__pp_ml
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat]" -time_enc concat &    
 
-#             # TEDA__pp_ml
-#             waitforjobs $N_JOBS
-#             python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &    
-
-
-
-#             #  # TE__nextmark
-#             # waitforjobs $N_JOBS
-#             # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &    
-
-#             # TEDA__nextmark
-#             waitforjobs $N_JOBS
-#             python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &    
-
-#             # DA__base
-#             waitforjobs $N_JOBS
-#             python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+            # # TEDA__pp_ml
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &    
 
 
-#             # # TEnoise__pp_nextmark
-#             # waitforjobs $N_JOBS
-#             # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_nextmark -user_prefix "[$USER_PREFIX-TEnoise__pp_nextmark-concat]" -time_enc concat &    
-#     done
-# done
+
+            #  # TE__nextmark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &    
+
+            # TEDA__pp_single_mark
+            waitforjobs $N_JOBS
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &    
+
+            # # DA__base
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+
+
+            # # TEnoise__pp_nextmark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_nextmark -user_prefix "[$USER_PREFIX-TEnoise__pp_nextmark-concat]" -time_enc concat &    
+    done
+done
 
 
 
@@ -227,25 +227,25 @@ done
 
 
 
-# # multi-center external evaluation split (mc2)    
-# for i_hosp in {0..1}
-# do
-#     SETTING=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
+# multi-center external evaluation split (mc2)    
+for i_hosp in {0..1}
+do
+    SETTING=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
 
-#         # TE__pp_ml
-#         waitforjobs $N_JOBS
-#         python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat]" -time_enc concat &    
+        # # TE__pp_ml
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat]" -time_enc concat &    
 
-#         # TEDA__pp_ml
-#         waitforjobs $N_JOBS
-#         python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &    
+        # TEDA__pp_single_mark
+        waitforjobs $N_JOBS
+        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &    
 
 
-#         # TEnoise__pp_ml
-#         waitforjobs $N_JOBS
-#         python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat]" -time_enc concat &    
+        # # TEnoise__pp_ml
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat]" -time_enc concat &    
 
-# done
+done
 
 
 

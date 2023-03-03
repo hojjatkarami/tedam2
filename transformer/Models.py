@@ -100,7 +100,7 @@ class Encoder(nn.Module):
             
             self.position_vec = torch.tensor(
                 [math.pow(10000.0, 2.0 * (i // 2) / (self.d_time)) for i in range(self.d_time)],
-                
+
                 device=device)
         elif self.time_enc=='none':
             self.d_time=0
@@ -416,7 +416,7 @@ class CIF_sahp(nn.Module):
                 a=1
 
 
-        
+        self.intens_at_samples = intens_at_samples
 
 
         # res = torch.sum(- log_sum + integral_)

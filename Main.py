@@ -1673,6 +1673,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     y_pred_stupid_list = []
     n_classes = model.n_marks
 
+    list_intens_at_samples=[]
 
     list_TE_att = []
     list_DAM_att = []
@@ -1727,6 +1728,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             # CIF decoder
             if hasattr(model, 'event_decoder'):
                 log_sum, integral_ = model.event_decoder(enc_out,event_time, event_type, non_pad_mask)
+
+                list_intens_at_samples.append(model.event_encoder.intens_at_samples.detach().cpu())
 
                 total_event_ll += torch.sum(log_sum - integral_)
 
@@ -1786,6 +1789,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     out['event_type_list'] = event_type_list
     out['event_time_list'] = event_time_list
+    out['list_intens_at_samples'] = list_intens_at_samples
 
     out['state_mod_list'] = state_mod_list
     out['state_time_list'] = state_time_list
