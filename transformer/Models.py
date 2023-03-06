@@ -419,6 +419,9 @@ class CIF_sahp(nn.Module):
         self.intens_at_samples = intens_at_samples
         self.taus = taus
 
+        self.true_intens_at_evs = true_intens_at_evs
+
+
         # res = torch.sum(- log_sum + integral_)
         return log_sum, integral_
 
