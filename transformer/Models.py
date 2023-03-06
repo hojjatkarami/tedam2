@@ -290,7 +290,7 @@ class CIF_sahp(nn.Module):
     def forward(self, embed_info, seq_times, seq_types, non_pad_mask):
         
         # event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, side = prediction, mod=opt.mod)
-        # self.n_mc_samples=100
+        self.n_mc_samples=100
 
         n_batch = seq_times.size(0)
         n_times = seq_times.size(1) - 1 # L-1
