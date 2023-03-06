@@ -106,7 +106,7 @@ class Encoder(nn.Module):
             self.d_time=0
 
 
-        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=True)
+        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=False)
 
         self.d_model = self.d_type_emb + self.d_time
         
@@ -258,7 +258,7 @@ class CIF_sahp(nn.Module):
         self.d_in = d_in
         self.n_cifs = n_cifs
 
-        self.n_mc_samples=20
+        self.n_mc_samples=100
         self.mod=mod_CIF
 
         self.start_layer = nn.Sequential(
@@ -284,13 +284,13 @@ class CIF_sahp(nn.Module):
     def state_decay(self, converge_point, start_point, omega, duration_t):
         # * element-wise product
         cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
-        # cell_t = (converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+        # cell_t = (converge_point + (staxrt_point - converge_point) * torch.exp(- omega * duration_t))
 
         return cell_t
     def forward(self, embed_info, seq_times, seq_types, non_pad_mask):
         
         # event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, side = prediction, mod=opt.mod)
-
+        # self.n_mc_samples=100
 
         n_batch = seq_times.size(0)
         n_times = seq_times.size(1) - 1 # L-1
@@ -417,7 +417,7 @@ class CIF_sahp(nn.Module):
 
 
         self.intens_at_samples = intens_at_samples
-
+        self.taus = taus
 
         # res = torch.sum(- log_sum + integral_)
         return log_sum, integral_
@@ -467,6 +467,7 @@ class CIF_sahp2(nn.Module):
         
         # event_ll, non_event_ll = opt.event_loss(model, enc_out, event_time, event_type, side = prediction, mod=opt.mod)
 
+        
 
         n_batch = seq_times.size(0)
         n_times = seq_times.size(1) - 1 # L-1
