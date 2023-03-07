@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=H20
+USER_PREFIX=H40
 
 DATA_NAME="retweets_ml"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "

@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=H10
+USER_PREFIX=H40
 
 DATA_NAME_1="synthea_200"
 DATA_NAME_2="synthea_100"
@@ -36,11 +36,11 @@ do
 
         
     
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &    
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &    
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum]" -time_enc sum &
     
 
 
