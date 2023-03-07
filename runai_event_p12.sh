@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=H20
+USER_PREFIX=H30
 
 DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
