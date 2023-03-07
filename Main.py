@@ -1676,6 +1676,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     list_intens_at_samples=[]
     list_taus=[]
     list_true_intens_at_evs=[]
+    list_log_sum=[]
+    list_integral_=[]
 
     list_TE_att = []
     list_DAM_att = []
@@ -1734,6 +1736,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
                 list_intens_at_samples.append(model.event_decoder.intens_at_samples.detach().cpu())
                 list_taus.append(model.event_decoder.taus.detach().cpu())
                 list_true_intens_at_evs.append(model.event_decoder.true_intens_at_evs.detach().cpu())
+                list_log_sum.append(log_sum.detach().cpu())
+                list_integral_.append(integral_.detach().cpu())
 
                 total_event_ll += torch.sum(log_sum - integral_)
 
@@ -1796,6 +1800,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
     out['list_intens_at_samples'] = list_intens_at_samples
     out['list_taus'] = list_taus
     out['list_true_intens_at_evs'] = list_true_intens_at_evs
+    out['list_log_sum'] = list_log_sum
+    out['list_integral_'] = list_integral_
 
     out['state_mod_list'] = state_mod_list
     out['state_time_list'] = state_time_list

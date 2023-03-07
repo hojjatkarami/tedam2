@@ -283,7 +283,10 @@ class CIF_sahp(nn.Module):
 
     def state_decay(self, converge_point, start_point, omega, duration_t):
         # * element-wise product
-        cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+        # cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+
+        cell_t = nn.Softplus()(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+
         # cell_t = (converge_point + (staxrt_point - converge_point) * torch.exp(- omega * duration_t))
 
         return cell_t
@@ -308,7 +311,9 @@ class CIF_sahp(nn.Module):
         # non_pad_mask = get_non_pad_mask(seq_types).squeeze(2)
         
         if self.mod=='single':
-            seq_onehot_types=torch.ones_like(seq_times).unsqueeze(-1) # [B,L,1]
+            # seq_onehot_types=torch.ones_like(seq_times).unsqueeze(-1) # [B,L,1]
+            seq_onehot_types=(seq_times>0).long().unsqueeze(-1) # [B,L,1]
+
         elif self.mod=='ml':
 
             # if len(seq_types.shape)==3:
@@ -364,13 +369,17 @@ class CIF_sahp(nn.Module):
         #     taus) # [B,L-1,d_model,ns]
         
         
+        # cell_tau = self.state_decay(
+        #     self.converge_point[:,:,:,None] * non_pad_mask[:, 1:,None,None],
+        #     self.start_point[:,:,:,None] * non_pad_mask[:, 1:,None,None],
+        #     self.omega[:,:,:,None] * non_pad_mask[:, 1:,None,None],
+        #     taus) # [B,L-1,d_model,ns]
+        
         cell_tau = self.state_decay(
-            self.converge_point[:,:,:,None] * non_pad_mask[:, 1:,None,None],
-            self.start_point[:,:,:,None] * non_pad_mask[:, 1:,None,None],
-            self.omega[:,:,:,None] * non_pad_mask[:, 1:,None,None],
+            self.converge_point[:,:,:,None],
+            self.start_point[:,:,:,None],
+            self.omega[:,:,:,None],
             taus) # [B,L-1,d_model,ns]
-        
-        
         
         
         
