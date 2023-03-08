@@ -1645,6 +1645,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     event_type_list = []
     event_time_list = []
+    next_event_type_list = []
 
     non_pad_mask_list = []
 
@@ -1757,6 +1758,7 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
                 y_true_list.append( torch.flatten(y_true, end_dim=1).detach().cpu() ) # [*]
                 y_score_list.append( torch.flatten(y_score, end_dim=1).detach().cpu() ) # [*, C]
 
+                next_event_type_list.append(y_pred.detach().cpu())
 
                 
 
@@ -1797,6 +1799,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
 
     out['event_type_list'] = event_type_list
     out['event_time_list'] = event_time_list
+    out['next_event_type_list'] = next_event_type_list
+
     out['list_intens_at_samples'] = list_intens_at_samples
     out['list_taus'] = list_taus
     out['list_true_intens_at_evs'] = list_true_intens_at_evs
