@@ -8,7 +8,7 @@ N_JOBS=1
 USER_PREFIX=H40
 
 DATA_NAME="data_mimic"
-COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb "
+COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb_project TEEDAM_unsupervised_timeCat"
 HPs="-batch_size 1  -lr 0.0001 -weight_decay 0.1  -te_d_mark 64 -te_d_time 16 -te_d_inner 256 -te_d_k 32 -te_d_v 32 -te_n_head 3 -te_n_layers 3 "
 
 
