@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=H40
+USER_PREFIX=H50
 
 DATA_NAME_1="synthea_200"
 DATA_NAME_2="synthea_100"
