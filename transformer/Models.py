@@ -981,7 +981,7 @@ def cumulative_softmax_weighting(values, preattention, mask, eps=1e-7, online=Tr
     B = torch.cummax(preattention, dim=1)[0][:,:,None,:] # [B,P,1,m]
     C = torch.triu(
         torch.ones((preattention.shape[1] , preattention.shape[1]),device=preattention.device).bool(),
-    diagonal=1 ) [None,:,:,None] # [1,P,P,1]
+    diagonal=0 ) [None,:,:,None] # [1,P,P,1]
 
     D=torch.exp( (A-B).masked_fill(C,-np.inf) )# [B,P,P,m]
     E = D.sum(2)[:,:,:,None] # [B,P,m,1]
