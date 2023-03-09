@@ -283,9 +283,9 @@ class CIF_sahp(nn.Module):
 
     def state_decay(self, converge_point, start_point, omega, duration_t):
         # * element-wise product
-        # cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+        cell_t = torch.tanh(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
 
-        cell_t = nn.Softplus()(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
+        # cell_t = nn.Softplus()(converge_point + (start_point - converge_point) * torch.exp(- omega * duration_t))
 
         # cell_t = (converge_point + (staxrt_point - converge_point) * torch.exp(- omega * duration_t))
 
