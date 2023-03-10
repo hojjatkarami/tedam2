@@ -46,7 +46,7 @@ def get_subsequent_mask(seq):
     else:
         sz_b, len_s, dim = seq.size()
     subsequent_mask = torch.triu(
-        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=1)   
+        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=0)   
     subsequent_mask = subsequent_mask.unsqueeze(0).expand(sz_b, -1, -1)  # b x ls x ls
     return subsequent_mask
 
@@ -106,7 +106,7 @@ class Encoder(nn.Module):
             self.d_time=0
 
 
-        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=True)
+        self.event_emb = nn.Linear(n_marks,d_type_emb, bias=False)
 
         self.d_model = self.d_type_emb + self.d_time
         
@@ -981,7 +981,7 @@ def cumulative_softmax_weighting(values, preattention, mask, eps=1e-7, online=Tr
     B = torch.cummax(preattention, dim=1)[0][:,:,None,:] # [B,P,1,m]
     C = torch.triu(
         torch.ones((preattention.shape[1] , preattention.shape[1]),device=preattention.device).bool(),
-    diagonal=0 ) [None,:,:,None] # [1,P,P,1]
+    diagonal=1 ) [None,:,:,None] # [1,P,P,1]
 
     D=torch.exp( (A-B).masked_fill(C,-np.inf) )# [B,P,P,m]
     E = D.sum(2)[:,:,:,None] # [B,P,m,1]
