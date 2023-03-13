@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=TEST-dg0-please
+USER_PREFIX=TEST-dg1-please
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -43,22 +43,22 @@ do
 
 
     
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat ]" -time_enc concat &
     
 
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum]" -time_enc sum &
     
 
 
     
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat ]" -time_enc concat &
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat ]" -time_enc concat &
     
 
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
 
     
 done
