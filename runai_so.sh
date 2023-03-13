@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=TEST-dg-plus2-please
+USER_PREFIX=TEST-dg-plus1-please
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
