@@ -46,7 +46,7 @@ def get_subsequent_mask(seq):
     else:
         sz_b, len_s, dim = seq.size()
     subsequent_mask = torch.triu(
-        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=2)   
+        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=1)   
     subsequent_mask = subsequent_mask.unsqueeze(0).expand(sz_b, -1, -1)  # b x ls x ls
     return subsequent_mask
 
