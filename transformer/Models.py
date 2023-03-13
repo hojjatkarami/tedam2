@@ -1468,7 +1468,8 @@ class ATHP(nn.Module):
             label_config=False,
 
             demo_config=False,
-            device=torch.device('cpu')
+            device=torch.device('cpu'),
+            diag_offset=1
             # num_types, te_d_mark=16,te_d_time=8, te_d_rnn=128, te_d_inner=1024,
             # te_n_layers=4, te_n_head=4, te_d_k=64, te_d_v=64, te_dropout=0.1,
             # reg=False,
@@ -1544,6 +1545,7 @@ class ATHP(nn.Module):
 
                 # reg=False,
                 device=self.device,
+                diag_offset=diag_offset
 
 
             )
