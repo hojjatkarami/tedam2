@@ -3,9 +3,9 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=4
+N_JOBS=2
 
-USER_PREFIX=TEST-dg1-2-please
+USER_PREFIX=TEST-dg-plus2-please
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
