@@ -916,6 +916,8 @@ def options():
 
 
     # Transformer Encoder Architecture
+    parser.add_argument('-diag_offset', type=int, default=1, help='offset for diagonal')
+
     parser.add_argument('-event_enc', type=int, choices=[0,1], default=1, help='consider state?')
 
     parser.add_argument('-time_enc', type=str, choices=['sum','concat','none'], default='concat', help='specify time encoding')
@@ -1493,6 +1495,7 @@ def main(trial=None):
         demo_config = opt.demo_config,
 
         device=opt.device,
+        diag_offset=opt.diag_offset
 
     )
     model.to(opt.device)

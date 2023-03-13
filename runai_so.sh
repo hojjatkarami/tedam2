@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=TEST-dg-plus1-please
+USER_PREFIX=TEST-DIAGS
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -23,13 +23,13 @@ TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1 
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
-
-
-
-for i_split in {0..4}
+for i_diag in {-2..1}
 do
 
-    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split " 
+for i_split in {0..0}
+do
+
+    SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split -diag_offset $i_diag " 
         
     
     waitforjobs $N_JOBS
@@ -61,4 +61,8 @@ do
     # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum]" -time_enc sum &
 
     
+done
+
+
+
 done

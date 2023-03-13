@@ -39,14 +39,14 @@ def get_attn_key_pad_mask(seq_k, seq_q):
     return padding_mask
 
 
-def get_subsequent_mask(seq):
+def get_subsequent_mask(seq,diag_offset=1):
     """ For masking out the subsequent info, i.e., masked self-attention. """
     if seq.dim() == 2:
         sz_b, len_s = seq.size()
     else:
         sz_b, len_s, dim = seq.size()
     subsequent_mask = torch.triu(
-        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=1)   
+        torch.ones((len_s, len_s), device=seq.device, dtype=torch.uint8), diagonal=diag_offset)   
     subsequent_mask = subsequent_mask.unsqueeze(0).expand(sz_b, -1, -1)  # b x ls x ls
     return subsequent_mask
 
@@ -70,12 +70,16 @@ class Encoder(nn.Module):
             dropout, 
             
             device,
+
+            diag_offset,
             # reg=False,
 
 
             ):
         super().__init__()
 
+
+        self.diag_offset = diag_offset
         self.n_marks = n_marks
         self.d_type_emb = d_type_emb 
             
@@ -141,7 +145,7 @@ class Encoder(nn.Module):
 
         # prepare attention masks
         # slf_attn_mask is where we cannot look, i.e., the future and the padding
-        slf_attn_mask_subseq = get_subsequent_mask(event_type)
+        slf_attn_mask_subseq = get_subsequent_mask(event_type, self.diag_offset)
         slf_attn_mask_keypad = get_attn_key_pad_mask(seq_k=event_type, seq_q=event_type)
         slf_attn_mask_keypad = slf_attn_mask_keypad.type_as(slf_attn_mask_subseq)
         slf_attn_mask = (slf_attn_mask_keypad + slf_attn_mask_subseq).gt(0) # [B,L,L] True are masked
