@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=TEST-DIAGS
+USER_PREFIX=H70
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -23,17 +23,17 @@ TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1 
 
 COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
-for i_diag in {-6..-3}
+for i_diag in {-2..1}
 do
 
-for i_split in {0..0}
+for i_split in {0..4}
 do
 
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split -diag_offset $i_diag " 
         
     
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat ]" -time_enc concat &
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &
     
 
     # waitforjobs $N_JOBS
