@@ -1,5 +1,6 @@
 import argparse
 import numpy as np
+import pandas as pd
 import pickle
 import time
 import torch
@@ -36,6 +37,45 @@ from collections import OrderedDict
 
 from torch.profiler import profile, record_function, ProfilerActivity
 
+
+
+# Project is specified by <entity/project-name>
+def dl_runs(all_runs, selected_tag=None):
+
+
+
+
+    summary_list, config_list, name_list, path_list = [], [], [], []
+    for run in all_runs: 
+
+        if (selected_tag not in run.tags) and (selected_tag is not None):
+            continue
+        # .summary contains the output keys/values for metrics like accuracy.
+        #  We call ._json_dict to omit large files 
+        summary_list.append(run.summary._json_dict)
+
+        # .config contains the hyperparameters.
+        #  We remove special values that start with _.
+        
+
+        config_list.append(
+            {k: v for k,v in run.config.items()
+            if not k.startswith('_')})
+
+        # .name is the human-readable name of the run.
+        name_list.append(run.name)
+        path_list.append(run.path)
+
+    runs_df = pd.DataFrame({
+        "summary": summary_list,
+        "config": config_list,
+        "name": name_list,
+        "path": path_list
+
+        })
+
+    # runs_df.to_csv("project.csv")
+    return runs_df
 
 # import custom libraries
 import sys
@@ -1071,13 +1111,13 @@ def config(opt, justLoad=False):
 
     
 
-    if opt.transfer_learning != '':
+    if (opt.transfer_learning != '')*0:
 
-
+        
         print('### ---------TRANSFER LEARNING----------->    '+opt.transfer_learning)
 
         # load opt file
-        with open(opt.transfer_learning+'/opt.pkl','rb') as f:
+        with open(opt.data + opt.transfer_learning+'/opt.pkl','rb') as f:
             opt_tl = pickle.load(f)
 
         print(f"""Available modules:
@@ -1412,7 +1452,7 @@ def load_module(model, checkpoint, modules, to_freeze=True):
             od[k[  (len(module)+1)  :]]=checkpoint['model_state_dict'][k]
 
         # model.encoder.load_state_dict(od)
-        getattr(model,module).load_state_dict(od)
+        getattr(model,module).load_state_dict(od,strict=False)
         for para in getattr(model,module).parameters():
             para.requires_grad = not to_freeze
 
@@ -1516,14 +1556,37 @@ def main(trial=None):
         #     raise Exception('No models were found for transfer learning!!!')
         # MODEL_PATH = opt.data+TL_run+'/model_ep'+str(max(all_epochs))+'.pkl'
 
-        MODEL_PATH = opt.transfer_learning+'best_model.pkl'
+        api = wandb.Api()
+        runs = api.runs("hokarami/TEEDAM_unsupervised")
+        df_filt = dl_runs(runs, selected_tag='H70')
 
-        checkpoint = torch.load(MODEL_PATH)
+        df_config = pd.DataFrame(   [{k:v for k,v in x.items()} for x in df_filt.config]    )
+        df_summary = pd.DataFrame(   [{k:v for k,v in x.items()} for x in df_filt.summary]    )
+        df_path = df_filt.path.apply(lambda x:'/'.join(x))
+        df = pd.concat([df_config, df_summary, df_path],axis=1)
+
+        q=(df['dataset']==opt.dataset) & (df['setting']==opt.setting) & (df['INPUT']==opt.INPUT) & (df['diag_offset']==opt.diag_offset) & (df['test_center']==opt.test_center) & (df['split']==opt.split)
+
+        if q.sum()!=1:
+            print('### COULD NOT FIND UNIQUE RUN FOR TL')
+            raise "COULD NOT FIND UNIQUE RUN FOR TL"
+        else:
+            run_path=df.loc[q]['path'].values[0] # sth like 'hokarami/TEEDAM_unsupervised/8bhh70yz'
+
+            run = api.run(run_path)
+            for file in run.files():
+                file.download(replace=True,root=f'./local/{run_path}/')
+            checkpoint = torch.load(f'./local/{run_path}/best_model.pkl')
+
+
+        # MODEL_PATH = opt.data + opt.transfer_learning+'/best_model.pkl'
+
+        # checkpoint = torch.load(MODEL_PATH)
 
         
         # for para in model.parameters():
         #     para.requires_grad = False
-
+        opt.all_transfered_modules = ['TE']
         load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=True)
         print('### [info] all transfered modules: ',opt.all_transfered_modules)
 
