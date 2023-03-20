@@ -7,14 +7,13 @@ N_JOBS=4
 
 USER_PREFIX=H70-
 
-DATA_NAME="p12"
-COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
-HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
+DATA_NAME="p19"
+COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
+HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
 
 PRE="/scratch/hokarami/data_tedam"
-PRE="/home/hokarami/data"
 PRE="/mlodata1/hokarami/tedam"
 
 # TEEDAM with label
@@ -38,17 +37,17 @@ DAnoise__base="-event_enc 0    -state    -noise      -mod none      -next_mark 1
 COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
-
 i_diag=0
 
+
 # multi-center external evaluation split (mc2)    
-for i_hosp in {0..2}
+for i_hosp in {0..1}
 do
     SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
     TL="-transfer_learning DO "
-    # # DA__base
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+    # DA__base
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
  
@@ -63,16 +62,16 @@ done
 
 
 # multi-center split (mc1)    
-for i_hosp in {0..2}
+for i_hosp in {0..1}
 do
     for i_split in {0..4}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
         TL='-transfer_learning DO '
 
-        # # DA__base
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+        # DA__base
+        waitforjobs $N_JOBS
+        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
             
         # TEDA__none
