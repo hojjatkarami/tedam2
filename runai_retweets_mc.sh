@@ -28,7 +28,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-for i_diag in {1}
+for i_diag in {1..1}
 do
 
     
