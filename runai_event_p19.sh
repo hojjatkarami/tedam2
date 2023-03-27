@@ -35,7 +35,7 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
 
-for i_diag in {0}
+for i_diag in {0..0}
 do
 
 
