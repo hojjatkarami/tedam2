@@ -6,6 +6,9 @@ __pycache__/
 
 wandb/
 
+# "distilbert-base-uncased-finetuned-imdb/"
+# test-trainer/
+
 log.txt
 
 jup_res.ipynb
