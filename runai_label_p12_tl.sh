@@ -49,25 +49,25 @@ do
     TL="-transfer_learning DO "
     # # DA__base
     # waitforjobs $N_JOBS
-    # echo python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
  
     # # TEDA__none
     # waitforjobs $N_JOBS
-    # echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+    # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
 
     TL="-transfer_learning DO -freeze TE"
     # TE__none
     waitforjobs $N_JOBS
-    echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+    python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
 
     TL="-transfer_learning DO -freeze TE DAM"
     # TEDA__none
     waitforjobs $N_JOBS
-    echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+    python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
 done
 
@@ -83,23 +83,23 @@ do
 
         # # DA__base
         # waitforjobs $N_JOBS
-        # echo python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
             
         # # TEDA__none
         # waitforjobs $N_JOBS
-        # echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+        # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
         TL="-transfer_learning DO -freeze TE"
         # TE__none
         waitforjobs $N_JOBS
-        echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
 
         TL="-transfer_learning DO -freeze TE DAM"
         # TEDA__none
         waitforjobs $N_JOBS
-        echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
 
     done
@@ -117,23 +117,23 @@ do
 
         # # DA__base
         # waitforjobs $N_JOBS
-        # echo python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
             
         # # TEDA__none
         # waitforjobs $N_JOBS
-        # echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+        # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
         TL="-transfer_learning DO -freeze TE"
         # TE__none
         waitforjobs $N_JOBS
-        echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
 
         TL="-transfer_learning DO -freeze TE DAM"
         # TEDA__none
         waitforjobs $N_JOBS
-        echo python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
 
     done
