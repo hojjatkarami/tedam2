@@ -928,7 +928,7 @@ def options():
     parser.add_argument('-unbalanced_batch', action='store_false', dest='balanced_batch', help='not balanced mini batches?')
 
     parser.add_argument('-transfer_learning', default="", help='specify run_name')
-    parser.add_argument('-freeze', choices=['TEDA','TE','DA',''], default="", help='specify run_name')
+    parser.add_argument('-freeze', nargs='+', choices=['TE','DAM',''], default='', help='specify run_name')
 
     parser.add_argument('-ES_pat', type=int, default=10, help='max_epochs_without_improvement')
     
@@ -1588,7 +1588,7 @@ def main(trial=None):
         
         # for para in model.parameters():
         #     para.requires_grad = False
-        opt.all_transfered_modules = ['TE']
+        opt.all_transfered_modules = opt.freeze
         load_module(model, checkpoint, modules=opt.all_transfered_modules, to_freeze=True)
         print('### [info] all transfered modules: ',opt.all_transfered_modules)
 

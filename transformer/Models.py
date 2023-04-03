@@ -135,10 +135,11 @@ class Encoder(nn.Module):
         Output: batch*seq_len*d_mark.
         """
 
-        temp = torch.ones_like(time) * torch.arange(time.shape[1],device=time.device) # [B,L] * [L]=[B,L]
-        # result = time.unsqueeze(-1) / self.position_vec
-        result = temp.unsqueeze(-1) / self.position_vec
+        # temp = torch.ones_like(time) * torch.arange(time.shape[1],device=time.device) # [B,L] * [L]=[B,L]
+        # result = temp.unsqueeze(-1) / self.position_vec
         
+        result = time.unsqueeze(-1) / self.position_vec
+
         result[:, :, 0::2] = torch.sin(result[:, :, 0::2])
         result[:, :, 1::2] = torch.cos(result[:, :, 1::2])
         return result * non_pad_mask
