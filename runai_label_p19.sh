@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=H60
+USER_PREFIX=H70
 
 DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
@@ -103,34 +103,34 @@ SETTING=" -data  $PRE/$DATA_NAME/ -setting rand "
 
 
 
-# multi-center external evaluation split (mc2)    
-for i_hosp in {0..1}
-do
-    SETTING=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
+# # multi-center external evaluation split (mc2)    
+# for i_hosp in {0..1}
+# do
+#     SETTING=" -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+#     # DA__base
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
-    # # TE__nextmark
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
+#     # # TE__nextmark
+#     # waitforjobs $N_JOBS
+#     # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat]" -time_enc concat &
 
-    # TEDA__nextmark
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat & 
+#     # TEDA__nextmark
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat & 
 
-    # TEDA__pp_single_mark
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &   
+#     # TEDA__pp_single_mark
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &   
     
-    # TEDA__pp_ml
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat & 
+#     # TEDA__pp_ml
+#     waitforjobs $N_JOBS
+#     python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat & 
 
 
-done
+# done
 
 
 
@@ -169,9 +169,9 @@ done
 
 
 # multi-center split (mc1)    
-for i_hosp in {0..1}
+for i_hosp in {0..0}
 do
-    for i_split in {0..4}
+    for i_split in {0..0}
     do
         SETTING=" -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
 
