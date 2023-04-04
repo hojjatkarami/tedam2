@@ -1631,6 +1631,7 @@ class ATHP(nn.Module):
         # sample final label ************************************************************
         if label_config:
             self.pred_label = Predictor(self.d_con, 1)
+            self.sample_detach = label_config['sample_detach']
 
         # Prediction of next time and type ***************************
 
@@ -1752,7 +1753,10 @@ class ATHP(nn.Module):
             enc_last = torch.stack([temp[i][lens[i].item() - 1 ] for i in range (len(temp))],0)  # [B,d_con]
             # enc_last = enc_last if self.sample_label==1 else enc_last.detach() # if it is equal to 2
             # self.y_label = self.pred_label(enc_last, 1) # [B]
-            self.y_label = self.pred_label(enc, non_pad_mask) # [B, L]
+            if self.sample_detach:
+                self.y_label = self.pred_label(enc.detach(), non_pad_mask) # [B, L]
+            else:
+                self.y_label = self.pred_label(enc, non_pad_mask) # [B, L]
 
        
         if verbose:

@@ -1342,7 +1342,10 @@ def config(opt, justLoad=False):
         opt.next_type_config['n_marks'] = opt.num_marks 
         opt.next_type_config['mark_detach'] = opt.mark_detach 
     opt.next_time_config = True
-    opt.label_config = opt.sample_label
+    
+    opt.label_config = {}
+    if opt.sample_label:
+        opt.label_config['sample_detach'] = 1 if ( opt.sample_label==2) else 0
 
     return opt
 
