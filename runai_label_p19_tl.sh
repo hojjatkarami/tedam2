@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=H70-
+USER_PREFIX=H70H-
 
 DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
@@ -42,73 +42,104 @@ i_diag=0
 
 
 # multi-center external evaluation split (mc2)    
-for i_hosp in {0..1}
+for i_hosp in {0..0}
 do
-    SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
-    TL="-transfer_learning DO "
+    # SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
+    # TL="-transfer_learning DO "
     # # DA__base
     # waitforjobs $N_JOBS
     # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
  
-    # # TEDA__none
-    # waitforjobs $N_JOBS
-    # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+    # # # TEDA__none
+    # # waitforjobs $N_JOBS
+    # # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
+    # # TE__none
+    # waitforjobs $N_JOBS
+    # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+
+
+
+
+
+
+
+
+    SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
+    TL="-transfer_learning DO "
+    # DA__base
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+
+
+ 
+#     # # TEDA__none
+#     # waitforjobs $N_JOBS
+#     # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+
+
+    TL="-transfer_learning DO -freeze TE"
     # TE__none
     waitforjobs $N_JOBS
     python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
+
+#     TL="-transfer_learning DO -freeze TE DAM"
+#     # TEDA__none
+#     waitforjobs $N_JOBS
+#     python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+
 done
 
 
 
-# multi-center split (mc1)    
-for i_hosp in {0..1}
-do
-    for i_split in {0..4}
-    do
-        SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
-        TL='-transfer_learning DO '
+# # multi-center split (mc1)    
+# for i_hosp in {0..1}
+# do
+#     for i_split in {0..4}
+#     do
+#         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc1 -test_center $i_hosp -split $i_split " 
+#         TL='-transfer_learning DO '
 
-        # # DA__base
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+#         # # DA__base
+#         # waitforjobs $N_JOBS
+#         # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
             
-        # # TEDA__none
-        # waitforjobs $N_JOBS
-        # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+#         # # TEDA__none
+#         # waitforjobs $N_JOBS
+#         # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
-        # TE__none
-        waitforjobs $N_JOBS
-        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+#         # TE__none
+#         waitforjobs $N_JOBS
+#         python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
-    done
-done
+#     done
+# done
 
 
-# single-center split (sc)    
-for i_hosp in {1..1}
-do
-    for i_split in {0..4}
-    do
-        SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
-        TL='-transfer_learning DO '
+# # single-center split (sc)    
+# for i_hosp in {1..1}
+# do
+#     for i_split in {0..4}
+#     do
+#         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
+#         TL='-transfer_learning DO '
 
-        # # DA__base
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+#         # # DA__base
+#         # waitforjobs $N_JOBS
+#         # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
             
-        # # TEDA__none
-        # waitforjobs $N_JOBS
-        # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+#         # # TEDA__none
+#         # waitforjobs $N_JOBS
+#         # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
-        # TE__none
-        waitforjobs $N_JOBS
-        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
+#         # TE__none
+#         waitforjobs $N_JOBS
+#         python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
-    done
-done
+#     done
+# done

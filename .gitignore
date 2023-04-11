@@ -15,3 +15,10 @@ jup_res.ipynb
 wandb/debug-cli.hokarami.log
 
 local/
+
+saved_models/
+distilbert-base-uncased-finetuned-imdb/
+ehr_bert_data/
+
+Hojjat/
+hf/

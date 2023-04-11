@@ -852,6 +852,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
             # # saving best torch model !!!
             if ('pred_label/f1-binary' in flag) or ('CIF/LL-#events' in flag) or ('NextType(ML)/auc-ovo-weighted' in flag)  or ('NextType(MC)/f1-weighted' in flag):
+                opt.best_epoch = opt.i_epoch
                 torch.save({
                     'epoch': opt.i_epoch,
                     'model_state_dict': model.state_dict(),
