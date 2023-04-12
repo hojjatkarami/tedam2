@@ -42,7 +42,7 @@ i_diag=0
 
 
 # multi-center external evaluation split (mc2)    
-for i_hosp in {0..0}
+for i_hosp in {0..1}
 do
     # SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
     # TL="-transfer_learning DO "
