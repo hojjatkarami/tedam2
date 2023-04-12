@@ -757,21 +757,32 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
     best_test_metric = {}
     best_valid_metric = {}
 
-    if opt.sample_label:
-        best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
-        best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
-    # elif opt.next_mark:
-        
-    if opt.mod!='none':
-        best_test_metric.update({'CIF/LL-#events':-100})
-        best_valid_metric.update({'CIF/LL-#events':-100})
-    if opt.next_mark:
+    if opt.wandb_project in ['TEEDAM_unsupervised','TEEDAM_unsupervised_timeCat']:
         if opt.data_label=='multilabel':
-            best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
-            best_valid_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
+            best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0})
+            best_valid_metric.update({'NextType(ML)/auc-ovo-weighted':0})
         elif opt.data_label=='multiclass':
-            best_test_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
-            best_valid_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
+            best_test_metric.update({'NextType(MC)/f1-weighted':0})
+            best_valid_metric.update({'NextType(MC)/f1-weighted':0})
+    elif opt.wandb_project=='TEEDAM_supervised':
+        best_test_metric.update({'pred_label/f1-binary':0})
+        best_valid_metric.update({'pred_label/f1-binary':0})
+
+    # if opt.sample_label:
+    #     best_test_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
+    #     best_valid_metric.update({'pred_label/f1-binary':0, 'pred_label/AUPRC':0, 'pred_label/AUROC':0})
+    # # elif opt.next_mark:
+        
+    # if opt.mod!='none':
+    #     best_test_metric.update({'CIF/LL-#events':-100})
+    #     best_valid_metric.update({'CIF/LL-#events':-100})
+    # if opt.next_mark:
+    #     if opt.data_label=='multilabel':
+    #         best_test_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
+    #         best_valid_metric.update({'NextType(ML)/auc-ovo-weighted':0, 'NextType(ML)/f1-weighted':0})
+    #     elif opt.data_label=='multiclass':
+    #         best_test_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
+    #         best_valid_metric.update({'NextType(MC)/auc-weighted':0, 'NextType(MC)/f1-weighted':0})
 
 
 
@@ -846,19 +857,27 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
                     best_test_metric[k]= dict_metrics_test[k]
                     flag.append(k)
                     if opt.wandb:
-                        wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
-                        wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+                        # wandb.log({('Best-Test-'+k):v for k,v in best_test_metric.items()}, step=opt.i_epoch)
+                        # wandb.log({('Best-Valid-'+k):v for k,v in best_valid_metric.items()}, step=opt.i_epoch)
+
+                        dict_metrics_valid
+
+                        wandb.log({('Best-Test-'+k1):v1 for k1,v1 in dict_metrics_test.items()})
+
+                        wandb.log({('Best-Valid-'+k1):v1 for k1,v1 in dict_metrics_valid.items()})
 
 
-            # # saving best torch model !!!
-            if ('pred_label/f1-binary' in flag) or ('CIF/LL-#events' in flag) or ('NextType(ML)/auc-ovo-weighted' in flag)  or ('NextType(MC)/f1-weighted' in flag):
-                opt.best_epoch = opt.i_epoch
-                torch.save({
-                    'epoch': opt.i_epoch,
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'dict_metrics_test':dict_metrics_test,
-                }, opt.run_path+'/best_model.pkl')
+                    # # # saving best torch model !!!
+                    # if ('pred_label/f1-binary' in flag) or ('CIF/LL-#events' in flag) or ('NextType(ML)/auc-ovo-weighted' in flag)  or ('NextType(MC)/f1-weighted' in flag):
+                    
+                    # opt.best_epoch = opt.i_epoch
+                    wandb.log({'best_epoch':opt.i_epoch})
+                    torch.save({
+                        'epoch': opt.i_epoch,
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'dict_metrics_test':dict_metrics_test,
+                    }, opt.run_path+'/best_model.pkl')
                 
 
 
