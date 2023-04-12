@@ -60,7 +60,7 @@ do
 
 
     # multi-center split (mc1)    
-    for i_hosp in {0..}
+    for i_hosp in {0..0}
     do
         for i_split in {0..4}
         do

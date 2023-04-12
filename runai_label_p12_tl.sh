@@ -133,7 +133,7 @@ do
 
         # TEDA__none NO TL
         waitforjobs $N_JOBS
-        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
     done
 done
