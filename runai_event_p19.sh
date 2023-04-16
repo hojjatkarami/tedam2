@@ -75,8 +75,8 @@ do
                 python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
                 # TEDA__pp_single_mark
-                # waitforjobs $N_JOBS
-                # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
+                waitforjobs $N_JOBS
+                python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
 
                 # TEnoise__pp_single_mark
@@ -90,7 +90,7 @@ do
     # single-center split (sc)    
     for i_hosp in {1..1}
     do
-        for i_split in {3..4}
+        for i_split in {4..4}
         do
             SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
 
