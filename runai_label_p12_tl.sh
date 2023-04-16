@@ -61,10 +61,10 @@ do
     # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
 
-    # TEDA__none TL
-    TL="-transfer_learning DO -freeze TE"
-    waitforjobs $N_JOBS
-    python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+    # # TEDA__none TL
+    # TL="-transfer_learning DO -freeze TE"
+    # waitforjobs $N_JOBS
+    # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
     # # TEDA__none NO TL
     # waitforjobs $N_JOBS
@@ -110,9 +110,9 @@ done
 
 
 # single-center split (sc)    
-for i_hosp in {2..2}
+for i_hosp in {1..2}
 do
-    for i_split in {3..4}
+    for i_split in {0..4}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting sc -test_center $i_hosp -split $i_split " 
 
