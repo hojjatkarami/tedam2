@@ -39,6 +39,7 @@ from collections import OrderedDict
 
 from torch.profiler import profile, record_function, ProfilerActivity
 
+torch.manual_seed(42)
 
 
 # Project is specified by <entity/project-name>
