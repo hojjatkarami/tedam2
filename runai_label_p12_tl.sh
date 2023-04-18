@@ -5,11 +5,11 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=H70HHGG-
+USER_PREFIX=H70HHGGG-
 
 DATA_NAME="p12"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
-HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
+HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 
 
 
@@ -133,9 +133,9 @@ do
         waitforjobs $N_JOBS
         python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
-        # TEDA__none NO TL
-        waitforjobs $N_JOBS
-        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
+        # # TEDA__none NO TL
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat &   
 
     done
 done
