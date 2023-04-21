@@ -39,7 +39,6 @@ from collections import OrderedDict
 
 from torch.profiler import profile, record_function, ProfilerActivity
 
-torch.manual_seed(42)
 
 
 # Project is specified by <entity/project-name>
@@ -809,10 +808,10 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         if opt.i_epoch % opt.log_freq ==0:
 
 
-            # # Train eval *********************************************
-            # train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
-            # dict_metrics_train.update(dict_metrics_train2)
-            # write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
+            # Train eval *********************************************
+            train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
+            dict_metrics_train.update(dict_metrics_train2)
+            write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
 
 
             # ********************************************* Valid Epoch *********************************************
@@ -958,7 +957,7 @@ def options():
     # data handling
 
 
-    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl','rand','seft',''], default='', help='max_epochs_without_improvement')
+    parser.add_argument('-setting', type=str,choices=['sc','mc1','mc2','tl','rand','seft','raindrop'], default='', help='max_epochs_without_improvement')
     parser.add_argument('-test_center', type=str, default='', help='max_epochs_without_improvement')
     parser.add_argument('-split', type=str, default='', help='max_epochs_without_improvement')
 
@@ -1104,6 +1103,12 @@ def config(opt, justLoad=False):
             opt.run_name = opt.user_prefix+str(opt.run_id)
             opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
             # opt.dataset = opt.data
+            opt.data=opt.data[:-1]+opt.str_config+'/'
+        elif opt.setting in ['raindrop']:
+            opt.str_config = '-'+opt.setting+'/split'+opt.split
+            opt.run_name = opt.user_prefix+str(opt.run_id)
+            opt.run_path = opt.data[:-1]+opt.str_config+'/'+ opt.run_name+'/'
+
             opt.data=opt.data[:-1]+opt.str_config+'/'
         else:
             if opt.setting=='mc2':
@@ -1500,6 +1505,8 @@ def main(trial=None):
 
     opt = config(opt)
     
+
+    torch.manual_seed(opt.run_id)
     
     if isinstance(trial,optuna.trial._trial.Trial):
         print('OPTUNA!')

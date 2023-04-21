@@ -1,0 +1,11 @@
+Collecting accelerate
+  Downloading accelerate-0.18.0-py3-none-any.whl (215 kB)
+Requirement already satisfied: pyyaml in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from accelerate) (6.0)
+Requirement already satisfied: torch>=1.4.0 in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from accelerate) (1.13.1)
+Requirement already satisfied: psutil in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from accelerate) (5.8.0)
+Requirement already satisfied: packaging>=20.0 in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from accelerate) (21.3)
+Requirement already satisfied: numpy>=1.17 in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from accelerate) (1.22.3)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from packaging>=20.0->accelerate) (3.0.4)
+Requirement already satisfied: typing_extensions in c:\users\hokarami\anaconda3\envs\paper2022\lib\site-packages (from torch>=1.4.0->accelerate) (4.1.1)
+Installing collected packages: accelerate
+Successfully installed accelerate-0.18.0

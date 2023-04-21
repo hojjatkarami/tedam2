@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=H70HHGTEST4-
+USER_PREFIX=H70HHGTEST5-
 
 DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
@@ -117,17 +117,17 @@ do
         waitforjobs $N_JOBS
         python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
-        # DA__base
-        waitforjobs $N_JOBS
-        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
+        # # DA__base
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
 
-        # DA__base
-        waitforjobs $N_JOBS
-        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
+        # # DA__base
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
 
-        # DA__base
-        waitforjobs $N_JOBS
-        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
+        # # DA__base
+        # waitforjobs $N_JOBS
+        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &  
 
         # # TE__none
         # TL="-transfer_learning DO -freeze TE"
@@ -135,14 +135,14 @@ do
         # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TE__none -user_prefix "[$USER_PREFIX-TE__none-concat]" -time_enc concat & 
 
 
-        # # TEDA__none TL
-        # TL="-transfer_learning DO -freeze TE"
-        # waitforjobs $N_JOBS
-        # python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+        # TEDA__none TL
+        TL="-transfer_learning DO -freeze TE"
+        waitforjobs $N_JOBS
+        python Main.py  $TL $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
-        # # TEDA__none NO TL
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
+        # TEDA__none NO TL
+        waitforjobs $N_JOBS
+        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
 
     done

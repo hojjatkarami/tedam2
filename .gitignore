@@ -22,3 +22,5 @@ ehr_bert_data/
 
 Hojjat/
 hf/
+ehr_states_llm_data/
+codeparrot-ds/

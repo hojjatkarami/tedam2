@@ -166,11 +166,7 @@
       "na": 18,
       "glucose": 19,
       "wbc": 20,
-      "lactate": 21,
-      "sao2": 22,
-      "ast": 23,
-      "bilirubin": 24,
-      "alt": 25
+      "lactate": 21
     },
     "unk_token": "[UNK]"
   }
