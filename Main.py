@@ -1506,7 +1506,7 @@ def main(trial=None):
     opt = config(opt)
     
 
-    torch.manual_seed(opt.run_id)
+    torch.manual_seed( int(opt.run_id) )
     
     if isinstance(trial,optuna.trial._trial.Trial):
         print('OPTUNA!')
