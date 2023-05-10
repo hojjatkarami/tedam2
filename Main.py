@@ -809,9 +809,9 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
 
 
             # Train eval *********************************************
-            train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
-            dict_metrics_train.update(dict_metrics_train2)
-            write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
+            # train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
+            # dict_metrics_train.update(dict_metrics_train2)
+            # write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
 
 
             # ********************************************* Valid Epoch *********************************************
