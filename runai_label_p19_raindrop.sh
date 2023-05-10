@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=RAIN2-
+USER_PREFIX=RAIN-OPT-
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
@@ -50,28 +50,28 @@ for i_split in {0..0}
     
     # DA__base
     waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+    python Optuna1.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
+    # # DA__base
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
+    # # DA__base
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
+    # # DA__base
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
+    # # DA__base
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
 
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
+    # # DA__base
+    # waitforjobs $N_JOBS
+    # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat & 
 
     # # TEDA__none NO TL
     # waitforjobs $N_JOBS
