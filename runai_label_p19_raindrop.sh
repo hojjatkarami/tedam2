@@ -42,7 +42,7 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 i_diag=0
 
-for i_split in {0..4}
+for i_split in {1..4}
     do
     SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
     TL="-transfer_learning DO "
