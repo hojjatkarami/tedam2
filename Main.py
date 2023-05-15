@@ -142,6 +142,7 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         wandb.log({(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
 
 
+
 def prepare_dataloader(opt):
     """ Load data and prepare dataloader. """
 
