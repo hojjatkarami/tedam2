@@ -8,7 +8,7 @@ N_JOBS=3
 USER_PREFIX=RAIIN
 
 DATA_NAME="p19"
-COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
+COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
 HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
 
@@ -35,7 +35,7 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
 
-for i_diag in {0..0}
+for i_diag in {-1..1}
 do
 
 
