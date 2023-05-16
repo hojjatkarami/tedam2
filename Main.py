@@ -763,13 +763,13 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             opt.writer.add_scalar('Trainn/'+k, v, epoch_i)
 
         if opt.i_epoch % opt.log_freq == 0:
-            if opt.i_epoch % 5 == 0:
-                # Train eval *********************************************
-                train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(
-                    model, trainloader, pred_loss_func, opt)
-                dict_metrics_train.update(dict_metrics_train2)
-                write_to_summary(dict_metrics_train, opt,
-                                 i_epoch=opt.i_epoch, prefix='Train-')
+
+            # Train eval *********************************************
+            train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(
+                model, trainloader, pred_loss_func, opt)
+            dict_metrics_train.update(dict_metrics_train2)
+            write_to_summary(dict_metrics_train, opt,
+                             i_epoch=opt.i_epoch, prefix='Train-')
 
             # ********************************************* Valid Epoch *********************************************
             start = time.time()
