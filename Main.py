@@ -92,7 +92,7 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         fig, ax = plt.subplots(figsize=(10, 10))
         dict_metrics['ConfMat'].plot(ax=ax)
         # dict_metrics['ConfMat'].plot()
-        opt.writer.add_figure('matplotlib', fig, i_epoch)
+        # opt.writer.add_figure('matplotlib', fig, i_epoch)
         dict_metrics.pop('ConfMat')
         # plt.close()
 
@@ -101,7 +101,7 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         _ = ax.scatter(dict_metrics['time_gap_data'][0]
                        [1:], dict_metrics['time_gap_data'][1][:-1])
         _ = ax.plot([0, 2], [0, 2], 'r-')
-        opt.writer.add_figure('time_gap', fig, i_epoch)
+        # opt.writer.add_figure('time_gap', fig, i_epoch)
         dict_metrics.pop('time_gap_data')
         # plt.close()
 
@@ -128,15 +128,17 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
                            X_tsne[:TSNE_LIMIT, 1], c=colors_tsne)
 
             # _ = ax.scatter(dict_metrics['tsne']['X_tsne'][:,0], dict_metrics['tsne']['X_tsne'][:,1], c=colors_tsne)
-            opt.writer.add_figure('tsne', fig, i_epoch)
+            # opt.writer.add_figure('tsne', fig, i_epoch)
         dict_metrics.pop('tsne')
 
     for k, v in dict_metrics.items():
 
         if isinstance(v, np.ndarray):
-            opt.writer.add_histogram(prefix+k, v, i_epoch)
+            # opt.writer.add_histogram(prefix+k, v, i_epoch)
+            a = 1
         else:
-            opt.writer.add_scalar(prefix+k, v, i_epoch)
+            # opt.writer.add_scalar(prefix+k, v, i_epoch)
+            a = 1
 
     if opt.wandb:
 
