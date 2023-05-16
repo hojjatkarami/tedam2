@@ -134,12 +134,8 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         # fig = plt.figure(figsize=(8,8))
         # fig, ax = plt.subplots(figsize=(10, 10))
 
-        pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
-        plt.plot(re, pr)
-        plt.title('Precision-Recall Curve')
-        plt.xlabel('Recall')
-        plt.ylabel('Precision')
-        wandb.log({'Precision-Recall Curve': wandb.Image(plt)})
+        wandb.log(
+            {'Precision-Recall Curve': wandb.Image(dict_metrics['pred_label/PR_curve'])})
         # dict_metrics['pred_label/PR_curve'].plot(ax=ax)
         # dict_metrics['pred_label/PR_curve'].plot()
         # opt.writer.add_figure('matplotlib', fig, i_epoch)
