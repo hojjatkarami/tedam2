@@ -142,7 +142,6 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         wandb.log({(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
 
 
-
 def prepare_dataloader(opt):
     """ Load data and prepare dataloader. """
 
@@ -766,9 +765,11 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         if opt.i_epoch % opt.log_freq == 0:
 
             # Train eval *********************************************
-            # train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(model, trainloader, pred_loss_func, opt)
-            # dict_metrics_train.update(dict_metrics_train2)
-            # write_to_summary(dict_metrics_train, opt, i_epoch=opt.i_epoch, prefix='Train-')
+            train_event, train_type, train_time, dict_metrics_train2 = valid_epoch(
+                model, trainloader, pred_loss_func, opt)
+            dict_metrics_train.update(dict_metrics_train2)
+            write_to_summary(dict_metrics_train, opt,
+                             i_epoch=opt.i_epoch, prefix='Train-')
 
             # ********************************************* Valid Epoch *********************************************
             start = time.time()
@@ -1261,7 +1262,7 @@ def config(opt, justLoad=False):
         # MLP encoder for combined values
         opt.DAM_config['n_phi_layers'] = 3
         opt.DAM_config['phi_width'] = 32
-        opt.DAM_config['phi_dropout'] = 0.1
+        opt.DAM_config['phi_dropout'] = 0.8
 
         # Cumulative Set Attention Layer
         opt.DAM_config['n_psi_layers'] = 2
@@ -1270,12 +1271,12 @@ def config(opt, justLoad=False):
 
         opt.DAM_config['dot_prod_dim'] = 16
         opt.DAM_config['n_heads'] = 2
-        opt.DAM_config['attn_dropout'] = 0.1
+        opt.DAM_config['attn_dropout'] = 0.8
         opt.DAM_config['latent_width'] = 16
 
         opt.DAM_config['n_rho_layers'] = 2
         opt.DAM_config['rho_width'] = 32  # 256
-        opt.DAM_config['rho_dropout'] = 0.1
+        opt.DAM_config['rho_dropout'] = 0.8
 
         opt.DAM_config['max_timescale'] = 1000
         opt.DAM_config['n_positional_dims'] = 4
