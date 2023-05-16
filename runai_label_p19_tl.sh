@@ -47,10 +47,12 @@ do
     SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting mc2 -test_center $i_hosp " 
     TL="-transfer_learning DO "
     
-    # DA__base
-    waitforjobs $N_JOBS
-    python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
-
+    for i_rep in {0..4}
+    do
+        # DA__base
+        waitforjobs $N_JOBS
+        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+    done
         
 
     # # TE__none
