@@ -1278,7 +1278,7 @@ def config(opt, justLoad=False):
         opt.DAM_config['rho_width'] = 512  #
         opt.DAM_config['rho_dropout'] = 0.0
 
-        opt.DAM_config['max_timescale'] = 100
+        opt.DAM_config['max_timescale'] = 1000
         opt.DAM_config['n_positional_dims'] = 4  # 4
         opt.DAM_config['num_mods'] = opt.num_states
         opt.DAM_config['num_demos'] = opt.num_demos
