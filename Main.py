@@ -686,6 +686,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
         # PR_CURVE = wandb.plot.pr_curve(y_state_true, y_state_score)
 
         pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
+        plt.figure()
         plt.plot(re, pr)
         plt.title('Precision-Recall Curve')
         plt.xlabel('Recall')
