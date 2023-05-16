@@ -1260,26 +1260,26 @@ def config(opt, justLoad=False):
         opt.DAM_config['output_dims'] = 8  # 4
 
         # MLP encoder for combined values
-        opt.DAM_config['n_phi_layers'] = 3
-        opt.DAM_config['phi_width'] = 32
-        opt.DAM_config['phi_dropout'] = 0.8
+        opt.DAM_config['n_phi_layers'] = 4
+        opt.DAM_config['phi_width'] = 128
+        opt.DAM_config['phi_dropout'] = 0.2
 
         # Cumulative Set Attention Layer
         opt.DAM_config['n_psi_layers'] = 2
-        opt.DAM_config['psi_width'] = 32  # 16
-        opt.DAM_config['psi_latent_width'] = 32
+        opt.DAM_config['psi_width'] = 64  # 16
+        opt.DAM_config['psi_latent_width'] = 128
 
-        opt.DAM_config['dot_prod_dim'] = 32  # 16
+        opt.DAM_config['dot_prod_dim'] = 128  # 16
         opt.DAM_config['n_heads'] = 4  # 2
         opt.DAM_config['attn_dropout'] = 0.8
-        opt.DAM_config['latent_width'] = 16
+        opt.DAM_config['latent_width'] = 32
 
         opt.DAM_config['n_rho_layers'] = 2
-        opt.DAM_config['rho_width'] = 32  #
-        opt.DAM_config['rho_dropout'] = 0.8
+        opt.DAM_config['rho_width'] = 512  #
+        opt.DAM_config['rho_dropout'] = 0.0
 
-        opt.DAM_config['max_timescale'] = 1000
-        opt.DAM_config['n_positional_dims'] = 8  # 4
+        opt.DAM_config['max_timescale'] = 100
+        opt.DAM_config['n_positional_dims'] = 4  # 4
         opt.DAM_config['num_mods'] = opt.num_states
         opt.DAM_config['num_demos'] = opt.num_demos
         opt.DAM_config['online'] = False
