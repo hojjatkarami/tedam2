@@ -28,6 +28,7 @@ import glob
 import re
 import shutil
 
+import plotly.express as px
 
 import wandb
 os.environ["WANDB_API_KEY"] = "0f780ac8a470afe6cb7fc474ff3794772c660465"
@@ -670,7 +671,10 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
         y_state_pred = (np.concatenate(y_state_pred_list))  # [*]
         y_state_true = (np.concatenate(y_state_true_list))
         y_state_score = (np.concatenate(y_state_score_list))
+        PR_CURVE = wandb.plot.pr_curve(y_state_true, y_state_score)
+        # pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
 
+        # PR_CURVE = px.line(x=re, y=pr, title='Precision-Recall Curve')
         dict_metrics.update({
             'pred_label/AUROC': metrics.roc_auc_score(y_state_true, y_state_score),
             'pred_label/AUPRC': metrics.average_precision_score(y_state_true, y_state_score),
@@ -682,6 +686,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             'pred_label/ACC': metrics.accuracy_score(y_state_true, y_state_pred),
 
+            'pred_label/PR_curve': PR_CURVE,
 
             # 'pred_label/sum_r_enc':torch.concat(r_enc_list, dim=1).sum().item(),
             # 'pred_label/r_enc_zero': a,
