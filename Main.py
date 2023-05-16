@@ -671,8 +671,13 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
         y_state_pred = (np.concatenate(y_state_pred_list))  # [*]
         y_state_true = (np.concatenate(y_state_true_list))
         y_state_score = (np.concatenate(y_state_score_list))
-        PR_CURVE = wandb.plot.pr_curve(y_state_true, y_state_score)
-        # pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
+        # PR_CURVE = wandb.plot.pr_curve(y_state_true, y_state_score)
+
+        pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
+        plt.plot(re, pr)
+        plt.title('Precision-Recall Curve')
+        plt.xlabel('Recall')
+        plt.ylabel('Precision')
 
         # PR_CURVE = px.line(x=re, y=pr, title='Precision-Recall Curve')
         dict_metrics.update({
@@ -686,7 +691,7 @@ def valid_epoch(model, validation_data, pred_loss_func, opt):
 
             'pred_label/ACC': metrics.accuracy_score(y_state_true, y_state_pred),
 
-            'pred_label/PR_curve': PR_CURVE,
+            'pred_label/PR_curve': plt,
 
             # 'pred_label/sum_r_enc':torch.concat(r_enc_list, dim=1).sum().item(),
             # 'pred_label/r_enc_zero': a,
