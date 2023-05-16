@@ -130,7 +130,21 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
             # _ = ax.scatter(dict_metrics['tsne']['X_tsne'][:,0], dict_metrics['tsne']['X_tsne'][:,1], c=colors_tsne)
             # opt.writer.add_figure('tsne', fig, i_epoch)
         dict_metrics.pop('tsne')
+    if 'pred_label/PR_curve' in dict_metrics:
+        # fig = plt.figure(figsize=(8,8))
+        # fig, ax = plt.subplots(figsize=(10, 10))
 
+        pr, re, _ = metrics.precision_recall_curve(y_state_true, y_state_score)
+        plt.plot(re, pr)
+        plt.title('Precision-Recall Curve')
+        plt.xlabel('Recall')
+        plt.ylabel('Precision')
+        wandb.log({'Precision-Recall Curve': wandb.Image(plt)})
+        # dict_metrics['pred_label/PR_curve'].plot(ax=ax)
+        # dict_metrics['pred_label/PR_curve'].plot()
+        # opt.writer.add_figure('matplotlib', fig, i_epoch)
+        dict_metrics.pop('pred_label/PR_curve')
+        # plt.close()
     for k, v in dict_metrics.items():
 
         if isinstance(v, np.ndarray):
