@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=3
 
-USER_PREFIX=RAIN9-
+USER_PREFIX=RAIN10-
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
