@@ -3,11 +3,11 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=3
+N_JOBS=4
 
 USER_PREFIX=RAIN_FINAL
 
-DATA_NAME="p19"
+DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
 HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
 
@@ -15,15 +15,14 @@ HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te
 
 PRE="/scratch/hokarami/data_tedam"
 PRE="/mlodata1/hokarami/tedam"
-
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 2"
 TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 2"
 TE__pp_ml="-event_enc 1          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 2"
 # without label + DAM
-TEDA__nextmark="-event_enc 1    -state          -mod none      -next_mark 1     -mark_detach 0      -sample_label 2"
-TEDA__pp_single_mark="-event_enc 1    -state          -mod single    -next_mark 1     -mark_detach 0      -sample_label 2"
-TEDA__pp_ml="-event_enc 1    -state          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 2"
+TEDA__nextmark="-event_enc 1    -state -demo          -mod none      -next_mark 1     -mark_detach 0      -sample_label 2"
+TEDA__pp_single_mark="-event_enc 1    -state -demo          -mod single    -next_mark 1     -mark_detach 0      -sample_label 2"
+TEDA__pp_ml="-event_enc 1    -state -demo          -mod ml        -next_mark 1     -mark_detach 1      -sample_label 2"
 # without label + noise
 TEnoise__nextmark="-event_enc 1      -noise          -mod none      -next_mark 1     -mark_detach 0      -sample_label 2"
 TEnoise__pp_single_mark="-event_enc 1      -noise          -mod single    -next_mark 1     -mark_detach 0      -sample_label 2"
@@ -31,7 +30,6 @@ TEnoise__pp_ml="-event_enc 1      -noise          -mod ml        -next_mark 1   
 
 
 COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
-
 
 
 
