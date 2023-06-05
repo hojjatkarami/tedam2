@@ -3,7 +3,7 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=3
+N_JOBS=1
 
 USER_PREFIX=RD1-
 
@@ -51,7 +51,7 @@ do
         
         # DA__base
         waitforjobs $N_JOBS
-        python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
+        echo python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
     
         

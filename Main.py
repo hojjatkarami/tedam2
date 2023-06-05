@@ -151,9 +151,10 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
             # opt.writer.add_scalar(prefix+k, v, i_epoch)
             a = 1
 
-    if opt.wandb:
+        if opt.wandb:
 
-        wandb.log({(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
+            wandb.log(
+                {(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
 
 
 def prepare_dataloader(opt):
@@ -783,8 +784,8 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
         scheduler.step()
 
         dict_time.update({'Time/train_epoch': ((time.time() - start) / 60)})
-        for k, v in dict_metrics_train.items():
-            opt.writer.add_scalar('Trainn/'+k, v, epoch_i)
+        # for k, v in dict_metrics_train.items():
+        #     opt.writer.add_scalar('Trainn/'+k, v, epoch_i)
 
         if opt.i_epoch % opt.log_freq == 0:
 
