@@ -107,7 +107,7 @@
                 "-data_label",
                 "multilabel",
                 "-epoch",
-                "100",
+                "2",
                 "-per",
                 "100",
                 "-ES_pat",

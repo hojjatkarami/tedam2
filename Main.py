@@ -135,7 +135,7 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
         # fig, ax = plt.subplots(figsize=(10, 10))
 
         wandb.log(
-            {'Precision-Recall Curve': wandb.Image(dict_metrics['pred_label/PR_curve'])})
+            {'Precision-Recall Curve': wandb.Image(dict_metrics['pred_label/PR_curve'])}, step=i_epoch)
         plt.close()
         # dict_metrics['pred_label/PR_curve'].plot(ax=ax)
         # dict_metrics['pred_label/PR_curve'].plot()
@@ -151,10 +151,10 @@ def write_to_summary(dict_metrics, opt, i_epoch=-1, prefix=''):
             # opt.writer.add_scalar(prefix+k, v, i_epoch)
             a = 1
 
-        if opt.wandb:
+    if opt.wandb:
 
-            wandb.log(
-                {(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
+        wandb.log(
+            {(prefix+k): v for k, v in dict_metrics.items()}, step=i_epoch)
 
 
 def prepare_dataloader(opt):
@@ -849,10 +849,10 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
                         dict_metrics_valid
 
                         wandb.log({('Best-Test-'+k1): v1 for k1,
-                                  v1 in dict_metrics_test.items()})
+                                  v1 in dict_metrics_test.items()}, step=opt.i_epoch)
 
                         wandb.log({('Best-Valid-'+k1): v1 for k1,
-                                  v1 in dict_metrics_valid.items()})
+                                  v1 in dict_metrics_valid.items()}, step=opt.i_epoch)
 
                     # # # saving best torch model !!!
                     # if ('pred_label/f1-binary' in flag) or ('CIF/LL-#events' in flag) or ('NextType(ML)/auc-ovo-weighted' in flag)  or ('NextType(MC)/f1-weighted' in flag):
