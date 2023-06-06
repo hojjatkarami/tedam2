@@ -1586,7 +1586,9 @@ def main(trial=None):
                            opt.lr, betas=(0.9, 0.999), eps=1e-05, weight_decay=opt.weight_decay)
     # optimizer = optim.SGD(filter(lambda x: x.requires_grad, model.parameters()),
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
+    # scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(
+        optimizer, T_max=10, eta_min=0.00001, eta_max=0.001)
 
     """ number of parameters """
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
