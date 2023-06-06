@@ -3,9 +3,9 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=4
+N_JOBS=5
 
-USER_PREFIX=RD1-
+USER_PREFIX=RD2-
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
@@ -41,9 +41,9 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
 i_diag=0
-for i_rep in {0..4}
+for i_rep in {0..0}
 do
-    for i_split in {0..0}
+    for i_split in {0..4}
         do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
         TL="-transfer_learning DO "
