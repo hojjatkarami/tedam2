@@ -5,11 +5,11 @@ waitforjobs() {
 
 N_JOBS=5
 
-USER_PREFIX=RD2-ANNEAL-seed1-xavier-wpos10
+USER_PREFIX=RD2-ANNEAL-seed1-xavier-wpos03-
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
-HPs="-batch_size 128  -lr 0.001 -weight_decay 1 -w_pos_label 10 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
+HPs="-batch_size 128  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 
 
 
