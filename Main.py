@@ -1346,7 +1346,7 @@ def config(opt, justLoad=False):
         # MLP encoder for combined values
         opt.DAM_config['n_phi_layers'] = 3
         opt.DAM_config['phi_width'] = 128
-        opt.DAM_config['phi_dropout'] = 0.4
+        opt.DAM_config['phi_dropout'] = 0.2
 
         # Cumulative Set Attention Layer
         opt.DAM_config['n_psi_layers'] = 2
@@ -1355,14 +1355,14 @@ def config(opt, justLoad=False):
 
         opt.DAM_config['dot_prod_dim'] = 64  # 16
         opt.DAM_config['n_heads'] = 4
-        opt.DAM_config['attn_dropout'] = 0.4
+        opt.DAM_config['attn_dropout'] = 0.1
         opt.DAM_config['latent_width'] = 64
 
         opt.DAM_config['n_rho_layers'] = 2
         opt.DAM_config['rho_width'] = 128  #
-        opt.DAM_config['rho_dropout'] = 0.4
+        opt.DAM_config['rho_dropout'] = 0.1
 
-        opt.DAM_config['max_timescale'] = 1000
+        opt.DAM_config['max_timescale'] = 100
         opt.DAM_config['n_positional_dims'] = 16
         opt.DAM_config['num_mods'] = opt.num_states
         opt.DAM_config['num_demos'] = opt.num_demos
