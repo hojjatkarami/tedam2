@@ -1346,7 +1346,7 @@ def config(opt, justLoad=False):
         # MLP encoder for combined values
         opt.DAM_config['n_phi_layers'] = 3
         opt.DAM_config['phi_width'] = 128
-        opt.DAM_config['phi_dropout'] = 0.2
+        opt.DAM_config['phi_dropout'] = 0.4
 
         # Cumulative Set Attention Layer
         opt.DAM_config['n_psi_layers'] = 2
@@ -1354,13 +1354,13 @@ def config(opt, justLoad=False):
         opt.DAM_config['psi_latent_width'] = 128
 
         opt.DAM_config['dot_prod_dim'] = 64  # 16
-        opt.DAM_config['n_heads'] = 8
-        opt.DAM_config['attn_dropout'] = 0.1
+        opt.DAM_config['n_heads'] = 4
+        opt.DAM_config['attn_dropout'] = 0.4
         opt.DAM_config['latent_width'] = 64
 
         opt.DAM_config['n_rho_layers'] = 2
         opt.DAM_config['rho_width'] = 128  #
-        opt.DAM_config['rho_dropout'] = 0.1
+        opt.DAM_config['rho_dropout'] = 0.4
 
         opt.DAM_config['max_timescale'] = 1000
         opt.DAM_config['n_positional_dims'] = 16
@@ -1654,6 +1654,7 @@ def main(trial=None):
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print('[Info] Number of parameters: {}'.format(num_params))
 
+    wandb.log({'num_params': num_params})
     """ train the model """
 
     max_obj_val = 0
