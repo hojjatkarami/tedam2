@@ -1354,7 +1354,7 @@ def config(opt, justLoad=False):
         opt.DAM_config['psi_latent_width'] = 128
 
         opt.DAM_config['dot_prod_dim'] = 64  # 16
-        opt.DAM_config['n_heads'] = 4
+        opt.DAM_config['n_heads'] = 8
         opt.DAM_config['attn_dropout'] = 0.1
         opt.DAM_config['latent_width'] = 64
 
