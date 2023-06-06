@@ -783,6 +783,7 @@ def train(model, trainloader, validloader, testloader, optimizer, scheduler, pre
             model, trainloader, optimizer, pred_loss_func, opt)
         scheduler.step()
 
+        wandb.log({'LR': optimizer.param_groups[0]['lr']}, step=epoch_i)
         dict_time.update({'Time/train_epoch': ((time.time() - start) / 60)})
         # for k, v in dict_metrics_train.items():
         #     opt.writer.add_scalar('Trainn/'+k, v, epoch_i)
@@ -1588,7 +1589,7 @@ def main(trial=None):
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(
-        optimizer, T_max=10, eta_min=0.00001, eta_max=0.001)
+        optimizer, T_max=10, eta_min=0.00001)
 
     """ number of parameters """
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
