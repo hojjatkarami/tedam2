@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=5
 
-USER_PREFIX=RD2-ANNEAL-seed1-xavier-wpos03-Complex3-
+USER_PREFIX=RD2-ANNEAL-seed1-xavier-wpos03-Complex2-do4
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
