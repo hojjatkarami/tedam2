@@ -230,9 +230,9 @@ class Predictor(nn.Module):
 
         self.relu = nn.ReLU()
         self.do = nn.Dropout(0.0)
-        nn.init.xavier_uniform_(self.linear1.weight)
-        nn.init.xavier_uniform_(self.linear2.weight)
-        nn.init.xavier_uniform_(self.linear3.weight)
+        nn.init.xavier_normal_(self.linear1.weight)
+        nn.init.xavier_normal_(self.linear2.weight)
+        nn.init.xavier_normal_(self.linear3.weight)
 
     def forward(self, data, non_pad_mask, to_detach=0):
 
@@ -284,7 +284,7 @@ class CIF_sahp(nn.Module):
             nn.Softplus(beta=1.)
         )
 
-        # nn.init.xavier_uniform_(self.W_k)
+        # nn.init.xavier_normal_(self.W_k)
 
     def state_decay(self, converge_point, start_point, omega, duration_t):
         # * element-wise product
@@ -1077,9 +1077,9 @@ class CumulativeSetAttentionLayer(nn.Module):
             [self.d_rho+self.dim_s, self.dot_prod_dim*self.n_heads]))
         self.W_q = nn.Parameter(torch.rand([self.n_heads, self.dot_prod_dim]))
 
-        nn.init.xavier_uniform_(self.W_k)
-        nn.init.xavier_uniform_(self.W_q)
-        nn.init.xavier_uniform_(self.rho.weight)
+        nn.init.xavier_normal_(self.W_k)
+        nn.init.xavier_normal_(self.W_q)
+        nn.init.xavier_normal_(self.rho.weight)
 
     # def build(self, input_shape):
     #     self.psi.build(input_shape)
@@ -1149,8 +1149,8 @@ class MLP_state(nn.Module):
 
         # ])
         # self.linear = nn.Linear(dim, num_types, bias=False)
-        nn.init.xavier_uniform_(self.fc1.weight)
-        nn.init.xavier_uniform_(self.fc2.weight)
+        nn.init.xavier_normal_(self.fc1.weight)
+        nn.init.xavier_normal_(self.fc2.weight)
 
     def forward(self, data, non_pad_mask):
         # data # [B,P, d_in]
