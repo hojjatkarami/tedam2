@@ -115,7 +115,7 @@ class Encoder(nn.Module):
             self.d_time = 0
 
         self.event_emb = nn.Linear(n_marks, d_type_emb, bias=False)
-        nn.init.xavier_uniform_(self.event_emb.weight)
+        # nn.init.xavier_uniform_(self.event_emb.weight)
 
         self.d_model = self.d_type_emb + self.d_time
 
