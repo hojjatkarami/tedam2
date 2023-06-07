@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2    
 
-USER_PREFIX=RD-simpler2-SAHPxavier-PredictorDO02-
+USER_PREFIX=RD-simpler2-SAHPxavier-PredictorDO07-
 
 DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
