@@ -1647,9 +1647,10 @@ def main(trial=None):
     # optimizer = optim.SGD(filter(lambda x: x.requires_grad, model.parameters()),
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(
-        optimizer, T_max=10, eta_min=0.00001)
-
+    # scheduler = optim.lr_scheduler.CosineAnnealingLR(
+    # optimizer, T_max=10, eta_min=0.00001)
+    scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(
+        optimizer, T_0=10, T_mult=1, eta_min=0.00001)
     """ number of parameters """
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print('[Info] Number of parameters: {}'.format(num_params))
