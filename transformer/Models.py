@@ -203,15 +203,16 @@ class Encoder(nn.Module):
         for enc_layer in self.layer_stack:
             # x += tem_enc
 
-            x, self_attn = enc_layer(
-                x,
-                non_pad_mask=non_pad_mask,
-                slf_attn_mask=slf_attn_mask)
-
-            # x= enc_layer(
+            # x, self_attn = enc_layer(
             #     x,
-            #     src_mask= slf_attn_mask_subseq[0].bool() , # [L,L] True means: do not attend
-            #     src_key_padding_mask=(~non_pad_mask.bool()).squeeze(-1)) # [b,L] True means ignoring
+            #     non_pad_mask=non_pad_mask,
+            #     slf_attn_mask=slf_attn_mask)
+
+            x = enc_layer(
+                x,
+                # [L,L] True means: do not attend
+                src_mask=slf_attn_mask_subseq[0].bool(),
+                src_key_padding_mask=(~non_pad_mask.bool()).squeeze(-1))  # [b,L] True means ignoring
 
         # self.self_attn = self_attn
         # self.slf_attn_mask = slf_attn_mask
