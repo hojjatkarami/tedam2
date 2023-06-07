@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=RD2-wpos03-Complex2-PyTEE-
+USER_PREFIX=RD2-wpos03-Complex2-BiasTrue-
 
 DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
