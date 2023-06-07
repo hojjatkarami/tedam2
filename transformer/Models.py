@@ -128,13 +128,13 @@ class Encoder(nn.Module):
         #     TE_layer
         #     for _ in range(n_layers)])
 
-        # self.layer_stack = nn.ModuleList([
-        #     EncoderLayer(self.d_model, d_inner, n_head, d_k, d_v,
-        #                  dropout=dropout, normalize_before=False)
-        #     for _ in range(n_layers)])
+        self.layer_stack = nn.ModuleList([
+            EncoderLayer(self.d_model, d_inner, n_head, d_k, d_v,
+                         dropout=dropout, normalize_before=False)
+            for _ in range(n_layers)])
 
-        self.layer_stack = nn.ModuleList([nn.TransformerEncoderLayer(self.d_model, n_head, dim_feedforward=d_inner, dropout=dropout, activation=nn.ReLU(), batch_first=True, norm_first=False, device=None, dtype=None)
-                                          for _ in range(n_layers)])
+        # self.layer_stack = nn.ModuleList([nn.TransformerEncoderLayer(self.d_model, n_head, dim_feedforward=d_inner, dropout=dropout, activation=nn.ReLU(), batch_first=True, norm_first=False, device=None, dtype=None)
+        #                                   for _ in range(n_layers)])
 
     def temporal_enc(self, time, non_pad_mask):
         """
@@ -203,16 +203,16 @@ class Encoder(nn.Module):
         for enc_layer in self.layer_stack:
             # x += tem_enc
 
-            # x, self_attn = enc_layer(
-            #     x,
-            #     non_pad_mask=non_pad_mask,
-            #     slf_attn_mask=slf_attn_mask)
-
-            x = enc_layer(
+            x, self_attn = enc_layer(
                 x,
-                # [L,L] True means: do not attend
-                src_mask=slf_attn_mask_subseq[0].bool(),
-                src_key_padding_mask=(~non_pad_mask.bool()).squeeze(-1))  # [b,L] True means ignoring
+                non_pad_mask=non_pad_mask,
+                slf_attn_mask=slf_attn_mask)
+
+            # x = enc_layer(
+            #     x,
+            #     # [L,L] True means: do not attend
+            #     src_mask=slf_attn_mask_subseq[0].bool(),
+            #     src_key_padding_mask=(~non_pad_mask.bool()).squeeze(-1))  # [b,L] True means ignoring
 
         # self.self_attn = self_attn
         # self.slf_attn_mask = slf_attn_mask
