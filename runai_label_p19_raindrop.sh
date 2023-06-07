@@ -11,7 +11,7 @@ DATA_NAME="p19"
 COMMON=" -demo -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
 HPs="-batch_size 128  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 HPs="-batch_size 128  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 16 -te_d_time 8 -te_d_inner 64 -te_d_k 16 -te_d_v 16" # simpler
-HPs="-batch_size 512  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8" # simpler2
+HPs="-batch_size 64  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8" # simpler2
 
 
 PRE="/scratch/hokarami/data_tedam"
