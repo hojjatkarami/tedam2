@@ -289,7 +289,10 @@ class CIF_sahp(nn.Module):
             nn.Softplus(beta=1.)
         )
 
-        # nn.init.xavier_normal_(self.W_k)
+        nn.init.xavier_normal_(self.intensity_layer[0].weight)
+        nn.init.xavier_normal_(self.start_layer[0].weight)
+        nn.init.xavier_normal_(self.converge_layer[0].weight)
+        nn.init.xavier_normal_(self.decay_layer[0].weight)
 
     def state_decay(self, converge_point, start_point, omega, duration_t):
         # * element-wise product
