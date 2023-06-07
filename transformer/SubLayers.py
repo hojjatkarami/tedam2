@@ -21,12 +21,12 @@ class MultiHeadAttention(nn.Module):
         self.w_qs = nn.Linear(d_model, n_head * d_k, bias=False)
         self.w_ks = nn.Linear(d_model, n_head * d_k, bias=False)
         self.w_vs = nn.Linear(d_model, n_head * d_v, bias=False)
-        nn.init.xavier_uniform_(self.w_qs.weight)
-        nn.init.xavier_uniform_(self.w_ks.weight)
-        nn.init.xavier_uniform_(self.w_vs.weight)
+        nn.init.xavier_norm_(self.w_qs.weight)
+        nn.init.xavier_norm_(self.w_ks.weight)
+        nn.init.xavier_norm_(self.w_vs.weight)
 
         self.fc = nn.Linear(d_v * n_head, d_model)
-        nn.init.xavier_uniform_(self.fc.weight)
+        nn.init.xavier_norm_(self.fc.weight)
 
         self.attention = ScaledDotProductAttention(
             temperature=d_k ** 0.5, attn_dropout=dropout)
@@ -77,8 +77,8 @@ class PositionwiseFeedForward(nn.Module):
 
         self.w_1 = nn.Linear(d_in, d_hid)
         self.w_2 = nn.Linear(d_hid, d_in)
-        nn.init.xavier_uniform_(self.w_1.weight)
-        nn.init.xavier_uniform_(self.w_2.weight)
+        nn.init.xavier_norm_(self.w_1.weight)
+        nn.init.xavier_norm_(self.w_2.weight)
 
         self.layer_norm = nn.LayerNorm(d_in, eps=1e-6)
         self.dropout = nn.Dropout(dropout)
