@@ -5,12 +5,12 @@ waitforjobs() {
 
 N_JOBS=2    
 
-USER_PREFIX=RD-simpler2-SAHPxavier-PredictorDO07-
+USER_PREFIX=RD-simpler2-SAHPxavier-LRhigher-
 
 DATA_NAME="p19"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
 HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "  # old
-HPs="-batch_size 64  -lr 0.001 -weight_decay 1 -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8" # simpler2
+HPs="-batch_size 64  -lr 0.01 -weight_decay 1 -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8" # simpler2
 
 
 
