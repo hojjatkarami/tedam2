@@ -128,10 +128,13 @@ class Encoder(nn.Module):
         #     TE_layer
         #     for _ in range(n_layers)])
 
-        self.layer_stack = nn.ModuleList([
-            EncoderLayer(self.d_model, d_inner, n_head, d_k, d_v,
-                         dropout=dropout, normalize_before=False)
-            for _ in range(n_layers)])
+        # self.layer_stack = nn.ModuleList([
+        #     EncoderLayer(self.d_model, d_inner, n_head, d_k, d_v,
+        #                  dropout=dropout, normalize_before=False)
+        #     for _ in range(n_layers)])
+
+        self.layer_stack = nn.ModuleList([nn.TransformerEncoderLayer(self.d_model, n_head, dim_feedforward=d_inner, dropout=dropout, activation=nn.ReLU(), batch_first=True, norm_first=False, device=None, dtype=None)
+                                          for _ in range(n_layers)])
 
     def temporal_enc(self, time, non_pad_mask):
         """
