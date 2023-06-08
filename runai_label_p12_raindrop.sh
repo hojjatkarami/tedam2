@@ -11,7 +11,7 @@ DATA_NAME="p12"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
 HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 
-HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5  -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8"
+HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 1  -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8"
 
 
 PRE="/scratch/hokarami/data_tedam"
