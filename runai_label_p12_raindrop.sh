@@ -9,8 +9,9 @@ USER_PREFIX=RD-LR001-bs64
 
 DATA_NAME="p12"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_supervised "
-HPs="-batch_size 64  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
+HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 
+HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 0.5  -te_d_mark 8 -te_d_time 4 -te_d_inner 32 -te_d_k 8 -te_d_v 8"
 
 
 PRE="/scratch/hokarami/data_tedam"
@@ -47,7 +48,6 @@ for i_split in {4..4}
     SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
     TL="-transfer_learning DO "
 
-     HPs="-batch_size 128  -lr 0.001 -weight_decay 1 -w_pos_label 0.3 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32"
 
     # DA__base
     waitforjobs $N_JOBS
