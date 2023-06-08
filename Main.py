@@ -936,6 +936,9 @@ def options():
 
     parser.add_argument('-transfer_learning', default="",
                         help='specify run_name')
+    
+    parser.add_argument('-tl_tag', default="TL70",
+                        help='specify tag')
     parser.add_argument(
         '-freeze', nargs='+', choices=['TE', 'DAM', ''], default='', help='specify run_name')
 
@@ -1600,7 +1603,7 @@ def main(trial=None):
 
         api = wandb.Api()
         runs = api.runs("hokarami/TEEDAM_unsupervised")
-        df_filt = dl_runs(runs, selected_tag='H70')
+        df_filt = dl_runs(runs, selected_tag= opt.tl_tag)
 
         df_config = pd.DataFrame(
             [{k: v for k, v in x.items()} for x in df_filt.config])
