@@ -3,7 +3,7 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=5    
+N_JOBS=2    
 
 # USER_PREFIX=RD-simpler2-SAHPxavier-LRhigher-bs64-
 USER_PREFIX=RD74
