@@ -42,43 +42,22 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 for i_diag in {0..0}
 do
 
-    for i_split in {4..4}
+    for i_split in {0..4}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop  -split $i_split " 
 
-            # # TE__pp_single_mark
-            # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
+            # TE__pp_single_mark
+            waitforjobs $N_JOBS
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
             # # TEDA__pp_single_mark
             # waitforjobs $N_JOBS
             # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
 
-            # # TEnoise__pp_single_mark
-            # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_single_mark -user_prefix "[$USER_PREFIX-TEnoise__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
-
-
-
-
-
-
-
-
-
-            # # # TE__pp_ml
-            # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat-d$i_diag]" -time_enc concat &    
-
-            # TEDA__pp_ml
+            # TEnoise__pp_single_mark
             waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat-d$i_diag]" -time_enc concat &    
-
-
-            # # TEnoise__pp_ml
-            # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat-d$i_diag]" -time_enc concat &    
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_single_mark -user_prefix "[$USER_PREFIX-TEnoise__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
 
 
@@ -87,18 +66,39 @@ do
 
 
 
-            # # # TE__nextmark
-            # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
 
-            # TEDA__nextmark
+            # # TE__pp_ml
             waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat-d$i_diag]" -time_enc concat &    
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat-d$i_diag]" -time_enc concat &    
 
-
-            # # TEnoise__nextmark
+            # # TEDA__pp_ml
             # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__nextmark -user_prefix "[$USER_PREFIX-TEnoise__nextmark-concat-d$i_diag]" -time_enc concat &    
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat-d$i_diag]" -time_enc concat &    
+
+
+            # TEnoise__pp_ml
+            waitforjobs $N_JOBS
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat-d$i_diag]" -time_enc concat &    
+
+
+
+
+
+
+
+
+            # # TE__nextmark
+            waitforjobs $N_JOBS
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
+
+            # # TEDA__nextmark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat-d$i_diag]" -time_enc concat &    
+
+
+            # TEnoise__nextmark
+            waitforjobs $N_JOBS
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__nextmark -user_prefix "[$USER_PREFIX-TEnoise__nextmark-concat-d$i_diag]" -time_enc concat &    
 
 
 

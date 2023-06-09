@@ -92,30 +92,25 @@ do
         TL="-transfer_learning DO "
         
         
-        # # DA__base
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $DA__base -user_prefix "[$USER_PREFIX-DA__base-concat]" -time_enc concat &    
 
     
-        
-        # # TEDA__none NO TL
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__none -user_prefix "[$USER_PREFIX-TEDA__none-concat]" -time_enc concat & 
 
-        # # TEDA__pp_ml NO TL
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
+        # TEDA__pp_ml
+        waitforjobs $N_JOBS
+        TL="-transfer_learning DO -freeze TE -tl_tag RD74-ml"
+        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
 
-        # TEDA__pp_single_mark NO TL
+        # TEDA__pp_single_mark
         waitforjobs $N_JOBS
         TL="-transfer_learning DO -freeze TE -tl_tag RD74-single"
-
         python Main.py $TL $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &
 
 
-        # # TEDA__nextmark NO TL
-        # waitforjobs $N_JOBS
-        # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+        # TEDA__nextmark
+        waitforjobs $N_JOBS
+        TL="-transfer_learning DO -freeze TE -tl_tag RD74-nextmark"
+        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+
 
 
     done
