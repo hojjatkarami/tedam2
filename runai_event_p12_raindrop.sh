@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=3
 
-USER_PREFIX=RD74
+USER_PREFIX=RD74-TEST
 
 DATA_NAME="p12"
 COMMON=" -data_label multilabel  -epoch 100 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised "
@@ -49,16 +49,19 @@ do
 
              # TE__pp_single_mark
             waitforjobs $N_JOBS
+            TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 2"
             python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
-            # # TEDA__pp_single_mark
+            TE__pp_single_mark="-event_enc 1          -mod single    -next_mark 1     -mark_detach 0      -sample_label 0"
+            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
+            # # # TEDA__pp_single_mark
+            # # waitforjobs $N_JOBS
+            # # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
+
+
+            # # TEnoise__pp_single_mark
             # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
-
-
-            # TEnoise__pp_single_mark
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_single_mark -user_prefix "[$USER_PREFIX-TEnoise__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_single_mark -user_prefix "[$USER_PREFIX-TEnoise__pp_single_mark-concat-d$i_diag]" -time_enc concat &    
 
 
 
@@ -68,38 +71,38 @@ do
 
 
 
-            # # TE__pp_ml
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat-d$i_diag]" -time_enc concat &    
-
-            # # TEDA__pp_ml
+            # # # TE__pp_ml
             # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat-d$i_diag]" -time_enc concat &    
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_ml -user_prefix "[$USER_PREFIX-TE__pp_ml-concat-d$i_diag]" -time_enc concat &    
+
+            # # # TEDA__pp_ml
+            # # waitforjobs $N_JOBS
+            # # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat-d$i_diag]" -time_enc concat &    
 
 
-            # TEnoise__pp_ml
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat-d$i_diag]" -time_enc concat &    
-
-
-
-
-
-
-
-
-            # # TE__nextmark
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
-
-            # # TEDA__nextmark
+            # # TEnoise__pp_ml
             # waitforjobs $N_JOBS
-            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat-d$i_diag]" -time_enc concat &    
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__pp_ml -user_prefix "[$USER_PREFIX-TEnoise__pp_ml-concat-d$i_diag]" -time_enc concat &    
 
 
-            # TEnoise__nextmark
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__nextmark -user_prefix "[$USER_PREFIX-TEnoise__nextmark-concat-d$i_diag]" -time_enc concat &    
+
+
+
+
+
+
+            # # # TE__nextmark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
+
+            # # # TEDA__nextmark
+            # # waitforjobs $N_JOBS
+            # # python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat-d$i_diag]" -time_enc concat &    
+
+
+            # # TEnoise__nextmark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TEnoise__nextmark -user_prefix "[$USER_PREFIX-TEnoise__nextmark-concat-d$i_diag]" -time_enc concat &    
 
 
 
