@@ -15,6 +15,8 @@ jup_res.ipynb
 wandb/debug-cli.hokarami.log
 
 local/
+.local/
+.aaa/
 
 saved_models/
 distilbert-base-uncased-finetuned-imdb/

@@ -98,7 +98,7 @@ do
         # TEDA__pp_ml
         waitforjobs $N_JOBS
         TL="-transfer_learning DO -freeze TE -tl_tag RD74-ml"
-        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
+        python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
 
         # TEDA__pp_single_mark
         waitforjobs $N_JOBS
@@ -109,7 +109,7 @@ do
         # TEDA__nextmark
         waitforjobs $N_JOBS
         TL="-transfer_learning DO -freeze TE -tl_tag RD74-nextmark"
-        python Main.py  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+        python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
 
 
 
