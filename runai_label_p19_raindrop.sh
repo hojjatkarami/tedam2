@@ -108,7 +108,7 @@ do
 
         # TEDA__pp_single_mark
         waitforjobs $N_JOBS
-        TL="-transfer_learning DO -freeze TE -tl_tag RD74-single2"
+        TL="-transfer_learning DO -freeze TE -tl_tag RD74-single3"
         python Main.py $TL $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &
 
 

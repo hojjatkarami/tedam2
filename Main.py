@@ -1592,6 +1592,7 @@ def main(trial=None):
                        group=opt.user_prefix,
                        name=opt.run_name,
                        reinit=True,
+                       tags=opt.wandb_tag,
                        # settings=wandb.Settings(start_method="fork")
                        )
             # wandb.config.update(opt.TE_config)
