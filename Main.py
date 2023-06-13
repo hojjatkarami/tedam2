@@ -1596,7 +1596,7 @@ def main(trial=None):
                        group=opt.user_prefix,
                        name=opt.run_name,
                        reinit=True,
-                       tags=opt.wandb_tag,
+                       tags=[opt.wandb_tag],
                        # settings=wandb.Settings(start_method="fork")
                        )
             # wandb.config.update(opt.TE_config)
@@ -1614,7 +1614,7 @@ def main(trial=None):
             # wandb.tensorboard.patch(root_logdir=opt.run_path, pytorch=True)
             # sync_tensorboard=True,
             wandb.init(config=opt, project=opt.wandb_project,
-                       entity="hokarami", name=opt.run_name, tags=opt.wandb_tag,)
+                       entity="hokarami", name=opt.run_name, tags=[opt.wandb_tag],)
             # wandb.config.update(opt.TE_config)
             # wandb.config.update(opt.DAMconfig)
             # opt.wandb_dir = wandb.run.dir
