@@ -966,6 +966,7 @@ def options():
     parser.add_argument('-smooth', type=float, default=0.0)
     parser.add_argument('-weight_decay', type=float, default=1e-0)
 
+    # ************************************** INPUT **************************************
     # Transformer Encoder Architecture
     parser.add_argument('-diag_offset', type=int,
                         default=1, help='offset for diagonal')
@@ -975,17 +976,41 @@ def options():
 
     parser.add_argument('-time_enc', type=str, choices=[
                         'sum', 'concat', 'none'], default='concat', help='specify time encoding')
-    # hyper paramters
-    parser.add_argument('-te_d_mark', type=int, default=8)
-    parser.add_argument('-te_d_time', type=int, default=8)
+    # TEE config
+    parser.add_argument('--te_d_mark', type=int, default=8)
+    parser.add_argument('--te_d_time', type=int, default=8)
 
-    parser.add_argument('-te_d_rnn', type=int, default=256)
-    parser.add_argument('-te_d_inner', type=int, default=16)
-    parser.add_argument('-te_d_k', type=int, default=8)
-    parser.add_argument('-te_d_v', type=int, default=8)
-    parser.add_argument('-te_n_head', type=int, default=4)
-    parser.add_argument('-te_n_layers', type=int, default=4)
-    parser.add_argument('-te_dropout', type=float, default=0.1)
+    parser.add_argument('--te_d_rnn', type=int, default=256)
+    parser.add_argument('--te_d_inner', type=int, default=16)
+    parser.add_argument('--te_d_k', type=int, default=8)
+    parser.add_argument('--te_d_v', type=int, default=8)
+    parser.add_argument('--te_n_head', type=int, default=4)
+    parser.add_argument('--te_n_layers', type=int, default=4)
+    parser.add_argument('--te_dropout', type=float, default=0.1)
+
+    # DAM config
+
+    parser.add_argument('--dam_output_activation', type=str, default='relu')
+    parser.add_argument('--dam_output_dims', type=int, default=16)
+    parser.add_argument('--dam_n_phi_layers', type=int, default=3)
+    parser.add_argument('--dam_phi_width', type=int, default=128)
+    parser.add_argument('--dam_phi_dropout', type=int, default=0.2)
+    parser.add_argument('--dam_n_psi_layers', type=int, default=2)
+    parser.add_argument('--dam_psi_width', type=int, default=64)
+    parser.add_argument('--dam_psi_latent_width', type=int, default=128)
+    parser.add_argument('--dam_dot_prod_dim', type=int, default=64)
+    parser.add_argument('--dam_n_heads', type=int, default=4)
+    parser.add_argument('--dam_attn_dropout', type=int, default=0.1)
+    parser.add_argument('--dam_latent_width', type=int, default=64)
+    parser.add_argument('--dam_n_rho_layers', type=int, default=2)
+    parser.add_argument('--dam_rho_width', type=int, default=128)
+    parser.add_argument('--dam_rho_dropout', type=int, default=0.1)
+    parser.add_argument('--dam_max_timescale', type=int, default=1000)
+    parser.add_argument('--dam_n_positional_dims', type=int, default=16)
+    parser.add_argument(
+        '--dam_online', action='store_true',  dest='dam_online')
+    # parser.add_argument('dam_num_mods',type=int, default=8)
+    # parser.add_argument('dam_num_demos',type=int, default=8)
 
     # State Encoder Architecture
     parser.add_argument('-state', action='store_true',
@@ -1370,6 +1395,37 @@ def config(opt, justLoad=False):
         opt.DAM_config['num_mods'] = opt.num_states
         opt.DAM_config['num_demos'] = opt.num_demos
         opt.DAM_config['online'] = False
+
+        # NEW
+        opt.DAM_config['output_activation'] = opt.dam_output_activation
+        opt.DAM_config['output_dims'] = opt.dam_output_dims
+
+        # MLP encoder for combined values
+        opt.DAM_config['n_phi_layers'] = opt.dam_n_phi_layers
+        opt.DAM_config['phi_width'] = opt.dam_phi_width
+        opt.DAM_config['phi_dropout'] = opt.dam_phi_dropout
+
+        # Cumulative Set Attention Layer
+        opt.DAM_config['n_psi_layers'] = opt.dam_n_psi_layers
+        opt.DAM_config['psi_width'] = opt.dam_psi_width
+        opt.DAM_config['psi_latent_width'] = opt.dam_psi_latent_width
+
+        opt.DAM_config['dot_prod_dim'] = opt.dam_dot_prod_dim
+        opt.DAM_config['n_heads'] = opt.dam_n_heads
+        opt.DAM_config['attn_dropout'] = opt.dam_attn_dropout
+        opt.DAM_config['latent_width'] = opt.dam_latent_width
+
+        opt.DAM_config['n_rho_layers'] = opt.dam_n_rho_layers
+        opt.DAM_config['rho_width'] = opt.dam_rho_width
+        opt.DAM_config['rho_dropout'] = opt.dam_rho_dropout
+
+        opt.DAM_config['max_timescale'] = opt.dam_max_timescale
+        opt.DAM_config['n_positional_dims'] = opt.dam_n_positional_dims
+
+        opt.DAM_config['num_mods'] = opt.num_mods
+
+        opt.DAM_config['num_demos'] = opt.num_demos
+        opt.DAM_config['online'] = opt.dam_online
 
     opt.NOISE_config = {}
     if opt.noise:
