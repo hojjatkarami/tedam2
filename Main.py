@@ -1368,33 +1368,33 @@ def config(opt, justLoad=False):
         # opt.DAM_config['online'] = False
 
         # complex 2
-        opt.DAM_config['output_activation'] = 'relu'
-        opt.DAM_config['output_dims'] = 16
+        # opt.DAM_config['output_activation'] = 'relu'
+        # opt.DAM_config['output_dims'] = 16
 
-        # MLP encoder for combined values
-        opt.DAM_config['n_phi_layers'] = 3
-        opt.DAM_config['phi_width'] = 128
-        opt.DAM_config['phi_dropout'] = 0.2
+        # # MLP encoder for combined values
+        # opt.DAM_config['n_phi_layers'] = 3
+        # opt.DAM_config['phi_width'] = 128
+        # opt.DAM_config['phi_dropout'] = 0.2
 
-        # Cumulative Set Attention Layer
-        opt.DAM_config['n_psi_layers'] = 2
-        opt.DAM_config['psi_width'] = 64  # 16
-        opt.DAM_config['psi_latent_width'] = 128
+        # # Cumulative Set Attention Layer
+        # opt.DAM_config['n_psi_layers'] = 2
+        # opt.DAM_config['psi_width'] = 64  # 16
+        # opt.DAM_config['psi_latent_width'] = 128
 
-        opt.DAM_config['dot_prod_dim'] = 64  # 16
-        opt.DAM_config['n_heads'] = 4
-        opt.DAM_config['attn_dropout'] = 0.1
-        opt.DAM_config['latent_width'] = 64
+        # opt.DAM_config['dot_prod_dim'] = 64  # 16
+        # opt.DAM_config['n_heads'] = 4
+        # opt.DAM_config['attn_dropout'] = 0.1
+        # opt.DAM_config['latent_width'] = 64
 
-        opt.DAM_config['n_rho_layers'] = 2
-        opt.DAM_config['rho_width'] = 128  #
-        opt.DAM_config['rho_dropout'] = 0.1
+        # opt.DAM_config['n_rho_layers'] = 2
+        # opt.DAM_config['rho_width'] = 128  #
+        # opt.DAM_config['rho_dropout'] = 0.1
 
-        opt.DAM_config['max_timescale'] = 1000
-        opt.DAM_config['n_positional_dims'] = 16
-        opt.DAM_config['num_mods'] = opt.num_states
-        opt.DAM_config['num_demos'] = opt.num_demos
-        opt.DAM_config['online'] = False
+        # opt.DAM_config['max_timescale'] = 1000
+        # opt.DAM_config['n_positional_dims'] = 16
+        # opt.DAM_config['num_mods'] = opt.num_states
+        # opt.DAM_config['num_demos'] = opt.num_demos
+        # opt.DAM_config['online'] = False
 
         # NEW
         opt.DAM_config['output_activation'] = opt.dam_output_activation
@@ -1421,11 +1421,10 @@ def config(opt, justLoad=False):
 
         opt.DAM_config['max_timescale'] = opt.dam_max_timescale
         opt.DAM_config['n_positional_dims'] = opt.dam_n_positional_dims
-
-        opt.DAM_config['num_mods'] = opt.num_mods
-
-        opt.DAM_config['num_demos'] = opt.num_demos
         opt.DAM_config['online'] = opt.dam_online
+
+        opt.DAM_config['num_mods'] = opt.num_states
+        opt.DAM_config['num_demos'] = opt.num_demos
 
     opt.NOISE_config = {}
     if opt.noise:
