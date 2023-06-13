@@ -39,7 +39,7 @@ TEnoise__pp_ml="-event_enc 1      -noise          -mod ml        -next_mark 1   
 
 COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
-echo $HPs
+
 for i_diag in {0..0}
 do
 

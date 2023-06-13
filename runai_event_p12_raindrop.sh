@@ -18,7 +18,7 @@ DAM_CONFIG_C2="--dam_output_activation relu --dam_output_dims  16 --dam_n_phi_la
 
 OPT_HPs="-batch_size 128  -lr 0.01 -weight_decay 0.1" # simpler2
 
-HPS="$COMMON $OPT_HPs $TEE_CONFIG_C1 $DAM_CONFIG_C2"
+HPs="$OPT_HPs $TEE_CONFIG_C1 $DAM_CONFIG_C2"
 
 # without label
 TE__nextmark="-event_enc 1          -mod none      -next_mark 1     -mark_detach 0      -sample_label 2"

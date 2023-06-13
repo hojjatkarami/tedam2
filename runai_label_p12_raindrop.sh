@@ -21,7 +21,7 @@ OPT_HPs="-batch_size 128  -lr 0.001 -weight_decay 0.1 -w_pos_label 1 " # simpler
 
 
 
-HPS="$COMMON $OPT_HPs $TEE_CONFIG_C1 $DAM_CONFIG_C2"
+HPs="$OPT_HPs $TEE_CONFIG_C1 $DAM_CONFIG_C2"
 
 
 
