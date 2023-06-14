@@ -3,7 +3,7 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=5
+N_JOBS=3
 USER_PREFIX=RD74-R3-TEE_C1 
 DATA_NAME="p12"
 PRE="/mlodata1/hokarami/tedam"
@@ -48,7 +48,7 @@ do
 
 
 
-    for i_split in {4..4}
+    for i_split in {3..4}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop  -split $i_split " 
 
