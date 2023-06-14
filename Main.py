@@ -925,7 +925,7 @@ def options():
                         default='TEDAM4', help='project name in wandb')
 
     parser.add_argument('-wandb_tag', type=str,
-                        default='', help='project name in wandb')
+                        default='None', help='project name in wandb')
 
     parser.add_argument('-log_freq', type=int, default=1,
                         help='project name in wandb')
