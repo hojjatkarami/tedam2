@@ -3,7 +3,7 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=3
+N_JOBS=5
 USER_PREFIX=RD74-TL3 #  =RD2-wpos03-Complex2-BiasTrue-Simpler2-bs64-PredictorDO02-
 DATA_NAME="p19"
 PRE="/mlodata1/hokarami/tedam"
