@@ -43,7 +43,7 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 for i_diag in {0..0}
 do
 
-    for i_split in {4..4}
+    for i_split in {0..3}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop  -split $i_split " 
 
