@@ -37,7 +37,7 @@ TEnoise__pp_ml="-event_enc 1      -noise          -mod ml        -next_mark 1   
 COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 
 
-
+i_diag=0
 for i_split in {1..2}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop  -split $i_split " 
