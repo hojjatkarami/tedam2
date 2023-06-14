@@ -43,15 +43,15 @@ COEFS="-w_sample_label 100  -w_time 1 -w_event 1"
 for i_diag in {0..0}
 do
 
-    for i_split in {0..4}
+    for i_split in {4..4}
     do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop  -split $i_split " 
 
 
 
-            # TE__pp_single_mark
-            waitforjobs $N_JOBS
-            python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat -wandb_tag RD74-single3 &    
+            # # TE__pp_single_mark
+            # waitforjobs $N_JOBS
+            # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat -wandb_tag RD74-single3 &    
 
             # TEDA__pp_single_mark
             waitforjobs $N_JOBS
