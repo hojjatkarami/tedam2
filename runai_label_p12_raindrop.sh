@@ -4,7 +4,7 @@ waitforjobs() {
 }
 
 
-N_JOBS=3
+N_JOBS=2
 USER_PREFIX=RD74-TL3 #  =RD2-wpos03-Complex2-BiasTrue-Simpler2-bs64-PredictorDO02-
 DATA_NAME="p12"
 PRE="/mlodata1/hokarami/tedam"
@@ -94,7 +94,7 @@ done
 i_diag=0
 for i_rep in {0..0}
 do
-    for i_split in {4..4}
+    for i_split in {0..4}
         do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
         TL="-transfer_learning DO "

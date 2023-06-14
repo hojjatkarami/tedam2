@@ -3,7 +3,7 @@ waitforjobs() {
     while test $(jobs -p | wc -w) -ge "$1"; do wait -n; done
 }
 
-N_JOBS=5
+N_JOBS=2
 USER_PREFIX=RD74-TL3 #  =RD2-wpos03-Complex2-BiasTrue-Simpler2-bs64-PredictorDO02-
 DATA_NAME="p19"
 PRE="/mlodata1/hokarami/tedam"
@@ -92,7 +92,7 @@ done
 i_diag=0
 for i_rep in {0..0}
 do
-    for i_split in {2..2}
+    for i_split in {0..4}
         do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
         TL="-transfer_learning DO "
@@ -101,21 +101,21 @@ do
 
     
 
-        # # TEDA__pp_ml
-        # waitforjobs $N_JOBS
-        # TL="-transfer_learning DO -freeze TE -tl_tag RD74-ml"
-        # python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
-
-        # TEDA__pp_single_mark
+        # TEDA__pp_ml
         waitforjobs $N_JOBS
-        TL="-transfer_learning DO -freeze TE -tl_tag RD74-single3"
-        python Main.py $TL $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &
+        TL="-transfer_learning DO -freeze TE -tl_tag RD74-ml3"
+        python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__pp_ml -user_prefix "[$USER_PREFIX-TEDA__pp_ml-concat]" -time_enc concat &
 
-
-        # # TEDA__nextmark
+        # # TEDA__pp_single_mark
         # waitforjobs $N_JOBS
-        # TL="-transfer_learning DO -freeze TE -tl_tag RD74-nextmark"
-        # python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
+        # TL="-transfer_learning DO -freeze TE -tl_tag RD74-single3"
+        # python Main.py $TL $HPs $COEFS $SETTING $COMMON $TEDA__pp_single_mark -user_prefix "[$USER_PREFIX-TEDA__pp_single_mark-concat]" -time_enc concat &
+
+
+        # TEDA__nextmark
+        waitforjobs $N_JOBS
+        TL="-transfer_learning DO -freeze TE -tl_tag RD74-nextmark3"
+        python Main.py $TL  $HPs $COEFS $SETTING $COMMON $TEDA__nextmark -user_prefix "[$USER_PREFIX-TEDA__nextmark-concat]" -time_enc concat &
 
 
 
