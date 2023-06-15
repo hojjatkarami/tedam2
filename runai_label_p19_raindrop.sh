@@ -4,7 +4,7 @@ waitforjobs() {
 }
 
 N_JOBS=3
-USER_PREFIX=RD74-TL3 #  =RD2-wpos03-Complex2-BiasTrue-Simpler2-bs64-PredictorDO02-
+USER_PREFIX=RD74 #  =RD2-wpos03-Complex2-BiasTrue-Simpler2-bs64-PredictorDO02-
 DATA_NAME="p19"
 PRE="/mlodata1/hokarami/tedam"
 COMMON=" -demo -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -log_freq 1 -wandb -wandb_project TEEDAM_supervised "
