@@ -92,7 +92,7 @@ done
 i_diag=0
 for i_rep in {0..0}
 do
-    for i_split in {0..4}
+    for i_split in {4..4}
         do
         SETTING=" -diag_offset $i_diag -data  $PRE/$DATA_NAME/ -setting raindrop -split $i_split" 
         TL="-transfer_learning DO "
