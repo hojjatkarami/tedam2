@@ -1859,6 +1859,8 @@ def valid_epoch_tsne(model, validation_data, pred_loss_func, opt):
             # r_enc_list2.append(enc_out.detach().cpu()[:,-2,:])
             # next_list2.append(event_type.detach().cpu()[:])
             event_type_list.append(event_type.detach().cpu())
+            if (event_type.sum(-1).sum(-1) == 0).any() == 0:
+                print("TOO BAD")
             event_time_list.append(event_time.detach().cpu())
 
             non_pad_mask_list.append(non_pad_mask)
