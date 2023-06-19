@@ -451,6 +451,7 @@ for run_path in tqdm(run_paths[:], leave=False):
 
         # np.mean(list_sim_score1), np.std(list_sim_score1)
 
+        run.summary['knn-ps-version'] = 1
         run.summary['bad_pids'] = len(bad_pids)
         run.summary['knn-ps-mean'] = np.mean(list_sim_score1)
         run.summary['knn-ps-std'] = np.std(list_sim_score1)
