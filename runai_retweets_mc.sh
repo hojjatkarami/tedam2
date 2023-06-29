@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=1
 
-USER_PREFIX=H70
+USER_PREFIX=RD75
 
 DATA_NAME="retweets_mc"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -28,32 +28,32 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 
 
 
-for i_diag in {1..1}
+for i_diag in {-2..1}
 do
 
     
 SETTING=" -data  $PRE/$DATA_NAME/  -diag_offset $i_diag " 
 
-# waitforjobs $N_JOBS
-# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &
+waitforjobs $N_JOBS
+python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &
 
-# waitforjobs $N_JOBS
-# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum-d$i_diag]" -time_enc sum &
-
-
-    
-
-# waitforjobs $N_JOBS
-# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &
-
-# waitforjobs $N_JOBS
-# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum-d$i_diag]" -time_enc sum &
+waitforjobs $N_JOBS
+python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum-d$i_diag]" -time_enc sum &
 
 
     
 
-# waitforjobs $N_JOBS
-# python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat-d$i_diag]" -time_enc concat &
+waitforjobs $N_JOBS
+python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-concat-d$i_diag]" -time_enc concat &
+
+waitforjobs $N_JOBS
+python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_single_mark -user_prefix "[$USER_PREFIX-TE__pp_single_mark-sum-d$i_diag]" -time_enc sum &
+
+
+    
+
+waitforjobs $N_JOBS
+python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-concat-d$i_diag]" -time_enc concat &
 
 waitforjobs $N_JOBS
 python Main.py  $HPs $COEFS $SETTING $COMMON $TE__pp_mc -user_prefix "[$USER_PREFIX-TE__pp_mc-sum-d$i_diag]" -time_enc sum &

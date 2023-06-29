@@ -5,7 +5,7 @@ waitforjobs() {
 
 N_JOBS=2
 
-USER_PREFIX=H70
+USER_PREFIX=RD75
 
 DATA_NAME="retweets_ml"
 COMMON=" -data_label multilabel  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
@@ -36,8 +36,8 @@ do
     SETTING=" -data  $PRE/$DATA_NAME/ -split $i_split  -diag_offset $i_diag " 
 
 
-    # waitforjobs $N_JOBS
-    # python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
+    waitforjobs $N_JOBS
+    python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-concat-d$i_diag]" -time_enc concat &    
 
     waitforjobs $N_JOBS
     python Main.py  $HPs $COEFS $SETTING $COMMON $TE__nextmark -user_prefix "[$USER_PREFIX-TE__nextmark-sum-d$i_diag]" -time_enc sum &

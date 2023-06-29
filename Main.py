@@ -973,7 +973,7 @@ def options():
     # ************************************** INPUT **************************************
     # Transformer Encoder Architecture
     parser.add_argument('-diag_offset', type=int,
-                        default=1, help='offset for diagonal')
+                        default=1, help='offset for diagonal w=0,1,2 is diag=1,0,-1 for first j,j-1,j-2 to predict j+1')
 
     parser.add_argument('-event_enc', type=int,
                         choices=[0, 1], default=1, help='consider state?')
