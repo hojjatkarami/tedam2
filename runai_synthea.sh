@@ -10,7 +10,7 @@ USER_PREFIX=RD75
 DATA_NAME_1="synthea_200"
 DATA_NAME_2="synthea_100"
 COMMON=" -data_label multilabel  -epoch 50 -log_freq 5 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
-HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 "
+HPs="-w_pos -pos_alpha 1 -batch_size 64  -lr 0.003 -weight_decay 1 --te_d_mark 32 --te_d_time 16 --te_d_inner 128 --te_d_k 32 --te_d_v 32 "
 
 
 PRE="/scratch/hokarami/data_old"
