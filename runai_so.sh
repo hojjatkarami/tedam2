@@ -5,11 +5,11 @@ waitforjobs() {
 
 N_JOBS=4
 
-USER_PREFIX=RD76-biasFalse-LR
+USER_PREFIX=RD79
 
 DATA_NAME="data_so"
 COMMON=" -data_label multiclass  -epoch 50 -per 100    -ES_pat 100 -wandb -wandb_project TEEDAM_unsupervised_timeCat "
-HPs="-batch_size 4  -lr 0.001 -weight_decay 0.1 --te_d_mark 32 --te_d_time 16 --te_d_inner 128 --te_d_k 32 --te_d_v 32 "
+HPs="-batch_size 4  -lr 0.001 -lr_scheduler StepLR -weight_decay 0.1 --te_d_mark 32 --te_d_time 16 --te_d_inner 128 --te_d_k 32 --te_d_v 32 "
 
 
 PRE="/scratch/hokarami/data_old"

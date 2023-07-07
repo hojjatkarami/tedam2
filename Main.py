@@ -967,6 +967,8 @@ def options():
     parser.add_argument('-epoch', type=int, default=40)
     parser.add_argument('-batch_size', type=int, default=4)
     parser.add_argument('-lr', type=float, default=3e-4)
+    parser.add_argument(
+        '-lr_scheduler', choices=['StepLR', 'CosineAnnealingLR'], default='CosineAnnealingLR')
     parser.add_argument('-smooth', type=float, default=0.0)
     parser.add_argument('-weight_decay', type=float, default=1e-0)
 
@@ -1709,9 +1711,12 @@ def main(trial=None):
                            opt.lr, betas=(0.9, 0.999), eps=1e-05, weight_decay=opt.weight_decay)
     # optimizer = optim.SGD(filter(lambda x: x.requires_grad, model.parameters()),
     #                        opt.lr,momentum=0.01, weight_decay=opt.weight_decay)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
-    # scheduler = optim.lr_scheduler.CosineAnnealingLR(
-    #     optimizer, T_max=10, eta_min=0.00001)
+
+    if opt.lr_scheduler == 'StepLR':
+        scheduler = optim.lr_scheduler.StepLR(optimizer, 10, gamma=0.5)
+    elif opt.lr_scheduler == 'CosineAnnealingLR':
+        scheduler = optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=10, eta_min=0.00001)
     # scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(
     #     optimizer, T_0=10, T_mult=1, eta_min=0.00001)
     """ number of parameters """
