@@ -234,7 +234,8 @@ class Predictor(nn.Module):
         self.linear3 = nn.Linear(16, num_types, bias=True)
 
         self.relu = nn.ReLU()
-        self.do = nn.Dropout(0.2)
+        # self.do = nn.Dropout(0.2)
+        self.do = nn.Dropout(0.0)
         nn.init.xavier_normal_(self.linear1.weight)
         nn.init.xavier_normal_(self.linear2.weight)
         nn.init.xavier_normal_(self.linear3.weight)
