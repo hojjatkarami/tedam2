@@ -28,7 +28,7 @@ COEFS="-w_sample_label 10000  -w_time 1 -w_event 1"
 # python Main.py -w_pos -batch_size 32 -lr 0.003 -weight_decay 0.1 -te_d_mark 32 -te_d_time 16 -te_d_inner 128 -te_d_k 32 -te_d_v 32 -w_sample_label 10000 -w_time 1 -w_event 1 -data /scratch/hokarami/data_old/synthea_200/ -split 0 -data_label multilabel -epoch 50 -per 100 -ES_pat 100 -wandb -event_enc 1 -mod none -next_mark 1 -mark_detach 0 -sample_label 0 -user_prefix "[v200-rand-more-R40-TE__nextmark-concat]" -time_enc concat -wandb_project TEEDAM_unsupervised_timeCat
 
 
-for i_diag in {-2..1}
+for i_diag in {1..1}
 do
 
 for i_split in {0..4}
